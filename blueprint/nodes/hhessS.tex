@@ -1,0 +1,25 @@
+\begin{definition}[Symmetrized horizontal second derivative of a $2$-jet, (2.6)]
+Let $n,m\in\mathbb N$, let
+$\sigma:\mathbb R^n\to\mathbb R^{n\times m}$, $\sigma(x)=[\sigma^1(x),\ldots,\sigma^m(x)]$,
+be a frame of $m$ vector fields on $\mathbb R^n$, let $x\in\mathbb R^n$ and let $(D,B)$ be
+a $1$-jet and a $2$-jet on $\mathbb R^n$. The \emph{symmetrized horizontal second
+derivative of $(D,B)$ at $x$} is the matrix
+$\mathrm{hhessS}\ \sigma\ x\ D\ B\in\mathbb R^{m\times m}$ with entries
+\[
+ \big(\mathrm{hhessS}\ \sigma\ x\ D\ B\big)_{i,j}
+ \ =\ B\big(\sigma^{i}(x),\sigma^{j}(x)\big)\ +\ \mathcal M(x,D)_{i,j},
+\]
+where $\mathcal M(x,D)$ is the correction matrix of \noderef{Mfield}.
+
+If $u$ is twice differentiable at $x$ in the pointwise (Peano) sense, with second-order
+jet $(D,B)=(\nabla u(x),D^2u(x))$, then $B(\sigma^i(x),\sigma^j(x))=\langle
+D^2u(x)\sigma^i(x),\sigma^j(x)\rangle=(\sigma(x)^TD^2u(x)\,\sigma(x))_{i,j}$, so
+\[
+ \mathrm{hhessS}\ \sigma\ x\ D\ B
+ \ =\ \sigma(x)^TD^2u(x)\,\sigma(x)+\mathcal M(x,\nabla u(x))
+ \ =\ \mathcal X\mathcal X^{s}u(x),
+\]
+the symmetrized horizontal second derivative
+$\tfrac12\big(X_iX_ju+X_jX_iu\big)_{i,j}$ of (2.6). The matrix is symmetric whenever
+$B$ is, since $\mathcal M(x,D)$ is symmetric by construction.
+\end{definition}

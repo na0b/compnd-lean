@@ -1,0 +1,177 @@
+\begin{theorem}[The elementary observation of Section~3.1]
+Let $n,m\in\mathbb N$, let
+$\sigma:\mathbb R^{n}\to\mathbb R^{n\times m}$, $\sigma(x)=[\sigma^1(x),\ldots,\sigma^m(x)]$,
+be a frame of $m$ vector fields on $\mathbb R^{n}$, let
+$u,v:\mathbb R^{n}\to\mathbb R$ and let $x_0\in\mathbb R^{n}$. Assume that $(D_u,B_u)$ is a
+second-order jet of $u$ at $x_0$ and $(D_v,B_v)$ is a second-order jet of $v$ at $x_0$
+(\noderef{TwiceDiffAt}), and that $u-v$ has a local maximum at $x_0$. Then
+\begin{enumerate}
+\item $D_u=D_v$;
+\item $B_u(h,h)\le B_v(h,h)$ for every $h\in\mathbb R^{n}$;
+\item $\mathrm{hgrad}\ \sigma\ x_0\ D_u=\mathrm{hgrad}\ \sigma\ x_0\ D_v$
+  (\noderef{hgrad}); and
+\item $\mathrm{hhessS}\ \sigma\ x_0\ D_u\ B_u\ \le\ \mathrm{hhessS}\ \sigma\ x_0\ D_v\ B_v$
+  in the order (2.1) (\noderef{MatLe}, \noderef{hhessS}).
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Items (1) and (2) are the paper's "$\nabla u(x_0)=\nabla v(x_0)$ and
+$D^{2}u(x_0)\le D^{2}v(x_0)$"; items (3) and (4) are their transport through (2.6) to
+the horizontal jets. The order matters: (1) must be established before (4), because it is
+exactly what makes the correction terms of \noderef{hhessS} cancel.
+
+\medskip\noindent\textbf{Step 1: the basic inequality.} Since $u-v$ has a local maximum at
+$x_0$ there is $r>0$ with
+\[
+ u(y)-v(y)\ \le\ u(x_0)-v(x_0)\qquad\text{whenever }|y-x_0|<r. \tag{1}
+\]
+We claim: for every $\varepsilon>0$ there is $\delta>0$ with $\delta\le r$ such that
+\[
+ D_u(y-x_0)-D_v(y-x_0)+\tfrac12\Big(B_u(y-x_0,y-x_0)-B_v(y-x_0,y-x_0)\Big)
+ \ \le\ 2\varepsilon\,|y-x_0|^{2} \tag{2}
+\]
+whenever $|y-x_0|<\delta$.
+
+Indeed, let $\varepsilon>0$. By \noderef{TwiceDiffAt} applied to $u$ there is $\delta_1>0$
+with
+\[
+ \Big|u(y)-u(x_0)-D_u(y-x_0)-\tfrac12B_u(y-x_0,y-x_0)\Big|\le\varepsilon|y-x_0|^{2}
+ \qquad\text{for }|y-x_0|<\delta_1,
+\]
+and by \noderef{TwiceDiffAt} applied to $v$ there is $\delta_2>0$ with the corresponding
+estimate for $v$ with $(D_v,B_v)$. Put $\delta:=\min\{r,\delta_1,\delta_2\}>0$ and let
+$|y-x_0|<\delta$. Dropping the absolute values in the direction we need,
+\[
+ u(y)\ \ge\ u(x_0)+D_u(y-x_0)+\tfrac12B_u(y-x_0,y-x_0)-\varepsilon|y-x_0|^{2},
+\]
+\[
+ v(y)\ \le\ v(x_0)+D_v(y-x_0)+\tfrac12B_v(y-x_0,y-x_0)+\varepsilon|y-x_0|^{2}.
+\]
+Combining these with (1) in the form $u(y)\le v(y)+u(x_0)-v(x_0)$,
+\[
+ u(x_0)+D_u(y-x_0)+\tfrac12B_u(y-x_0,y-x_0)-\varepsilon|y-x_0|^{2}
+ \ \le\ u(x_0)+D_v(y-x_0)+\tfrac12B_v(y-x_0,y-x_0)+\varepsilon|y-x_0|^{2},
+\]
+and cancelling $u(x_0)$ and rearranging gives (2).
+
+\medskip\noindent\textbf{Step 2: proof of (1).} Fix $h\in\mathbb R^{n}$. We show
+$D_u(h)\le D_v(h)$. If $h=0$ this is the equality $0\le0$, both sides vanishing by
+linearity, so assume $h\ne0$ and put
+\[
+ \kappa:=2\,|h|^{2}-\tfrac12\Big(B_u(h,h)-B_v(h,h)\Big).
+\]
+Apply Step 1 with $\varepsilon:=1$ and let $\delta>0$ be the resulting radius. For
+$0<\tau<\delta/|h|$ put $y:=x_0+\tau h$; then $y-x_0=\tau h$ and
+$|y-x_0|=\tau|h|<\delta$, so (2) applies. By linearity of $D_u,D_v$ and bilinearity of
+$B_u,B_v$,
+\[
+ D_u(\tau h)-D_v(\tau h)=\tau\big(D_u(h)-D_v(h)\big),\qquad
+ B_u(\tau h,\tau h)-B_v(\tau h,\tau h)=\tau^{2}\big(B_u(h,h)-B_v(h,h)\big),
+\]
+and $|y-x_0|^{2}=\tau^{2}|h|^{2}$, so (2) becomes
+\[
+ \tau\big(D_u(h)-D_v(h)\big)+\tfrac{\tau^{2}}2\big(B_u(h,h)-B_v(h,h)\big)\ \le\ 2\tau^{2}|h|^{2},
+\]
+i.e., after dividing by $\tau>0$,
+\[
+ D_u(h)-D_v(h)\ \le\ \tau\,\kappa\qquad\text{for every }\tau\in\big(0,\delta/|h|\big). \tag{3}
+\]
+Now let $\eta>0$ be arbitrary and choose
+$\tau:=\min\{\eta/(|\kappa|+1),\ \delta/(2|h|)\}$, which is positive and lies in
+$(0,\delta/|h|)$. Then $\tau\kappa\le\tau|\kappa|\le\eta|\kappa|/(|\kappa|+1)\le\eta$, so
+(3) gives $D_u(h)-D_v(h)\le\eta$. As $\eta>0$ was arbitrary,
+$D_u(h)-D_v(h)\le0$, i.e. $D_u(h)\le D_v(h)$.
+
+Applying this to $-h$ in place of $h$ gives $D_u(-h)\le D_v(-h)$, i.e.
+$-D_u(h)\le-D_v(h)$, i.e. $D_v(h)\le D_u(h)$. Hence $D_u(h)=D_v(h)$ for every
+$h\in\mathbb R^{n}$, i.e. $D_u=D_v$. This is (1).
+
+\medskip\noindent\textbf{Step 3: proof of (2).} Fix $h\in\mathbb R^{n}$; we show
+$B_u(h,h)-B_v(h,h)\le0$. If $h=0$ both terms vanish by bilinearity, so assume $h\ne0$. Let
+$\eta>0$ and set
+\[
+ \varepsilon:=\frac{\eta}{4\,|h|^{2}+1}>0 .
+\]
+Let $\delta>0$ be the radius furnished by Step 1 for this $\varepsilon$, pick any
+$\tau\in(0,\delta/|h|)$ and put $y:=x_0+\tau h$, so that $|y-x_0|=\tau|h|<\delta$ and (2)
+applies. By Step 1 and the computation of Step 2, (2) reads
+\[
+ \tau\big(D_u(h)-D_v(h)\big)+\tfrac{\tau^{2}}2\big(B_u(h,h)-B_v(h,h)\big)
+ \ \le\ 2\varepsilon\,\tau^{2}|h|^{2} .
+\]
+By Step 1 (already proved) $D_u=D_v$, so the first term vanishes. Dividing by
+$\tau^{2}/2>0$,
+\[
+ B_u(h,h)-B_v(h,h)\ \le\ 4\varepsilon\,|h|^{2}
+  =\frac{4\eta\,|h|^{2}}{4|h|^{2}+1}\ \le\ \eta .
+\]
+As $\eta>0$ was arbitrary, $B_u(h,h)-B_v(h,h)\le0$, which is (2).
+
+\medskip\noindent\textbf{Step 4: proof of (3).} By \noderef{hgrad}, the $i$-th component of
+$\mathrm{hgrad}\ \sigma\ x_0\ D$ is $D(\sigma^{i}(x_0))$, for any $1$-jet $D$. Since
+$D_u=D_v$ by Step 2, the two vectors
+$\mathrm{hgrad}\ \sigma\ x_0\ D_u$ and $\mathrm{hgrad}\ \sigma\ x_0\ D_v$ have the same
+components $D_u(\sigma^{i}(x_0))=D_v(\sigma^{i}(x_0))$ for every $i$, hence are equal. (In
+the paper's notation this is $\mathcal Xu(x_0)=\mathcal Xv(x_0)=:\xi_0$.)
+
+\medskip\noindent\textbf{Step 5: proof of (4).} By \noderef{hhessS},
+\[
+ \big(\mathrm{hhessS}\ \sigma\ x_0\ D\ B\big)_{i,j}
+  =B\big(\sigma^{i}(x_0),\sigma^{j}(x_0)\big)+\mathcal M(x_0,D)_{i,j},
+\]
+where $\mathcal M(x_0,D)$ is the correction matrix of \noderef{Mfield}. The crucial point is
+that $\mathcal M(x_0,D)$ depends only on the $1$-jet $D$ (and on $x_0$ and $\sigma$): by
+\noderef{Mfield},
+$\mathcal M(x_0,D)_{i,j}=\tfrac12\big(D(D\sigma^{j}(x_0)\sigma^{i}(x_0))
++D(D\sigma^{i}(x_0)\sigma^{j}(x_0))\big)$, in which the $2$-jet does not occur. Hence, by
+Step 2,
+\[
+ \mathcal M(x_0,D_u)=\mathcal M(x_0,D_v)=:\mathcal M . \tag{4}
+\]
+This is precisely why the correction terms cancel below, and it is available only because the
+first jets have already been shown to agree.
+
+Now let $\xi\in\mathbb R^{m}$ and put
+\[
+ h_\xi:=\sum_{i=1}^{m}\xi_i\,\sigma^{i}(x_0)\ \in\ \mathbb R^{n}.
+\]
+For any $2$-jet $B$, bilinearity gives
+\[
+ B\big(h_\xi,h_\xi\big)
+  =B\Big(\sum_i\xi_i\sigma^{i}(x_0),\ \sum_j\xi_j\sigma^{j}(x_0)\Big)
+  =\sum_{i}\sum_{j}\xi_i\,\xi_j\,B\big(\sigma^{i}(x_0),\sigma^{j}(x_0)\big)
+  =\sum_{i}\sum_{j}B\big(\sigma^{i}(x_0),\sigma^{j}(x_0)\big)\,\xi_j\,\xi_i . \tag{5}
+\]
+Therefore, using the entrywise formula for $\mathrm{hhessS}$, splitting the double sum, and
+then (4) and (5),
+\[
+ \sum_{i}\sum_{j}\big(\mathrm{hhessS}\ \sigma\ x_0\ D_u\ B_u\big)_{i,j}\,\xi_j\,\xi_i
+  =B_u\big(h_\xi,h_\xi\big)+\sum_{i}\sum_{j}\mathcal M_{i,j}\,\xi_j\,\xi_i ,
+\]
+\[
+ \sum_{i}\sum_{j}\big(\mathrm{hhessS}\ \sigma\ x_0\ D_v\ B_v\big)_{i,j}\,\xi_j\,\xi_i
+  =B_v\big(h_\xi,h_\xi\big)+\sum_{i}\sum_{j}\mathcal M_{i,j}\,\xi_j\,\xi_i ,
+\]
+with the \emph{same} second summand in both lines by (4). By Step 3 applied to the vector
+$h_\xi$, $B_u(h_\xi,h_\xi)\le B_v(h_\xi,h_\xi)$. Adding the common term preserves the
+inequality, so
+\[
+ \sum_{i}\sum_{j}\big(\mathrm{hhessS}\ \sigma\ x_0\ D_u\ B_u\big)_{i,j}\,\xi_j\,\xi_i
+ \ \le\
+ \sum_{i}\sum_{j}\big(\mathrm{hhessS}\ \sigma\ x_0\ D_v\ B_v\big)_{i,j}\,\xi_j\,\xi_i .
+\]
+Since $\xi\in\mathbb R^{m}$ was arbitrary, this is exactly the relation
+$\mathrm{hhessS}\ \sigma\ x_0\ D_u\ B_u\le\mathrm{hhessS}\ \sigma\ x_0\ D_v\ B_v$ of
+\noderef{MatLe}, i.e. (4) of the statement. In the paper's notation,
+$\mathcal X\mathcal X^{s}u(x_0)\le\mathcal X\mathcal X^{s}v(x_0)$.
+
+\medskip\noindent\emph{Remark.} No semi-convexity is assumed: the hypothesis is only the
+existence of the two second-order jets at the single point $x_0$ together with the local
+maximum, which is all the paper's sentence uses. The role of semi-convexity in
+Section~3.1 is to produce such points, which is the business of
+Aleksandrov's theorem and Jensen's lemma, not of this observation. Combined with the trace
+monotonicity (2.2), items (3) and (4) give
+$0\le\mathrm{Tr}\big(A(\xi_0)(\mathcal X\mathcal X^{s}v(x_0)-\mathcal X\mathcal X^{s}u(x_0))\big)
+=\mathcal Lu(x_0)-\mathcal Lv(x_0)$, the terms $H(\xi_0)$ cancelling because the horizontal
+gradients coincide by (3); that is how the observation is used.
+\end{proof}

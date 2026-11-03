@@ -1,0 +1,245 @@
+\begin{theorem}[The Euclidean additive group on $\mathbb R^N$ is a Carnot setting]
+For every $N\in\mathbb N$ there exists a Carnot setting $\mathbb G$ (\noderef{CarnotSetting})
+whose data $(n,m,r)$, group law $*$, first-layer projection $\pi_1$, horizontal exponential
+$\exp_{\mathrm h}$, homogeneous norm $\|\cdot\|$ and horizontal frame
+$\sigma=[\sigma^1,\ldots,\sigma^m]$ satisfy
+\begin{enumerate}
+\item $n=N$, $m=N$ and $r=1$;
+\item $x*y=x+y$ for all $x,y\in\mathbb R^{n}$;
+\item $\|x\|=|x|$ for all $x\in\mathbb R^{n}$, where $|\cdot|$ is the Euclidean norm;
+\item $\exp_{\mathrm h}(\pi_1(x))=x$ for all $x\in\mathbb R^{n}$;
+\item $\sigma^i(x)=\exp_{\mathrm h}(e_i)$ for all $x\in\mathbb R^{n}$ and all
+  $i\in\{1,\ldots,m\}$, where $e_1,\ldots,e_m$ is the standard basis of $\mathbb R^{m}$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Fix $N\in\mathbb N$ and write $e_1,\ldots,e_N$ for the standard basis of $\mathbb R^N$. We
+exhibit the data and verify, one at a time, every condition of \noderef{CarnotGroup},
+\noderef{CarnotNorm} and \noderef{CarnotSetting}, and then conditions (1)--(5).
+
+\medskip\noindent\textbf{The data.} Put
+\[
+ n:=N,\qquad m:=N,\qquad r:=1,
+\]
+\[
+ x*y:=x+y,\qquad \pi_1:=\mathrm{id}_{\mathbb R^N},\qquad
+ \exp_{\mathrm h}:=\mathrm{id}_{\mathbb R^N},\qquad \|x\|:=|x|,\qquad
+ \sigma^i(x):=e_i\ \ (i=1,\ldots,N).
+\]
+Here $\mathrm{id}_{\mathbb R^N}$ is the identity, which is a continuous linear map
+$\mathbb R^N\to\mathbb R^N$, as required of $\pi_1$; and $\sigma$ is the constant frame, so
+the associated first-order operators are $X_i=e_i\cdot\nabla=\partial_{x_i}$, which is the
+frame the paper attaches to the Euclidean group (Section Section~1.2: ``the case $m=n$
+corresponds to $r=1$ and $\mathbb G$ being the Euclidean additive group, with
+$X_i=\partial_{x_i}$''). Since $r=1$ we have $q:=2\,r!=2$, and the left-invariant distance
+of \noderef{CarnotNorm} is
+\[
+ d(x,y)=\|(-y)*x\|=|(-y)+x|=|x-y| ,
+\]
+the Euclidean distance.
+
+\medskip\noindent\textbf{Step 1: the conditions of \noderef{CarnotGroup}.}
+
+\emph{(i) $r\ge1$.} Immediate from $r=1$.
+
+\emph{(ii) $(\mathbb R^N,*)$ is a group with neutral element $0$ and inversion
+$x\mapsto-x$.} The five required identities are
+$(x+y)+z=x+(y+z)$, $x+0=x$, $0+x=x$, $x+(-x)=0$ and $(-x)+x=0$; these are the axioms of the
+additive group $\mathbb R^N$.
+
+\emph{(iii) The group law is $C^\infty$.} The map
+$\mathbb R^N\times\mathbb R^N\to\mathbb R^N$, $(x,y)\mapsto x+y$, is the sum of the two
+coordinate projections. Each projection is continuous and linear, hence $C^\infty$, and a
+sum of $C^\infty$ maps is $C^\infty$.
+
+\emph{(iv) $\pi_1(x*y)=\pi_1(x)+\pi_1(y)$.} Both sides equal $x+y$ because $\pi_1$ is the
+identity.
+
+\emph{(v) $\exp_{\mathrm h}$ is continuous and $\pi_1(\exp_{\mathrm h}(\zeta))=\zeta$.} The
+identity is continuous, and $\pi_1\circ\exp_{\mathrm h}=\mathrm{id}$.
+
+\emph{(vi) $r=1$ implies $*$ commutative.} Addition on $\mathbb R^N$ is commutative.
+
+\medskip\noindent\textbf{Step 2: the conditions of \noderef{CarnotNorm}.}
+
+\emph{(i) $\|x\|\ge0$; $\|x\|=0$ iff $x=0$; $\|-x\|=\|x\|$; $\|\cdot\|$ continuous.} These
+are the defining properties of the Euclidean norm $|\cdot|$ together with its continuity.
+
+\emph{(ii) $\|\exp_{\mathrm h}(\zeta)\|=|\zeta|$.} Since $\exp_{\mathrm h}$ is the identity
+and $\|\cdot\|=|\cdot|$, both sides are $|\zeta|$.
+
+\emph{(iii) $x\mapsto\|x\|^{q}$ is $C^\infty$.} Here $q=2$, and
+$|x|^{2}=\sum_{i=1}^{N}x_i^{2}$ is a polynomial in the coordinates of $x$, hence $C^\infty$.
+
+\emph{(iv) First inequality of (2.17).} Given $\nu>0$, take $c:=1>0$. For all $x,y$
+(in particular whenever $\|x\|<\nu$ and $\|y\|<\nu$) the triangle inequality for the
+Euclidean norm gives $\|x*y\|=|x+y|\le|x|+|y|=c\,(\|x\|+\|y\|)$.
+
+\emph{(v) Second inequality of (2.17).} Given $\nu>0$, take $c:=1>0$. Since addition
+is commutative, $x^{-1}*y*x=((-x)+y)+x=y+((-x)+x)=y$, so
+$\|x^{-1}*y*x\|=|y|$. As $r=1$ we have $1/r=1$, and $c\,\|y\|^{1/r}=|y|^{1}=|y|$. Hence the
+required inequality holds with equality.
+
+\emph{(vi) H\"older equivalence on bounded sets.} Given $\nu>0$, take $c:=1>0$. For all
+$x,y$ we computed $d(x,y)=\|(-y)*x\|=|x-y|$, and with $1/r=1$ the two required inequalities
+read $c^{-1}|x-y|=|x-y|\le|x-y|$ and $|x-y|\le c\,|x-y|^{1}=|x-y|$; both hold with
+equality, in particular whenever $|x|\le\nu$ and $|y|\le\nu$.
+
+\emph{(vii) Balls are non-empty and connected.} Fix $x\in\mathbb R^N$ and $\rho>0$. By the
+computation of $d$,
+\[
+ B_\rho(x)=\{y:\ \|(-x)*y\|<\rho\}=\{y:\ |y-x|<\rho\},
+\]
+the Euclidean open ball of radius $\rho$ about $x$. It contains $x$, since $|x-x|=0<\rho$,
+so it is non-empty; and it is convex, hence connected.
+
+\emph{(viii) Properness.} Let $C\in\mathbb R$. Then
+$\{x:\|x\|\le C\}=\{x:|x|\le C\}$ is the closed Euclidean ball of radius $C$ about the
+origin (empty if $C<0$), which is bounded.
+
+\medskip\noindent\textbf{Step 3: two computations for the constant frame.} Both are used
+repeatedly below.
+
+\emph{(3a) The horizontal gradient reads off the frame directions.} By \noderef{hgrad},
+for every $x$, every $1$-jet $D$ and every $i$,
+\[
+ \big(\mathrm{hgrad}\ \sigma\ x\ D\big)_i=D\big(\sigma^i(x)\big)=D(e_i).
+\]
+In particular this value does not depend on $x$.
+
+\emph{(3b) The correction matrix vanishes, so the symmetrized horizontal second derivative
+is the matrix of the $2$-jet in the frame directions.} By \noderef{Mfield},
+\[
+ \mathcal M(x,D)_{i,j}=\tfrac12\Big(D\big(D\sigma^{j}(x)\,\sigma^{i}(x)\big)
+   +D\big(D\sigma^{i}(x)\,\sigma^{j}(x)\big)\Big).
+\]
+Each $\sigma^{k}$ is a constant map, so its Fr\'echet derivative $D\sigma^{k}(x)$ is the
+zero linear map; hence $D\sigma^{j}(x)\sigma^{i}(x)=0$ and
+$D\sigma^{i}(x)\sigma^{j}(x)=0$, and since $D$ is linear, $D(0)=0$. Therefore
+$\mathcal M(x,D)=0$ for every $x$ and $D$, and by \noderef{hhessS}, for every $x$, every
+$1$-jet $D$ and every $2$-jet $B$,
+\[
+ \big(\mathrm{hhessS}\ \sigma\ x\ D\ B\big)_{i,j}
+  =B\big(\sigma^i(x),\sigma^j(x)\big)+\mathcal M(x,D)_{i,j}=B(e_i,e_j),
+\]
+again independently of $x$.
+
+\medskip\noindent\textbf{Step 4: the conditions of \noderef{CarnotSetting}.}
+
+\emph{(i) Each $\sigma^i$ is $C^\infty$.} Each $\sigma^i$ is constant, hence $C^\infty$.
+
+\emph{(ii) $\sigma^1(x),\ldots,\sigma^N(x)$ are linearly independent.} They are
+$e_1,\ldots,e_N$, the standard basis of $\mathbb R^N$, which is linearly independent.
+
+\emph{(iii) H\"ormander's rank condition (1.6).} Fix $x\in\mathbb R^N$; we must show
+that the span of $\{V(x):V\in\mathrm{LieHull}\ \sigma\}$ is all of $\mathbb R^N$. By
+\noderef{LieHull}, $\mathrm{LieHull}\ \sigma$ is the intersection of all families of vector
+fields that contain each $\sigma^i$ and are closed under the Lie bracket. Every such family
+contains the vector field $y\mapsto\sigma^i(y)=e_i$, by the first clause of admissibility;
+hence that vector field belongs to the intersection, i.e.
+$(y\mapsto e_i)\in\mathrm{LieHull}\ \sigma$ for each $i$. Evaluating at $x$ gives
+\[
+ \{e_1,\ldots,e_N\}\ \subseteq\ \{V(x):V\in\mathrm{LieHull}\ \sigma\},
+\]
+and therefore
+$\mathbb R^N=\mathrm{span}\{e_1,\ldots,e_N\}\subseteq
+\mathrm{span}\{V(x):V\in\mathrm{LieHull}\ \sigma\}\subseteq\mathbb R^N$,
+so the two spans coincide with $\mathbb R^N$. Note that only the inclusion
+$\sigma^i\in\mathrm{LieHull}\ \sigma$ is used; the hull is never computed. (It is in fact
+exhausted at once, since the bracket $[V,W](x)=DW(x)V(x)-DV(x)W(x)$ of two constant fields
+is $0$, but this is not needed.)
+
+\emph{(iv) The Taylor formula (2.18).} Let $u:\mathbb R^N\to\mathbb R$ be
+differentiable at $x$ with differential $D$. We must show that $u$ is Pansu differentiable
+at $x$ with horizontal differential $\mathrm{hgrad}\ \sigma\ x\ D$ in the sense of
+\noderef{HasPansuGradAt}: for every $\varepsilon>0$ there is $\delta>0$ such that
+\[
+ \Big|\,u(x*g)-u(x)-\big\langle \mathrm{hgrad}\ \sigma\ x\ D,\ \pi_1(g)\big\rangle\,\Big|
+  \ \le\ \varepsilon\,\|g\|\qquad\text{whenever }\|g\|<\delta .
+\]
+Here $x*g=x+g$, $\pi_1(g)=g$ and $\|g\|=|g|$. The pairing simplifies: writing
+$g=\sum_{i=1}^{N}g_i\,e_i$ and using (3a) and the linearity of $D$,
+\[
+ \big\langle \mathrm{hgrad}\ \sigma\ x\ D,\ \pi_1(g)\big\rangle
+  =\sum_{i=1}^{N}\big(\mathrm{hgrad}\ \sigma\ x\ D\big)_i\,g_i
+  =\sum_{i=1}^{N}D(e_i)\,g_i
+  =\sum_{i=1}^{N}D\big(g_i\,e_i\big)
+  =D\Big(\sum_{i=1}^{N}g_i\,e_i\Big)=D(g).
+\]
+So the assertion to be proved is: for every $\varepsilon>0$ there is $\delta>0$ with
+$|u(x+g)-u(x)-D(g)|\le\varepsilon|g|$ whenever $|g|<\delta$. This is exactly
+differentiability of $u$ at $x$ with differential $D$: by definition of the Fr\'echet
+derivative, $u(y)-u(x)-D(y-x)=o(|y-x|)$ as $y\to x$, so given $\varepsilon>0$ there is
+$\delta>0$ with $|u(y)-u(x)-D(y-x)|\le\varepsilon|y-x|$ for $|y-x|<\delta$; substituting
+$y=x+g$ and using $(x+g)-x=g$ gives the claim with the same $\delta$.
+
+\emph{(v) Left-invariance of the horizontal derivatives.} Let $h,x\in\mathbb R^N$, let
+$\varphi:\mathbb R^N\to\mathbb R$ and let $(D,B)$ be a second-order jet of $\varphi$ at
+$h*x=h+x$ in the sense of \noderef{TwiceDiffAt}. We claim that $(D',B'):=(D,B)$ has the
+three required properties for $\varphi\circ L_h$, $L_h(y)=h+y$. (This is the expected
+transport $D'=D\circ DL_h(x)$, $B'(u,v)=B(DL_h(x)u,DL_h(x)v)+D(D^2L_h(x)(u,v))$ specialized
+to $DL_h(x)=\mathrm{id}$ and $D^2L_h(x)=0$, which is what makes the Euclidean case
+immediate.)
+
+\quad\emph{$(D,B)$ is a second-order jet of $\varphi\circ L_h$ at $x$.} The symmetry of $B$
+is part of the hypothesis. For the expansion, let $\varepsilon>0$ and take $\delta>0$ from
+the hypothesis at $h+x$, so that
+\[
+ \Big|\varphi(y')-\varphi(h+x)-D\big(y'-(h+x)\big)
+   -\tfrac12B\big(y'-(h+x),y'-(h+x)\big)\Big|\le\varepsilon\,\big|y'-(h+x)\big|^{2}
+\]
+for every $y'$ with $|y'-(h+x)|<\delta$. Now let $y\in\mathbb R^N$ with $|y-x|<\delta$ and
+put $y':=h+y$. Then $y'-(h+x)=(h+y)-(h+x)=y-x$, so $|y'-(h+x)|=|y-x|<\delta$, the displayed
+inequality applies, and after substituting $y'-(h+x)=y-x$ it reads
+\[
+ \Big|(\varphi\circ L_h)(y)-(\varphi\circ L_h)(x)-D(y-x)-\tfrac12B(y-x,y-x)\Big|
+   \le\varepsilon\,|y-x|^{2},
+\]
+because $(\varphi\circ L_h)(y)=\varphi(h+y)$ and $(\varphi\circ L_h)(x)=\varphi(h+x)$. This
+is the required expansion, with the same $\delta$.
+
+\quad\emph{Equality of the horizontal gradients.} By (3a), the $i$-th component of both
+$\mathrm{hgrad}\ \sigma\ x\ D$ and $\mathrm{hgrad}\ \sigma\ (h+x)\ D$ is $D(e_i)$; hence the
+two vectors are equal.
+
+\quad\emph{Equality of the symmetrized horizontal second derivatives.} By (3b), the
+$(i,j)$ entry of both $\mathrm{hhessS}\ \sigma\ x\ D\ B$ and
+$\mathrm{hhessS}\ \sigma\ (h+x)\ D\ B$ is $B(e_i,e_j)$; hence the two matrices are equal.
+
+\emph{(vi) The form of the $X_i$ on functions of the first layer.} Let
+$\psi:\mathbb R^{m}\to\mathbb R$ and let $(E,C)$ be a second-order jet of $\psi$ at
+$\pi_1(x)$ in the sense of \noderef{TwiceDiffAt}. Since $m=n=N$ and $\pi_1$ is the identity
+we have $\pi_1(x)=x$ and $\psi\circ\pi_1=\psi$. Take $(D,B):=(E,C)$. Then
+$(D,B)$ is a second-order jet of $\psi\circ\pi_1=\psi$ at $x=\pi_1(x)$, which is the
+hypothesis itself. By (3a) the $i$-th component of $\mathrm{hgrad}\ \sigma\ x\ E$ is
+$E(e_i)$, so $\mathrm{hgrad}\ \sigma\ x\ E=(E(e_i))_{i=1}^{m}$ as required; and by (3b) the
+$(i,j)$ entry of $\mathrm{hhessS}\ \sigma\ x\ E\ C$ is $C(e_i,e_j)$, so
+$\mathrm{hhessS}\ \sigma\ x\ E\ C=(C(e_i,e_j))_{i,j=1}^{m}$ as required.
+
+\medskip\noindent\textbf{Step 5: the five listed properties.} By construction $n=N$,
+$m=N$ and $r=1$, which is (1); $x*y=x+y$, which is (2); and $\|x\|=|x|$, which is (3). For
+(4), $\exp_{\mathrm h}$ and $\pi_1$ are both the identity, so
+$\exp_{\mathrm h}(\pi_1(x))=x$. For (5), $\sigma^i(x)=e_i$ and
+$\exp_{\mathrm h}(e_i)=e_i$, so $\sigma^i(x)=\exp_{\mathrm h}(e_i)$.
+
+This exhibits the required Carnot setting and completes the proof.
+
+\medskip\noindent\emph{Remark on the role of this node.} Item 3 of the paper's note for the
+formalization permits the structural facts of Section Section~2.4 to be built into the
+definition of the setting only ``provided every Carnot group in the coordinates of Section
+Section~2.4 satisfies that definition''. The theorem above discharges that proviso at the
+one instance that can be checked outright, and it is the instance Theorem Theorem~1.3(iii)
+needs: the comparison principle for $r=1$ is applied in $\mathbb R^{m}$, on the
+abelianization, so a Carnot setting on $\mathbb R^{m}$ with $x*y=x+y$ and
+$X_i=\partial_{x_i}$ must exist for that step to be available at all. Properties (4) and
+(5) record how that setting is identified with the Euclidean one: by (4) and the field
+$\pi_1(\exp_{\mathrm h}(\zeta))=\zeta$ of \noderef{CarnotGroup}, the continuous linear map
+$\pi_1$ is a bijection with two-sided inverse $\exp_{\mathrm h}$, so $\exp_{\mathrm h}$ is
+linear as well; by (3) and the field $\|\exp_{\mathrm h}(\zeta)\|=|\zeta|$ of
+\noderef{CarnotNorm} it is an isometry; and by (5) the frame is the image
+$\exp_{\mathrm h}(e_1),\ldots,\exp_{\mathrm h}(e_m)$ of the standard basis, so by (3a) and
+(3b) the horizontal gradient and the symmetrized horizontal second derivative of a jet are
+its Euclidean gradient and Hessian read in that orthonormal basis. For $N=0$ the setting is
+the trivial group, which is a Carnot group of step $1$ with no generators; the case used in
+the paper is $N\ge1$.
+\end{proof}

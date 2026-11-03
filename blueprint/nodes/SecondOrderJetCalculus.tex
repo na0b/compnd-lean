@@ -1,0 +1,114 @@
+\begin{lemma}[The second-order jet calculus]
+Let $N\in\mathbb N$. Throughout, ``$(D,B)$ is a second-order jet of $w$ at $z$'' means
+$\mathrm{TwiceDiffAt}\ w\ z\ D\ B$ in the sense of \noderef{TwiceDiffAt}: the continuous
+bilinear form $B$ on $\mathbb R^{N}$ is symmetric, and for every $\varepsilon>0$ there is
+$\delta>0$ such that
+\[
+ \Big|w(y)-w(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big|\ \le\ \varepsilon|y-z|^{2}
+ \qquad\text{whenever }|y-z|<\delta .
+\]
+Then the following hold.
+\begin{enumerate}
+\item (Cubic remainder criterion.) Let $g:\mathbb R^{N}\to\mathbb R$, let
+  $z\in\mathbb R^{N}$, let $D$ be a continuous linear functional and $B$ a continuous
+  bilinear form on $\mathbb R^{N}$, and let $C\in\mathbb R$. If $B$ is symmetric,
+  $C\ge0$, and
+  \[
+   \Big|g(y)-g(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big|\ \le\ C|y-z|^{3}
+   \qquad\text{for every }y\text{ with }|y-z|\le1,
+  \]
+  then $(D,B)$ is a second-order jet of $g$ at $z$.
+\item (Additivity.) If $(D,B)$ is a second-order jet of $w$ at $z$ and $(D',B')$ one of
+  $w'$ at $z$, then $(D+D',B+B')$ is a second-order jet of $w+w'$ at $z$.
+\item (Negation.) If $(D,B)$ is a second-order jet of $w$ at $z$, then $(-D,-B)$ is a
+  second-order jet of $-w$ at $z$.
+\item (Subtractivity.) If $(D,B)$ is a second-order jet of $w$ at $z$ and $(D',B')$ one of
+  $w'$ at $z$, then $(D-D',B-B')$ is a second-order jet of $w-w'$ at $z$.
+\item (Linear functionals.) For all $p,z\in\mathbb R^{N}$, the function
+  $y\mapsto\sum_{i}p_iy_i$ has at $z$ the second-order jet $\big(\langle p,\cdot\rangle,0\big)$,
+  with vanishing second-order part.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Part (1).} Symmetry of $B$ is one of the hypotheses, so only the Peano
+estimate of \noderef{TwiceDiffAt} has to be produced. Let $\varepsilon>0$ and put
+\[
+ \delta:=\min\Big\{1,\ \frac{\varepsilon}{C+1}\Big\} .
+\]
+Then $\delta>0$: the first entry is positive, and the second is positive because
+$\varepsilon>0$ and $C+1>0$ (here $C\ge0$). Let $y$ satisfy $|y-z|<\delta$. Then
+$|y-z|<1$, in particular $|y-z|\le1$, so the assumed cubic bound applies at $y$; and
+$|y-z|<\varepsilon/(C+1)$. Multiplying the latter by $C\ge0$ gives
+\[
+ C|y-z|\ \le\ C\cdot\frac{\varepsilon}{C+1}\ \le\ \varepsilon ,
+\]
+the second inequality because $C\varepsilon\le(C+1)\varepsilon$, i.e. because
+$0\le\varepsilon$, and $C+1>0$. Hence, using $|y-z|^{2}\ge0$,
+\[
+ \Big|g(y)-g(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big|
+  \ \le\ C|y-z|^{3}
+  \ =\ \big(C|y-z|\big)\,|y-z|^{2}
+  \ \le\ \varepsilon|y-z|^{2} .
+\]
+This is the required estimate, with this $\delta$ for this $\varepsilon$.
+
+\medskip\noindent\textbf{Part (2).} Symmetry: for all $a,b\in\mathbb R^{N}$,
+$(B+B')(a,b)=B(a,b)+B'(a,b)=B(b,a)+B'(b,a)=(B+B')(b,a)$, using symmetry of $B$ and of
+$B'$. For the estimate, let $\varepsilon>0$. Since $\varepsilon/2>0$, the Peano estimates
+for $w$ and $w'$ supply $\delta_1>0$ and $\delta_2>0$ with
+\[
+ \Big|w(y)-w(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big|\le\tfrac{\varepsilon}{2}|y-z|^{2}
+ \quad\text{for }|y-z|<\delta_1,
+\]
+and the analogous bound for $w'$, $D'$, $B'$ for $|y-z|<\delta_2$. Put
+$\delta:=\min\{\delta_1,\delta_2\}>0$ and let $|y-z|<\delta$; then both bounds apply.
+Since $(D+D')(y-z)=D(y-z)+D'(y-z)$ and
+$(B+B')(y-z,y-z)=B(y-z,y-z)+B'(y-z,y-z)$, rearranging gives the identity
+\[
+ \big(w+w'\big)(y)-\big(w+w'\big)(z)-(D+D')(y-z)-\tfrac12(B+B')(y-z,y-z)
+\]
+\[
+ =\Big(w(y)-w(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big)
+  +\Big(w'(y)-w'(z)-D'(y-z)-\tfrac12B'(y-z,y-z)\Big).
+\]
+By the triangle inequality the absolute value of the left-hand side is at most the sum of
+the absolute values of the two brackets, hence at most
+$\tfrac{\varepsilon}{2}|y-z|^{2}+\tfrac{\varepsilon}{2}|y-z|^{2}=\varepsilon|y-z|^{2}$.
+
+\medskip\noindent\textbf{Part (3).} Symmetry: $(-B)(a,b)=-B(a,b)=-B(b,a)=(-B)(b,a)$. For
+the estimate, let $\varepsilon>0$ and take the same $\delta>0$ that the Peano estimate for
+$w$ supplies for this $\varepsilon$. For $|y-z|<\delta$, the identities
+$(-D)(y-z)=-D(y-z)$ and $(-B)(y-z,y-z)=-B(y-z,y-z)$ give
+\[
+ -w(y)-\big(-w(z)\big)-(-D)(y-z)-\tfrac12(-B)(y-z,y-z)
+  =-\Big(w(y)-w(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big),
+\]
+and $|-t|=|t|$, so the left-hand side has the same absolute value as the remainder for
+$w$, which is at most $\varepsilon|y-z|^{2}$.
+
+\medskip\noindent\textbf{Part (4).} Symmetry of $B-B'$ follows as in (2):
+$(B-B')(a,b)=B(a,b)-B'(a,b)=B(b,a)-B'(b,a)=(B-B')(b,a)$. For the estimate, apply (3) to
+$w'$ to get that $(-D',-B')$ is a second-order jet of $-w'$ at $z$, and then (2) to the
+pair $w$, $-w'$: $(D+(-D'),B+(-B'))$ is a second-order jet of $y\mapsto w(y)+(-w'(y))$ at
+$z$. Let $\varepsilon>0$ and let $\delta>0$ be the radius that this jet's Peano estimate
+supplies. For $|y-z|<\delta$, the remainder of $w-w'$ against $(D-D',B-B')$ coincides
+with the remainder of $w+(-w')$ against $(D+(-D'),B+(-B'))$: indeed
+$w(y)-w'(y)=w(y)+(-w'(y))$, $(D-D')(y-z)=(D+(-D'))(y-z)$ and
+$(B-B')(y-z,y-z)=(B+(-B'))(y-z,y-z)$, since subtraction of linear maps and of bilinear
+forms is addition of the negative. So the bound $\varepsilon|y-z|^{2}$ transfers verbatim.
+
+\medskip\noindent\textbf{Part (5).} Fix $p,z\in\mathbb R^{N}$ and put
+$g(y):=\sum_{i}p_iy_i$. We apply (1) with $D:=\langle p,\cdot\rangle$, $B:=0$ and $C:=0$.
+The zero form is symmetric and $0\ge0$, so it remains to check the cubic bound, and we show
+the remainder is identically zero. On $\mathbb R^{N}$ the inner product is
+$\langle p,w\rangle=\sum_{i}p_iw_i$, so $D(y-z)=\sum_{i}p_i(y-z)_i$. Since subtraction is
+coordinatewise, $(y-z)_i=y_i-z_i$, and a finite sum splits over subtraction, so
+\[
+ D(y-z)=\sum_{i}p_i(y_i-z_i)=\sum_{i}\big(p_iy_i-p_iz_i\big)
+  =\sum_{i}p_iy_i-\sum_{i}p_iz_i=g(y)-g(z).
+\]
+As $B=0$ gives $\tfrac12B(y-z,y-z)=0$, the remainder is
+$g(y)-g(z)-D(y-z)-0=0$, whose absolute value is $0\le0\cdot|y-z|^{3}$ for every $y$. Part
+(1) therefore applies and yields that $\big(\langle p,\cdot\rangle,0\big)$ is a
+second-order jet of $g$ at $z$.
+\end{proof}

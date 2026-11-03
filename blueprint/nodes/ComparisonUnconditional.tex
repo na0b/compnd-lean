@@ -1,0 +1,146 @@
+\begin{theorem}[Theorem~1.3]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, step $r$, frame $\sigma=[\sigma^1,\ldots,\sigma^m]$ and
+first-layer projection $\pi_1:\mathbb R^{n}\to\mathbb R^{m}$. Assume the cited results of the
+literature \emph{at $\mathbb G$} (\noderef{CitedResults}), and also the cited results of the
+literature \emph{at the Euclidean setting $\mathbb G_E$ on $\mathbb R^{m}$}
+(\noderef{EuclidSetting} at $N:=m$, and \noderef{CitedResults} at that setting). Let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$ be continuous on
+$\mathbb R^{m}\mns\{0\}$, with $A(\xi)$ symmetric and positive semidefinite for $\xi\ne0$,
+and satisfy the conditions of strict ellipticity in the gradient direction (E) (1.9) and of
+homogeneity along rays (S) (1.10) --- that is, let $(A,H)$ satisfy the structure conditions
+of \noderef{StructureConditionsES}. No normalization of $(A,H)$ is assumed. Let
+$\Om\subset\mathbb R^{n}$ be a bounded open set with $\mathbb R^{n}\mns\Om\ne\emptyset$, let
+$u,v:\mathbb R^{n}\to\mathbb R$ be continuous on $\bar\Om$, and assume
+\begin{enumerate}
+\item $u$ is a viscosity sub-solution (\noderef{IsViscSubsol}) and $v$ a viscosity
+  super-solution (\noderef{IsViscSupersol}) of $\mathcal L\cdot=0$ in $\Om$;
+\item $u\le v$ on $\del\Om$.
+\end{enumerate}
+Let $R\ge0$ satisfy $|u|\le R/2$ and $|v|\le R/2$ on $\bar\Om$. Write
+\[
+ E:=\argmax_\Om(u-v)=\big\{y\in\Om:\ u-v\ \text{attains its maximum over}\ \bar\Om\ \text{at}\ y\big\}.
+\]
+Assume finally that at least one of the following three cases holds.
+\begin{enumerate}
+\item[(i)] There is an open set $N\subseteq\mathbb R^{n}$ with $E\subseteq N$ such that
+  either $v$ is $C^{1}$ on $N$ and $\mathrm{hgrad}\ \sigma\ z\ D\ne0$ (\noderef{hgrad})
+  whenever $z\in N$ and $D$ is the derivative of $v$ at $z$, or $u$ is $C^{1}$ on $N$ and
+  $\mathrm{hgrad}\ \sigma\ z\ D\ne0$ whenever $z\in N$ and $D$ is the derivative of $u$
+  at $z$.
+\item[(ii)] $u$ is constant on $\bar\Om$, or $v$ is constant on $\bar\Om$.
+\item[(iii)] $r=1$; or there are $F,Gf:\mathbb R^{m}\to\mathbb R$, continuous on
+  $\pi_1(\bar\Om)$, with $u=F\circ\pi_1$ and $v=Gf\circ\pi_1$.
+\end{enumerate}
+Then $u\le v$ in $\Om$.
+\end{theorem}
+\begin{proof}
+This is Theorem~1.3. The paper states it as "Let $\Om$, $\mathcal L$, $u$, $v$ be as in
+Theorem Theorem~1.2, without the hypothesis on $E_{\eps_k}$", a citation of another theorem's
+hypotheses; FILESPEC and the substantiveness rubric require those hypotheses to be written
+out, and the statement above does so. Two of them deserve the same justification they were
+given on Theorem~1.2.
+
+\emph{The parameter $R$.} The paper defines $R:=2\max\{\|u\|_{L^\infty},\|v\|_{L^\infty}\}$
+just before (3.15), whereas \noderef{ReducedDomain} carries $R$ as a parameter. We
+therefore quantify over every admissible $R$, i.e. every $R\ge0$ with $|u|,|v|\le R/2$ on
+$\bar\Om$. This contains the paper's statement: the paper's $R$ is admissible, since
+$\|u\|_{L^\infty}\le\max\{\|u\|_{L^\infty},\|v\|_{L^\infty}\}=R/2$ and likewise for $v$, and
+it is the smallest admissible one. It is also not stronger than the paper's statement in any
+way the paper does not justify: $R$ enters the argument only through the definition of
+$\Om[\eps]$, where a larger $R$ makes $\Om[\eps]$ smaller, and the role of the bound
+$|u|\le R/2$ is exactly the one the paper gives it in the attainment step of Lemma~3.8(4),
+namely to make $\|z_x\|^{q}\le4\eps\|u\|_{L^\infty}\le2R\eps<(1+4R)\eps$.
+
+\emph{The hypothesis $\mathbb R^{n}\mns\Om\ne\emptyset$.} This is the paper's own
+convention, made explicit: (3.15) reads
+$\Om[\eps]=\{x\in\Om:\ \inf_{y\in\mathbb R^{n}\mns\Om}\|y*x^{-1}\|^{q}>(1+4R)\eps\}$, an
+infimum over $\mathbb R^{n}\mns\Om$, and the paper's $\Om\subset\mathbb R^{n}$ is a proper
+subset. It is automatic as soon as $n\ge1$, since no bounded subset of $\mathbb R^{n}$ is
+then all of $\mathbb R^{n}$; it excludes only the degenerate setting $n=0$, in which
+$\del\Om=\emptyset$ and hypothesis (2) carries no information at all.
+
+\emph{"Constant" in case (ii).} The paper writes "$u$ or $v$ is constant" without naming the
+set. We read it on $\bar\Om$. That costs nothing and loses nothing: if $v$ is constant on
+$\Om$ then, $v$ being continuous on $\bar\Om$ and $\Om$ dense in $\bar\Om$, $v$ is constant
+on $\bar\Om$ as well (and if $\Om=\emptyset$ then $\bar\Om=\emptyset$ and the condition holds
+vacuously), so the paper's reading implies ours and the theorem below is at least as strong
+as the printed one.
+
+The structure conditions are kept in the form (E) and (S), with no normalization: the printed
+theorem is for general $A,H\in C(\mathbb R^{m}\mns\{0\})$ satisfying (1.9) and (1.10), and
+(2.3) is an internal step of the proofs, discharged inside the nodes cited below. And
+the cited results of the literature are carried as an explicit hypothesis, as pm-0001 and
+item 2 of the paper's "Note for the formalization" require, so that the formalized theorem
+reads "cited results $\Rightarrow$ Theorem Theorem~1.3".
+
+\emph{Why there are two cited-results hypotheses, and not one.} Three of the five cited
+results --- the Bardi--Goffi principles, Pansu's theorem with [DMV13, Prop. 4.8], and parts
+(1)--(3) of Lemma~3.8 --- are theorems about Carnot groups, and \noderef{CitedResults} carries
+the setting at which they are asserted as a parameter. Asserting them instead at every
+instance of \noderef{CarnotSetting} would over-reach: that structure has no dilations and no
+stratification, which is precisely what their proofs use, so for an arbitrary instance they
+are not known and may fail; a hypothesis package that may be unsatisfiable would make this
+theorem vacuous. Item 3 of the paper's note for the formalization licenses building the
+structural facts of Section~2.4 into the setting only "provided every Carnot group in the
+coordinates of Section Section~2.4 satisfies that definition", which guarantees that every
+Carnot group is an instance and says nothing in the converse direction. Case (iii) applies
+the cited results a second time, inside the Euclidean setting on $\mathbb R^{m}$ to which it
+descends, and a package at $\mathbb G$ does not supply one at that setting; hence the second
+hypothesis. It is satisfiable for the same reason the first is: $\mathbb G_E$ is the Carnot
+group $(\mathbb R^{m},+)$ with the Euclidean norm, where Pansu's theorem is Rademacher's,
+Bardi--Goffi is the classical strong maximum principle, and [CYW07, Prop. 3.3] is the
+classical sup-convolution lemma. Neither package is proved here; both are assumed, as item 2
+of the note directs.
+
+\medskip
+The proof is the three-way case split the paper itself makes ("Only case (i) is obtained
+through the hypothesis of Theorem Theorem~1.2; case (ii) follows from the strong maximum
+principle alone, and case (iii) from the Euclidean translation argument"). Each case is a
+separate node, and the three arguments are genuinely different; the split is the one
+contemplated by the note on cases in the substantiveness rubric.
+
+\medskip\noindent\textbf{Case (i).} Let $N$ be as in (i): open, with $E\subseteq N$. The
+hypotheses of \noderef{UncondCaseC1} are exactly the ambient hypotheses of the present
+statement together with this $N$: the cited results at $\mathbb G$; the structure conditions
+on $(A,H)$;
+$\Om$ bounded, open, with non-empty complement; $u,v$ continuous on $\bar\Om$; the two
+viscosity properties; $u\le v$ on $\del\Om$; $R\ge0$ with $|u|,|v|\le R/2$ on $\bar\Om$; $N$
+open; and $E\subseteq N$. That node has two conclusions, one for each orientation of the
+$C^{1}$ hypothesis:
+\begin{itemize}
+\item if $v$ is $C^{1}$ on $N$ and $\mathrm{hgrad}\ \sigma\ z\ D\ne0$ for every $z\in N$ and
+  every derivative $D$ of $v$ at $z$, then $u\le v$ in $\Om$;
+\item if $u$ is $C^{1}$ on $N$ and $\mathrm{hgrad}\ \sigma\ z\ D\ne0$ for every $z\in N$ and
+  every derivative $D$ of $u$ at $z$, then $u\le v$ in $\Om$.
+\end{itemize}
+Case (i) supplies one of the two antecedents, so one of the two conclusions applies and gives
+$u\le v$ in $\Om$.
+
+\medskip\noindent\textbf{Case (ii).} The hypotheses of \noderef{UncondCaseConstant} are the
+ambient hypotheses of the present statement, minus $R$ and the bound on $|u|,|v|$, which that
+node does not use: the cited results at $\mathbb G$; the structure conditions on $(A,H)$;
+$\Om$ bounded,
+open, with non-empty complement; $u,v$ continuous on $\bar\Om$; the two viscosity properties;
+and $u\le v$ on $\del\Om$. Its two conclusions are
+\begin{itemize}
+\item if $v$ is constant on $\bar\Om$ then $u\le v$ in $\Om$;
+\item if $u$ is constant on $\bar\Om$ then $u\le v$ in $\Om$.
+\end{itemize}
+Case (ii) supplies one of the two antecedents, so one of the two conclusions applies.
+
+\medskip\noindent\textbf{Case (iii).} The hypotheses of \noderef{UncondCaseFirstLayer} are
+again exactly the ambient hypotheses of the present statement, and this is the one case that
+consumes both cited-results hypotheses: that node asks for a package at $\mathbb G$ and a
+package at the Euclidean setting $\mathbb G_E$ on $\mathbb R^{m}$ (\noderef{EuclidSetting} at
+$N:=m$), and the present statement carries exactly those two. Its two conclusions are
+\begin{itemize}
+\item if $r=1$ then $u\le v$ in $\Om$;
+\item if there are $F,Gf$ continuous on $\pi_1(\bar\Om)$ with $u=F\circ\pi_1$ and
+  $v=Gf\circ\pi_1$, then $u\le v$ in $\Om$.
+\end{itemize}
+Case (iii) supplies one of the two antecedents, so one of the two conclusions applies.
+
+\medskip\noindent In each of the three cases we obtain $u(x)\le v(x)$ for every $x\in\Om$,
+which is the assertion.
+\end{proof}

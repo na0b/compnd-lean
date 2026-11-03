@@ -1,0 +1,131 @@
+\begin{lemma}[The jet Hessian sign from convexity]
+Let $N\in\mathbb N$, let $w:\mathbb R^{N}\to\mathbb R$, let $\Lambda,r\in\mathbb R$ and let
+$x_c\in\mathbb R^{N}$. Assume that
+\[
+ y\ \longmapsto\ w(y)+\tfrac\Lambda2|y|^{2}
+\]
+is convex on the ball $B(x_c,r)$, let $z\in B(x_c,r)$, and let $(D,B)$ be a second-order jet
+of $w$ at $z$ in the sense of \noderef{TwiceDiffAt}. Then
+\[
+ B(h,h)\ \ge\ -\Lambda|h|^{2}\qquad\text{for every }h\in\mathbb R^{N}.
+\]
+\end{lemma}
+\begin{proof}
+Put $g(y):=w(y)+\frac\Lambda2|y|^{2}$, so that $g$ is convex on $B(x_c,r)$ by hypothesis,
+and fix $h\in\mathbb R^{N}$. The conclusion is a statement about a \emph{pointwise jet} and
+not about a classical Hessian, which is the only form available in this development: the
+hypothesis actually supplied by the surrounding argument is convexity of
+$w+\frac\Lambda2|\cdot|^{2}$ on a ball and nothing more, so no second derivative of $w$ is
+assumed to exist anywhere.
+
+\medskip\noindent\textbf{Step 1: the jet of $g$ at $z$.} Write $q(y):=\frac\Lambda2|y|^{2}$.
+We claim $q$ has at $z$ the second-order jet $\big(\Lambda\langle z,\cdot\rangle,\
+\Lambda\langle\cdot,\cdot\rangle\big)$. The form $\Lambda\langle\cdot,\cdot\rangle$ is
+symmetric, by symmetry of the real inner product. For the remainder, apply
+$|a+b|^{2}=|a|^{2}+2\langle a,b\rangle+|b|^{2}$ with $a:=z$ and $b:=y-z$, whose sum is $y$:
+\[
+ |y|^{2}=|z|^{2}+2\langle z,y-z\rangle+|y-z|^{2} .
+\]
+Substituting this,
+\[
+ q(y)-q(z)-\Lambda\langle z,y-z\rangle-\tfrac12\Lambda\langle y-z,y-z\rangle
+\]
+\[
+ =\tfrac\Lambda2\Big(|z|^{2}+2\langle z,y-z\rangle+|y-z|^{2}\Big)-\tfrac\Lambda2|z|^{2}
+   -\Lambda\langle z,y-z\rangle-\tfrac\Lambda2|y-z|^{2}=0
+\]
+for \emph{every} $y$, using $\langle y-z,y-z\rangle=|y-z|^{2}$. In particular the remainder
+is bounded in absolute value by $0\cdot|y-z|^{3}$, so part (1) of
+\noderef{SecondOrderJetCalculus} applies with $C:=0$ and gives the claim.
+
+By part (2) of \noderef{SecondOrderJetCalculus} (additivity of jets) applied to $w$ and $q$,
+the function $g=w+q$ has at $z$ the second-order jet $(D_g,B_g)$ with
+\[
+ D_g:=D+\Lambda\langle z,\cdot\rangle,\qquad
+ B_g:=B+\Lambda\langle\cdot,\cdot\rangle ,
+\]
+so that in particular
+\[
+ B_g(a,b)=B(a,b)+\Lambda\langle a,b\rangle\qquad(a,b\in\mathbb R^{N}). \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 2: homogeneity in the direction $h$.} For every
+$s\in\mathbb R$,
+\[
+ D_g(s h)=s\,D_g(h),\qquad B_g(s h,s h)=s^{2}B_g(h,h),\qquad |s h|^{2}=s^{2}|h|^{2},
+\]
+the first by linearity of $D_g$, the second by bilinearity of $B_g$, and the third from
+$|s h|=|s|\,|h|$ together with $|s|^{2}=s^{2}$.
+
+\medskip\noindent\textbf{Step 3: a good scale $t$.} Let $\varepsilon>0$. The Peano estimate
+of \noderef{TwiceDiffAt} for the jet $(D_g,B_g)$ of $g$ at $z$ supplies $\delta>0$ with
+\[
+ \Big|g(y)-g(z)-D_g(y-z)-\tfrac12B_g(y-z,y-z)\Big|\ \le\ \varepsilon|y-z|^{2}
+ \qquad\text{whenever }|y-z|<\delta. \tag{2}
+\]
+Since $z\in B(x_c,r)$ we have $d(z,x_c)<r$, and $|h|+1>0$. Put
+\[
+ t:=\min\Big\{\frac{\delta}{2(|h|+1)},\ \frac{r-d(z,x_c)}{2(|h|+1)}\Big\}\ >\ 0 ,
+\]
+both entries being positive. Multiplying the two bounds $t\le\delta/(2(|h|+1))$ and
+$t\le(r-d(z,x_c))/(2(|h|+1))$ by $|h|+1>0$ gives
+\[
+ t(|h|+1)\le\tfrac\delta2<\delta,\qquad
+ t(|h|+1)\le\tfrac{r-d(z,x_c)}2<r-d(z,x_c),
+\]
+and $t|h|\le t(|h|+1)$ because $t>0$ and $|h|\le|h|+1$. Consequently:
+\begin{itemize}
+\item $z\pm t h\in B(x_c,r)$. Indeed $|{\pm}t h|=t|h|$, so by the triangle inequality
+  $d(z\pm t h,x_c)\le d(z\pm t h,z)+d(z,x_c)=t|h|+d(z,x_c)<r$.
+\item $(2)$ applies at $y:=z+t h$ and at $y:=z-t h$, since
+  $|(z\pm t h)-z|=t|h|\le t(|h|+1)<\delta$.
+\end{itemize}
+
+\medskip\noindent\textbf{Step 4: midpoint convexity.} The two points $z+t h$ and $z-t h$
+lie in $B(x_c,r)$ by Step 3, and $\frac12(z+t h)+\frac12(z-t h)=z$. Convexity of $g$ on
+$B(x_c,r)$, applied with the weights $\frac12,\frac12$ (which are non-negative and sum to
+$1$), therefore gives
+\[
+ g(z)\ \le\ \tfrac12g(z+t h)+\tfrac12g(z-t h). \tag{3}
+\]
+
+\medskip\noindent\textbf{Step 5: expansion, cancellation, and the $\varepsilon$-inequality.}
+Apply $(2)$ at $y=z+t h$, where $y-z=t h$, and at $y=z-t h$, where $y-z=(-t)h$, and rewrite
+the linear and quadratic terms by Step 2:
+\[
+ \Big|g(z+t h)-g(z)-t\,D_g(h)-\tfrac12t^{2}B_g(h,h)\Big|\le\varepsilon\,t^{2}|h|^{2},
+\]
+\[
+ \Big|g(z-t h)-g(z)-(-t)\,D_g(h)-\tfrac12(-t)^{2}B_g(h,h)\Big|
+  \le\varepsilon\,(-t)^{2}|h|^{2}.
+\]
+Each absolute-value bound gives an upper bound on the quantity inside it. Adding those two
+upper bounds, the first-order terms $\pm t\,D_g(h)$ cancel, and $(-t)^{2}=t^{2}$, so
+\[
+ g(z+t h)+g(z-t h)-2g(z)\ \le\ t^{2}B_g(h,h)+2\varepsilon t^{2}|h|^{2}.
+\]
+By $(3)$ the left-hand side is non-negative, whence
+\[
+ 0\ \le\ t^{2}\Big(B_g(h,h)+2\varepsilon|h|^{2}\Big).
+\]
+Since $t>0$ we have $t^{2}>0$, so the bracket is non-negative: were
+$B_g(h,h)+2\varepsilon|h|^{2}<0$, multiplying this strict inequality by $t^{2}>0$ would make
+the right-hand side above strictly negative, contradicting the display. Hence, using $(1)$
+with $a=b=h$ and $\langle h,h\rangle=|h|^{2}$,
+\[
+ 0\ \le\ B(h,h)+\Lambda|h|^{2}+2\varepsilon|h|^{2},
+ \qquad\text{i.e.}\qquad
+ -\Lambda|h|^{2}-2\varepsilon|h|^{2}\ \le\ B(h,h). \tag{4}
+\]
+This holds for every $\varepsilon>0$.
+
+\medskip\noindent\textbf{Step 6: $\varepsilon\to0^{+}$.} Apply $(4)$ with
+$\varepsilon:=\frac1{n+1}>0$ for each $n\in\mathbb N$:
+\[
+ -\Lambda|h|^{2}-2\cdot\tfrac1{n+1}\cdot|h|^{2}\ \le\ B(h,h)\qquad(n\in\mathbb N).
+\]
+As $n\to\infty$ we have $\frac1{n+1}\to0$, so the left-hand side converges to
+$-\Lambda|h|^{2}$. A convergent sequence all of whose terms are $\le B(h,h)$ has limit
+$\le B(h,h)$, so $-\Lambda|h|^{2}\le B(h,h)$. As $h\in\mathbb R^{N}$ was arbitrary, the
+lemma follows.
+\end{proof}

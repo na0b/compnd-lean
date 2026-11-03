@@ -1,0 +1,66 @@
+\begin{definition}[The two Euclidean cited results, carried as a hypothesis package]
+A \emph{Euclidean cited-results package} is a proof of both statements below. Throughout,
+$|E|$ denotes Lebesgue measure on $\mathbb R^{N}$.
+
+\begin{enumerate}
+\item (\textsc{aleksandrov}; Theorem Theorem~2.6.) For every $N\in\mathbb N$, every open
+  $\Omega\subseteq\mathbb R^{N}$ and every $w:\mathbb R^{N}\to\mathbb R$ that is locally
+  semi-convex on $\Omega$ (\noderef{LocallySemiConvexOn}): for almost every
+  $x\in\mathbb R^{N}$ with respect to Lebesgue measure, if $x\in\Omega$ then $w$ has a
+  second-order jet at $x$ (\noderef{TwiceDiffAt}), i.e. there are a $1$-jet $D$ and a
+  $2$-jet $B$ with $\mathrm{TwiceDiffAt}\ w\ x\ D\ B$.
+
+\item (\textsc{jensen}; Jensen's Lemma Lemma~2.7, [Cr-Ish-Lions, Lemma A.3].) For
+  every $N\in\mathbb N$, every $w:\mathbb R^{N}\to\mathbb R$ and every
+  $\hat x\in\mathbb R^{N}$ such that
+  \begin{itemize}
+  \item $w$ is locally semi-convex on some ball $B_\nu(\hat x)$, $\nu>0$, and
+  \item $\hat x$ is a strict local maximum point of $w$: there is $\nu>0$ with
+    $w(y)<w(\hat x)$ for every $y\in B_\nu(\hat x)$ with $y\ne\hat x$,
+  \end{itemize}
+  there are $\rho_0>0$ and $\delta_0>0$ such that for all $\rho\in(0,\rho_0)$ and all
+  $\delta\in(0,\delta_0)$ the set of (2.12),
+  \[
+   J_{\rho,\delta}(\hat x)=\bigcup_{|p|<\delta}\Big\{x\in B_\rho(\hat x):\
+     w_p(y)\le w_p(x)\ \text{for all}\ y\in B_\rho(\hat x)\Big\},
+   \qquad w_p(y):=w(y)+\langle p,y\rangle ,
+  \]
+  has positive Lebesgue measure. (Here $\{x\in B_\rho(\hat x): w_p(y)\le w_p(x)\ \forall
+  y\in B_\rho(\hat x)\}$ is $B_\rho(\hat x)\cap\mathrm{argmax}_{B_\rho(\hat x)}(w_p)$ in the
+  notation (2.8).)
+\end{enumerate}
+
+These are items (2) and (3) of the list in item 2 of the paper's note for the formalization,
+which names five results as cited from the literature and \emph{not} to be proved. They are
+separated from the other three --- the Bardi--Goffi principles, Pansu's theorem together with
+[DMV13, Prop. 4.8], and parts (1)--(3) of Lemma~3.8, which make up the cited-results package
+at a sub-elliptic setting --- on the following principle, which is also what fixes the strength
+of this package: \emph{a cited result is indexed by the sub-elliptic setting exactly when its
+content mentions one.} Aleksandrov's theorem and Jensen's lemma mention no group law, no
+homogeneous norm and no horizontal frame; they are theorems about an arbitrary
+$\mathbb R^{N}$ with its Euclidean structure, quantified here over all $N$ at once, in the
+form the paper uses. The other three results are theorems about Carnot groups whose proofs
+use the dilations and the stratification, so they may be assumed only at a setting that is
+known to be a Carnot group, and the package carrying them carries that setting as a
+parameter.
+
+Two consequences of the split are worth recording, because they are the reason for it. First,
+a node whose own statement is Euclidean --- for instance the one combining item 2 here with
+two applications of item 1 at a strict maximum --- can take this package as its hypothesis
+without having to name a sub-elliptic setting it never uses. Second, a node holding a
+Carnot-side package at a setting $\mathbb G$ still has both results here at every $N$, because
+such a package is by definition a package of the present kind together with the three
+setting-dependent results.
+
+Item 1 is kept at the strength of Theorem~2.6: a second-order jet exists at almost every
+point of $\Omega$, and nothing is asserted about the jet off that full-measure set. Item 2 is
+kept at exactly the strength of Lemma~2.7: it asserts only that $J_{\rho,\delta}(\hat x)$ has
+positive measure. It does \emph{not} assert the existence of a point at which a given pair of
+functions is twice differentiable; that step combines item 2 with two applications of item 1
+--- one exceptional null set for each of the two functions --- and is to be proved separately.
+
+Finally, both items are satisfiable, which is the property the package exists to preserve:
+Theorem~2.6 and Lemma~2.7 are theorems of classical real analysis on $\mathbb R^{N}$,
+proved in the references the paper cites, so a proof of the conjunction of items 1 and 2
+exists. Assuming it therefore makes no result vacuous.
+\end{definition}

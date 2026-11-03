@@ -1,0 +1,125 @@
+\begin{theorem}[(3.4)]
+Let $n,m\in\mathbb N$, let $\sigma=[\sigma^1,\ldots,\sigma^m]$ be a frame of $m$ vector
+fields on $\mathbb R^{n}$ with each $\sigma^{i}:\mathbb R^{n}\to\mathbb R^{n}$ continuous,
+let $\Om\subset\mathbb R^{n}$ and let $u:\mathbb R^{n}\to\mathbb R$ be locally semi-convex
+on $\Om$ (\noderef{LocallySemiConvexOn}). Let $E\subset\Om$ be compact, let $\theta>0$ and
+assume
+\begin{enumerate}
+\item $u$ is differentiable at every point of $E$;
+\item $\big|\mathrm{hgrad}\ \sigma\ x\ D\big|\ge\theta$ whenever $x\in E$ and $D$ is the
+  derivative of $u$ at $x$ (\noderef{hgrad}).
+\end{enumerate}
+Let $\big(E_\lambda\big)_{\lambda>0}$ be a family of subsets of $\mathbb R^{n}$ such that
+\begin{enumerate}
+\item[(3)] $E_\lambda\subset\Om$ for every $\lambda>0$;
+\item[(4)] $\sup_{E_\lambda}\dist(\cdot,E)\to0$ as $\lambda\to0^{+}$, i.e. for every
+  $\eta>0$ there is $\lambda_0>0$ such that every $x\in E_\lambda$ with
+  $0<\lambda<\lambda_0$ admits $z\in E$ with $|x-z|\le\eta$.
+\end{enumerate}
+Then there is $\lambda_0>0$ such that for every $\lambda\in(0,\lambda_0)$, every
+$x\in E_\lambda$ and every derivative $D$ of $u$ at $x$,
+\[
+ \big|\mathrm{hgrad}\ \sigma\ x\ D\big|\ \ge\ \frac\theta2 .
+\]
+\end{theorem}
+\begin{proof}
+This is (3.4) together with the contradiction argument that follows it. We first
+record where the data come from in Proposition~3.3, since that fixes the reading of the
+hypotheses.
+
+\medskip\noindent\emph{The intended instantiation.} In Proposition~3.3, Step 1: $\Om$ is the
+bounded open set of Section~3, $u$ is the semi-convex sub-solution, $v$ the semi-concave
+super-solution, $E=\argmax_\Om(u-v)$ and $E_\lambda=\argmax_\Om(u_\lambda-v)$ with
+$u_\lambda=\psi_\lambda\circ u$ and $\psi_\lambda(s)=s+\lambda e^{s}$. Hypothesis (1) is
+Section~2.3(1) (differentiability at maximal points of $u-v$) and hypothesis (2) is the
+definition $\theta:=\min_E|\mathcal Xu|$, which is positive because $E$ is compact, $u$ is
+differentiable on $E$ and $\mathcal Xu$ is continuous on $E$ by Section~2.3(2).
+Hypothesis (4) is the paper's ``$E_\lambda\to E$ in the sense
+$\sup_{E_\lambda}\dist(\cdot,E)\to0$ as $\lambda\to0^{+}$, because $u_\lambda-v\to u-v$
+uniformly'', which Proposition~3.3 establishes from $\|u_\lambda-u\|_{L^\infty}\le\lambda e^{M}$
+before invoking the present statement. Note also that the conclusion is conditional on $D$
+being a derivative of $u$ at $x$, so we do not need differentiability on $E_\lambda$ as a
+hypothesis; in Proposition~3.3 it holds, every point of $E_\lambda$ being a differentiability
+point of $u_\lambda$ and hence of $u$, since $\psi_\lambda'\ge1>0$.
+
+\medskip\noindent\textbf{Step 1: setting up the contradiction.} Suppose the conclusion
+fails. Then for every $\lambda_0>0$ there exist $\lambda\in(0,\lambda_0)$, a point
+$x\in E_\lambda$ and a derivative $D$ of $u$ at $x$ with
+$|\mathrm{hgrad}\ \sigma\ x\ D|<\theta/2$. Applying this with
+$\lambda_0:=\frac1{k+1}$ for $k\in\mathbb N$ produces sequences
+\[
+ \lambda_k\in\Big(0,\tfrac1{k+1}\Big),\qquad x_k\in E_{\lambda_k},\qquad
+ D_k\ \text{a derivative of }u\ \text{at}\ x_k,\qquad
+ \big|\mathrm{hgrad}\ \sigma\ x_k\ D_k\big|<\frac\theta2 . \tag{1}
+\]
+In particular $\lambda_k\to0^{+}$, and $x_k\in\Om$ for every $k$ by hypothesis (3). This is
+the paper's ``otherwise there are $\lambda_k\to0$, $x_k\in E_{\lambda_k}$ with
+$|\mathcal Xu(x_k)|<\theta/2$''.
+
+\medskip\noindent\textbf{Step 2: $\dist(x_k,E)\to0$, and a convergent subsequence.} Let
+$j\in\mathbb N$ and apply hypothesis (4) with $\eta:=\frac1{j+1}>0$: there is
+$\lambda_0^{(j)}>0$ such that every $x\in E_\lambda$ with $0<\lambda<\lambda_0^{(j)}$
+admits $z\in E$ with $|x-z|\le\frac1{j+1}$. Since $\lambda_k\to0^{+}$ there is $K_j$ with
+$\lambda_k<\lambda_0^{(j)}$ for all $k\ge K_j$; hence for $k\ge K_j$ there is $z\in E$ with
+$|x_k-z|\le\frac1{j+1}$, i.e. $\dist(x_k,E)\le\frac1{j+1}$. As $j$ was arbitrary,
+$\dist(x_k,E)\to0$. Choose $z_k\in E$ with
+\[
+ |x_k-z_k|\ \le\ \dist(x_k,E)+\tfrac1{k+1}\ \longrightarrow\ 0 . \tag{2}
+\]
+(Such a $z_k$ exists for each $k$ by the definition of the infimum; $E\ne\emptyset$,
+because $E=\emptyset$ would make hypothesis (4) force $E_\lambda=\emptyset$ for small
+$\lambda$, contradicting $x_k\in E_{\lambda_k}$ for all $k$.)
+
+Since $E$ is compact, the sequence $(z_k)$ has a subsequence $(z_{k_j})$ converging to some
+$\hat x\in E$. By (2), $|x_{k_j}-\hat x|\le|x_{k_j}-z_{k_j}|+|z_{k_j}-\hat x|\to0$, so
+\[
+ x_{k_j}\ \longrightarrow\ \hat x\ \in\ E\ \subset\ \Om . \tag{3}
+\]
+
+\medskip\noindent\textbf{Step 3: partial continuity of the gradient.} By hypothesis (1)
+there is a derivative $\hat D$ of $u$ at $\hat x$. We now have: $u$ locally semi-convex on
+$\Om$; $\hat x\in\Om$ with derivative $\hat D$; the points $x_{k_j}\in\Om$ with derivatives
+$D_{k_j}$; and $x_{k_j}\to\hat x$ by (3). Therefore \noderef{SemiConvexGradPartialCont}
+applies and gives
+\[
+ D_{k_j}\ \longrightarrow\ \hat D\qquad\text{in the operator norm.} \tag{4}
+\]
+This is the paper's ``partial continuity of the gradient at $\hat x$ gives
+$\mathcal Xu(x_k)\to\mathcal Xu(\hat x)$'' --- except that partial continuity is a statement
+about the Euclidean derivatives, and the passage to the horizontal gradients is the next
+step.
+
+\medskip\noindent\textbf{Step 4: the horizontal gradients converge.} By \noderef{hgrad},
+the $i$-th component of $\mathrm{hgrad}\ \sigma\ x\ D$ is $D(\sigma^{i}(x))$. Fix
+$i\in\{1,\ldots,m\}$. Then
+\[
+ \Big|D_{k_j}\big(\sigma^{i}(x_{k_j})\big)-\hat D\big(\sigma^{i}(\hat x)\big)\Big|
+ \le\Big|D_{k_j}\big(\sigma^{i}(x_{k_j})-\sigma^{i}(\hat x)\big)\Big|
+  +\Big|\big(D_{k_j}-\hat D\big)\big(\sigma^{i}(\hat x)\big)\Big|
+ \le\|D_{k_j}\|\,\big|\sigma^{i}(x_{k_j})-\sigma^{i}(\hat x)\big|
+  +\|D_{k_j}-\hat D\|\,\big|\sigma^{i}(\hat x)\big| .
+\]
+The sequence $\|D_{k_j}\|$ is bounded, being convergent by (4); $\sigma^{i}$ is continuous
+and $x_{k_j}\to\hat x$, so $|\sigma^{i}(x_{k_j})-\sigma^{i}(\hat x)|\to0$; and
+$\|D_{k_j}-\hat D\|\to0$ by (4). Hence each component converges:
+$D_{k_j}(\sigma^{i}(x_{k_j}))\to\hat D(\sigma^{i}(\hat x))$. Since $\mathbb R^{m}$ carries
+the Euclidean norm and $m$ is finite, componentwise convergence is convergence, so
+\[
+ \mathrm{hgrad}\ \sigma\ x_{k_j}\ D_{k_j}\ \longrightarrow\
+ \mathrm{hgrad}\ \sigma\ \hat x\ \hat D ,\qquad\text{hence}\qquad
+ \big|\mathrm{hgrad}\ \sigma\ x_{k_j}\ D_{k_j}\big|\ \longrightarrow\
+ \big|\mathrm{hgrad}\ \sigma\ \hat x\ \hat D\big| \tag{5}
+\]
+by continuity of the norm.
+
+\medskip\noindent\textbf{Step 5: the contradiction.} By (1),
+$|\mathrm{hgrad}\ \sigma\ x_{k_j}\ D_{k_j}|<\theta/2$ for every $j$, so passing to the
+limit in (5),
+\[
+ \big|\mathrm{hgrad}\ \sigma\ \hat x\ \hat D\big|\ \le\ \frac\theta2 .
+\]
+On the other hand $\hat x\in E$ and $\hat D$ is a derivative of $u$ at $\hat x$, so
+hypothesis (2) gives $|\mathrm{hgrad}\ \sigma\ \hat x\ \hat D|\ge\theta$. Combining,
+$\theta\le\theta/2$, i.e. $\theta\le0$, contradicting $\theta>0$. Hence the conclusion
+holds. This is the paper's ``$|\mathcal Xu(\hat x)|\ge\theta$, a contradiction''.
+\end{proof}

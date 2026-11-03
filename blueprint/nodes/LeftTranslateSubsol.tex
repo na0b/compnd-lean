@@ -1,0 +1,120 @@
+\begin{lemma}[Lemma~2.9]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$ and
+frame $\sigma$, let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$, let $\Om\subseteq\mathbb R^{n}$, let
+$u:\mathbb R^{n}\to\mathbb R$ and let $h\in\mathbb R^{n}$. Write $L_h(x)=h*x$ and
+$u^{h}:=u\circ L_h$. Then:
+\begin{enumerate}
+\item if $u$ is a viscosity sub-solution of $\mathcal L\cdot=0$ in $\Om$
+  (\noderef{IsViscSubsol}), then $u^{h}$ is a viscosity sub-solution of
+  $\mathcal L\cdot=0$ in $L_h^{-1}(\Om)=h^{-1}*\Om$;
+\item if $u$ is a viscosity super-solution of $\mathcal L\cdot=0$ in $\Om$
+  (\noderef{IsViscSupersol}), then $u^{h}$ is a viscosity super-solution of
+  $\mathcal L\cdot=0$ in $L_h^{-1}(\Om)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+This is Lemma~2.9. Write $\Om':=L_h^{-1}(\Om)=\{x:\ h*x\in\Om\}$ and
+$\bar u:=u^{h}=u\circ L_h$. We prove (1); (2) is the same argument with the two
+inequalities reversed, and is recorded separately because \noderef{IsViscSupersol} is a
+separate predicate.
+
+\medskip\noindent\textbf{Step 0: the two cancellations and the smoothness of $L_{\pm h}$.}
+For every $x$,
+\[
+ (-h)*(h*x)=\big((-h)*h\big)*x=0*x=x,\qquad
+ h*\big((-h)*x\big)=\big(h*(-h)\big)*x=0*x=x, \tag{1}
+\]
+by associativity of $*$ and the identities $(-h)*h=0$, $h*(-h)=0$, $0*x=x$ of
+\noderef{CarnotSetting}. In particular $L_h$ and $L_{-h}$ are mutually inverse bijections of
+$\mathbb R^{n}$, and both are $C^{\infty}$, being restrictions of the $C^{\infty}$ group law
+to a fixed first argument. Moreover
+\[
+ L_{-h}(\Om)\subseteq\Om'\qquad\text{and}\qquad L_h(\Om')\subseteq\Om , \tag{2}
+\]
+the first because $h*\big((-h)*z\big)=z\in\Om$ for $z\in\Om$ by (1), the second by the
+definition of $\Om'$.
+
+\medskip\noindent\textbf{Step 1: upper semi-continuity of $\bar u$ on $\Om'$.} Let
+$x\in\Om'$ and let $y>\bar u(x)=u(h*x)$. Since $h*x\in\Om$ and $u$ is upper semi-continuous
+on $\Om$ (first clause of \noderef{IsViscSubsol}), $u<y$ on a neighbourhood of $h*x$ in
+$\Om$. The map $L_h$ is continuous and sends $\Om'$ into $\Om$ by (2), so it sends a
+neighbourhood of $x$ in $\Om'$ into any prescribed neighbourhood of $h*x$ in $\Om$; hence
+$\bar u=u\circ L_h<y$ on a neighbourhood of $x$ in $\Om'$. Thus $\bar u$ is upper
+semi-continuous on $\Om'$.
+
+\medskip\noindent\textbf{Step 2: the transported test function.} Let $\bar x\in\Om'$, let
+$\bar\varphi:\mathbb R^{n}\to\mathbb R$ be $C^{2}$ on $\Om'$ with
+$\bar x\in\argmax_{\Om'}(\bar u-\bar\varphi)$, and let $(D,B)$ be a second-order jet of
+$\bar\varphi$ at $\bar x$ (\noderef{TwiceDiffAt}) with
+$\mathrm{hgrad}\ \sigma\ \bar x\ D\ne0$ (\noderef{hgrad}). Put
+\[
+ \varphi:=\bar\varphi\circ L_{-h},\qquad\text{i.e.}\qquad \varphi(z)=\bar\varphi\big((-h)*z\big),
+\]
+which is the paper's $\bar\varphi\circ L_h^{-1}$ by (1). We check the three conditions that
+make $\varphi$ admissible for $u$ at the point $h*\bar x\in\Om$.
+
+\emph{(2a) $\varphi$ is $C^{2}$ on $\Om$.} $L_{-h}$ is $C^{\infty}$, hence $C^{2}$, and maps
+$\Om$ into $\Om'$ by (2); $\bar\varphi$ is $C^{2}$ on $\Om'$. The composition of a $C^{2}$
+map into $\Om'$ with a function $C^{2}$ on $\Om'$ is $C^{2}$ on $\Om$.
+
+\emph{(2b) $h*\bar x\in\argmax_\Om(u-\varphi)$.} First, by (1),
+$\varphi(h*\bar x)=\bar\varphi\big((-h)*(h*\bar x)\big)=\bar\varphi(\bar x)$, so
+$(u-\varphi)(h*\bar x)=u(h*\bar x)-\bar\varphi(\bar x)=(\bar u-\bar\varphi)(\bar x)$. Now
+let $z\in\Om$ and put $w:=(-h)*z$, which lies in $\Om'$ by (2). Maximality of
+$\bar u-\bar\varphi$ over $\Om'$ at $\bar x$ gives
+\[
+ u(h*w)-\bar\varphi(w)=(\bar u-\bar\varphi)(w)\ \le\ (\bar u-\bar\varphi)(\bar x),
+\]
+and $h*w=h*\big((-h)*z\big)=z$ by (1) while $\bar\varphi(w)=\varphi(z)$ by the definition of
+$\varphi$. So $(u-\varphi)(z)\le(\bar u-\bar\varphi)(\bar x)=(u-\varphi)(h*\bar x)$. As
+$z\in\Om$ was arbitrary, $h*\bar x$ maximizes $u-\varphi$ over $\Om$. This is the paper's
+"$u-\varphi=(u^{h}-\bar\varphi)\circ L_h^{-1}$ attains its maximum at $h*\bar y$".
+
+\emph{(2c) the jet of $\varphi$ at $h*\bar x$, with the same horizontal data.} By (1),
+$(-h)*(h*\bar x)=\bar x$, so $(D,B)$ is a second-order jet of $\bar\varphi$ at
+$(-h)*(h*\bar x)$. Apply the left-invariance clause $\mathtt{leftJet}$ of
+\noderef{CarnotSetting} with the group element $-h$, the base point $h*\bar x$, the function
+$\bar\varphi$ and the jet $(D,B)$: it provides a second-order jet $(D',B')$ of
+$y\mapsto\bar\varphi\big((-h)*y\big)=\varphi(y)$ at $h*\bar x$ with
+\[
+ \mathrm{hgrad}\ \sigma\ (h*\bar x)\ D'=\mathrm{hgrad}\ \sigma\ \bar x\ D,\qquad
+ \mathrm{hhessS}\ \sigma\ (h*\bar x)\ D'\ B'=\mathrm{hhessS}\ \sigma\ \bar x\ D\ B
+ \tag{3}
+\]
+(\noderef{hgrad}, \noderef{hhessS}), after rewriting $(-h)*(h*\bar x)$ as $\bar x$. This is
+exactly the paper's "$\mathcal X\varphi(h*\bar y)=\mathcal X\bar\varphi(\bar y)$", together
+with the corresponding identity for the symmetrized horizontal second derivative; it is the
+content of the left-invariance of the fields $X_i$, i.e. of
+$X_i(\varphi\circ L_h)=(X_i\varphi)\circ L_h$, read on $2$-jets as pm-0002 prescribes.
+
+In particular $\mathrm{hgrad}\ \sigma\ (h*\bar x)\ D'=\mathrm{hgrad}\ \sigma\ \bar x\ D\ne0$.
+
+\medskip\noindent\textbf{Step 3: conclusion.} By (2a), (2b), (2c) the function $\varphi$ is
+admissible for \noderef{IsViscSubsol} at the point $h*\bar x\in\Om$ with the jet $(D',B')$,
+so
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ (h*\bar x)\ D'\ B'\ \le\ 0\qquad(\noderef{Lop}).
+\]
+By \noderef{Lop}, $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$ depends on $(x,D,B)$ only through
+$\mathrm{hgrad}\ \sigma\ x\ D$ and $\mathrm{hhessS}\ \sigma\ x\ D\ B$, namely
+$\mathrm{Lop}=-\Tr\big(A(\mathrm{hgrad})\,\mathrm{hhessS}\big)+H(\mathrm{hgrad})$. Hence
+(3) gives
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ (h*\bar x)\ D'\ B'=\mathrm{Lop}\ \sigma\ A\ H\ \bar x\ D\ B ,
+\]
+and therefore $\mathrm{Lop}\ \sigma\ A\ H\ \bar x\ D\ B\le0$. Since $\bar x$, $\bar\varphi$
+and $(D,B)$ were arbitrary, and $\bar u$ is upper semi-continuous on $\Om'$ by Step 1,
+$\bar u=u^{h}$ is a viscosity sub-solution of $\mathcal L\cdot=0$ in $\Om'$ in the sense of
+\noderef{IsViscSubsol}. This proves (1).
+
+\medskip\noindent\textbf{Step 4: the super-solution half.} For (2), Step 0 and Steps (2a),
+(2c) do not involve $u$ and are verbatim. Step 1 becomes lower semi-continuity of $\bar u$
+on $\Om'$, by the same pull-back of a neighbourhood through the continuous $L_h$. In (2b)
+the inequality reverses: with $w=(-h)*z\in\Om'$, minimality of $\bar u-\bar\varphi$ over
+$\Om'$ at $\bar x$ gives $(\bar u-\bar\varphi)(\bar x)\le(\bar u-\bar\varphi)(w)$, i.e.
+$(u-\varphi)(h*\bar x)\le(u-\varphi)(z)$, so $h*\bar x\in\argmin_\Om(u-\varphi)$. Feeding
+$\varphi$ and $(D',B')$ to \noderef{IsViscSupersol} gives
+$0\le\mathrm{Lop}\ \sigma\ A\ H\ (h*\bar x)\ D'\ B'=\mathrm{Lop}\ \sigma\ A\ H\ \bar x\ D\ B$,
+which is (2).
+\end{proof}

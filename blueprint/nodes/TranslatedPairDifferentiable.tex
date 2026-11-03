@@ -1,0 +1,88 @@
+\begin{lemma}[The sentence following (3.9)]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, let $\Om\subset\mathbb R^{n}$ be a bounded open set, and let
+$u,v:\mathbb R^{n}\to\mathbb R$ with $u$ locally semi-convex and $v$ locally semi-concave in
+$\Om$, i.e. $-v$ locally semi-convex (\noderef{LocallySemiConvexOn}). Let $\delta>0$ and let
+$h\in\mathbb R^{n}$ with $\|h\|<\delta$. Write $\Om_\delta$ for the inner domain
+(\noderef{TranslatedDomain}) and $u_h:=u(\cdot*h)$. Then
+\begin{enumerate}
+\item $x*h\in\Om$ for every $x\in\Om_\delta$;
+\item $u_h$ is locally semi-convex on $\Om_\delta$;
+\item $-v$ is locally semi-convex on $\Om_\delta$, i.e. $v$ is locally semi-concave there;
+\item for every $x\in\Om_\delta$ at which $u_h-v$ is maximal over $\Om_\delta$, there is a
+  continuous linear functional $D$ which is the derivative of both $u_h$ and $v$ at $x$, and
+  $u$ is differentiable at $x*h$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+This is the sentence the paper places immediately after (3.9): "By (2.16), $x*h\in\Om$
+whenever $x\in\Om_\delta$ and $\|h\|<\delta$. \dots The function $u_h$ is semi-convex on
+compact subsets of $\Om_\delta$ (Section Section~2.3(4)), so at every point $x$ of
+$\A_\delta(h)$ the functions $u_h$ and $v$ are differentiable, and $u$ is differentiable at
+$x*h$."
+
+\medskip\noindent\textbf{Step 0: a restriction principle for local semi-convexity.} We first
+record the following, used twice below. \emph{If $w$ is locally semi-convex on a set $T$ and
+$S\subseteq T$ is open, then $w$ is locally semi-convex on $S$.} Indeed, let $x\in S$. Then
+$x\in T$, so by \noderef{LocallySemiConvexOn} there are $\rho>0$ and $\Lambda\ge0$ with
+$B(x,\rho)\subseteq T$ and $y\mapsto w(y)+\frac\Lambda2|y|^{2}$ convex on the Euclidean ball
+$B(x,\rho)$. Since $S$ is open there is $\rho'>0$ with $B(x,\rho')\subseteq S$. Put
+$\rho'':=\min\{\rho,\rho'\}>0$. Then $B(x,\rho'')\subseteq B(x,\rho')\subseteq S$, and
+$B(x,\rho'')\subseteq B(x,\rho)$ is a convex subset of $B(x,\rho)$, so the restriction of the
+convex function $y\mapsto w(y)+\frac\Lambda2|y|^{2}$ to $B(x,\rho'')$ is convex. Thus
+$\rho''$ and $\Lambda$ witness the defining condition of \noderef{LocallySemiConvexOn} for
+$w$ on $S$ at $x$. As $x\in S$ was arbitrary, $w$ is locally semi-convex on $S$.
+
+\medskip\noindent\textbf{Step 1: part (1).} Let $x\in\Om_\delta$. By associativity of $*$ and
+$0*h=h$ (\noderef{CarnotSetting}),
+\[
+ d(x*h,x)=\big\|(-x)*(x*h)\big\|=\big\|\big((-x)*x\big)*h\big\|=\|0*h\|=\|h\| ,
+\]
+which is the exact identity (2.16) (kept inline by pm-0012). Since $\|h\|<\delta$,
+the point $x*h$ lies in the $d$-ball of radius $\delta$ about $x$, and by item (6) of
+\noderef{InnerDomainProperties} that ball is contained in $\Om$. Hence $x*h\in\Om$.
+
+\medskip\noindent\textbf{Step 2: part (2).} Let $\Theta(y):=y*h$. By
+\noderef{CarnotSetting} the group law is $C^{\infty}$, so $\Theta$, a partial application of
+it, is $C^{\infty}$ and in particular $C^{2}$. The second clause of
+\noderef{SemiConvexCompose}, applied with the set $\Om$, the function $u$ (locally
+semi-convex on $\Om$ by hypothesis) and this $\Theta$, gives
+\[
+ u\circ\Theta=u_h\ \text{is locally semi-convex on}\ \Theta^{-1}(\Om)=\{y:\ y*h\in\Om\} .
+\]
+By Step 1, $\Om_\delta\subseteq\Theta^{-1}(\Om)$, and $\Om_\delta$ is open by item (3) of
+\noderef{InnerDomainProperties}. Step 0 with $T:=\Theta^{-1}(\Om)$ and $S:=\Om_\delta$ now
+gives that $u_h$ is locally semi-convex on $\Om_\delta$. This is the paper's appeal to
+Section~2.3(4); note that we obtain local semi-convexity on the open set $\Om_\delta$
+itself, which is the form \noderef{SemiConvexDiffAtMax} consumes, rather than the paper's
+"on compact subsets".
+
+\medskip\noindent\textbf{Step 3: part (3).} $-v$ is locally semi-convex on $\Om$ by
+hypothesis, $\Om_\delta\subseteq\Om$ by item (1) of \noderef{InnerDomainProperties}, and
+$\Om_\delta$ is open by item (3) of the same node. Step 0 with $T:=\Om$ and
+$S:=\Om_\delta$ gives the claim.
+
+\medskip\noindent\textbf{Step 4: part (4), the common derivative at a maximal point.} Let
+$x\in\Om_\delta$ be a point at which $u_h-v$ is maximal over $\Om_\delta$. Apply the second
+clause of \noderef{SemiConvexDiffAtMax} with the set $\Om_\delta$, the locally semi-convex
+function $u_h$ (Step 2) and the locally semi-concave function $v$ (Step 3): since
+$x\in\Om_\delta$ and $u_h-v$ attains its maximum over $\Om_\delta$ at $x$, there is a
+continuous linear functional $D$ with
+\[
+ D\ \text{is the derivative of}\ u_h\ \text{at}\ x\quad\text{and}\quad
+ D\ \text{is the derivative of}\ v\ \text{at}\ x . \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 5: part (4), differentiability of $u$ at $x*h$.} Let
+$\Theta'(z):=z*(-h)$, which is $C^{\infty}$ by \noderef{CarnotSetting} for the same reason as
+$\Theta$. For every $z$, using associativity, $(-h)*h=0$ and $z*0=z$,
+\[
+ u_h\big(\Theta'(z)\big)=u\Big(\big(z*(-h)\big)*h\Big)=u\Big(z*\big((-h)*h\big)\Big)=u(z*0)=u(z),
+\]
+so $u=u_h\circ\Theta'$ identically on $\mathbb R^{n}$. Moreover
+$\Theta'(x*h)=(x*h)*(-h)=x*\big(h*(-h)\big)=x*0=x$. Now $\Theta'$ is differentiable at
+$x*h$, with derivative the continuous linear map $L:=D\Theta'(x*h)$, and $u_h$ is
+differentiable at $\Theta'(x*h)=x$ with derivative $D$ by (1). By the chain rule,
+$u=u_h\circ\Theta'$ is differentiable at $x*h$ with derivative $D\circ L$, a continuous
+linear functional. This proves the second half of part (4), and completes the proof.
+\end{proof}

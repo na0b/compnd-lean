@@ -1,0 +1,162 @@
+\begin{theorem}[Remark~1.1(a) and Section~2.1: the normalized factorization]
+Let $m\in\mathbb N$ and let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$ satisfy the structure conditions (E) and (S)
+(\noderef{StructureConditionsES}). Then there exist
+$A_0:\mathbb R^{m}\to\mathbb R^{m\times m}$, $H_0:\mathbb R^{m}\to\mathbb R$ and
+$a:\mathbb R^{m}\to\mathbb R$ such that
+\begin{enumerate}
+\item $a(\xi)>0$ for every $\xi\in\mathbb R^{m}\setminus\{0\}$;
+\item $a$ is continuous on $\mathbb R^{m}\setminus\{0\}$;
+\item $A(\xi)=a(\xi)\,A_0(\xi)$ for every $\xi\in\mathbb R^{m}\setminus\{0\}$;
+\item $H(\xi)=a(\xi)\,H_0(\xi)$ for every $\xi\in\mathbb R^{m}\setminus\{0\}$;
+\item $(A_0,H_0)$ satisfies the structure conditions (E) and (S)
+  (\noderef{StructureConditionsES}); and
+\item $(A_0,H_0)$ is normalized in the sense of (2.3) (\noderef{NormalizedAH}):
+  $A_0(t\xi)=A_0(\xi)$ and $H_0(t\xi)=t\,H_0(\xi)$ for all $t>0$ and
+  $\xi\in\mathbb R^{m}\setminus\{0\}$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Write $\mathcal E_A$ and $\mathcal E_{A_0}$ for the ellipticity functions of $A$ and of
+$A_0$ (\noderef{Ellip}). Define the radial projection
+\[
+ \omega(\xi):=|\xi|^{-1}\xi\qquad(\xi\ne0),
+\]
+and put, for every $\xi\in\mathbb R^{m}$,
+\[
+ A_0(\xi):=A\big(\omega(\xi)\big),\qquad
+ H_0(\xi):=|\xi|\,H\big(\omega(\xi)\big),\qquad
+ a(\xi):=\frac{\mathcal E_A(\xi)}{|\xi|^{2}\,\mathcal E_A\big(\omega(\xi)\big)} .
+\]
+(At $\xi=0$ these formulas are read with the convention $|0|^{-1}=0$, so that
+$\omega(0)=0$; the value of each of the three functions at the origin is irrelevant,
+because every one of the six assertions quantifies only over $\xi\ne0$, including the
+clauses of \noderef{StructureConditionsES} and \noderef{NormalizedAH}.)
+
+Throughout, fix $\xi\ne0$ and abbreviate
+\[
+ t:=|\xi|>0,\qquad \omega:=\omega(\xi)=t^{-1}\xi,
+\]
+so that $|\omega|=|\xi|^{-1}|\xi|=1$; in particular $\omega\ne0$, and
+\[
+ \xi=t\,\omega. \tag{$\ast$}
+\]
+
+\medskip\noindent\textbf{Step 1: assertion (1), $a>0$ away from the origin.} Both $\xi$ and
+$\omega$ are non-zero, so clause (5) of \noderef{StructureConditionsES} --- condition (E), (1.9) --- gives
+$\mathcal E_A(\xi)>0$ and $\mathcal E_A(\omega)>0$. Also $|\xi|^{2}>0$. Hence
+$a(\xi)=\mathcal E_A(\xi)/\big(|\xi|^{2}\mathcal E_A(\omega)\big)$ is a quotient of positive
+reals, so $a(\xi)>0$.
+
+\medskip\noindent\textbf{Step 2: assertions (3) and (4), the factorizations.} Apply
+\noderef{ScalingIdentityAllT} to $(A,H)$ at the pair $(t,\omega)$; this is legitimate
+because $t>0$ and $\omega\ne0$. It gives
+\[
+ A(t\omega)=\frac{\mathcal E_A(t\omega)}{t^{2}\,\mathcal E_A(\omega)}\,A(\omega),
+ \qquad
+ H(t\omega)=t\,\frac{\mathcal E_A(t\omega)}{t^{2}\,\mathcal E_A(\omega)}\,H(\omega).
+\]
+By $(\ast)$ we have $t\omega=\xi$ and $t=|\xi|$, so the first identity reads
+\[
+ A(\xi)=\frac{\mathcal E_A(\xi)}{|\xi|^{2}\,\mathcal E_A(\omega)}\,A(\omega)
+      =a(\xi)\,A_0(\xi),
+\]
+since $A_0(\xi)=A(\omega)$ by definition; this is (3). The second reads
+\[
+ H(\xi)=|\xi|\,\frac{\mathcal E_A(\xi)}{|\xi|^{2}\,\mathcal E_A(\omega)}\,H(\omega)
+      =a(\xi)\cdot\Big(|\xi|\,H(\omega)\Big)
+      =a(\xi)\,H_0(\xi),
+\]
+since $H_0(\xi)=|\xi|H(\omega)$ by definition; this is (4).
+
+\medskip\noindent\textbf{Step 3: assertion (2), continuity of $a$ on
+$\mathbb R^{m}\setminus\{0\}$.} The map $\xi\mapsto|\xi|$ is continuous on $\mathbb R^{m}$
+and does not vanish on $\mathbb R^{m}\setminus\{0\}$, so $\xi\mapsto|\xi|^{-1}$ is
+continuous there, and hence so is
+\[
+ \omega(\cdot):\mathbb R^{m}\setminus\{0\}\to\mathbb R^{m},\qquad \xi\mapsto|\xi|^{-1}\xi .
+\]
+Moreover $|\omega(\xi)|=1$ for $\xi\ne0$, so $\omega$ maps
+$\mathbb R^{m}\setminus\{0\}$ into $\mathbb R^{m}\setminus\{0\}$. By clause (3) of
+\noderef{StructureConditionsES}, $A$ is continuous on $\mathbb R^{m}\setminus\{0\}$;
+composing, $\xi\mapsto A(\omega(\xi))$ is continuous on $\mathbb R^{m}\setminus\{0\}$, and
+therefore so is each of its entries $\xi\mapsto A_{i,j}(\omega(\xi))$. Since
+\[
+ \mathcal E_A\big(\omega(\xi)\big)
+  =\sum_{i}\sum_{j}A_{i,j}\big(\omega(\xi)\big)\,\omega(\xi)_j\,\omega(\xi)_i
+\]
+is a finite sum of products of functions continuous on $\mathbb R^{m}\setminus\{0\}$
+(\noderef{Ellip}), the map $\xi\mapsto\mathcal E_A(\omega(\xi))$ is continuous there; the
+same argument, with $A$ in place of $A\circ\omega$ and $\xi$ in place of $\omega(\xi)$,
+shows that $\xi\mapsto\mathcal E_A(\xi)$ is continuous on $\mathbb R^{m}\setminus\{0\}$.
+The denominator $\xi\mapsto|\xi|^{2}\mathcal E_A(\omega(\xi))$ is then continuous on
+$\mathbb R^{m}\setminus\{0\}$ and, by Step 1, nowhere zero there. A quotient of continuous
+functions with non-vanishing denominator is continuous, so $a$ is continuous on
+$\mathbb R^{m}\setminus\{0\}$.
+
+\medskip\noindent\textbf{Step 4: assertion (6), $(A_0,H_0)$ is normalized.} Let $s>0$ and
+$\eta\ne0$. Then $s\eta\ne0$ and $|s\eta|=s|\eta|$, so
+\[
+ \omega(s\eta)=|s\eta|^{-1}(s\eta)=\big(s|\eta|\big)^{-1}s\,\eta=|\eta|^{-1}\eta=\omega(\eta).
+\]
+Consequently
+\[
+ A_0(s\eta)=A\big(\omega(s\eta)\big)=A\big(\omega(\eta)\big)=A_0(\eta),
+\]
+\[
+ H_0(s\eta)=|s\eta|\,H\big(\omega(s\eta)\big)=s\,|\eta|\,H\big(\omega(\eta)\big)=s\,H_0(\eta),
+\]
+which are exactly the two identities of \noderef{NormalizedAH} for $(A_0,H_0)$.
+
+\medskip\noindent\textbf{Step 5: assertion (5), $(A_0,H_0)$ satisfies the structure
+conditions.} We verify clauses (1)--(6) of \noderef{StructureConditionsES} for
+$(A_0,H_0)$, keeping the notation $t=|\xi|$, $\omega=\omega(\xi)$ for a fixed $\xi\ne0$.
+
+\emph{Clause (1), symmetry.} $A_0(\xi)=A(\omega)$, and $A(\omega)$ is symmetric by clause (1)
+for $A$, applicable because $\omega\ne0$.
+
+\emph{Clause (2), positive semidefiniteness.} For every $\eta\in\mathbb R^{m}$,
+\[
+ \sum_{i}\sum_{j}\big(A_0(\xi)\big)_{i,j}\eta_j\eta_i
+  =\sum_{i}\sum_{j}A_{i,j}(\omega)\,\eta_j\,\eta_i\ \ge\ 0
+\]
+by clause (2) for $A$ at the point $\omega\ne0$.
+
+\emph{Clause (3), continuity of $A_0$.} $A_0=A\circ\omega$ is continuous on
+$\mathbb R^{m}\setminus\{0\}$, by the composition argument of Step 3.
+
+\emph{Clause (4), continuity of $H_0$.} $H_0(\xi)=|\xi|\,H(\omega(\xi))$ is a product of two
+functions continuous on $\mathbb R^{m}\setminus\{0\}$: $\xi\mapsto|\xi|$, and
+$H\circ\omega$, continuous there by clause (4) for $H$ composed with the continuity of
+$\omega$ established in Step 3.
+
+\emph{Clause (5), condition (E) for $(A_0,H_0)$.} Using $A_0(\xi)=A(\omega)$, then $(\ast)$ together with the
+$2$-homogeneity of the quadratic form in its vector slot (for any matrix $M$, any $\eta$ and
+any $s$, $\sum_i\sum_j M_{i,j}(s\eta)_j(s\eta)_i=s^{2}\sum_i\sum_j M_{i,j}\eta_j\eta_i$,
+because $(s\eta)_k=s\eta_k$ contributes one factor $s$ in each slot):
+\[
+ \mathcal E_{A_0}(\xi)=\sum_{i}\sum_{j}A_{i,j}(\omega)\,\xi_j\,\xi_i
+  =t^{2}\sum_{i}\sum_{j}A_{i,j}(\omega)\,\omega_j\,\omega_i
+  =|\xi|^{2}\,\mathcal E_A(\omega)\ >\ 0,
+\]
+because $|\xi|^{2}>0$ and $\mathcal E_A(\omega)>0$ by clause (5) for $A$ at
+$\omega\ne0$.
+
+\emph{Clause (6), condition (S) for $(A_0,H_0)$.} Take $\kappa_0(t,\eta):=1$ for all
+$t,\eta$; then $\kappa_0>0$
+everywhere. By Step 4, for every $t\ge1$ (indeed every $t>0$) and every $\eta\ne0$,
+\[
+ A_0(t\eta)=A_0(\eta)=\kappa_0(t,\eta)\,A_0(\eta),
+ \qquad
+ H_0(t\eta)=t\,H_0(\eta)=t\,\kappa_0(t,\eta)\,H_0(\eta),
+\]
+which is clause (6) for $(A_0,H_0)$ with the constant factor $\kappa_0\equiv1$.
+
+\medskip
+All six assertions are established with the above $A_0$, $H_0$ and $a$, which proves the
+theorem. (This is the decomposition of Remark~1.1(a): $A_0$ and $H_0$ are precisely the
+functions $A_0(\xi/|\xi|)$ and $|\xi|H_0(\xi/|\xi|)$ of that remark, written as functions on
+$\mathbb R^{m}\setminus\{0\}$ rather than on the unit sphere, and the factor $a$ is the
+positive continuous function of the remark. Step 5's clause (6) is the remark's
+observation that for this replacement (1.10) holds with $\kappa\equiv1$.)
+\end{proof}

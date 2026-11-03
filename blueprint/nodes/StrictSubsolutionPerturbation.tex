@@ -1,0 +1,100 @@
+\begin{corollary}[Corollary~3.2]
+Let $n,m\in\mathbb N$, let $\sigma=[\sigma^1,\ldots,\sigma^m]$ be a frame of $m$ vector
+fields on $\mathbb R^{n}$, and let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$,
+$H:\mathbb R^{m}\to\mathbb R$ satisfy the normalization (2.3)
+(\noderef{NormalizedAH}). Let $e_0>0$ be a constant with
+\[
+ e_0\,|\xi|^{2}\ \le\ \mathcal E(A,\xi)\qquad\text{for all }\xi\in\mathbb R^{m}
+ \quad(\noderef{Ellip}),
+\]
+let $\psi\in C^{2}(\mathbb R)$, let $w:\mathbb R^{n}\to\mathbb R$, let $x_0\in\mathbb R^{n}$
+and let $(D,B)$ be a second-order jet of $w$ at $x_0$ (\noderef{TwiceDiffAt}). Put
+$\xi_0:=\mathrm{hgrad}\ \sigma\ x_0\ D$ (\noderef{hgrad}), $t:=\psi'(w(x_0))$ and
+$c:=\psi''(w(x_0))$, and assume
+\[
+ \theta>0,\qquad \theta\le|\xi_0|,\qquad \lambda>0,\qquad t>0,\qquad \lambda\le c,\qquad
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B\le0\quad(\noderef{Lop}).
+\]
+Then $\big(tD,\,tB+c\,D\otimes D\big)$ is a second-order jet of $\psi\circ w$ at $x_0$,
+where $(D\otimes D)(h,k)=D(h)D(k)$, and
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)\ \le\ -\gamma,
+ \qquad \gamma:=\lambda\,e_0\,\theta^{2}>0 .
+\]
+\end{corollary}
+\begin{proof}
+This is Corollary~3.2. The constant $e_0$ is the one of (2.4): it exists, is positive and
+depends only on $A$ (not on $x_0$, $w$ or $\psi$) by \noderef{EllipticityLowerBound},
+applied under the structure conditions (E) and (2.3). We carry it as a parameter rather
+than re-deriving it here, precisely so that the resulting $\gamma$ is one constant valid at
+every point at which this corollary is applied --- which is what Proposition~3.3 needs in its
+Steps 3 and 4.
+
+\medskip\noindent\textbf{Step 1: $\xi_0\ne0$.} From $0<\theta\le|\xi_0|$ we get
+$|\xi_0|>0$, so $\xi_0\ne0$. This is the admissibility condition needed to invoke
+(2.3).
+
+\medskip\noindent\textbf{Step 2: the perturbation identity.} All the hypotheses of
+\noderef{PerturbationIdentity} are in place: (2.3) for $(A,H)$, $\psi\in C^{2}$,
+$(D,B)$ a second-order jet of $w$ at $x_0$, $\xi_0\ne0$ by Step 1, and $t>0$. It gives
+that $(tD,\,tB+c\,D\otimes D)$ is a second-order jet of $\psi\circ w$ at $x_0$ --- the
+first assertion --- and the identity (3.3)
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)
+ =t\Big[\mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B-\frac ct\,\mathcal E(A,\xi_0)\Big]
+ =t\,\mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B-c\,\mathcal E(A,\xi_0), \tag{1}
+\]
+the second equality because $t>0$, so $t\cdot(c/t)=c$.
+
+\medskip\noindent\textbf{Step 3: the three inequalities of line 477.} First, since $t>0$
+and $\mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B\le0$,
+\[
+ t\,\mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B\ \le\ 0 ,
+\]
+so (1) gives
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)
+ \ \le\ -c\,\mathcal E(A,\xi_0). \tag{2}
+\]
+This is the paper's first inequality $\mathcal L(\psi\circ w)(x_0)\le-\psi''(w(x_0))\mathcal E(\xi_0)$.
+
+Second, by the hypothesis on $e_0$ and $\theta\le|\xi_0|$ with $\theta>0$,
+\[
+ \mathcal E(A,\xi_0)\ \ge\ e_0\,|\xi_0|^{2}\ \ge\ e_0\,\theta^{2}\ >\ 0 . \tag{3}
+\]
+(The middle step uses $0<\theta\le|\xi_0|$, hence $\theta^{2}\le|\xi_0|^{2}$, and
+$e_0>0$.)
+
+Third, $c\ge\lambda>0$, so multiplying (3) by $c>0$ and then using $\lambda\le c$ with
+$e_0\theta^{2}>0$,
+\[
+ c\,\mathcal E(A,\xi_0)\ \ge\ c\,e_0\,\theta^{2}\ \ge\ \lambda\,e_0\,\theta^{2}=\gamma>0 .
+\]
+Combining with (2),
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)\ \le\ -\gamma ,
+\]
+which is the assertion. The chain of the three displays is exactly the paper's
+$\mathcal L(\psi\circ w)(x_0)\le-\psi''\mathcal E(\xi_0)\le-\lambda e_0|\xi_0|^{2}\le-\lambda e_0\theta^{2}$.
+
+\medskip\noindent\emph{Remark 1 (pointwise hypotheses).} The paper assumes
+$\psi'>0$ and $\psi''\ge\lambda>0$ globally; we assume only $\psi'(w(x_0))>0$ and
+$\lambda\le\psi''(w(x_0))$. This is a strictly weaker hypothesis, so the corollary as
+stated is stronger, and it is the form that is needed: the relabelling used in Proposition~3.3
+is $\psi_\lambda(s)=s+\lambda e^{s}$, whose second derivative $\lambda e^{s}$ has no
+positive global lower bound, while on the range of a bounded $u$ --- say $|u|\le M$ on
+$\bar\Om$ --- it satisfies $\psi_\lambda''(u(x_0))\ge\lambda e^{-M}>0$. So Proposition~3.3 will
+apply this corollary with $\lambda':=\lambda e^{-M}$ in place of $\lambda$, giving one
+uniform $\gamma$. Every $\psi$ satisfying the paper's global hypotheses satisfies ours at
+every point, so nothing is lost.
+
+\medskip\noindent\emph{Remark 2 (no super-solution version).} The paper notes at line 479
+that Lemma~3.1 and this corollary have obvious super-solution versions, with
+$\psi''\le-\lambda<0$, ``which we shall not need: the hypothesis of
+Proposition~Proposition~3.3 of the paper below is symmetric in $u$ and $v$, because
+$\mathcal Xu=\mathcal Xv$ at the maximal points of $u-v$''. We record this so that the
+super-solution version is not added later: it is genuinely unnecessary, since Proposition~3.3
+perturbs only the sub-solution $u$, and the non-degeneracy hypothesis there --- that
+$\mathcal Xu$ does not vanish on $\argmax_\Om(u-v)$ --- is equivalent to the same
+statement for $\mathcal Xv$ by the first conclusion of \noderef{LocalMaxSecondOrder}.
+\end{proof}

@@ -1,0 +1,194 @@
+\begin{lemma}[Lemma~3.1]
+Let $n,m\in\mathbb N$, let $\sigma:\mathbb R^{n}\to\mathbb R^{n\times m}$,
+$\sigma=[\sigma^1,\ldots,\sigma^m]$, be a frame of $m$ vector fields on $\mathbb R^{n}$,
+and let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$, $H:\mathbb R^{m}\to\mathbb R$ satisfy
+the normalization (2.3) (\noderef{NormalizedAH}). Let $\psi\in C^{2}(\mathbb R)$, let
+$w:\mathbb R^{n}\to\mathbb R$, let $x_0\in\mathbb R^{n}$ and let $(D,B)$ be a second-order
+jet of $w$ at $x_0$ (\noderef{TwiceDiffAt}). Put
+\[
+ \xi_0:=\mathrm{hgrad}\ \sigma\ x_0\ D\quad(\noderef{hgrad}),\qquad
+ t:=\psi'\big(w(x_0)\big),
+\]
+and assume $\xi_0\ne0$ and $t>0$. Let $D\otimes D$ denote the continuous bilinear form
+$(h,k)\mapsto D(h)\,D(k)$. Then:
+\begin{enumerate}
+\item $\big(tD,\ tB+\psi''(w(x_0))\,D\otimes D\big)$ is a second-order jet of $\psi\circ w$
+  at $x_0$;
+\item $\mathrm{hgrad}\ \sigma\ x_0\ (tD)=t\,\xi_0$;
+\item with that jet, (3.3) holds (\noderef{Lop}, \noderef{Ellip}):
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ (tD)\ \big(tB+\psi''(w(x_0))\,D\otimes D\big)
+ \ =\ t\Big[\mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B
+ -\frac{\psi''(w(x_0))}{\psi'(w(x_0))}\,\mathcal E\big(A,\xi_0\big)\Big].
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Write $a:=w(x_0)$, $t=\psi'(a)$, $c:=\psi''(a)$, and $h:=y-x_0$ for the increment. Items
+(1) and (2) are the paper's two displayed identities
+$\mathcal X(\psi\circ w)=\psi'(w)\mathcal Xw=t\xi_0$ and
+$\mathcal X\mathcal X^{s}(\psi\circ w)=\psi'(w)\mathcal X\mathcal X^{s}w+\psi''(w)\mathcal Xw\otimes\mathcal Xw$
+at $x_0$, read on jets; item (3) is the computation of Lemma~3.1's proof, whose last step is
+(2.5). Since (2.5) is a two-line consequence of (2.3) (pm-0012 keeps it
+inline rather than as a node), we derive it in Step 4 below.
+
+\medskip\noindent\textbf{Step 1: a Peano expansion for $\psi$ at $a$.} We claim: for every
+$\varepsilon>0$ there is $\rho>0$ such that
+\[
+ \Big|\psi(a+s)-\psi(a)-t\,s-\tfrac12c\,s^{2}\Big|\ \le\ \varepsilon\,s^{2}
+ \qquad\text{whenever }|s|<\rho. \tag{1}
+\]
+Indeed, $\psi''$ is continuous because $\psi\in C^{2}$, so there is $\rho>0$ with
+$|\psi''(\theta)-\psi''(a)|\le2\varepsilon$ whenever $|\theta-a|\le\rho$. Let $|s|<\rho$.
+If $s=0$ the claim is trivial. Otherwise, by Taylor's theorem with Lagrange remainder
+applied to $\psi$ on the segment between $a$ and $a+s$, there is $\theta$ strictly between
+$a$ and $a+s$ with
+\[
+ \psi(a+s)=\psi(a)+\psi'(a)s+\tfrac12\psi''(\theta)s^{2},
+\]
+and $|\theta-a|<|s|<\rho$, so
+$|\psi(a+s)-\psi(a)-ts-\frac12cs^{2}|=\frac12|\psi''(\theta)-\psi''(a)|\,s^{2}\le\varepsilon s^{2}$.
+This is (1). (Only $\psi\in C^{2}$ near $a$ is used; the hypothesis $t>0$ plays no role
+here.)
+
+\medskip\noindent\textbf{Step 2: proof of (1).} Set
+\[
+ D_\psi:=tD,\qquad B_\psi:=tB+c\,D\otimes D .
+\]
+$B_\psi$ is symmetric: $B$ is symmetric by \noderef{TwiceDiffAt} and
+$(D\otimes D)(h,k)=D(h)D(k)=(D\otimes D)(k,h)$. It remains to prove the Peano estimate.
+
+Write, for $y\in\mathbb R^{n}$ and $h=y-x_0$,
+\[
+ S(h):=w(y)-w(x_0),\qquad R(h):=S(h)-D(h)-\tfrac12B(h,h),
+\]
+so that by \noderef{TwiceDiffAt} applied to $w$: for every $\varepsilon_1>0$ there is
+$\delta_1>0$ with
+\[
+ |R(h)|\le\varepsilon_1|h|^{2}\qquad\text{for }|h|<\delta_1. \tag{2}
+\]
+Fix once and for all $\delta_1^{0}>0$ obtained from (2) with $\varepsilon_1=1$, and put
+\[
+ C_0:=\|D\|+\tfrac12\|B\|+1 .
+\]
+For $|h|<\min\{\delta_1^{0},1\}$ we get from (2) with $\varepsilon_1=1$ that
+\[
+ |S(h)|\le|D(h)|+\tfrac12|B(h,h)|+|h|^{2}\le\big(\|D\|+\tfrac12\|B\|\,|h|+|h|\big)|h|
+ \le C_0|h|, \tag{3}
+\]
+using $|h|\le1$. Likewise, for such $h$,
+\[
+ |S(h)-D(h)|\le\tfrac12\|B\|\,|h|^{2}+|h|^{2}=C_1|h|^{2},\qquad
+ C_1:=\tfrac12\|B\|+1 , \tag{4}
+\]
+and $|S(h)+D(h)|\le(C_0+\|D\|)|h|$ by (3).
+
+Now let $\varepsilon>0$ be given. Choose, in this order:
+\begin{itemize}
+\item $\varepsilon_2:=\dfrac{\varepsilon}{3(C_0^{2}+1)}>0$ and, by Step 1 with
+  $\varepsilon_2$, a radius $\rho>0$ for which (1) holds;
+\item $\varepsilon_1:=\dfrac{\varepsilon}{3(|t|+1)}>0$ and, by (2), a radius $\delta_1>0$
+  for which (2) holds with this $\varepsilon_1$;
+\item $\delta:=\min\Big\{\delta_1^{0},\,1,\,\delta_1,\,\dfrac{\rho}{C_0+1},\,
+  \dfrac{2\varepsilon}{3\big(|c|+1\big)C_1\big(C_0+\|D\|+1\big)}\Big\}>0 .$
+\end{itemize}
+Let $|h|<\delta$. By (3) and $|h|<\rho/(C_0+1)$ we have $|S(h)|\le C_0|h|<\rho$, so (1)
+applies with $s:=S(h)$. Decompose, using $\psi(w(y))=\psi(a+S(h))$ and
+$\psi(w(x_0))=\psi(a)$:
+\[
+ \psi(w(y))-\psi(w(x_0))-D_\psi(h)-\tfrac12B_\psi(h,h)
+ =\underbrace{\Big[\psi(a+S)-\psi(a)-tS-\tfrac12cS^{2}\Big]}_{=:T_1}
+ +\underbrace{t\Big[S-D(h)-\tfrac12B(h,h)\Big]}_{=:T_2}
+ +\underbrace{\tfrac12c\Big[S^{2}-D(h)^{2}\Big]}_{=:T_3},
+\]
+where $S=S(h)$; this is an identity, obtained by expanding
+$D_\psi(h)=tD(h)$ and $\frac12B_\psi(h,h)=\frac t2B(h,h)+\frac c2D(h)^{2}$ and cancelling.
+We estimate the three terms.
+
+$|T_1|\le\varepsilon_2S^{2}\le\varepsilon_2C_0^{2}|h|^{2}\le\frac\varepsilon3|h|^{2}$ by
+(1), (3) and the choice of $\varepsilon_2$.
+
+$|T_2|=|t|\,|R(h)|\le|t|\varepsilon_1|h|^{2}\le\frac\varepsilon3|h|^{2}$ by (2) and the
+choice of $\varepsilon_1$.
+
+$|T_3|=\frac12|c|\,|S-D(h)|\,|S+D(h)|\le\frac12|c|\,C_1|h|^{2}(C_0+\|D\|)|h|
+\le\frac\varepsilon3|h|^{2}$ by (4), (3) and the last entry in the definition of $\delta$,
+which gives $|h|\le\frac{2\varepsilon}{3(|c|+1)C_1(C_0+\|D\|+1)}$.
+
+Adding, $|\psi(w(y))-\psi(w(x_0))-D_\psi(h)-\frac12B_\psi(h,h)|\le\varepsilon|h|^{2}$ for
+$|h|<\delta$. Since $\varepsilon>0$ was arbitrary, $(D_\psi,B_\psi)$ is a second-order jet
+of $\psi\circ w$ at $x_0$. This is (1). (The cubic term $T_3$ is where the paper's
+$\mathcal Xw\otimes\mathcal Xw$ term comes from: it is $\frac12c\,D(h)^{2}$ that survives,
+the discrepancy $S^{2}-D(h)^{2}$ being of order $|h|^{3}$.)
+
+\medskip\noindent\textbf{Step 3: proof of (2), and the splitting of the second jet.} By
+\noderef{hgrad}, $(\mathrm{hgrad}\ \sigma\ x_0\ D)_i=D(\sigma^{i}(x_0))$, which is linear
+in the $1$-jet; hence
+$\mathrm{hgrad}\ \sigma\ x_0\ (tD)=\big(tD(\sigma^{i}(x_0))\big)_i=t\,\xi_0$, which is (2).
+In particular $t\xi_0\ne0$, since $t>0$ and $\xi_0\ne0$.
+
+Next, by \noderef{hhessS} and \noderef{Mfield},
+\[
+ \big(\mathrm{hhessS}\ \sigma\ x_0\ D'\ B'\big)_{i,j}
+ =B'\big(\sigma^{i}(x_0),\sigma^{j}(x_0)\big)+\mathcal M(x_0,D')_{i,j},\qquad
+ \mathcal M(x_0,D')_{i,j}=\tfrac12\Big(D'\big(D\sigma^{j}\sigma^{i}\big)+D'\big(D\sigma^{i}\sigma^{j}\big)\Big),
+\]
+so $\mathcal M(x_0,\cdot)$ is linear in the $1$-jet and $\mathcal M(x_0,tD)=t\,\mathcal M(x_0,D)$.
+Moreover $(D\otimes D)(\sigma^{i}(x_0),\sigma^{j}(x_0))=D(\sigma^{i}(x_0))D(\sigma^{j}(x_0))
+=(\xi_0)_i(\xi_0)_j$ by \noderef{hgrad}. Hence, writing
+$\Xi:=\big((\xi_0)_i(\xi_0)_j\big)_{i,j}=\xi_0\otimes\xi_0$ and
+$M:=\mathrm{hhessS}\ \sigma\ x_0\ D\ B$,
+\[
+ \mathrm{hhessS}\ \sigma\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)
+ =\big(tB(\sigma^{i},\sigma^{j})+c(\xi_0)_i(\xi_0)_j\big)_{i,j}+t\,\mathcal M(x_0,D)
+ =t\,M+c\,\Xi . \tag{5}
+\]
+This is the paper's
+$\mathcal X\mathcal X^{s}(\psi\circ w)=\psi'(w)\mathcal X\mathcal X^{s}w+\psi''(w)\mathcal Xw\otimes\mathcal Xw$.
+
+\medskip\noindent\textbf{Step 4: (2.5), and the proof of (3).} First, the trace against
+$\Xi$ is the ellipticity function: by \noderef{Ellip},
+\[
+ \Tr\big(A(\xi_0)\,\Xi\big)=\sum_i\sum_j A(\xi_0)_{i,j}\,\Xi_{j,i}
+ =\sum_i\sum_j A(\xi_0)_{i,j}(\xi_0)_j(\xi_0)_i=\mathcal E(A,\xi_0). \tag{6}
+\]
+Second, (2.5). By (2.3) (\noderef{NormalizedAH}) and $t>0$, $\xi_0\ne0$,
+\[
+ A(t\xi_0)=A(\xi_0),\qquad H(t\xi_0)=t\,H(\xi_0), \tag{7}
+\]
+whence, for any symmetric $X\in\mathbb R^{m\times m}$,
+\[
+ -t\Tr\big(A(t\xi_0)X\big)+H(t\xi_0)=-t\Tr\big(A(\xi_0)X\big)+t\,H(\xi_0)
+ =t\Big[-\Tr\big(A(\xi_0)X\big)+H(\xi_0)\Big],
+\]
+which is (2.5); those are the two lines promised.
+
+Now compute, using \noderef{Lop}, then (2) and (5), then (7), then linearity of the trace
+and (6):
+\begin{align*}
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)
+ &=-\Tr\Big(A\big(\mathrm{hgrad}\ \sigma\ x_0\ (tD)\big)\,
+    \mathrm{hhessS}\ \sigma\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)\Big)\\
+ &\qquad+H\big(\mathrm{hgrad}\ \sigma\ x_0\ (tD)\big)\\
+ &=-\Tr\Big(A(t\xi_0)\big(tM+c\,\Xi\big)\Big)+H(t\xi_0)\\
+ &=-\Tr\Big(A(\xi_0)\big(tM+c\,\Xi\big)\Big)+t\,H(\xi_0)\\
+ &=-t\,\Tr\big(A(\xi_0)M\big)-c\,\Tr\big(A(\xi_0)\Xi\big)+t\,H(\xi_0)\\
+ &=t\Big[-\Tr\big(A(\xi_0)M\big)+H(\xi_0)\Big]-c\,\mathcal E(A,\xi_0)\\
+ &=t\,\mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B-c\,\mathcal E(A,\xi_0).
+\end{align*}
+Since $t>0$ we may factor $t$ out of the last line:
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x_0\ (tD)\ \big(tB+c\,D\otimes D\big)
+ =t\Big[\mathrm{Lop}\ \sigma\ A\ H\ x_0\ D\ B-\frac ct\,\mathcal E(A,\xi_0)\Big],
+\]
+which is (3), i.e. (3.3) with $c=\psi''(w(x_0))$ and $t=\psi'(w(x_0))$.
+
+\medskip\noindent\emph{Remark on the hypothesis on $\psi$.} Only $\psi'(w(x_0))>0$ is
+assumed, not the paper's global $\psi'>0$. That is all the proof uses: $t>0$ enters
+exactly twice, in (7) --- where (2.3) needs a positive factor --- and in the division
+by $t$ at the end. Stating it pointwise is necessary for the use made of this lemma later:
+the relabelling $\psi_\lambda(s)=s+\lambda e^{s}$ has $\psi_\lambda'>0$ everywhere but its
+companion corollary needs a pointwise lower bound on $\psi_\lambda''$, and keeping both
+hypotheses pointwise keeps the two statements uniform. Nothing is lost, since a $\psi$
+with $\psi'>0$ everywhere satisfies the hypothesis at every point.
+\end{proof}

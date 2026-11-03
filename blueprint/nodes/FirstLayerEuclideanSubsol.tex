@@ -1,0 +1,158 @@
+\begin{theorem}[The first-layer transfer of Theorem~1.3(iii)]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with frame $\sigma$ and
+first-layer projection $\pi_1:\mathbb R^{n}\to\mathbb R^{m}$, and let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$. Let
+$\Om\subset\mathbb R^{n}$ be a bounded open set and let
+$F,Gf:\mathbb R^{m}\to\mathbb R$ be continuous on $\pi_1(\bar\Om)$. Assume
+\begin{enumerate}
+\item $F\circ\pi_1$ is a viscosity sub-solution (\noderef{IsViscSubsol}) and $Gf\circ\pi_1$ a
+  viscosity super-solution (\noderef{IsViscSupersol}) of $\mathcal L\cdot=0$ in $\Om$;
+\item $F(\pi_1(x))\le Gf(\pi_1(x))$ for every $x\in\del\Om$.
+\end{enumerate}
+Put $\Om':=\pi_1(\Om)\subseteq\mathbb R^{m}$. Then
+\begin{enumerate}
+\item[(1)] $\Om'$ is open;
+\item[(2)] $\Om'$ is bounded;
+\item[(3)] $\overline{\Om'}\subseteq\pi_1(\bar\Om)$;
+\item[(4)] $\del\Om'\subseteq\pi_1(\del\Om)$;
+\item[(5)] $F\le Gf$ on $\del\Om'$;
+\item[(6)] $F$ and $Gf$ are continuous on $\overline{\Om'}$;
+\item[(7)] for every $\zeta\in\Om'$, every $\psi:\mathbb R^{m}\to\mathbb R$ that is $C^{2}$
+  on $\Om'$ with $\zeta\in\argmax_{\Om'}(F-\psi)$, and every second-order jet $(E,C)$ of
+  $\psi$ at $\zeta$ (\noderef{TwiceDiffAt}), writing
+  \[
+   \xi:=\big(E(e_1),\ldots,E(e_m)\big)\in\mathbb R^{m},\qquad
+   \mathcal C:=\big(C(e_i,e_j)\big)_{i,j}\in\mathbb R^{m\times m}
+  \]
+  with $e_i$ the $i$-th standard basis vector of $\mathbb R^{m}$, one has
+  \[
+   \xi\ne0\ \Longrightarrow\ -\Tr\big(A(\xi)\,\mathcal C\big)+H(\xi)\ \le\ 0 ;
+  \]
+\item[(8)] dually, for every $\zeta\in\Om'$, every $\psi$ that is $C^{2}$ on $\Om'$ with
+  $\zeta\in\argmin_{\Om'}(Gf-\psi)$, and every second-order jet $(E,C)$ of $\psi$ at $\zeta$,
+  with $\xi$ and $\mathcal C$ as above,
+  \[
+   \xi\ne0\ \Longrightarrow\ 0\ \le\ -\Tr\big(A(\xi)\,\mathcal C\big)+H(\xi) .
+  \]
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+This is the content of the second paragraph of the proof of Theorem~1.3(iii), up to but not
+including the appeal to the case $r=1$: "The set $\Om':=\pi_1(\Om)\subset\mathbb R^{m}$ is
+open and bounded, and $\del\Om'\subset\pi_1(\del\Om)$ \dots Hence $F\le Gf$ on $\del\Om'$.
+\dots thus $\mathcal L\varphi=(\mathcal L^{\rm eucl}\psi)\circ\pi_1$ \dots $F$ is a viscosity
+sub-solution of $\mathcal L^{\rm eucl}F=0$ in $\Om'$, and likewise $Gf$ is a
+super-solution."
+
+The quantities $\xi$ and $\mathcal C$ of (7) are exactly the shapes that the clause
+$\mathtt{pi1Jet}$ of \noderef{CarnotSetting} produces for $\mathrm{hgrad}$
+(\noderef{hgrad}) and $\mathrm{hhessS}$ (\noderef{hhessS}); that is deliberate, and it is
+what makes the Euclidean condition of (7) literally the inequality $\mathcal L\varphi(x)\le0$
+read through those two identities.
+
+\medskip\noindent\textbf{Step 1: $\pi_1$ is a surjective continuous linear map; (1) and
+(2).} By \noderef{CarnotSetting}, $\pi_1$ is a continuous linear map
+$\mathbb R^{n}\to\mathbb R^{m}$ and $\pi_1(\exp_{\mathbb G}(\zeta))=\zeta$ for every
+$\zeta\in\mathbb R^{m}$. The latter exhibits $\exp_{\mathbb G}$ as a right inverse, so
+$\pi_1$ is surjective. A surjective continuous linear map between Banach spaces is open, so
+$\pi_1$ maps open sets to open sets; as $\Om$ is open, $\Om'=\pi_1(\Om)$ is open. This is (1).
+
+For (2): $\pi_1$ is a continuous linear map, so $|\pi_1(x)|\le\|\pi_1\|\,|x|$ for every $x$.
+If $|x|\le \kappa$ for all $x\in\Om$ (such a $\kappa$ exists, $\Om$ being bounded) then
+$|\pi_1(x)|\le\|\pi_1\|\kappa$ for all $x\in\Om$, so $\Om'$ is bounded.
+
+\medskip\noindent\textbf{Step 2: (3) and (6).} $\bar\Om$ is compact ($\Om$ is bounded) and
+$\pi_1$ is continuous, so $\pi_1(\bar\Om)$ is compact, hence closed. It contains
+$\pi_1(\Om)=\Om'$, so it contains $\overline{\Om'}$; this is (3). Then (6) follows from (3)
+and the hypothesis that $F$ and $Gf$ are continuous on $\pi_1(\bar\Om)$: a function
+continuous on a set is continuous on every subset of it.
+
+\medskip\noindent\textbf{Step 3: (4), the limit-point argument.} We transcribe the paper's
+own argument. Let $\zeta\in\del\Om'$. Since $\Om'$ is open by (1),
+$\del\Om'=\overline{\Om'}\mns\Om'$, so $\zeta\in\overline{\Om'}$ and $\zeta\notin\Om'$. By
+$\zeta\in\overline{\Om'}$ there are $x_k\in\Om$ with $\pi_1(x_k)\to\zeta$. The points $x_k$
+lie in the bounded set $\Om$, so $(x_k)$ has a convergent subsequence
+$x_{k_j}\to\bar x$, and $\bar x\in\bar\Om$ because $x_{k_j}\in\Om\subseteq\bar\Om$ and
+$\bar\Om$ is closed. By continuity of $\pi_1$,
+\[
+ \pi_1(\bar x)=\lim_j\pi_1(x_{k_j})=\zeta .
+\]
+Now $\bar x\notin\Om$: otherwise $\zeta=\pi_1(\bar x)\in\pi_1(\Om)=\Om'$, contradicting
+$\zeta\notin\Om'$. Hence $\bar x\in\bar\Om\mns\Om=\del\Om$ ($\Om$ is open), and
+$\zeta=\pi_1(\bar x)\in\pi_1(\del\Om)$. This is (4).
+
+\medskip\noindent\textbf{Step 4: (5).} Let $\zeta\in\del\Om'$. By (4) there is
+$x\in\del\Om$ with $\pi_1(x)=\zeta$. Hypothesis (2) of the statement gives
+$F(\pi_1(x))\le Gf(\pi_1(x))$, i.e. $F(\zeta)\le Gf(\zeta)$.
+
+\medskip\noindent\textbf{Step 5: (7).} Let $\zeta\in\Om'$, let $\psi$ be $C^{2}$ on $\Om'$
+with $\zeta\in\argmax_{\Om'}(F-\psi)$, let $(E,C)$ be a second-order jet of $\psi$ at $\zeta$
+and let $\xi,\mathcal C$ be as in the statement; assume $\xi\ne0$. Write
+$u:=F\circ\pi_1$ and $\varphi:=\psi\circ\pi_1$.
+
+Since $\zeta\in\Om'=\pi_1(\Om)$ there is $x\in\Om$ with $\pi_1(x)=\zeta$. Fix such an $x$.
+
+\emph{(5a) $\varphi$ is $C^{2}$ on $\Om$.} $\pi_1$ is a continuous linear map, hence
+$C^{\infty}$, and it maps $\Om$ into $\Om'$ by the definition of $\Om'$; and $\psi$ is
+$C^{2}$ on $\Om'$. The composition of a $C^{2}$ map into $\Om'$ with a function that is
+$C^{2}$ on $\Om'$ is $C^{2}$ on $\Om$.
+
+\emph{(5b) $x\in\argmax_\Om(u-\varphi)$.} Let $y\in\Om$. Then $\pi_1(y)\in\Om'$, so by
+$\zeta\in\argmax_{\Om'}(F-\psi)$,
+\[
+ (u-\varphi)(y)=F(\pi_1(y))-\psi(\pi_1(y))\ \le\ F(\zeta)-\psi(\zeta)
+ =F(\pi_1(x))-\psi(\pi_1(x))=(u-\varphi)(x).
+\]
+As $y\in\Om$ was arbitrary, $u-\varphi$ attains its maximum over \emph{all} of $\Om$ at $x$.
+
+This is the paper's clause "$\varphi$ touches $u$ from above at every $x\in\Om$ with
+$\pi_1(x)=\zeta$", and it is worth pausing on it: pm-0009 records that our rendering of
+Definition~2.1 keeps the test condition $x\in\argmax_\Om(w-\varphi)$ \emph{global} over the domain,
+which elsewhere in this development forces an appeal to the localization lemma for test
+functions before a sub-solution may be used on a smaller set. Here the
+global form is exactly what the paper supplies for free, because $\psi$ is composed with
+$\pi_1$ and the maximality over $\Om'$ pulls back to maximality over all of $\Om$. No
+localization step is needed in this proof.
+
+\emph{(5c) the jet of $\varphi$ at $x$.} We have $\pi_1(x)=\zeta$, so $(E,C)$ is a
+second-order jet of $\psi$ at $\pi_1(x)$. The clause $\mathtt{pi1Jet}$ of
+\noderef{CarnotSetting}, applied with $\psi$, $x$, $E$ and $C$, therefore provides a
+second-order jet $(D,B)$ of $y\mapsto\psi(\pi_1(y))=\varphi(y)$ at $x$ with
+\[
+ \mathrm{hgrad}\ \sigma\ x\ D=\big(E(e_1),\ldots,E(e_m)\big)=\xi,\qquad
+ \mathrm{hhessS}\ \sigma\ x\ D\ B=\big(C(e_i,e_j)\big)_{i,j}=\mathcal C . \tag{$\ast$}
+\]
+(This is the jet form of the paper's coordinate computation
+"$X_i\varphi=(\del_i\psi)\circ\pi_1$ and $X_jX_i\varphi=(\del_j\del_i\psi)\circ\pi_1$"; the
+field $\mathtt{pi1Jet}$ is exactly that statement, carried in the definition of the setting as
+pm-0005 permits.)
+
+In particular $\mathrm{hgrad}\ \sigma\ x\ D=\xi\ne0$.
+
+\emph{(5d) conclusion.} By (5a), (5b), (5c) and $\xi\ne0$, the function $\varphi$ is
+admissible for \noderef{IsViscSubsol} at the point $x\in\Om$ with the jet $(D,B)$, so
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\ \le\ 0\qquad(\noderef{Lop}).
+\]
+By \noderef{Lop},
+$\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B
+=-\Tr\big(A(\mathrm{hgrad}\ \sigma\ x\ D)\ \mathrm{hhessS}\ \sigma\ x\ D\ B\big)
++H(\mathrm{hgrad}\ \sigma\ x\ D)$, so by $(\ast)$ this is exactly
+$-\Tr(A(\xi)\mathcal C)+H(\xi)$. Hence $-\Tr(A(\xi)\mathcal C)+H(\xi)\le0$, which is (7).
+
+\medskip\noindent\textbf{Step 6: (8), the dual.} Let $\zeta\in\Om'$, let $\psi$ be $C^{2}$ on
+$\Om'$ with $\zeta\in\argmin_{\Om'}(Gf-\psi)$, let $(E,C)$ be a second-order jet of $\psi$ at
+$\zeta$, let $\xi,\mathcal C$ be as above and assume $\xi\ne0$. Write $v:=Gf\circ\pi_1$ and
+$\varphi:=\psi\circ\pi_1$, and pick $x\in\Om$ with $\pi_1(x)=\zeta$.
+
+Steps (5a) and (5c) do not involve $F$ or the direction of the inequality and are verbatim.
+In (5b) the inequality reverses: for $y\in\Om$, $\pi_1(y)\in\Om'$ and
+$\zeta\in\argmin_{\Om'}(Gf-\psi)$ give
+\[
+ (v-\varphi)(x)=Gf(\zeta)-\psi(\zeta)\ \le\ Gf(\pi_1(y))-\psi(\pi_1(y))=(v-\varphi)(y),
+\]
+so $x\in\argmin_\Om(v-\varphi)$. Feeding $\varphi$ and the jet $(D,B)$ of (5c) to
+\noderef{IsViscSupersol} at $x$, with $\mathrm{hgrad}\ \sigma\ x\ D=\xi\ne0$, gives
+$0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$, which by \noderef{Lop} and $(\ast)$ is
+$0\le-\Tr(A(\xi)\mathcal C)+H(\xi)$. This is (8).
+\end{proof}

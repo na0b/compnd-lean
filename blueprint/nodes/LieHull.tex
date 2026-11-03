@@ -1,0 +1,24 @@
+\begin{definition}[The Lie hull of a frame of vector fields]
+Let $n,m\in\mathbb N$ and let
+$\sigma:\mathbb R^n\to\mathbb R^{n\times m}$, $\sigma(x)=[\sigma^1(x),\ldots,\sigma^m(x)]$,
+be a frame of $m$ vector fields on $\mathbb R^n$. Call a family $S$ of vector fields on
+$\mathbb R^n$ \emph{admissible for $\sigma$} if it contains each $\sigma^i$ and is closed
+under the Lie bracket, i.e. $[V,W]\in S$ whenever $V,W\in S$. The \emph{Lie hull}
+$\mathrm{LieHull}\ \sigma$ is the intersection of all admissible families:
+\[
+ \mathrm{LieHull}\ \sigma\ =\ \bigcap\big\{\,S\ :\ S\text{ admissible for }\sigma\,\big\}.
+\]
+
+The intersection of admissible families is admissible, so $\mathrm{LieHull}\ \sigma$ is the
+smallest family of vector fields containing $\sigma^1,\ldots,\sigma^m$ and closed under
+brackets: it consists precisely of the iterated brackets of the frame fields. Its purpose
+is to express H\"ormander's rank condition (1.6),
+\[
+ \dim\Big(\mathrm{Lie}\big(X_1(x),\ldots,X_m(x)\big)\Big)=n\qquad\text{for all }x\in\mathbb R^n,
+\]
+as the statement that the span of $\{V(x):V\in\mathrm{LieHull}\ \sigma\}$ is all of
+$\mathbb R^n$ for every $x$. Taking the smallest such family, rather than merely asserting
+the existence of \emph{some} bracket-closed family whose values span, is what makes the
+condition a restriction: the family of all vector fields is bracket-closed and its values
+span trivially.
+\end{definition}

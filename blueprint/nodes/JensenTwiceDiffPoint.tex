@@ -1,0 +1,164 @@
+\begin{theorem}[Maximal points of linear perturbations at which both functions are twice differentiable]
+Let $N\in\mathbb N$, let the two Euclidean cited results hold
+(\noderef{EuclidCitedResults}), let
+$\Omega\subseteq\mathbb R^{N}$ and let $u,v:\mathbb R^{N}\to\mathbb R$ be such that $u$ is
+locally semi-convex on $\Omega$ and $v$ is locally semi-concave on $\Omega$, i.e. $-v$ is
+locally semi-convex on $\Omega$ (\noderef{LocallySemiConvexOn}). Let
+$x_1\in\mathbb R^{N}$ and assume that $x_1$ is a strict local maximum point of $u-v$ inside
+$\Omega$: there is $\nu>0$ with $B_\nu(x_1)\subseteq\Omega$ and
+\[
+ u(y)-v(y)\ <\ u(x_1)-v(x_1)\qquad\text{for every }y\in B_\nu(x_1)\text{ with }y\ne x_1 .
+\]
+Then there are sequences $(p_k)_{k\in\mathbb N}$ and $(z_k)_{k\in\mathbb N}$ in
+$\mathbb R^{N}$ with $p_k\to0$ and $z_k\to x_1$ such that for every $k$:
+\begin{enumerate}
+\item $z_k\in\Omega$;
+\item $z_k$ is a local maximum point of
+  $y\mapsto u(y)-v(y)+\langle p_k,y\rangle$, where
+  $\langle p,y\rangle=\sum_{i=1}^{N}p_i\,y_i$;
+\item $u$ has a second-order jet at $z_k$ (\noderef{TwiceDiffAt}); and
+\item $v$ has a second-order jet at $z_k$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Write $w:=u-v$ and fix $\nu>0$ as in the hypothesis; put $W:=B_\nu(x_1)$, an open set with
+$W\subseteq\Omega$.
+
+\medskip\noindent\textbf{Step 0: local semi-convexity restricts to open subsets.} If
+$f:\mathbb R^{N}\to\mathbb R$ is locally semi-convex on $\Omega$ and $V\subseteq\Omega$ is
+open, then $f$ is locally semi-convex on $V$. Indeed, let $x\in V$. By
+\noderef{LocallySemiConvexOn} there are $\rho>0$ and $\Lambda\ge0$ with
+$B_\rho(x)\subseteq\Omega$ and $f+\tfrac\Lambda2|\cdot|^{2}$ convex on $B_\rho(x)$. Since $V$
+is open there is $\sigma>0$ with $B_\sigma(x)\subseteq V$. Put $\rho':=\min\{\rho,\sigma\}>0$;
+then $B_{\rho'}(x)\subseteq V$, and $f+\tfrac\Lambda2|\cdot|^{2}$ is convex on the convex
+subset $B_{\rho'}(x)$ of $B_\rho(x)$. So the requirement of \noderef{LocallySemiConvexOn}
+holds at $x$ for $V$. We use this three times below, with $V:=W$.
+
+\medskip\noindent\textbf{Step 1: $w=u-v$ is locally semi-convex on $\Omega$, hence on $W$.}
+Let $x\in\Omega$. By \noderef{LocallySemiConvexOn} applied to $u$ there are $\rho_1>0$ and
+$\Lambda_1\ge0$ with $B_{\rho_1}(x)\subseteq\Omega$ and
+$u+\tfrac{\Lambda_1}2|\cdot|^{2}$ convex on $B_{\rho_1}(x)$; applied to $-v$ it gives
+$\rho_2>0$, $\Lambda_2\ge0$ with $B_{\rho_2}(x)\subseteq\Omega$ and
+$-v+\tfrac{\Lambda_2}2|\cdot|^{2}$ convex on $B_{\rho_2}(x)$. Put
+$\rho:=\min\{\rho_1,\rho_2\}>0$ and $\Lambda:=\Lambda_1+\Lambda_2\ge0$. Both functions are
+convex on the convex subset $B_\rho(x)$ of their respective balls, and
+\[
+ w+\frac\Lambda2|\cdot|^{2}
+  =\Big(u+\frac{\Lambda_1}2|\cdot|^{2}\Big)+\Big(-v+\frac{\Lambda_2}2|\cdot|^{2}\Big)
+\]
+pointwise, a sum of two convex functions on $B_\rho(x)$, hence convex there. Since
+$B_\rho(x)\subseteq\Omega$, the requirement of \noderef{LocallySemiConvexOn} holds at $x$.
+Thus $w$ is locally semi-convex on $\Omega$, and by Step 0 also on $W$.
+
+\medskip\noindent\textbf{Step 2: Jensen's lemma applies at $x_1$.} The clause
+\textsc{jensen} of \noderef{EuclidCitedResults} requires two hypotheses for the function $w$ at the
+point $x_1$. The first is that $w$ be locally semi-convex on some ball $B_{\nu'}(x_1)$ with
+$\nu'>0$: Step 1 gives it with $\nu':=\nu$, since $W=B_\nu(x_1)$. The second is that $x_1$ be
+a strict local maximum point of $w$: there is $\nu'>0$ with $w(y)<w(x_1)$ for every
+$y\in B_{\nu'}(x_1)$ with $y\ne x_1$; this is the hypothesis of the theorem, again with
+$\nu':=\nu$.
+
+Hence \textsc{jensen} furnishes $\rho_0>0$ and $\delta_0>0$ such that for all
+$\rho\in(0,\rho_0)$ and all $\delta\in(0,\delta_0)$ the set
+\[
+ J(\rho,\delta):=\bigcup_{|p|<\delta}
+   \Big\{z\in B_\rho(x_1)\ :\ w(y)+\langle p,y\rangle\le w(z)+\langle p,z\rangle
+     \ \text{for all}\ y\in B_\rho(x_1)\Big\}
+\]
+has positive Lebesgue measure: $|J(\rho,\delta)|>0$. (This is the set $J_{\rho,\delta}(x_1)$
+of (2.12), written out: the inner set is
+$B_\rho(x_1)\cap\mathrm{argmax}_{B_\rho(x_1)}(w_p)$ for $w_p=w+\langle p,\cdot\rangle$.)
+
+\medskip\noindent\textbf{Step 3: the two Aleksandrov null sets.} By Step 0, $u$ is locally
+semi-convex on the open set $W$, and so is $-v$. The clause \textsc{aleksandrov} of
+\noderef{EuclidCitedResults}, applied with the open set $W$ to the locally semi-convex
+function
+$u$, says that for Lebesgue-almost every $z\in\mathbb R^{N}$, if $z\in W$ then $u$ has a
+second-order jet at $z$. Equivalently, the set
+\[
+ \mathcal N_u:=\big\{z\in W\ :\ u\text{ has no second-order jet at }z\big\}
+\]
+is Lebesgue-null, $|\mathcal N_u|=0$. Applying the same clause with the open set $W$ to the
+locally semi-convex function $-v$, the set
+\[
+ \mathcal N_v:=\big\{z\in W\ :\ -v\text{ has no second-order jet at }z\big\}
+\]
+is Lebesgue-null, $|\mathcal N_v|=0$. Consequently
+\[
+ \big|\mathcal N_u\cup\mathcal N_v\big|\ \le\ |\mathcal N_u|+|\mathcal N_v|\ =\ 0 . \tag{1}
+\]
+This is the point the paper compresses: its closing sentence applies Aleksandrov's theorem to
+one function, whereas the conclusion needed here concerns the pair $(u,v)$, so two
+exceptional sets must be removed.
+
+We also record the elementary transfer from $-v$ to $v$: \emph{if $(D,B)$ is a second-order
+jet of $-v$ at $z$, then $(-D,-B)$ is a second-order jet of $v$ at $z$.} Indeed $-B$ is
+symmetric because $B$ is, and for every $y$
+\[
+ v(y)-v(z)-(-D)(y-z)-\tfrac12(-B)(y-z,y-z)
+  =-\Big[(-v)(y)-(-v)(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big],
+\]
+so the two quantities have the same absolute value and the Peano estimate of
+\noderef{TwiceDiffAt} for $-v$ with $(D,B)$ is literally the estimate for $v$ with
+$(-D,-B)$, with the same $\delta$ for each $\varepsilon$. Hence
+\[
+ z\in W\setminus\mathcal N_v\ \Longrightarrow\ v\text{ has a second-order jet at }z. \tag{2}
+\]
+
+\medskip\noindent\textbf{Step 4: construction of the two sequences.} For $k\in\mathbb N$ put
+\[
+ \rho_k:=\tfrac12\min\Big\{\rho_0,\ \nu,\ \tfrac1{k+1}\Big\}>0,
+ \qquad
+ \delta_k:=\tfrac12\min\Big\{\delta_0,\ \tfrac1{k+1}\Big\}>0 .
+\]
+Then $0<\rho_k<\rho_0$, $0<\delta_k<\delta_0$, $\rho_k\le\tfrac1{2(k+1)}$,
+$\delta_k\le\tfrac1{2(k+1)}$, and $\rho_k<\nu$, so that
+$B_{\rho_k}(x_1)\subseteq B_\nu(x_1)=W$.
+
+By Step 2, $|J(\rho_k,\delta_k)|>0$. If we had
+$J(\rho_k,\delta_k)\subseteq\mathcal N_u\cup\mathcal N_v$, then monotonicity of Lebesgue
+measure together with (1) would give $|J(\rho_k,\delta_k)|\le0$, contradicting positivity.
+Hence
+\[
+ J(\rho_k,\delta_k)\setminus\big(\mathcal N_u\cup\mathcal N_v\big)\ \ne\ \emptyset ,
+\]
+and we may choose $z_k$ in it. By the definition of $J(\rho_k,\delta_k)$ there is a vector
+$p_k$ with $|p_k|<\delta_k$ such that
+\[
+ z_k\in B_{\rho_k}(x_1)
+ \qquad\text{and}\qquad
+ w(y)+\langle p_k,y\rangle\le w(z_k)+\langle p_k,z_k\rangle\ \ \text{for all }y\in B_{\rho_k}(x_1). \tag{3}
+\]
+
+We verify the four assertions for this choice.
+
+\emph{(i) $z_k\in\Omega$.} $z_k\in B_{\rho_k}(x_1)\subseteq W\subseteq\Omega$.
+
+\emph{(ii) $z_k$ is a local maximum point of $w+\langle p_k,\cdot\rangle$.} The set
+$B_{\rho_k}(x_1)$ is open and contains $z_k$, so it contains a ball $B_\sigma(z_k)$ with
+$\sigma>0$; by (3), $w(y)+\langle p_k,y\rangle\le w(z_k)+\langle p_k,z_k\rangle$ for every
+$y\in B_\sigma(z_k)$. Since $w=u-v$, this says precisely that
+$y\mapsto u(y)-v(y)+\langle p_k,y\rangle$ has a local maximum at $z_k$.
+
+\emph{(iii) $u$ has a second-order jet at $z_k$.} We have $z_k\in W$ and
+$z_k\notin\mathcal N_u$, so by the definition of $\mathcal N_u$ the function $u$ has a
+second-order jet at $z_k$.
+
+\emph{(iv) $v$ has a second-order jet at $z_k$.} We have $z_k\in W$ and
+$z_k\notin\mathcal N_v$, so (2) applies and $v$ has a second-order jet at $z_k$.
+
+\emph{Convergence.} From $z_k\in B_{\rho_k}(x_1)$ we get
+$|z_k-x_1|<\rho_k\le\tfrac1{2(k+1)}\to0$, so $z_k\to x_1$; and
+$|p_k|<\delta_k\le\tfrac1{2(k+1)}\to0$, so $p_k\to0$.
+
+This produces the required sequences and completes the proof.
+
+\medskip\noindent\emph{Remark.} The hypothesis that the maximum be \emph{strict} is used only
+through \textsc{jensen}, where it is indispensable: if $w$ were constant near $x_1$ then
+$w_p$ would have no interior maximum in $B_\rho(x_1)$ for $p\ne0$ and
+$J(\rho,\delta)$ could be a single point, of measure zero. In Proposition Proposition~3.3 the
+strictness is arranged by a quartic penalization before this node is applied. The clause
+\textsc{jensen} is used at exactly the strength at which it is stated --- positivity of the
+measure of $J(\rho,\delta)$ --- and the twice-differentiability of the pair is obtained here,
+not assumed there.
+\end{proof}

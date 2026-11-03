@@ -1,0 +1,81 @@
+\begin{theorem}[(2.2): monotonicity of $Z\mapsto\mathrm{Tr}(AZ)$]
+Let $m\in\mathbb N$ and let $A,Y,X\in\mathbb R^{m\times m}$ satisfy
+\begin{enumerate}
+\item $A$ is symmetric, $A^{T}=A$, and non-negative definite:
+  $\langle A\eta,\eta\rangle=\sum_{i}\sum_{j}A_{i,j}\eta_j\eta_i\ \ge\ 0$ for every
+  $\eta\in\mathbb R^{m}$;
+\item $Y$ and $X$ are symmetric;
+\item $Y\le X$ in the order (2.1) (\noderef{MatLe}), i.e.
+  $\langle Y\eta,\eta\rangle\le\langle X\eta,\eta\rangle$ for every $\eta\in\mathbb R^{m}$.
+\end{enumerate}
+Then $\mathrm{Tr}(AY)\le\mathrm{Tr}(AX)$.
+\end{theorem}
+\begin{proof}
+\noindent\textbf{Step 1: reduction to a single trace.} Put $Z:=X-Y$. Matrix multiplication
+distributes over subtraction, $A(X-Y)=AX-AY$, and the trace is additive,
+$\mathrm{Tr}(P-Q)=\mathrm{Tr}(P)-\mathrm{Tr}(Q)$. Hence
+\[
+ \mathrm{Tr}(AX)-\mathrm{Tr}(AY)=\mathrm{Tr}(AX-AY)=\mathrm{Tr}\big(A(X-Y)\big)=\mathrm{Tr}(AZ),
+\]
+so the assertion $\mathrm{Tr}(AY)\le\mathrm{Tr}(AX)$ is equivalent to
+\[
+ \mathrm{Tr}(AZ)\ \ge\ 0. \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 2: $Z$ is symmetric and non-negative definite.} $Z=X-Y$ is
+symmetric, being a difference of the symmetric matrices $X$ and $Y$ of hypothesis (2):
+$Z^{T}=X^{T}-Y^{T}=X-Y=Z$. For non-negativity, let $\eta\in\mathbb R^{m}$; since
+$Z_{i,j}=X_{i,j}-Y_{i,j}$ and finite sums split over subtraction,
+\[
+ \langle Z\eta,\eta\rangle=\sum_{i}\sum_{j}\big(X_{i,j}-Y_{i,j}\big)\eta_j\eta_i
+  =\sum_{i}\sum_{j}X_{i,j}\eta_j\eta_i-\sum_{i}\sum_{j}Y_{i,j}\eta_j\eta_i
+  =\langle X\eta,\eta\rangle-\langle Y\eta,\eta\rangle\ \ge\ 0,
+\]
+the last inequality being hypothesis (3), i.e. \noderef{MatLe} applied to the vector $\eta$.
+
+\medskip\noindent\textbf{Step 3: symmetric non-negative definite square roots.} We use the
+following standard fact of linear algebra: \emph{every symmetric non-negative definite
+$M\in\mathbb R^{m\times m}$ has a symmetric square root}, i.e. a symmetric
+$\sqrt M\in\mathbb R^{m\times m}$ with $\sqrt M\,\sqrt M=M$. Indeed, by the spectral theorem
+for real symmetric matrices there are an orthogonal $Q$ and reals
+$\lambda_1,\ldots,\lambda_m$ with $M=Q\,\mathrm{diag}(\lambda_1,\ldots,\lambda_m)\,Q^{T}$;
+each $\lambda_k$ is non-negative, because if $v_k$ denotes the $k$-th column of $Q$ then
+$|v_k|=1$ and $\langle Mv_k,v_k\rangle=\lambda_k\ge0$ by non-negative definiteness of $M$;
+so one may set $\sqrt M:=Q\,\mathrm{diag}(\sqrt{\lambda_1},\ldots,\sqrt{\lambda_m})\,Q^{T}$,
+which is symmetric and satisfies
+$\sqrt M\sqrt M=Q\,\mathrm{diag}(\lambda_1,\ldots,\lambda_m)\,Q^{T}=M$ because
+$Q^{T}Q=I$.
+
+Hypothesis (1) says $A$ is symmetric and non-negative definite, and Step 2 says $Z$ is;
+so both $\sqrt A$ and $\sqrt Z$ exist, are symmetric, and satisfy
+$\sqrt A\sqrt A=A$, $\sqrt Z\sqrt Z=Z$.
+
+\medskip\noindent\textbf{Step 4: the identity $\mathrm{Tr}(AZ)=|\sqrt A\sqrt Z|^{2}$.} Put
+$M:=\sqrt A\,\sqrt Z$. Using $(PQ)^{T}=Q^{T}P^{T}$, the symmetry of $\sqrt A$ and
+$\sqrt Z$, the commutation $\mathrm{Tr}(PQ)=\mathrm{Tr}(QP)$ of the trace, and the two
+square-root identities,
+\[
+ \mathrm{Tr}\big(M^{T}M\big)
+  =\mathrm{Tr}\big(\sqrt Z^{T}\sqrt A^{T}\sqrt A\sqrt Z\big)
+  =\mathrm{Tr}\big(\sqrt Z\,A\,\sqrt Z\big)
+  =\mathrm{Tr}\big(A\,\sqrt Z\,\sqrt Z\big)
+  =\mathrm{Tr}(AZ),
+\]
+where the third equality is $\mathrm{Tr}(PQ)=\mathrm{Tr}(QP)$ with $P=\sqrt Z$ and
+$Q=A\sqrt Z$. On the other hand, writing out the trace of $M^{T}M$ entrywise,
+\[
+ \mathrm{Tr}\big(M^{T}M\big)=\sum_{i}\big(M^{T}M\big)_{i,i}
+  =\sum_{i}\sum_{k}\big(M^{T}\big)_{i,k}M_{k,i}
+  =\sum_{i}\sum_{k}M_{k,i}^{2}\ \ge\ 0,
+\]
+every summand being a square of a real number. (This is the Frobenius norm identity
+$\mathrm{Tr}(M^{T}M)=|M|^{2}$ of the paper's notation section.) Combining the two displays
+gives (1):
+\[
+ \mathrm{Tr}(AZ)=\mathrm{Tr}\big(M^{T}M\big)=\big|\sqrt A\sqrt Z\big|^{2}\ \ge\ 0 .
+\]
+
+\medskip\noindent\textbf{Step 5: conclusion.} By Step 1 and (1),
+$\mathrm{Tr}(AX)-\mathrm{Tr}(AY)=\mathrm{Tr}(AZ)\ge0$, i.e.
+$\mathrm{Tr}(AY)\le\mathrm{Tr}(AX)$.
+\end{proof}

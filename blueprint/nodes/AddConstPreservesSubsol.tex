@@ -1,0 +1,96 @@
+\begin{lemma}[Adding a constant preserves viscosity sub- and super-solutions]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with horizontal frame
+$\sigma$, let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$, let $\Omega\subseteq\mathbb R^{n}$, let
+$u:\mathbb R^{n}\to\mathbb R$ and let $c\in\mathbb R$. If $u$ is a viscosity sub-solution of
+$\mathcal Lu=0$ in $\Omega$ (\noderef{IsViscSubsol}), then so is $u+c$; and if $u$ is a
+viscosity super-solution of $\mathcal Lu=0$ in $\Omega$ (\noderef{IsViscSupersol}), then so
+is $u+c$.
+\end{lemma}
+\begin{proof}
+Write $u_c:=u+c$, i.e. $u_c(y)=u(y)+c$ for every $y$.
+
+\medskip\noindent\textbf{Step 1: semi-continuity is preserved.} Suppose $u$ is upper
+semi-continuous on $\Omega$, i.e. for every $x\in\Omega$ and every $y\in\mathbb R$ with
+$u(x)<y$ the inequality $u(x')<y$ holds for all $x'$ in some neighbourhood of $x$ relative
+to $\Omega$. Let $x\in\Omega$ and $y\in\mathbb R$ with $u_c(x)<y$, i.e. $u(x)+c<y$, i.e.
+$u(x)<y-c$. Applying upper semi-continuity of $u$ at $x$ with the value $y-c$ gives a
+neighbourhood of $x$ relative to $\Omega$ on which $u(x')<y-c$, hence on which
+$u_c(x')=u(x')+c<y$. So $u_c$ is upper semi-continuous on $\Omega$.
+
+Symmetrically, if $u$ is lower semi-continuous on $\Omega$ and $y<u_c(x)$, then
+$y-c<u(x)$, so $y-c<u(x')$ and hence $y<u_c(x')$ on a neighbourhood of $x$ relative to
+$\Omega$; so $u_c$ is lower semi-continuous on $\Omega$.
+
+\medskip\noindent\textbf{Step 2: transport of test functions.} Let $x\in\Omega$, let
+$\varphi\in C^{2}(\Omega)$, let $(D,B)$ be a second-order jet of $\varphi$ at $x$
+(\noderef{TwiceDiffAt}) with $\mathrm{hgrad}\ \sigma\ x\ D\ne0$ (\noderef{hgrad}), and
+suppose $x\in\mathrm{argmax}_\Omega(u_c-\varphi)$. Put
+\[
+ \psi:=\varphi-c,\qquad\text{i.e.}\qquad \psi(y)=\varphi(y)-c .
+\]
+We check that $(x,\psi,D,B)$ is admissible data for $u$.
+
+\emph{(i) $\psi\in C^{2}(\Omega)$.} $\psi$ is the difference of $\varphi\in C^{2}(\Omega)$
+and the constant function $c$, which is $C^{2}$ on $\Omega$; a difference of $C^{2}$
+functions is $C^{2}$.
+
+\emph{(ii) $x\in\mathrm{argmax}_\Omega(u-\psi)$.} For every $y$,
+\[
+ u(y)-\psi(y)=u(y)-\varphi(y)+c=\big(u(y)+c\big)-\varphi(y)=u_c(y)-\varphi(y),
+\]
+so the functions $u-\psi$ and $u_c-\varphi$ are equal. Since $x\in\Omega$ and
+$(u_c-\varphi)(y)\le(u_c-\varphi)(x)$ for every $y\in\Omega$, the same inequalities hold
+with $u-\psi$ in place of $u_c-\varphi$, i.e. $x\in\mathrm{argmax}_\Omega(u-\psi)$.
+
+\emph{(iii) $(D,B)$ is a second-order jet of $\psi$ at $x$.} By \noderef{TwiceDiffAt} this
+means that $B$ is symmetric and that for every $\varepsilon>0$ there is $\delta>0$ with
+\[
+ \Big|\psi(y)-\psi(x)-D(y-x)-\tfrac12B(y-x,y-x)\Big|\le\varepsilon|y-x|^{2}
+ \qquad\text{whenever }|y-x|<\delta .
+\]
+Symmetry of $B$ is part of the hypothesis on $(D,B)$. For the estimate, note
+$\psi(y)-\psi(x)=\big(\varphi(y)-c\big)-\big(\varphi(x)-c\big)=\varphi(y)-\varphi(x)$, so
+the quantity inside the absolute value is identical to the corresponding quantity for
+$\varphi$; the estimate for $\varphi$ therefore holds verbatim for $\psi$, with the same
+$\delta$ for each $\varepsilon$.
+
+\emph{(iv) $\mathrm{hgrad}\ \sigma\ x\ D\ne0$.} This condition mentions only $\sigma$, $x$
+and $D$, which are unchanged.
+
+\medskip\noindent\textbf{Step 3: conclusion for sub-solutions.} Assume $u$ is a viscosity
+sub-solution of $\mathcal Lu=0$ in $\Omega$. By Step 1 the function $u_c$ is upper
+semi-continuous on $\Omega$, which is the first clause of \noderef{IsViscSubsol} for $u_c$.
+For the second clause, let $x,\varphi,D,B$ be as in Step 2. By Step 2 the data
+$(x,\psi,D,B)$ with $\psi=\varphi-c$ is admissible for $u$, so the second clause of
+\noderef{IsViscSubsol} for $u$ gives
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\ \le\ 0 .
+\]
+But this inequality is exactly what has to be shown for $u_c$ at the data
+$(x,\varphi,D,B)$: by \noderef{Lop} the value
+$\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B=-\mathrm{Tr}\big(A(\mathrm{hgrad}\ \sigma\ x\ D)\cdot
+\mathrm{hhessS}\ \sigma\ x\ D\ B\big)+H(\mathrm{hgrad}\ \sigma\ x\ D)$ is computed from
+$\sigma$, $x$, $D$, $B$, $A$ and $H$ alone; neither the function $u$ nor the test function
+$\varphi$ nor its value $\varphi(x)$ enters it. In particular replacing $\psi$ by
+$\varphi=\psi+c$ does not change it, since $\psi$ and $\varphi$ have the same jet $(D,B)$ at
+$x$ by Step 2(iii). Hence $u_c$ satisfies the second clause, and $u_c$ is a viscosity
+sub-solution of $\mathcal Lu=0$ in $\Omega$.
+
+\medskip\noindent\textbf{Step 4: conclusion for super-solutions.} Assume $u$ is a viscosity
+super-solution. By Step 1, $u_c$ is lower semi-continuous on $\Omega$. For the second clause
+of \noderef{IsViscSupersol}, let $x\in\Omega$, $\varphi\in C^{2}(\Omega)$ and $(D,B)$ be a
+second-order jet of $\varphi$ at $x$ with $\mathrm{hgrad}\ \sigma\ x\ D\ne0$, and suppose
+$x\in\mathrm{argmin}_\Omega(u_c-\varphi)$. With $\psi:=\varphi-c$, items (i), (iii) and (iv)
+of Step 2 are unchanged, and item (ii) becomes: $u-\psi$ and $u_c-\varphi$ are the same
+function, so $x\in\mathrm{argmin}_\Omega(u-\psi)$. The second clause of
+\noderef{IsViscSupersol} for $u$ then gives
+$0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$, which again is literally the inequality required
+of $u_c$ at $(x,\varphi,D,B)$.
+
+\medskip\noindent\emph{Remark.} The only structural feature of $\mathcal L$ used is that it
+carries no zeroth-order term: by \noderef{Lop} the operator (1.8) is
+$-\mathrm{Tr}\big(A(\mathcal Xu)\mathcal X\mathcal X^{s}u\big)+H(\mathcal Xu)$, in which the
+value of $u$ does not appear. That is what allows the additive constant to be moved from
+the solution into the test function without changing the inequality to be verified.
+\end{proof}

@@ -1,0 +1,136 @@
+\begin{theorem}[The inner domains and compact cores of (3.8)]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, write $d(x,y):=\|y^{-1}*x\|$, and let
+$\Om\subseteq\mathbb R^{n}$ be open and bounded. Write $\Om_\delta$ for the inner domain
+(\noderef{TranslatedDomain}) and $K_\rho$ for the compact core (\noderef{BoundaryCore}).
+Then
+\begin{enumerate}
+\item $\Om_\delta\subseteq\Om$ for every $\delta\in\mathbb R$;
+\item $K_\rho\subseteq\Om$ for every $\rho\in\mathbb R$;
+\item $\Om_\delta$ is open for every $\delta\in\mathbb R$;
+\item $K_\rho$ is compact for every $\rho>0$;
+\item $K_\rho\subseteq\Om_\delta$ whenever $\delta<\rho$;
+\item for every $\delta>0$ and every $x\in\Om_\delta$, the $d$-ball
+  $B_\delta(x)=\{z:\ d(z,x)<\delta\}$ is contained in $\Om$;
+\item for every $\rho>0$ and every $x\in K_\rho$, the $d$-ball $B_\rho(x)$ is contained in
+  $\Om$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+These are the properties of (3.8) that the paper records in the sentence following it
+("so that $K_\rho$ is compact and $\Om_\delta\supset K_\rho$ for $\rho>\delta$") together
+with the two facts it uses without proof: that $\Om_\delta$ is open, and that a $d$-ball
+about an interior point whose boundary distance is at least its radius stays in $\Om$. The
+latter is the inclusion behind "$x*h\in\Om$ whenever $x\in\Om_\delta$ and $\|h\|<\delta$"
+and behind "$B_\eta(y)=y*B_\eta(0)$, a ball contained in $\Om$" in Lemma~3.7. Note that
+neither uses a triangle inequality for $d$: pm-0013 records that the homogeneous norm is
+only a quasi-norm, and (2.17) carries a constant $c_{\mathbb G}$, so an exact triangle
+inequality is not available. Item (7) instead comes from the connectedness of $d$-balls.
+
+Throughout we use from \noderef{CarnotSetting}: associativity of $*$, the identities
+$0*x=x$, $x*0=x$, $x*(-x)=0$, $(-x)*x=0$, smoothness of $*$, continuity of $\|\cdot\|$,
+$\|x\|\ge0$, $\|x\|=0\iff x=0$, $\|-x\|=\|x\|$, and the connectedness of the balls
+$\{z:\ d(z,x)<\rho\}$ for $\rho>0$. Since $\Om$ is open, $\del\Om=\bar\Om\mns\Om$.
+
+\medskip\noindent\textbf{Step 0: the group inverse is $-$, and $d$ is symmetric.} First, if
+$a*b=0$ then $b=-a$: multiplying on the left by $-a$ and using associativity,
+$b=0*b=((-a)*a)*b=(-a)*(a*b)=(-a)*0=-a$. Next,
+\[
+ (x*y)*\big((-y)*(-x)\big)=x*\Big(y*\big((-y)*(-x)\big)\Big)=x*\Big(\big(y*(-y)\big)*(-x)\Big)
+ =x*\big(0*(-x)\big)=x*(-x)=0 ,
+\]
+so by the previous sentence $(-y)*(-x)=-(x*y)$. Applying this with $x$ replaced by $-y$ and
+$y$ by $x$ gives $(-x)*y=-\big((-y)*x\big)$, whence, by $\|-z\|=\|z\|$,
+\[
+ d(x,y)=\big\|(-y)*x\big\|=\big\|(-x)*y\big\|=d(y,x). \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 1: continuity of the distance kernel.} The map
+$(x,y)\mapsto(-y)*x$ is continuous, being the composition of the continuous
+$(x,y)\mapsto(-y,x)$ with the group law, which is $C^{\infty}$ and in particular continuous.
+Composing with the continuous $\|\cdot\|$, the function $(x,y)\mapsto d(x,y)$ is jointly
+continuous; in particular $x\mapsto d(x,y)$ is continuous for fixed $y$, and
+$y\mapsto d(x,y)$ is continuous for fixed $x$.
+
+\medskip\noindent\textbf{Step 2: $\del\Om$ is compact.} $\del\Om$ is closed, and it is
+bounded because $\del\Om\subseteq\bar\Om$ and $\bar\Om$ is bounded ($\Om$ is bounded). A
+closed bounded subset of $\mathbb R^{n}$ is compact.
+
+\medskip\noindent\textbf{Step 3: items (1), (2) and (5).} Items (1) and (2) are immediate
+from \noderef{TranslatedDomain} and \noderef{BoundaryCore}, whose defining conditions both
+contain "$x\in\Om$". For (5), let $\delta<\rho$ and $x\in K_\rho$: then $x\in\Om$ and
+$\rho\le d(x,y)$ for every $y\in\del\Om$, so $\delta<\rho\le d(x,y)$, i.e. $x\in\Om_\delta$.
+
+\medskip\noindent\textbf{Step 4: item (3), $\Om_\delta$ is open.} If $\del\Om=\emptyset$
+then the condition "$\delta<d(x,y)$ for every $y\in\del\Om$" is vacuous, so
+$\Om_\delta=\Om$, which is open.
+
+Assume $\del\Om\ne\emptyset$ and set
+$f(x):=\inf\{d(x,y):\ y\in\del\Om\}$, the paper's $\dist(x,\del\Om)$. The set
+$\{d(x,y):y\in\del\Om\}$ is non-empty and bounded below by $0$, so $f(x)$ is a well-defined
+real number and
+\[
+ f(x)\le d(x,y)\qquad\text{for every }y\in\del\Om . \tag{2}
+\]
+By Step 1 the function $y\mapsto d(x,y)$ is continuous and by Step 2 $\del\Om$ is compact
+and non-empty, so its image is compact and non-empty and the infimum is attained:
+\[
+ \text{there is }y_x\in\del\Om\text{ with } f(x)=d(x,y_x). \tag{3}
+\]
+By Step 1 again $d$ is \emph{jointly} continuous, and $\del\Om$ is compact, so $f$ is
+continuous. (This is the point at which compactness is needed and the paper's one-line
+assertion requires care: an infimum of continuous functions over an arbitrary index set is
+only upper semi-continuous; over a compact index set, with jointly continuous integrand, it
+is continuous.)
+
+Now
+\[
+ \Om_\delta=\Om\cap\{x:\ \delta<f(x)\} . \tag{4}
+\]
+Indeed, if $x\in\Om_\delta$ then $\delta<d(x,y_x)=f(x)$ by (3); conversely if $x\in\Om$ and
+$\delta<f(x)$ then $\delta<f(x)\le d(x,y)$ for every $y\in\del\Om$ by (2). The right-hand
+side of (4) is the intersection of the open set $\Om$ with the preimage of an open half-line
+under the continuous $f$, hence open.
+
+\medskip\noindent\textbf{Step 5: item (4), $K_\rho$ is compact for $\rho>0$.} Put
+\[
+ T:=\{x:\ \rho\le d(x,y)\ \text{for every}\ y\in\del\Om\}=\bigcap_{y\in\del\Om}\{x:\ \rho\le d(x,y)\},
+\]
+a closed set, being an intersection of sets closed by the continuity of $x\mapsto d(x,y)$
+(Step 1). We claim
+\[
+ K_\rho=\bar\Om\cap T. \tag{5}
+\]
+"$\subseteq$": if $x\in K_\rho$ then $x\in\Om\subseteq\bar\Om$ and $x\in T$. "$\supseteq$":
+let $x\in\bar\Om\cap T$; we must show $x\in\Om$. If not, then $x\in\bar\Om\mns\Om=\del\Om$,
+so taking $y:=x$ in the definition of $T$ gives $\rho\le d(x,x)=\|(-x)*x\|=\|0\|=0$,
+contradicting $\rho>0$. Hence $x\in\Om$, and $x\in K_\rho$.
+
+By (5), $K_\rho$ is closed (an intersection of two closed sets) and bounded (it is contained
+in the bounded set $\bar\Om$), hence compact.
+
+\medskip\noindent\textbf{Step 6: the ball inclusion.} We prove the following statement,
+which gives both (6) and (7): \emph{let $x\in\Om$, let $\delta>0$ and assume
+$\delta\le d(x,y)$ for every $y\in\del\Om$; then $S:=\{z:\ d(z,x)<\delta\}\subseteq\Om$.}
+
+By \noderef{CarnotSetting} the set $S$ is connected (and non-empty). First, $S$ misses
+$\del\Om$: if $z\in S$ and $z\in\del\Om$ then the hypothesis at $y:=z$ gives
+$\delta\le d(x,z)$, while (1) gives $d(x,z)=d(z,x)<\delta$ — a contradiction.
+
+Second, $S$ is covered by the two \emph{open} sets $\Om$ and $(\bar\Om)^{c}$: let $z\in S$.
+If $z\notin\bar\Om$ then $z\in(\bar\Om)^{c}$. If $z\in\bar\Om$ and $z\notin\Om$ then
+$z\in\bar\Om\mns\Om=\del\Om$, contradicting the previous paragraph; so $z\in\Om$.
+
+Third, $x\in S$, because $d(x,x)=\|(-x)*x\|=\|0\|=0<\delta$; and $x\in\Om$ by hypothesis, so
+$S\cap\Om\ne\emptyset$. The two covering sets are disjoint from each other \emph{on} $S$ in
+the strong sense that $\Om\cap(\bar\Om)^{c}=\emptyset$ (a point of $\Om$ lies in $\bar\Om$).
+If some $w\in S$ had $w\notin\Om$, then $w\in(\bar\Om)^{c}$ by the cover, so $S$ would meet
+both $\Om$ and $(\bar\Om)^{c}$; since $S$ is connected and
+$\Om\cup(\bar\Om)^{c}\supseteq S$ with $\Om$, $(\bar\Om)^{c}$ open and
+$\Om\cap(\bar\Om)^{c}\cap S=\emptyset$, this is impossible. Hence $S\subseteq\Om$.
+
+For (6), let $\delta>0$ and $x\in\Om_\delta$: then $x\in\Om$ and $\delta<d(x,y)$, so
+$\delta\le d(x,y)$, for every $y\in\del\Om$, and the statement applies. For (7), let
+$\rho>0$ and $x\in K_\rho$: then $x\in\Om$ and $\rho\le d(x,y)$ for every $y\in\del\Om$,
+and the statement applies with $\delta:=\rho$.
+\end{proof}

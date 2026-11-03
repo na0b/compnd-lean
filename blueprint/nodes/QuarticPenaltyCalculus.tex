@@ -1,0 +1,206 @@
+\begin{lemma}[The calculus of the quartic penalty $P_{\mu,c}(x)=\mu\|x-c\|^{4}$]
+Let $N\in\mathbb N$. Let
+\[
+ P:\mathbb R\times\mathbb R^{N}\times\mathbb R^{N}\to\mathbb R,\qquad
+ D:\mathbb R\times\mathbb R^{N}\times\mathbb R^{N}\to(\mathbb R^{N})^{*},\qquad
+ Q:\mathbb R\times\mathbb R^{N}\times\mathbb R^{N}\to\mathrm{Bil}(\mathbb R^{N}),
+\]
+write $P_{\mu,c}(x):=P(\mu,c,x)$, $D_{\mu,c}(x):=D(\mu,c,x)$ and
+$Q_{\mu,c}(x):=Q(\mu,c,x)$ (so $D_{\mu,c}(x)$ is a continuous linear functional and
+$Q_{\mu,c}(x)$ a continuous bilinear form on $\mathbb R^{N}$), and let $B$ be a continuous
+bilinear form on $\mathbb R^{N}$. Assume that for all $\mu\in\mathbb R$ and all
+$c,x\in\mathbb R^{N}$, and all $a,b\in\mathbb R^{N}$,
+\begin{align}
+ P_{\mu,c}(x)&=\mu\|x-c\|^{4}, \tag{H1}\\
+ D_{\mu,c}(x)&=\big(4\mu\|x-c\|^{2}\big)\,\langle x-c,\cdot\rangle, \tag{H2}\\
+ B(a,b)&=\langle a,b\rangle, \tag{H3}\\
+ Q_{\mu,c}(x)&=\big(4\mu\|x-c\|^{2}\big)\,B
+   +\big(8\mu\big)\,\big(\langle x-c,\cdot\rangle\otimes\langle x-c,\cdot\rangle\big).
+ \tag{H4}
+\end{align}
+Then the following hold.
+\begin{enumerate}
+\item $Q_{\mu,c}(x)(a,b)=Q_{\mu,c}(x)(b,a)$ for all $\mu$ and all $c,x,a,b$.
+\item If $\mu\ge0$ then $\|D_{\mu,c}(x)\|\le4\mu\|x-c\|^{3}$ for all $c,x$.
+\item If $\mu\ge0$ then $\|Q_{\mu,c}(x)\|\le12\mu\|x-c\|^{2}$ for all $c,x$.
+\item If $\mu\ge0$ then, for all $c,z$, the pair $\big(D_{\mu,c}(z),Q_{\mu,c}(z)\big)$ is a
+  second-order jet of $P_{\mu,c}$ at $z$ in the sense of \noderef{TwiceDiffAt}.
+\item $P_{\mu,c}(c)=0$ for all $\mu,c$.
+\item If $\mu>0$ then $P_{\mu,c}(x)>0$ for all $c$ and all $x\ne c$.
+\item For all $a,b\in\mathbb R^{N}$ and $t\in\mathbb R$,
+  \[
+   \|t a+(1-t)b\|^{2}=t\|a\|^{2}+(1-t)\|b\|^{2}-t(1-t)\|a-b\|^{2}.
+  \]
+\item If $\mu\ge0$, $R\ge0$, and $x,y\in\mathbb R^{N}$ satisfy $\|x-c\|\le R$ and
+  $\|y-c\|\le R$, then for every $t\in[0,1]$
+  \[
+   t\,P_{\mu,c}(x)+(1-t)P_{\mu,c}(y)-P_{\mu,c}\big(t x+(1-t)y\big)
+    \ \le\ 6\mu R^{2}\big(t(1-t)\|x-y\|^{2}\big).
+  \]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 0: the pointwise formulas.} Evaluating (H2) at $h$, and (H4) at
+$(h,k)$ using (H3), gives for all $\mu$ and all $c,x,h,k$
+\begin{align}
+ D_{\mu,c}(x)h&=4\mu\|x-c\|^{2}\,\langle x-c,h\rangle, \tag{1}\\
+ Q_{\mu,c}(x)(h,k)&=4\mu\|x-c\|^{2}\,\langle h,k\rangle
+   +8\mu\,\langle x-c,h\rangle\langle x-c,k\rangle. \tag{2}
+\end{align}
+We use the Cauchy--Schwarz inequality $|\langle u,v\rangle|\le\|u\|\,\|v\|$ throughout.
+
+\medskip\noindent\textbf{Step 1: part (1).} By (2) applied to $(a,b)$ and to $(b,a)$,
+symmetry of the real inner product ($\langle a,b\rangle=\langle b,a\rangle$) and
+commutativity of multiplication in $\mathbb R$ give
+$Q_{\mu,c}(x)(a,b)=Q_{\mu,c}(x)(b,a)$.
+
+\medskip\noindent\textbf{Step 2: part (2).} Let $\mu\ge0$. The quantity
+$4\mu\|x-c\|^{3}$ is non-negative, so by the characterisation of the operator norm it
+suffices to bound $|D_{\mu,c}(x)h|$ by $4\mu\|x-c\|^{3}\|h\|$ for every $h$. Since
+$4\mu\|x-c\|^{2}\ge0$, (1) and Cauchy--Schwarz give
+\[
+ |D_{\mu,c}(x)h|=4\mu\|x-c\|^{2}\,\big|\langle x-c,h\rangle\big|
+  \le4\mu\|x-c\|^{2}\big(\|x-c\|\,\|h\|\big)=4\mu\|x-c\|^{3}\|h\| .
+\]
+
+\medskip\noindent\textbf{Step 3: part (3).} Let $\mu\ge0$; then $12\mu\|x-c\|^{2}\ge0$.
+Applying the operator-norm characterisation twice, it suffices to bound
+$|Q_{\mu,c}(x)(h,k)|$ by $12\mu\|x-c\|^{2}\|h\|\,\|k\|$. By Cauchy--Schwarz,
+$|\langle h,k\rangle|\le\|h\|\|k\|$, $|\langle x-c,h\rangle|\le\|x-c\|\|h\|$ and
+$|\langle x-c,k\rangle|\le\|x-c\|\|k\|$; so, using $4\mu\|x-c\|^{2}\ge0$ and $8\mu\ge0$,
+the two summands of (2) are bounded in absolute value by
+$4\mu\|x-c\|^{2}\|h\|\|k\|$ and by
+$8\mu\big(\|x-c\|\|h\|\big)\big(\|x-c\|\|k\|\big)=8\mu\|x-c\|^{2}\|h\|\|k\|$. The triangle
+inequality and $4+8=12$ finish the step.
+
+\medskip\noindent\textbf{Step 4: part (4).} Let $\mu\ge0$ and fix $c,z$. We apply part (1)
+of \noderef{SecondOrderJetCalculus} --- the cubic-remainder criterion --- with the function
+$P_{\mu,c}$, the base point $z$, the jet data $\big(D_{\mu,c}(z),Q_{\mu,c}(z)\big)$ and the
+constant
+\[
+ C:=4\mu\|z-c\|+\mu\ \ge\ 0 ,
+\]
+which is non-negative because $\mu\ge0$ and $\|z-c\|\ge0$. Symmetry of $Q_{\mu,c}(z)$ is
+part (1). So it remains to prove the cubic bound: for every $y$ with $\|y-z\|\le1$,
+\[
+ \Big|P_{\mu,c}(y)-P_{\mu,c}(z)-D_{\mu,c}(z)(y-z)
+   -\tfrac12Q_{\mu,c}(z)(y-z,y-z)\Big|\ \le\ C\|y-z\|^{3}. \tag{3}
+\]
+Abbreviate $A:=\|z-c\|^{2}$, $\beta:=\langle z-c,y-z\rangle$ and $E:=\|y-z\|^{2}$. Since
+$y-c=(z-c)+(y-z)$, expanding the squared norm of a sum gives
+\[
+ \|y-c\|^{2}=A+2\beta+E . \tag{4}
+\]
+Now compute the remainder exactly. By (H1) and $\|w\|^{4}=\big(\|w\|^{2}\big)^{2}$ together
+with (4), $P_{\mu,c}(y)=\mu(A+2\beta+E)^{2}$ and $P_{\mu,c}(z)=\mu A^{2}$; by (1),
+$D_{\mu,c}(z)(y-z)=4\mu A\beta$; and by (2) with $h=k=y-z$, using
+$\langle y-z,y-z\rangle=E$,
+\[
+ \tfrac12Q_{\mu,c}(z)(y-z,y-z)=\tfrac12\big(4\mu A E+8\mu\beta^{2}\big)
+  =2\mu A E+4\mu\beta^{2}.
+\]
+Since $(A+2\beta+E)^{2}=A^{2}+4\beta^{2}+E^{2}+4A\beta+2AE+4\beta E$, the four displayed
+quantities combine to
+\[
+ P_{\mu,c}(y)-P_{\mu,c}(z)-D_{\mu,c}(z)(y-z)-\tfrac12Q_{\mu,c}(z)(y-z,y-z)
+  =\mu\big(4\beta E+E^{2}\big). \tag{5}
+\]
+It remains to bound $\big|4\beta E+E^{2}\big|$. First, by Cauchy--Schwarz and $E\ge0$,
+\[
+ |4\beta E|=4|\beta|E\le4\big(\|z-c\|\,\|y-z\|\big)\|y-z\|^{2}
+  =4\|z-c\|\,\|y-z\|^{3}.
+\]
+Second, $E^{2}=\|y-z\|^{4}\le\|y-z\|^{3}$, because $\|y-z\|\le1$ and $\|y-z\|^{3}\ge0$.
+Hence, by the triangle inequality and $\mu\ge0$, taking absolute values in (5),
+\[
+ \Big|\cdots\Big|=\mu\big|4\beta E+E^{2}\big|
+  \le\mu\Big(4\|z-c\|\,\|y-z\|^{3}+\|y-z\|^{3}\Big)
+  =\big(4\mu\|z-c\|+\mu\big)\|y-z\|^{3},
+\]
+which is (3). Part (1) of \noderef{SecondOrderJetCalculus} therefore applies and yields the
+jet property, i.e.\ part (4).
+
+\medskip\noindent\textbf{Step 5: parts (5) and (6).} By (H1), $P_{\mu,c}(c)=\mu\|c-c\|^{4}$
+and $c-c=0$, so $\|c-c\|=0$ and $P_{\mu,c}(c)=0$. If $\mu>0$ and $x\ne c$ then
+$x-c\ne0$, so $\|x-c\|>0$ and hence $\|x-c\|^{4}>0$; multiplying by $\mu>0$ gives
+$P_{\mu,c}(x)=\mu\|x-c\|^{4}>0$.
+
+\medskip\noindent\textbf{Step 6: part (7).} Expanding the squared norms of a sum and of a
+difference, $\|u+v\|^{2}=\|u\|^{2}+2\langle u,v\rangle+\|v\|^{2}$ and
+$\|u-v\|^{2}=\|u\|^{2}-2\langle u,v\rangle+\|v\|^{2}$, and using
+$\|\lambda w\|^{2}=\lambda^{2}\|w\|^{2}$ together with the homogeneity
+$\langle\lambda u,\mu v\rangle=\lambda\mu\langle u,v\rangle$ of the real inner product,
+\[
+ \|t a+(1-t)b\|^{2}=t^{2}\|a\|^{2}+2t(1-t)\langle a,b\rangle+(1-t)^{2}\|b\|^{2},
+\]
+while
+\[
+ t\|a\|^{2}+(1-t)\|b\|^{2}-t(1-t)\|a-b\|^{2}
+ =t\|a\|^{2}+(1-t)\|b\|^{2}-t(1-t)\Big(\|a\|^{2}-2\langle a,b\rangle+\|b\|^{2}\Big).
+\]
+The coefficient of $\|a\|^{2}$ on the right is $t-t(1-t)=t^{2}$, that of $\|b\|^{2}$ is
+$(1-t)-t(1-t)=(1-t)^{2}$, and the cross term is $2t(1-t)\langle a,b\rangle$. The two
+expressions agree, which is (7).
+
+\medskip\noindent\textbf{Step 7: part (8).} Let $\mu\ge0$, $R\ge0$, $\|x-c\|\le R$,
+$\|y-c\|\le R$ and $0\le t\le1$. Put
+\[
+ a:=\|x-c\|^{2},\qquad b:=\|y-c\|^{2},\qquad q:=t(1-t)\|x-y\|^{2},\qquad
+ S:=t a+(1-t)b .
+\]
+Since $0\le t$ and $0\le1-t$, we have $t(1-t)\ge0$ and hence $q\ge0$.
+
+\emph{(7a) The chord value.} As $t x+(1-t)y-c=t(x-c)+(1-t)(y-c)$ and
+$(x-c)-(y-c)=x-y$, part (7) applied with the vectors $x-c$ and $y-c$ in place of its $a$
+and $b$ gives
+\[
+ \big\|t x+(1-t)y-c\big\|^{2}=t\|x-c\|^{2}+(1-t)\|y-c\|^{2}-t(1-t)\|x-y\|^{2}=S-q .
+\]
+Therefore, by (H1) and $\|w\|^{4}=(\|w\|^{2})^{2}$,
+\[
+ P_{\mu,c}(x)=\mu a^{2},\qquad P_{\mu,c}(y)=\mu b^{2},\qquad
+ P_{\mu,c}\big(t x+(1-t)y\big)=\mu(S-q)^{2},
+\]
+so that
+\[
+ t\,P_{\mu,c}(x)+(1-t)P_{\mu,c}(y)-P_{\mu,c}\big(t x+(1-t)y\big)
+  =\mu\Big(t a^{2}+(1-t)b^{2}-(S-q)^{2}\Big). \tag{6}
+\]
+
+\emph{(7b) The algebraic identity.} Since $S=t a+(1-t)b$ and $t+(1-t)=1$, one checks by
+expanding that $t a^{2}+(1-t)b^{2}-S^{2}=t(1-t)(a-b)^{2}$. Adding
+$S^{2}-(S-q)^{2}=2Sq-q^{2}$,
+\[
+ t a^{2}+(1-t)b^{2}-(S-q)^{2}=t(1-t)(a-b)^{2}+2Sq-q^{2}. \tag{7}
+\]
+
+\emph{(7c) The three bounds.} First, $|a-b|\le2R\|x-y\|$: indeed
+\[
+ |a-b|=\Big|\|x-c\|^{2}-\|y-c\|^{2}\Big|
+  =\Big|\|x-c\|-\|y-c\|\Big|\cdot\Big(\|x-c\|+\|y-c\|\Big),
+\]
+the factorisation being legitimate because $\|x-c\|+\|y-c\|\ge0$; now
+$\big|\|x-c\|-\|y-c\|\big|\le\|(x-c)-(y-c)\|=\|x-y\|$ by the reverse triangle inequality,
+and $\|x-c\|+\|y-c\|\le2R$ by hypothesis. Squaring, $(a-b)^{2}\le4R^{2}\|x-y\|^{2}$, and
+multiplying by $t(1-t)\ge0$,
+\[
+ t(1-t)(a-b)^{2}\le4R^{2}q .
+\]
+Second, $a\le R^{2}$ and $b\le R^{2}$: from $0\le\|x-c\|\le R$ and $0\le\|y-c\|\le R$,
+squaring preserves the inequalities. Hence
+$S=t a+(1-t)b\le tR^{2}+(1-t)R^{2}=R^{2}$, and multiplying by $q\ge0$,
+\[
+ 2Sq\le2R^{2}q .
+\]
+Third, $-q^{2}\le0$. Substituting the three bounds into (7),
+\[
+ t a^{2}+(1-t)b^{2}-(S-q)^{2}\ \le\ 4R^{2}q+2R^{2}q\ =\ 6R^{2}q .
+\]
+
+\emph{(7d) Conclusion.} Multiplying the last inequality by $\mu\ge0$ and using (6),
+\[
+ t\,P_{\mu,c}(x)+(1-t)P_{\mu,c}(y)-P_{\mu,c}\big(t x+(1-t)y\big)
+  \ \le\ 6\mu R^{2}q\ =\ 6\mu R^{2}\big(t(1-t)\|x-y\|^{2}\big),
+\]
+which is part (8).
+\end{proof}

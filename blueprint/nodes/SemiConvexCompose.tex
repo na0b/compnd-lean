@@ -1,0 +1,272 @@
+\begin{theorem}[Section~2.3(4): composition]
+Let $N\in\mathbb N$, let $\Omega\subseteq\mathbb R^{N}$ and let
+$w:\mathbb R^{N}\to\mathbb R$ be locally semi-convex on $\Omega$
+(\noderef{LocallySemiConvexOn}). Then:
+\begin{enumerate}
+\item for every $\psi\in C^{2}(\mathbb R)$ with $\psi'\ge1$ and $\psi''\ge0$ everywhere, the
+  function $\psi\circ w$ is locally semi-convex on $\Omega$;
+\item for every $\Theta:\mathbb R^{N}\to\mathbb R^{N}$ of class $C^{2}$, the function
+  $w\circ\Theta$ is locally semi-convex on $\Theta^{-1}(\Omega)$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+The proof runs through the \emph{chord form} of local semi-convexity, established in Step 1
+in both directions: it is consumed for $w$ and produced for $\psi\circ w$ and
+$w\circ\Theta$.
+
+\medskip\noindent\textbf{Step 0: the parallelogram identity.} For all
+$x,y\in\mathbb R^{N}$ and $t\in\mathbb R$,
+\[
+ \big|t\,x+(1-t)\,y\big|^{2}
+  =t\,|x|^{2}+(1-t)\,|y|^{2}-t(1-t)\,|x-y|^{2}. \tag{0}
+\]
+Indeed, expanding the left side, $|tx+(1-t)y|^{2}
+=t^{2}|x|^{2}+2t(1-t)\langle x,y\rangle+(1-t)^{2}|y|^{2}$, while expanding the right side,
+\[
+ t|x|^{2}+(1-t)|y|^{2}-t(1-t)\big(|x|^{2}-2\langle x,y\rangle+|y|^{2}\big)
+  =t\big(1-(1-t)\big)|x|^{2}+(1-t)(1-t)|y|^{2}+2t(1-t)\langle x,y\rangle,
+\]
+and $t(1-(1-t))=t^{2}$, so the two agree.
+
+\medskip\noindent\textbf{Step 1: the chord form.} Let $S\subseteq\mathbb R^{N}$, let
+$f:\mathbb R^{N}\to\mathbb R$ and let $L\in\mathbb R$. Consider the two statements
+\begin{align}
+ &\text{(C)}\quad f\big(tx+(1-t)y\big)\ \le\ t\,f(x)+(1-t)\,f(y)
+    +\frac L2\,t(1-t)\,|x-y|^{2}\ \ \text{for all }x,y\in S,\ t\in[0,1];\notag\\
+ &\text{(V)}\quad y\mapsto f(y)+\frac L2|y|^{2}\ \text{is convex on }S.\notag
+\end{align}
+Then (V) implies (C); and if $S$ is convex, (C) implies (V).
+
+\emph{(V)$\Rightarrow$(C).} Let $x,y\in S$ and $t\in[0,1]$. Put $a:=t$, $b:=1-t$, so
+$a,b\ge0$ and $a+b=1$. Convexity of $f+\tfrac L2|\cdot|^{2}$ on $S$ gives
+\[
+ f\big(ax+by\big)+\frac L2\big|ax+by\big|^{2}
+  \le a\Big(f(x)+\frac L2|x|^{2}\Big)+b\Big(f(y)+\frac L2|y|^{2}\Big).
+\]
+Substituting (0) for $|ax+by|^{2}=|tx+(1-t)y|^{2}$ on the left and cancelling the common
+terms $\tfrac L2\big(t|x|^{2}+(1-t)|y|^{2}\big)$ from both sides leaves exactly
+\[
+ f\big(tx+(1-t)y\big)-\frac L2\,t(1-t)|x-y|^{2}\ \le\ t\,f(x)+(1-t)\,f(y),
+\]
+which is (C).
+
+\emph{(C)$\Rightarrow$(V) when $S$ is convex.} Let $x,y\in S$ and $a,b\ge0$ with $a+b=1$;
+then $b=1-a$ and $a\in[0,1]$. By (C) with $t:=a$,
+\[
+ f\big(ax+(1-a)y\big)\ \le\ a f(x)+(1-a)f(y)+\frac L2\,a(1-a)|x-y|^{2}.
+\]
+Adding $\tfrac L2|ax+(1-a)y|^{2}$ to both sides and rewriting it by (0) as
+$\tfrac L2\big(a|x|^{2}+(1-a)|y|^{2}\big)-\tfrac L2 a(1-a)|x-y|^{2}$, the two terms
+$\tfrac L2a(1-a)|x-y|^{2}$ cancel and we get
+\[
+ f\big(ax+(1-a)y\big)+\frac L2\big|ax+(1-a)y\big|^{2}
+  \le a\Big(f(x)+\frac L2|x|^{2}\Big)+(1-a)\Big(f(y)+\frac L2|y|^{2}\Big),
+\]
+which, together with the convexity of $S$, is (V).
+
+\medskip\noindent\textbf{Step 2: proof of (1), the outer composition.} Fix $x_0\in\Omega$.
+By \noderef{LocallySemiConvexOn} there are $\rho>0$ and $\Lambda\ge0$ with
+$B_\rho(x_0)\subseteq\Omega$ such that $w+\tfrac\Lambda2|\cdot|^{2}$ is convex on
+$B_\rho(x_0)$. Put $r:=\rho/2$, so $\overline B_r(x_0)\subseteq B_\rho(x_0)$ and $B_r(x_0)$
+is an open convex subset of $B_\rho(x_0)$. By Step 1 ((V)$\Rightarrow$(C), with
+$S:=B_r(x_0)$, noting that a convex function on $B_\rho(x_0)$ is convex on the convex subset
+$B_r(x_0)$),
+\[
+ w\big(ty+(1-t)z\big)\ \le\ t\,w(y)+(1-t)\,w(z)+\frac\Lambda2\,t(1-t)\,|y-z|^{2}
+ \qquad\text{for }y,z\in B_r(x_0),\ t\in[0,1]. \tag{2}
+\]
+
+\emph{(2a) a compact interval containing all relevant values.} By part (1) of
+\noderef{SemiConvexLocLipschitz}, $w$ is continuous on $\Omega$, hence on the compact set
+$\overline B_r(x_0)\subseteq\Omega$, so
+$M:=\sup_{\overline B_r(x_0)}|w|<\infty$ and $M\ge0$. For $y,z\in B_r(x_0)$ and
+$t\in[0,1]$ put
+\[
+ a:=t\,w(y)+(1-t)\,w(z),\qquad h:=\frac\Lambda2\,t(1-t)\,|y-z|^{2}\ \ge0 .
+\]
+Then $|a|\le M$, being a convex combination of two numbers of absolute value $\le M$; and
+since $|y-z|\le|y-x_0|+|x_0-z|<2r$ and $t(1-t)\le\tfrac14$,
+\[
+ 0\le h\le\frac\Lambda2\cdot\frac14\cdot(2r)^{2}=\frac{\Lambda r^{2}}{2} .
+\]
+Also $ty+(1-t)z\in B_r(x_0)$ because balls are convex, so
+$|w(ty+(1-t)z)|\le M$. Therefore all of $w(ty+(1-t)z)$, $a$ and $a+h$ lie in the compact
+interval
+\[
+ I:=\Big[-M-1,\ M+\frac{\Lambda r^{2}}{2}+1\Big].
+\]
+
+\emph{(2b) properties of $\psi$.} Since $\psi\in C^{2}(\mathbb R)$, $\psi'$ is continuous, so
+$L_\psi:=\max_{s\in I}|\psi'(s)|<\infty$ and $L_\psi\ge1$ because $\psi'\ge1$ on $I$ and $I$
+is non-empty. By the mean value theorem, for $s_1\le s_2$ in $I$ there is $\theta$ between
+them (hence in $I$, as $I$ is an interval) with
+$\psi(s_2)-\psi(s_1)=\psi'(\theta)(s_2-s_1)$; consequently
+\[
+ \psi(s_2)-\psi(s_1)\le L_\psi\,(s_2-s_1)\qquad\text{for }s_1\le s_2\text{ in }I, \tag{3}
+\]
+and also $\psi(s_1)\le\psi(s_2)$, i.e. $\psi$ is nondecreasing --- in fact $\psi$ is
+nondecreasing on all of $\mathbb R$, since $\psi'\ge1>0$ everywhere. Finally $\psi$ is convex
+on $\mathbb R$, because $\psi''\ge0$ everywhere.
+
+\emph{(2c) the chord inequality for $\psi\circ w$.} Let $y,z\in B_r(x_0)$ and $t\in[0,1]$.
+Applying the nondecreasing $\psi$ to (2),
+\[
+ \psi\Big(w\big(ty+(1-t)z\big)\Big)\ \le\ \psi(a+h).
+\]
+Since $a\le a+h$ and both lie in $I$, (3) gives $\psi(a+h)\le\psi(a)+L_\psi h$. Since $\psi$
+is convex and $a=t\,w(y)+(1-t)\,w(z)$,
+\[
+ \psi(a)\ \le\ t\,\psi\big(w(y)\big)+(1-t)\,\psi\big(w(z)\big).
+\]
+Combining the three displays and substituting the value of $h$,
+\[
+ (\psi\circ w)\big(ty+(1-t)z\big)
+  \ \le\ t\,(\psi\circ w)(y)+(1-t)\,(\psi\circ w)(z)
+   +\frac{L_\psi\Lambda}{2}\,t(1-t)\,|y-z|^{2}.
+\]
+This is statement (C) of Step 1 for $f:=\psi\circ w$ on $S:=B_r(x_0)$ with
+$L:=L_\psi\Lambda\ge0$. As $B_r(x_0)$ is convex, Step 1 ((C)$\Rightarrow$(V)) gives that
+$\psi\circ w+\tfrac{L_\psi\Lambda}{2}|\cdot|^{2}$ is convex on $B_r(x_0)$. Since
+$r>0$, $L_\psi\Lambda\ge0$ and $B_r(x_0)\subseteq B_\rho(x_0)\subseteq\Omega$, the point
+$x_0$ satisfies the requirement of \noderef{LocallySemiConvexOn} for $\psi\circ w$. As
+$x_0\in\Omega$ was arbitrary, $\psi\circ w$ is locally semi-convex on $\Omega$.
+
+\medskip\noindent\textbf{Step 3: a second-order bound for $C^{2}$ maps.} Let
+$\Theta\in C^{2}$, let $K\subseteq\mathbb R^{N}$ be convex with
+$C_1:=\sup_K\|D\Theta\|<\infty$ and $C_2:=\sup_K\|D^{2}\Theta\|<\infty$. Then for all
+$y,z\in K$ and $t\in[0,1]$,
+\[
+ \big|\Theta y-\Theta z\big|\le C_1|y-z|, \tag{4}
+\]
+\[
+ \Big|\Theta\big(ty+(1-t)z\big)-t\,\Theta y-(1-t)\,\Theta z\Big|
+  \ \le\ \frac{C_2}{2}\,t(1-t)\,|y-z|^{2}. \tag{5}
+\]
+(4) is the mean value inequality along the segment $[z,y]\subseteq K$. For (5), set
+$\gamma(\tau):=\tau y+(1-\tau)z$ for $\tau\in[0,1]$, which lies in $K$ by convexity, and
+\[
+ \phi(\tau):=\Theta\big(\gamma(\tau)\big)-\tau\,\Theta y-(1-\tau)\,\Theta z .
+\]
+Then $\phi$ is $C^{2}$ on $[0,1]$ with $\phi(0)=\phi(1)=0$, and since
+$\gamma'=y-z$, $\gamma''=0$,
+\[
+ \phi''(\tau)=D^{2}\Theta\big(\gamma(\tau)\big)(y-z,\,y-z),
+ \qquad\text{so}\qquad |\phi''(\tau)|\le C_2\,|y-z|^{2}=:S .
+\]
+Fix $t\in[0,1]$ and choose a linear functional $\ell$ on $\mathbb R^{N}$ with $\|\ell\|=1$
+and $\ell(\phi(t))=|\phi(t)|$ (take $\ell=\langle\phi(t)/|\phi(t)|,\cdot\rangle$ if
+$\phi(t)\ne0$, and any unit functional otherwise). Put $\varphi:=\ell\circ\phi$, a real
+$C^{2}$ function on $[0,1]$ with $\varphi(0)=\varphi(1)=0$ and $|\varphi''|\le S$. Let
+$\pi(\tau):=\tfrac S2\tau(1-\tau)$, so $\pi(0)=\pi(1)=0$ and $\pi''\equiv-S$. The function
+$\eta:=\varphi-\pi$ satisfies $\eta''=\varphi''+S\ge0$, so $\eta$ is convex on $[0,1]$, and
+$\eta(0)=\eta(1)=0$; a convex function on $[0,1]$ vanishing at both endpoints is $\le0$
+throughout, since $\eta(\tau)\le(1-\tau)\eta(0)+\tau\eta(1)=0$. Hence
+$\varphi\le\pi$ on $[0,1]$. The same argument applied to $-\varphi$ gives
+$-\varphi\le\pi$. Therefore
+\[
+ |\phi(t)|=\varphi(t)\le\pi(t)=\frac S2\,t(1-t)=\frac{C_2}{2}\,t(1-t)\,|y-z|^{2},
+\]
+which is (5).
+
+\medskip\noindent\textbf{Step 4: proof of (2), the inner composition.} Let
+$y_0\in\Theta^{-1}(\Omega)$ and put $x_0:=\Theta(y_0)\in\Omega$.
+
+\emph{(4a) data at $x_0$.} By \noderef{LocallySemiConvexOn} there are $\rho>0$ and
+$\Lambda\ge0$ with $B_\rho(x_0)\subseteq\Omega$ and $w+\tfrac\Lambda2|\cdot|^{2}$ convex on
+$B_\rho(x_0)$. By part (2) of \noderef{SemiConvexLocLipschitz} at $x_0$ there are $r_0>0$ and
+$C_0\ge0$ with $B_{r_0}(x_0)\subseteq\Omega$ and $|w(P)-w(Q)|\le C_0|P-Q|$ for all
+$P,Q\in B_{r_0}(x_0)$. Put $\rho':=\min\{\rho,r_0\}>0$. On the open convex set
+$B_{\rho'}(x_0)$ both properties hold: $w+\tfrac\Lambda2|\cdot|^{2}$ is convex there (it is
+convex on the larger convex set $B_\rho(x_0)$), and $w$ is $C_0$-Lipschitz there. By Step 1
+((V)$\Rightarrow$(C)),
+\[
+ w\big(tP+(1-t)Q\big)\le t\,w(P)+(1-t)\,w(Q)+\frac\Lambda2\,t(1-t)|P-Q|^{2}
+ \quad\text{for }P,Q\in B_{\rho'}(x_0),\ t\in[0,1]. \tag{6}
+\]
+
+\emph{(4b) data at $y_0$.} Fix any $s_0>0$ and let $K:=\overline B_{s_0}(y_0)$, a compact
+convex set. Since $\Theta$ is $C^{2}$, $D\Theta$ and $D^{2}\Theta$ are continuous, hence
+bounded on $K$:
+\[
+ C_1:=\sup_K\|D\Theta\|<\infty,\qquad C_2:=\sup_K\|D^{2}\Theta\|<\infty ,
+\]
+both $\ge0$. $\Theta$ is continuous, so there is $s_1\in(0,s_0]$ with
+$\Theta\big(B_{s_1}(y_0)\big)\subseteq B_{\rho'/2}(x_0)$. Choose
+\[
+ s:=\min\Big\{s_1,\ \sqrt{\tfrac{\rho'}{8(C_2+1)}}\Big\}>0 ,
+\]
+so that in particular $B_s(y_0)\subseteq B_{s_1}(y_0)\subseteq K$,
+$\Theta(B_s(y_0))\subseteq B_{\rho'/2}(x_0)$ and
+\[
+ \frac{C_2}{2}\cdot\frac14\cdot(2s)^{2}=\frac{C_2 s^{2}}{2}
+  \le\frac{(C_2+1)}{2}\cdot\frac{\rho'}{8(C_2+1)}=\frac{\rho'}{16}<\frac{\rho'}{2}. \tag{7}
+\]
+Note also $B_s(y_0)\subseteq\Theta^{-1}(\Omega)$, since
+$\Theta(B_s(y_0))\subseteq B_{\rho'/2}(x_0)\subseteq B_\rho(x_0)\subseteq\Omega$.
+
+\emph{(4c) the chord inequality for $w\circ\Theta$.} Let $y,z\in B_s(y_0)$ and $t\in[0,1]$,
+and write
+\[
+ P:=\Theta y,\qquad Q:=\Theta z,\qquad
+ R:=\Theta\big(ty+(1-t)z\big)-\big(tP+(1-t)Q\big).
+\]
+Since balls are convex, $ty+(1-t)z\in B_s(y_0)$, so $\Theta(ty+(1-t)z)\in B_{\rho'/2}(x_0)$,
+and $P,Q\in B_{\rho'/2}(x_0)$. Hence $tP+(1-t)Q\in B_{\rho'/2}(x_0)$, being a convex
+combination of two of its points. By Step 3 applied on the convex set $K\supseteq B_s(y_0)$,
+\[
+ |R|\le\frac{C_2}{2}t(1-t)|y-z|^{2}\quad\text{and}\quad |P-Q|\le C_1|y-z| . \tag{8}
+\]
+Using $|y-z|<2s$ and $t(1-t)\le\tfrac14$, the first bound in (8) together with (7) gives
+$|R|<\rho'/2$, so
+\[
+ \big|\big(tP+(1-t)Q\big)+R-x_0\big|\le\big|tP+(1-t)Q-x_0\big|+|R|<\frac{\rho'}2+\frac{\rho'}2=\rho',
+\]
+i.e. both $tP+(1-t)Q$ and $\big(tP+(1-t)Q\big)+R=\Theta(ty+(1-t)z)$ lie in
+$B_{\rho'}(x_0)$. Therefore, $w$ being $C_0$-Lipschitz on $B_{\rho'}(x_0)$,
+\[
+ w\Big(\Theta\big(ty+(1-t)z\big)\Big)
+  \ \le\ w\big(tP+(1-t)Q\big)+C_0\,|R|
+  \ \le\ w\big(tP+(1-t)Q\big)+\frac{C_0C_2}{2}\,t(1-t)\,|y-z|^{2}.
+\]
+Applying (6) to $P,Q\in B_{\rho'}(x_0)$ and then the second bound in (8),
+\[
+ w\big(tP+(1-t)Q\big)\le t\,w(P)+(1-t)\,w(Q)+\frac\Lambda2 t(1-t)|P-Q|^{2}
+  \le t\,w(P)+(1-t)\,w(Q)+\frac{\Lambda C_1^{2}}{2}t(1-t)|y-z|^{2}.
+\]
+Adding the two displays and recalling $P=\Theta y$, $Q=\Theta z$,
+\[
+ (w\circ\Theta)\big(ty+(1-t)z\big)
+  \le t\,(w\circ\Theta)(y)+(1-t)\,(w\circ\Theta)(z)
+   +\frac{\Lambda C_1^{2}+C_0C_2}{2}\,t(1-t)\,|y-z|^{2}.
+\]
+This is statement (C) of Step 1 for $f:=w\circ\Theta$ on the convex set $S:=B_s(y_0)$ with
+$L:=\Lambda C_1^{2}+C_0C_2\ge0$, so Step 1 ((C)$\Rightarrow$(V)) gives that
+$w\circ\Theta+\tfrac{L}{2}|\cdot|^{2}$ is convex on $B_s(y_0)$. Since $s>0$, $L\ge0$ and
+$B_s(y_0)\subseteq\Theta^{-1}(\Omega)$, the point $y_0$ satisfies the requirement of
+\noderef{LocallySemiConvexOn} for $w\circ\Theta$ on $\Theta^{-1}(\Omega)$. As
+$y_0\in\Theta^{-1}(\Omega)$ was arbitrary, $w\circ\Theta$ is locally semi-convex on
+$\Theta^{-1}(\Omega)$.
+
+\medskip\noindent\emph{Remark on the hypotheses and the route.} The paper justifies this
+property by the identities
+$D^{2}(\psi\circ w)=\psi''\nabla w\otimes\nabla w+\psi'D^{2}w$ and
+$D^{2}(w\circ\Theta)=D\Theta^{T}D^{2}w\,D\Theta+\nabla w\cdot D^{2}\Theta$ "at points of
+twice differentiability, and by approximation elsewhere". The approximation step is not
+supplied there, and it is avoided entirely above: the chord form of Step 1 is a statement
+about values of $w$, so it needs no differentiability of $w$ at all, and the two constants
+$L_\psi\Lambda$ and $\Lambda C_1^{2}+C_0C_2$ are the chord-form counterparts of the two
+displayed Hessian identities.
+
+The hypotheses on $\psi$ are the paper's. The hypothesis on $\Theta$ is that it is $C^{2}$;
+the paper asks in addition that $\Theta$ be a diffeomorphism with bounded first and second
+derivatives. Neither addition is needed for the conclusion as stated, and both would be
+unusable in the intended application: the conclusion is the \emph{local} notion of
+semi-convexity, so only the bounds $C_1,C_2$ on the compact set $K$ enter, and those come
+from $C^{2}$ alone; while the map the development feeds in is the right translation
+$R_h(x)=x*h$ of a Carnot group, whose first and second derivatives are polynomial in $x$ and
+hence bounded on bounded sets but not globally. Reading the paper's hypothesis on the bounded
+set where it is used --- $\Omega$ is bounded throughout --- is exactly the $C^{2}$ hypothesis
+above, and it is what the smoothness of the group law supplies. Injectivity of $\Theta$ is
+never used, because local semi-convexity of $w\circ\Theta$ is checked at each point of
+$\Theta^{-1}(\Omega)$ separately.
+\end{proof}

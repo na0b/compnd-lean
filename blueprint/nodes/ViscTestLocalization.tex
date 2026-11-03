@@ -1,0 +1,147 @@
+\begin{theorem}[Localization of test functions, the sentence after Definition~2.1]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with frame
+$\sigma=[\sigma^1,\ldots,\sigma^m]$, let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$, let
+$\Om\subset\mathbb R^{n}$ and let $u:\mathbb R^{n}\to\mathbb R$.
+\begin{enumerate}
+\item Assume $u$ is bounded above on $\Om$, i.e. there is $M_u\in\mathbb R$ with
+  $u\le M_u$ on $\Om$, and that $u$ is a viscosity sub-solution of $\mathcal L u=0$ in
+  $\Om$ (\noderef{IsViscSubsol}). Then:
+  \begin{enumerate}
+  \item for every $x\in\Om$, every $\varphi:\mathbb R^{n}\to\mathbb R$, every $r>0$ with
+    $B(x,r)\subset\Om$ and $\varphi\in C^{2}(B(x,r))$, if
+    $u-\varphi\le (u-\varphi)(x)$ on $B(x,r)$ and $(D,B)$ is a second-order jet of
+    $\varphi$ at $x$ (\noderef{TwiceDiffAt}) with
+    $\mathrm{hgrad}\ \sigma\ x\ D\ne0$ (\noderef{hgrad}), then
+    $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le0$ (\noderef{Lop});
+  \item $u$ is a viscosity sub-solution of $\mathcal L u=0$ in every open
+    $V\subset\Om$.
+  \end{enumerate}
+\item Dually, assume $u$ is bounded below on $\Om$, i.e. there is $m_u\in\mathbb R$ with
+  $m_u\le u$ on $\Om$, and that $u$ is a viscosity super-solution in $\Om$
+  (\noderef{IsViscSupersol}). Then:
+  \begin{enumerate}
+  \item for every $x\in\Om$, every $\varphi$, every $r>0$ with $B(x,r)\subset\Om$ and
+    $\varphi\in C^{2}(B(x,r))$, if $(u-\varphi)(x)\le u-\varphi$ on $B(x,r)$ and $(D,B)$
+    is a second-order jet of $\varphi$ at $x$ with
+    $\mathrm{hgrad}\ \sigma\ x\ D\ne0$, then
+    $0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$;
+  \item $u$ is a viscosity super-solution in every open $V\subset\Om$.
+  \end{enumerate}
+\end{enumerate}
+Here $B(x,r)$ is the Euclidean ball of $\mathbb R^{n}$.
+\end{theorem}
+\begin{proof}
+The paper's warrant is the single sentence following Definition~2.1: ``since $\varphi$ may be
+modified away from $x$, it is equivalent to require in (2.11) that $x$ be a local maximum
+of $w-\varphi$''. We write the modification out. The point of doing so is that our
+rendering of (2.11) is literal: \noderef{IsViscSubsol} requires $x$ to maximize
+$u-\varphi$ over \emph{all} of $\Om$ and requires $\varphi\in C^{2}(\Om)$, so neither the
+passage from a local to a global touching nor the restriction to a smaller open set is
+available for free. Both halves of the statement are instances of one construction.
+
+\medskip\noindent\textbf{Where the boundedness hypothesis comes from.} The modification
+replaces $\varphi$, away from $x$, by a constant $K$ so large that the competitor
+$u-K$ can never beat the value $(u-\varphi)(x)$ on $\Om$. Such a $K$ exists precisely when
+$u$ is bounded above on $\Om$ (for part (2), bounded below). It is not a free hypothesis,
+and it is the reason both this node and its consumers carry it; in the use sites of
+Section~3 it is supplied by $\Om$ bounded and $u\in C(\bar\Om)$.
+
+\medskip\noindent\textbf{Step 1: the cutoff.} Fix $x\in\Om$, $r>0$ with
+$B(x,r)\subset\Om$, and $\varphi\in C^{2}(B(x,r))$. Let $\chi:\mathbb R^{n}\to\mathbb R$ be
+a smooth bump function centred at $x$ with inner radius $r/4$ and outer radius $r/2$, so
+that
+\[
+ \chi\in C^{\infty}(\mathbb R^{n}),\qquad 0\le\chi\le1,\qquad
+ \chi\equiv1\ \text{on}\ \bar B(x,r/4),\qquad
+ \{\chi\ne0\}=B(x,r/2). \tag{1}
+\]
+Such a $\chi$ exists on any inner product space, in particular on $\mathbb R^{n}$: take
+the standard radial bump.
+
+\medskip\noindent\textbf{Step 2: the modified test function.} Put
+\[
+ K:=M_u-(u-\varphi)(x),\qquad
+ \tilde\varphi(y):=\chi(y)\varphi(y)+K\big(1-\chi(y)\big)\qquad (y\in\mathbb R^{n}). \tag{2}
+\]
+We check the three properties needed to feed $\tilde\varphi$ to \noderef{IsViscSubsol}.
+
+\emph{(2a) $\tilde\varphi\in C^{2}(\Om)$.} Let $y\in\Om$. If $|y-x|>r/2$, then on the open
+set $\{z:|z-x|>r/2\}$, which contains $y$, we have $\chi=0$ by (1), hence
+$\tilde\varphi\equiv K$ there, so $\tilde\varphi$ is $C^{2}$ near $y$. If $|y-x|\le r/2$,
+then $y\in B(x,r)$, which is open, so $\varphi$ is $C^{2}$ near $y$; since $\chi$ is
+smooth, $\tilde\varphi=\chi\varphi+K(1-\chi)$ is $C^{2}$ near $y$. In both cases
+$\tilde\varphi$ is $C^{2}$ on a neighbourhood of $y$, and $y\in\Om$ was arbitrary. This is
+the step for which the two radii of (1) are needed: $\chi$ is supported strictly inside
+the ball on which $\varphi$ is known to be $C^{2}$, so the product is never formed where
+$\varphi$ might fail to be regular.
+
+\emph{(2b) $x\in\argmax_\Om(u-\tilde\varphi)$.} First, $\chi(x)=1$ by (1), so
+$\tilde\varphi(x)=\varphi(x)$ and the value to beat is $(u-\varphi)(x)$. Next, for every
+$y$,
+\[
+ u(y)-\tilde\varphi(y)=\chi(y)\big(u(y)-\varphi(y)\big)+\big(1-\chi(y)\big)\big(u(y)-K\big),
+ \tag{3}
+\]
+by (2) and a rearrangement. By (1) the two coefficients $\chi(y)$ and $1-\chi(y)$ are
+non-negative and sum to $1$, so (3) exhibits $u(y)-\tilde\varphi(y)$ as a convex
+combination of the two entries, and it therefore suffices to bound each entry by
+$(u-\varphi)(x)$ whenever its coefficient is non-zero.
+
+For the second entry, let $y\in\Om$. By the choice of $K$ in (2) and $u(y)\le M_u$,
+\[
+ u(y)-K=u(y)-M_u+(u-\varphi)(x)\ \le\ (u-\varphi)(x). \tag{4}
+\]
+For the first entry we may assume $\chi(y)\ne0$, and then $y\in B(x,r/2)\subset B(x,r)$ by
+(1), so the local hypothesis $u-\varphi\le(u-\varphi)(x)$ on $B(x,r)$ applies and gives
+\[
+ u(y)-\varphi(y)\ \le\ (u-\varphi)(x). \tag{5}
+\]
+If $\chi(y)=0$, (3) reduces to $u(y)-K$ and (4) finishes; otherwise multiplying (5) by
+$\chi(y)\ge0$ and (4) by $1-\chi(y)\ge0$ and adding gives
+$u(y)-\tilde\varphi(y)\le(u-\varphi)(x)=u(x)-\tilde\varphi(x)$. Since $y\in\Om$ was
+arbitrary, $x$ maximizes $u-\tilde\varphi$ over $\Om$. Note that the hypothesis was used
+only where $\chi\ne0$, i.e. only on $B(x,r/2)$: the local touching is exactly enough.
+
+\emph{(2c) $(D,B)$ is a second-order jet of $\tilde\varphi$ at $x$.} By (1),
+$\chi\equiv1$ on $\bar B(x,r/4)$, so $\tilde\varphi=\varphi$ there; in particular
+$\tilde\varphi(x)=\varphi(x)$. The symmetry of $B$ is part of the hypothesis and is
+unchanged. For the Peano estimate, let $\varepsilon>0$ and let $\delta>0$ be given by
+\noderef{TwiceDiffAt} for $\varphi$, $(D,B)$ and $\varepsilon$. Then
+$\min\{\delta,r/4\}>0$, and for $|y-x|<\min\{\delta,r/4\}$ we have $\tilde\varphi(y)=\varphi(y)$
+and $\tilde\varphi(x)=\varphi(x)$, so
+\[
+ \Big|\tilde\varphi(y)-\tilde\varphi(x)-D(y-x)-\tfrac12B(y-x,y-x)\Big|
+ =\Big|\varphi(y)-\varphi(x)-D(y-x)-\tfrac12B(y-x,y-x)\Big|\le\varepsilon|y-x|^{2}.
+\]
+Thus $(D,B)$ is a second-order jet of $\tilde\varphi$ at $x$. This is where the inner
+radius is used: $\chi$ is identically $1$, not merely non-zero, near $x$, so the jet at $x$
+is literally unchanged and the conclusion is a statement about $\varphi$'s jet.
+
+\medskip\noindent\textbf{Step 3: conclusion of (1a).} By (2a), (2b), (2c) and
+$\mathrm{hgrad}\ \sigma\ x\ D\ne0$, the function $\tilde\varphi$ is admissible for
+\noderef{IsViscSubsol} at $x$ with the jet $(D,B)$, whence
+$\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le0$. This is (1a).
+
+\medskip\noindent\textbf{Step 4: proof of (1b).} Let $V\subset\Om$ be open. Upper
+semi-continuity of $u$ on $V$ follows from upper semi-continuity on $\Om$ by restriction.
+Let $x\in V$, let $\varphi\in C^{2}(V)$ with $x\in\argmax_V(u-\varphi)$, and let $(D,B)$
+be a second-order jet of $\varphi$ at $x$ with
+$\mathrm{hgrad}\ \sigma\ x\ D\ne0$. Since $V$ is open there is $r>0$ with
+$B(x,r)\subset V$. Then $B(x,r)\subset\Om$, $\varphi\in C^{2}(B(x,r))$ by restriction, and
+$u-\varphi\le(u-\varphi)(x)$ on $B(x,r)$ because $B(x,r)\subset V$. So (1a) applies and
+yields $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le0$. As $x$, $\varphi$ and $(D,B)$ were
+arbitrary, $u$ is a viscosity sub-solution in $V$ in the sense of \noderef{IsViscSubsol}.
+
+\medskip\noindent\textbf{Step 5: the super-solution half.} Part (2) is proved by the same
+construction with the inequalities reversed, and it is not a formal consequence of part (1)
+(our \noderef{IsViscSupersol} is a separate predicate, and $-u$ is not in play). Take
+$K:=m_u-(u-\varphi)(x)$, so that $u(y)-K=u(y)-m_u+(u-\varphi)(x)\ge(u-\varphi)(x)$ for
+$y\in\Om$, which is (4) reversed; (5) is reversed by hypothesis; (3) is an identity and
+unchanged, and the same convex-combination argument now bounds $u-\tilde\varphi$ from
+below by $(u-\varphi)(x)$ on $\Om$, i.e. $x\in\argmin_\Om(u-\tilde\varphi)$. Steps (2a),
+(2c) do not involve $u$ and are verbatim. Feeding $\tilde\varphi$ to
+\noderef{IsViscSupersol} gives $0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$, which is (2a) of
+the statement, and Step 4 with $\argmin$ in place of $\argmax$ and lower semi-continuity in
+place of upper gives (2b).
+\end{proof}

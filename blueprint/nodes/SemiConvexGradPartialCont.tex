@@ -1,0 +1,140 @@
+\begin{theorem}[Section~2.3(2): partial continuity of the gradient]
+Let $N\in\mathbb N$, let $\Omega\subseteq\mathbb R^{N}$ and let
+$w:\mathbb R^{N}\to\mathbb R$ be locally semi-convex on $\Omega$ \emph{or} locally
+semi-concave on $\Omega$ --- that is, either $w$ or $-w$ is locally semi-convex on $\Omega$
+(\noderef{LocallySemiConvexOn}). Let $x\in\Omega$ and let $(x_k)_{k\in\mathbb N}$ be a
+sequence in $\Omega$ with $x_k\to x$. Assume $w$ is differentiable at $x$, with Fr\'echet
+derivative $D$, and differentiable at each $x_k$, with Fr\'echet derivative $D_k$. Then
+$D_k\to D$ in the operator norm.
+\end{theorem}
+\begin{proof}
+\noindent\textbf{Step 0: reduction to the semi-convex case.} Suppose the statement is proved
+when $w$ is locally semi-convex on $\Omega$, and suppose instead that $-w$ is locally
+semi-convex on $\Omega$. The function $-w$ is differentiable at $x$ with derivative $-D$ and
+at each $x_k$ with derivative $-D_k$. The proved case, applied to $-w$, gives
+$-D_k\to-D$, hence $D_k\to D$ because $\|D_k-D\|=\|(-D_k)-(-D)\|$. So we may and do assume
+from now on that $w$ is locally semi-convex on $\Omega$.
+
+\medskip\noindent\textbf{Step 1: the convex function $g$ and its data.} By
+\noderef{LocallySemiConvexOn} applied at $x$ there are $\rho>0$ and $\Lambda\ge0$ with
+$B_\rho(x)\subseteq\Omega$ such that
+\[
+ g(y):=w(y)+\frac{\Lambda}{2}|y|^{2}
+\]
+is convex on $B_\rho(x)$. By part (2) of \noderef{SemiConvexLocLipschitz} applied at $x$
+there are $r_0>0$ and $C_0\ge0$ with $B_{r_0}(x)\subseteq\Omega$ and
+$|w(y)-w(z)|\le C_0|y-z|$ for all $y,z\in B_{r_0}(x)$. Put
+\[
+ r:=\min\{\rho,r_0\}>0,\qquad L:=C_0+\Lambda\big(|x|+r\big)\ \ge0 .
+\]
+Then $g$ is $L$-Lipschitz on $B_r(x)$: for $y,z\in B_r(x)$ we have $|y|,|z|\le|x|+r$, so
+\[
+ |g(y)-g(z)|\le|w(y)-w(z)|+\frac{\Lambda}{2}\big|\,|y|^{2}-|z|^{2}\big|
+  \le C_0|y-z|+\frac{\Lambda}{2}\big(|y|+|z|\big)\big|\,|y|-|z|\,\big|
+  \le L\,|y-z| , \tag{1}
+\]
+using $\big|\,|y|-|z|\,\big|\le|y-z|$. In particular $g$ is continuous on $B_r(x)$.
+
+Since $y\mapsto\tfrac{\Lambda}{2}|y|^{2}$ is differentiable everywhere with derivative
+$h\mapsto\Lambda\langle y,h\rangle$ at $y$, the differentiability hypotheses on $w$ transfer
+to $g$: $g$ is differentiable at $x$ with derivative
+\[
+ q:=D+\Lambda\langle x,\cdot\rangle ,
+\]
+and, for each $k$, differentiable at $x_k$ with derivative
+\[
+ q_k:=D_k+\Lambda\langle x_k,\cdot\rangle . \tag{2}
+\]
+Finally, since $x_k\to x$, there is $k_0$ with $|x_k-x|<r/3$ for all $k\ge k_0$; all
+statements below about $x_k$ are for $k\ge k_0$, which suffices for a statement about limits.
+
+\medskip\noindent\textbf{Step 2: the derivative of a convex function is a subgradient.} We
+record the following standard fact of convex analysis, with its proof, since it is used
+twice. \emph{Let $U$ be open and convex, let $g$ be convex on $U$, let $p\in U$ and suppose
+$g$ is differentiable at $p$ with derivative $\ell$. Then}
+\[
+ g(y)\ \ge\ g(p)+\ell(y-p)\qquad\text{for all }y\in U. \tag{3}
+\]
+Indeed, fix $y\in U$ and consider $\varphi(t):=g\big(p+t(y-p)\big)$ for $t\in[0,1]$, which is
+defined because $U$ is convex, and is a convex function of $t$. For $0<t\le1$ convexity of
+$\varphi$ gives $\varphi(t)\le(1-t)\varphi(0)+t\varphi(1)$, i.e.
+\[
+ \frac{\varphi(t)-\varphi(0)}{t}\ \le\ \varphi(1)-\varphi(0)=g(y)-g(p).
+\]
+On the other hand, differentiability of $g$ at $p$ gives
+$\varphi(t)-\varphi(0)=t\,\ell(y-p)+o(t)$ as $t\to0^{+}$, so the left-hand side tends to
+$\ell(y-p)$. Passing to the limit in the displayed inequality yields (3).
+
+\medskip\noindent\textbf{Step 3: the sequence $(q_k)$ is bounded, by $L$.} Let $k\ge k_0$ and
+let $e\in\mathbb R^{N}$ with $|e|=1$. Put $\tau:=r/3$ and $y:=x_k+\tau e$. Then
+\[
+ |y-x|\le|x_k-x|+\tau<\frac r3+\frac r3<r ,
+\]
+so $y\in B_r(x)$, and also $x_k\in B_r(x)$. Applying (3) on the open convex set $B_r(x)$
+(on which $g$ is convex, since $B_r(x)\subseteq B_\rho(x)$) at the differentiability point
+$p=x_k$, with derivative $q_k$,
+\[
+ g(y)\ \ge\ g(x_k)+q_k(y-x_k)=g(x_k)+\tau\,q_k(e).
+\]
+Hence, using (1), $\tau\,q_k(e)\le g(y)-g(x_k)\le L|y-x_k|=L\tau$, and dividing by $\tau>0$
+gives $q_k(e)\le L$. Applying this to $-e$ gives $q_k(e)\ge-L$, so $|q_k(e)|\le L$ for every
+unit vector $e$, i.e.
+\[
+ \|q_k\|\ \le\ L\qquad\text{for all }k\ge k_0. \tag{4}
+\]
+
+\medskip\noindent\textbf{Step 4: $q$ is the only possible subsequential limit.} Suppose
+$(q_{k_j})_j$ is a subsequence with $q_{k_j}\to\bar q$ in the operator norm. Fix
+$y\in B_r(x)$. By (3) applied at $p=x_{k_j}$,
+\[
+ g(y)\ \ge\ g(x_{k_j})+q_{k_j}\big(y-x_{k_j}\big)\qquad\text{for all }j .
+\]
+As $j\to\infty$ we have $x_{k_j}\to x$, hence $g(x_{k_j})\to g(x)$ because $g$ is continuous
+on $B_r(x)$ by (1), and $q_{k_j}(y-x_{k_j})\to\bar q(y-x)$ because
+\[
+ \big|q_{k_j}(y-x_{k_j})-\bar q(y-x)\big|
+  \le\big|(q_{k_j}-\bar q)(y-x_{k_j})\big|+\big|\bar q(x-x_{k_j})\big|
+  \le\|q_{k_j}-\bar q\|\,\big|y-x_{k_j}\big|+\|\bar q\|\,\big|x-x_{k_j}\big|\ \to\ 0,
+\]
+the first factor being bounded since $|y-x_{k_j}|\le|y-x|+|x-x_{k_j}|$ is bounded. Passing to
+the limit,
+\[
+ g(y)\ \ge\ g(x)+\bar q(y-x)\qquad\text{for all }y\in B_r(x). \tag{5}
+\]
+Now use that $g$ is differentiable at $x$ with derivative $q$. Let $e$ be a unit vector and
+$0<\tau<r$; taking $y:=x+\tau e$ in (5) gives
+$g(x+\tau e)-g(x)\ge\tau\,\bar q(e)$, while differentiability gives
+$g(x+\tau e)-g(x)=\tau\,q(e)+o(\tau)$. Hence $\tau q(e)+o(\tau)\ge\tau\bar q(e)$; dividing by
+$\tau>0$ and letting $\tau\to0^{+}$ gives $q(e)\ge\bar q(e)$. Applying this with $-e$ gives
+$q(e)\le\bar q(e)$, so $q(e)=\bar q(e)$ for every unit vector $e$ and therefore
+$\bar q=q$.
+
+\medskip\noindent\textbf{Step 5: $q_k\to q$.} Suppose not. Then there are $\eta>0$ and a
+subsequence $(q_{k_j})$ with $\|q_{k_j}-q\|\ge\eta$ for all $j$. By (4) this subsequence is
+bounded in the space of continuous linear functionals on $\mathbb R^{N}$, which is
+finite-dimensional, so by the Bolzano--Weierstrass theorem it has a further subsequence
+converging to some $\bar q$. By Step 4, $\bar q=q$; but $\|q_{k_j}-q\|\ge\eta$ for all terms
+of that further subsequence gives $\|\bar q-q\|\ge\eta>0$, a contradiction. Hence
+$q_k\to q$.
+
+\medskip\noindent\textbf{Step 6: transfer back to $w$.} By (2),
+$D_k=q_k-\Lambda\langle x_k,\cdot\rangle$ and $D=q-\Lambda\langle x,\cdot\rangle$. For every
+unit vector $e$,
+$\big|\Lambda\langle x_k,e\rangle-\Lambda\langle x,e\rangle\big|
+ =\Lambda\big|\langle x_k-x,e\rangle\big|\le\Lambda|x_k-x|$, so
+$\big\|\Lambda\langle x_k,\cdot\rangle-\Lambda\langle x,\cdot\rangle\big\|\le\Lambda|x_k-x|\to0$.
+Therefore
+\[
+ \|D_k-D\|\le\|q_k-q\|+\Lambda\,|x_k-x|\ \longrightarrow\ 0 ,
+\]
+i.e. $D_k\to D$, which is the assertion.
+
+\medskip\noindent\emph{Remark.} The hypothesis is the disjunction "locally semi-convex or
+locally semi-concave", exactly as the paper states this property, and Step 0 is the reduction
+of the second case to the first; the conclusion is a statement about $w$ alone, so no separate
+semi-concave conclusion is needed. The proof is the one the paper indicates --- local
+boundedness and closedness of the subdifferential graph of $w+\tfrac{\Lambda}{2}|\cdot|^{2}$,
+which is a singleton at a point of differentiability --- written out: Step 3 is the local
+boundedness, Step 4 the closedness together with the singleton property, and Step 5 the
+compactness argument that upgrades "every subsequential limit is $q$" to convergence.
+\end{proof}

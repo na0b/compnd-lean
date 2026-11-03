@@ -1,0 +1,57 @@
+\begin{lemma}[Uniqueness of inverses, and the symmetry of $d$]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}). Thus $(\mathbb R^{n},*)$ is a
+group whose neutral element is $0$ and whose inversion is $x\mapsto-x$ (the exponential
+coordinates of section Section~2.4, where $x^{-1}=-x$), and $\|\cdot\|$ is its homogeneous
+norm (2.15), which is even. Then:
+\begin{enumerate}
+\item (uniqueness of inverses) for all $a,b\in\mathbb R^{n}$, if $a*b=0$ then $b=-a$;
+\item for all $a,b\in\mathbb R^{n}$, $-(a*b)=(-b)*(-a)$, i.e. $(a*b)^{-1}=b^{-1}*a^{-1}$;
+\item for all $a,b\in\mathbb R^{n}$, $\|(-b)*a\|=\|(-a)*b\|$; equivalently, the
+  left-invariant distance $d(x,y)=\|y^{-1}*x\|$ of section Section~2.4 is symmetric,
+  $d(a,b)=d(b,a)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Only the following data of \noderef{CarnotSetting} are used: associativity
+$(x*y)*z=x*(y*z)$, the neutral-element laws $x*0=x$ and $0*x=x$, the two inverse laws
+$x*(-x)=0$ and $(-x)*x=0$, and the evenness $\|-x\|=\|x\|$ of the homogeneous norm. No
+quasi-triangle inequality and no homogeneity property are needed.
+
+\medskip\noindent\textbf{Step 1: proof of (1).} Let $a,b\in\mathbb R^{n}$ with $a*b=0$. Then
+\[
+ b\ =\ 0*b\ =\ \big((-a)*a\big)*b\ =\ (-a)*(a*b)\ =\ (-a)*0\ =\ -a ,
+\]
+where the first equality is the left neutral law $0*b=b$, the second is the left inverse law
+$(-a)*a=0$, the third is associativity, the fourth is the hypothesis $a*b=0$, and the last
+is the right neutral law $(-a)*0=-a$. So a right inverse of $a$ is necessarily the
+distinguished left inverse $-a$.
+
+\medskip\noindent\textbf{Step 2: proof of (2).} Fix $a,b\in\mathbb R^{n}$. We show that
+$(-b)*(-a)$ is a right inverse of $a*b$:
+\[
+ (a*b)*\big((-b)*(-a)\big)
+  = a*\Big(b*\big((-b)*(-a)\big)\Big)
+  = a*\Big(\big(b*(-b)\big)*(-a)\Big)
+  = a*\big(0*(-a)\big)
+  = a*(-a)
+  = 0 ,
+\]
+the first two equalities being associativity, the third the right inverse law $b*(-b)=0$,
+the fourth the left neutral law $0*(-a)=-a$, and the last the right inverse law
+$a*(-a)=0$. Applying Step 1 with the pair $\big(a*b,\ (-b)*(-a)\big)$ in place of $(a,b)$
+gives $(-b)*(-a)=-(a*b)$, which is (2).
+
+\medskip\noindent\textbf{Step 3: proof of (3).} Fix $a,b\in\mathbb R^{n}$ and apply (2) to
+the pair $(-b,a)$ in place of $(a,b)$:
+\[
+ -\big((-b)*a\big)\ =\ (-a)*\big(-(-b)\big)\ =\ (-a)*b ,
+\]
+the second equality because $-(-b)=b$ in $\mathbb R^{n}$. Hence, by evenness of the
+homogeneous norm applied to the vector $(-b)*a$,
+\[
+ \|(-a)*b\|\ =\ \big\|-\big((-b)*a\big)\big\|\ =\ \|(-b)*a\| .
+\]
+Since $x^{-1}=-x$, the left-invariant distance of section Section~2.4 is
+$d(x,y)=\|y^{-1}*x\|=\|(-y)*x\|$, so the displayed identity reads
+$d(b,a)=\|(-a)*b\|=\|(-b)*a\|=d(a,b)$, i.e. $d$ is symmetric.
+\end{proof}

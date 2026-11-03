@@ -1,0 +1,25 @@
+\begin{definition}[Pansu differentiability and the horizontal differential]
+Let $n,m\in\mathbb N$, let $*:\mathbb R^n\times\mathbb R^n\to\mathbb R^n$ be a group law,
+$\pi_1:\mathbb R^n\to\mathbb R^m$ a continuous linear map and
+$\|\cdot\|:\mathbb R^n\to\mathbb R$ a homogeneous norm. For $f:\mathbb R^n\to\mathbb R$,
+$x\in\mathbb R^n$ and $\xi\in\mathbb R^m$ we say that \emph{$f$ is Pansu differentiable at
+$x$ with horizontal differential $\xi$}, written
+$\mathrm{HasPansuGradAt}\ (*)\ \pi_1\ \|\cdot\|\ f\ x\ \xi$, if for every $\varepsilon>0$
+there is $\delta>0$ such that
+\[
+ \big|\,f(x*g)-f(x)-\langle\xi,\pi_1(g)\rangle\,\big|\ \le\ \varepsilon\,\|g\|
+ \qquad\text{whenever}\quad \|g\|<\delta ,
+\]
+where $\langle\xi,\pi_1(g)\rangle=\sum_{i=1}^{m}\xi_i\,\pi_1(g)_i$. Equivalently
+\[
+ f(x*g)=f(x)+\langle\xi,\pi_1(g)\rangle+o\big(\|g\|\big)\qquad(g\to0).
+\]
+
+This is the expansion of Section Section~2.4: it is (2.18) when $f$ is differentiable
+at $x$, in which case $\xi=\mathcal Xf(x)$, and it is the conclusion of Pansu's theorem for
+a $d$-Lipschitz $f$ at almost every point, where $\xi=\mathcal Xf(x)$ is called the
+horizontal differential of $f$ at $x$. Note that the increment is the \emph{right}
+translation $g\mapsto x*g$, and that the error is measured against the homogeneous norm
+$\|g\|$, not against $|g|$; both are essential, and both are why the expansion does not
+transfer to left translations.
+\end{definition}

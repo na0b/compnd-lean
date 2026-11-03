@@ -1,0 +1,226 @@
+\begin{theorem}[The case $r=1$ applied in $\mathbb R^{m}$]
+Let $m\in\mathbb N$, write $\mathbb G_E$ for the Euclidean setting on $\mathbb R^{m}$
+(\noderef{EuclidSetting} at $N:=m$), and assume the cited results of the literature
+\emph{at $\mathbb G_E$} (\noderef{CitedResults}). Let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$ satisfy the
+structure conditions (\noderef{StructureConditionsES}). Let
+$\Om'\subseteq\mathbb R^{m}$ be open and bounded with
+$\mathbb R^{m}\mns\Om'\ne\emptyset$, and let $F,Gf:\mathbb R^{m}\to\mathbb R$ be continuous
+on $\overline{\Om'}$ with $F\le Gf$ on $\del\Om'$. Let $R\ge0$ satisfy $|F|\le R/2$ and
+$|Gf|\le R/2$ on $\overline{\Om'}$. Write $e_i$ for the $i$-th standard basis vector of
+$\mathbb R^{m}$ and, for a continuous linear functional $E$ on $\mathbb R^{m}$ and a
+continuous bilinear form $C$ on $\mathbb R^{m}$,
+\[
+ \xi(E):=\big(E(e_1),\ldots,E(e_m)\big)\in\mathbb R^{m},\qquad
+ \mathcal C(C):=\big(C(e_i,e_j)\big)_{i,j}\in\mathbb R^{m\times m} .
+\]
+Assume
+\begin{enumerate}
+\item for every $\zeta\in\Om'$, every $\psi:\mathbb R^{m}\to\mathbb R$ that is $C^{2}$ on
+  $\Om'$ with $\zeta\in\argmax_{\Om'}(F-\psi)$ and every second-order jet $(E,C)$ of $\psi$
+  at $\zeta$ (\noderef{TwiceDiffAt}) with $\xi(E)\ne0$:
+  $-\Tr\big(A(\xi(E))\,\mathcal C(C)\big)+H(\xi(E))\le0$;
+\item for every $\zeta\in\Om'$, every $\psi$ that is $C^{2}$ on $\Om'$ with
+  $\zeta\in\argmin_{\Om'}(Gf-\psi)$ and every second-order jet $(E,C)$ of $\psi$ at $\zeta$
+  with $\xi(E)\ne0$: $0\le-\Tr\big(A(\xi(E))\,\mathcal C(C)\big)+H(\xi(E))$.
+\end{enumerate}
+Then $F\le Gf$ in $\Om'$.
+\end{theorem}
+\begin{proof}
+This is the paper's final sentence of Theorem~1.3(iii), "By the case $r=1$ applied in
+$\mathbb R^{m}$, $F\le Gf$ in $\Om'$". The case $r=1$ of the paper is our
+\noderef{ComparisonAbelian}, which is stated for a sub-elliptic setting; the work of this
+node is to translate the two inline viscosity conditions into the notion of viscosity sub-
+and super-solution of the Euclidean setting $\mathbb G_E$ on $\mathbb R^{m}$. The
+translation is not a cast: pm-0010 forbids assuming that the setting's first-layer
+projection is the identity, and the proof below never does --- every passage between
+$\mathbb R^{n_E}$ and $\mathbb R^{m}$ goes through $\exp_E$ and $\pi_1^E$.
+
+Note also where the cited results are assumed. \noderef{ComparisonAbelian} is applied below
+\emph{at $\mathbb G_E$}, so what Step 7 needs is a cited-results package at $\mathbb G_E$,
+and that is exactly the hypothesis this statement carries. A package at some other setting
+would not serve, and a package quantified over every sub-elliptic setting is not available:
+the three Carnot-side items of \noderef{CitedResults} are theorems about genuine Carnot
+groups. It is because $\mathbb G_E$ \emph{is} a Carnot group --- $(\mathbb R^{m},+)$ with the
+Euclidean norm --- that assuming them there is a satisfiable hypothesis.
+
+\medskip\noindent\textbf{Step 1: the Euclidean setting.} The setting $\mathbb G_E$ named in
+the statement is a sub-elliptic setting (\noderef{CarnotSetting}), and by
+\noderef{EuclidSetting} at $N:=m$ it satisfies
+\[
+ n_E=m,\quad m_E=m,\quad r_E=1,\quad x*_Ey=x+y,\quad \|x\|_E=|x|,\quad
+ \exp_E(\pi_1^E(x))=x,\quad \sigma_E(x)_i=\exp_E(e_i) \tag{1}
+\]
+for all $x,y$ and all $i$, where we write $n_E,m_E,r_E,*_E,\|\cdot\|_E,\pi_1^E,\exp_E,\sigma_E$
+for the data of $\mathbb G_E$. These seven identities are all that is used about
+$\mathbb G_E$ below; in particular $\pi_1^E$ is never assumed to be the identity.
+
+Because $m_E=m$, the spaces $\mathbb R^{m_E}$ and $\mathbb R^{m}$ are the same space and the
+index sets $\mathrm{Fin}\,m_E$ and $\mathrm{Fin}\,m$ are the same, with the standard basis
+vectors $e_i$ corresponding to themselves. We use that identification silently from now on,
+so that $A$ and $H$ are regarded as defined on $\mathbb R^{m_E}$ and the structure conditions
+on $(A,H)$ read as $\mathtt{StructureConditionsES}\ m_E\ A\ H$; in Lean this is a single
+transport along the equality $m_E=m$ of natural numbers, involving no choice and no
+$\mathtt{subst}$. We do \emph{not} identify $\mathbb R^{n_E}$ with $\mathbb R^{m}$; all
+movement between $\mathbb R^{n_E}$ and $\mathbb R^{m}$ goes through $\exp_E$ and $\pi_1^E$,
+as the next step makes precise.
+
+\medskip\noindent\textbf{Step 2: $\exp_E$ and $\pi_1^E$ are mutually inverse linear
+isometries.} By \noderef{CarnotSetting}, $\pi_1^E:\mathbb R^{n_E}\to\mathbb R^{m}$ is a
+continuous linear map with $\pi_1^E(\exp_E(\zeta))=\zeta$ for every $\zeta\in\mathbb R^{m}$,
+and $\exp_E$ is continuous. By (1), $\exp_E(\pi_1^E(x))=x$ for every $x\in\mathbb R^{n_E}$.
+So $\exp_E$ and $\pi_1^E$ are mutually inverse bijections; since $\pi_1^E$ is linear and
+bijective, its inverse $\exp_E$ is linear as well, and both are continuous, hence
+homeomorphisms. Moreover, by the field $\|\exp_{\mathbb G}(\zeta)\|=|\zeta|$ of
+\noderef{CarnotSetting} together with $\|x\|_E=|x|$ from (1),
+\[
+ |\exp_E(\zeta)|=\|\exp_E(\zeta)\|_E=|\zeta|\qquad(\zeta\in\mathbb R^{m}), \tag{2}
+\]
+so $\exp_E$ is a linear isometry and so is $\pi_1^E$.
+
+\medskip\noindent\textbf{Step 3: the transported domain and functions.} Put
+\[
+ \Om'':=\exp_E(\Om')\subseteq\mathbb R^{n_E},\qquad
+ U:=F\circ\pi_1^E,\qquad V:=Gf\circ\pi_1^E .
+\]
+Because $\exp_E$ and $\pi_1^E$ are mutually inverse,
+\[
+ \Om''=(\pi_1^E)^{-1}(\Om') , \tag{3}
+\]
+for $z=\exp_E(\zeta)$ with $\zeta\in\Om'$ has $\pi_1^E(z)=\zeta\in\Om'$, and conversely
+$\pi_1^E(z)\in\Om'$ gives $z=\exp_E(\pi_1^E(z))\in\exp_E(\Om')$. Consequently:
+\begin{itemize}
+\item $\Om''$ is open, being the preimage of the open $\Om'$ under the continuous $\pi_1^E$,
+  by (3);
+\item $\Om''$ is bounded, by (2) and the boundedness of $\Om'$;
+\item $\mathbb R^{n_E}\mns\Om''\ne\emptyset$: pick $\zeta_0\notin\Om'$; then
+  $\pi_1^E(\exp_E(\zeta_0))=\zeta_0\notin\Om'$, so $\exp_E(\zeta_0)\notin\Om''$ by (3);
+\item since $\exp_E$ is a homeomorphism with inverse $\pi_1^E$,
+  $\overline{\Om''}=\exp_E(\overline{\Om'})$ and $\del\Om''=\exp_E(\del\Om')$; in particular
+  $\pi_1^E(\overline{\Om''})=\overline{\Om'}$ and $\pi_1^E(\del\Om'')=\del\Om'$.
+\end{itemize}
+
+From the last item: $U$ and $V$ are continuous on $\overline{\Om''}$, because $\pi_1^E$ is
+continuous and maps $\overline{\Om''}$ into $\overline{\Om'}$ where $F$ and $Gf$ are
+continuous. Also, for $z\in\del\Om''$ we have $\pi_1^E(z)\in\del\Om'$, so
+$U(z)=F(\pi_1^E(z))\le Gf(\pi_1^E(z))=V(z)$; and for $z\in\overline{\Om''}$ we have
+$\pi_1^E(z)\in\overline{\Om'}$, so $|U(z)|\le R/2$ and $|V(z)|\le R/2$.
+
+Finally $\mathbb G_E$ is abelian: $r_E=1$, and by \noderef{CarnotSetting} a setting of step
+$1$ has a commutative group law, so $x*_Ey=y*_Ex$ for all $x,y$. (This is also visible
+directly from $x*_Ey=x+y$ in (1).)
+
+\medskip\noindent\textbf{Step 4: the two jet identities.} Let $z\in\mathbb R^{n_E}$, let $D$
+be a continuous linear functional on $\mathbb R^{n_E}$ and let $B$ be a continuous symmetric
+bilinear form on $\mathbb R^{n_E}$. Define
+\[
+ E:=D\circ\exp_E,\qquad C(a,b):=B\big(\exp_E(a),\exp_E(b)\big)\qquad(a,b\in\mathbb R^{m}),
+\]
+which are a continuous linear functional and a continuous symmetric bilinear form on
+$\mathbb R^{m}$, since $\exp_E$ is continuous and linear by Step 2 and $B$ is symmetric. Then
+\[
+ \mathrm{hgrad}\ \sigma_E\ z\ D=\xi(E)\qquad\text{and}\qquad
+ \mathrm{hhessS}\ \sigma_E\ z\ D\ B=\mathcal C(C). \tag{4}
+\]
+Indeed, by \noderef{hgrad} the $i$-th component of $\mathrm{hgrad}\ \sigma_E\ z\ D$ is
+$D(\sigma_E(z)_i)$, which by (1) equals $D(\exp_E(e_i))=E(e_i)$; that is the $i$-th component
+of $\xi(E)$. For the second identity, by \noderef{hhessS},
+\[
+ \mathrm{hhessS}\ \sigma_E\ z\ D\ B
+ =\Big(B\big(\sigma_E(z)_i,\sigma_E(z)_j\big)\Big)_{i,j}+\mathcal M(z,D),
+\]
+where $\mathcal M$ is the correction matrix of \noderef{Mfield}. By (1) the frame
+$x\mapsto\sigma_E(x)$ is \emph{constant} in $x$ --- each $\sigma_E(x)_i$ equals
+$\exp_E(e_i)$, independently of $x$ --- so every $\mathrm{D}\sigma_E^{j}$ occurring in
+\noderef{Mfield} is the derivative of a constant map and vanishes; hence
+$\mathcal M(z,D)=0$. And
+$B(\sigma_E(z)_i,\sigma_E(z)_j)=B(\exp_E(e_i),\exp_E(e_j))=C(e_i,e_j)$ by (1) and the
+definition of $C$, so the matrix is $\mathcal C(C)$. This proves (4).
+
+\medskip\noindent\textbf{Step 5: $U$ is a viscosity sub-solution in $\Om''$.} Upper
+semi-continuity of $U$ on $\Om''$ follows from its continuity on
+$\overline{\Om''}\supseteq\Om''$ (Step 3). For the test-function clause of
+\noderef{IsViscSubsol}, let $z\in\Om''$, let $\varphi:\mathbb R^{n_E}\to\mathbb R$ be $C^{2}$
+on $\Om''$ with $z\in\argmax_{\Om''}(U-\varphi)$, let $(D,B)$ be a second-order jet of
+$\varphi$ at $z$ (\noderef{TwiceDiffAt}) and assume
+$\mathrm{hgrad}\ \sigma_E\ z\ D\ne0$. Put
+\[
+ \zeta:=\pi_1^E(z)\in\Om'\quad\text{(by (3))},\qquad \psi:=\varphi\circ\exp_E ,
+\]
+and let $E$, $C$ be as in Step 4 for this $(D,B)$. Note $\exp_E(\zeta)=z$ by Step 2.
+
+\emph{(5a) $\psi$ is $C^{2}$ on $\Om'$.} $\exp_E$ is linear and continuous, hence
+$C^{\infty}$, and it maps $\Om'$ into $\Om''$ by the definition of $\Om''$; and $\varphi$ is
+$C^{2}$ on $\Om''$.
+
+\emph{(5b) $\zeta\in\argmax_{\Om'}(F-\psi)$.} First
+$\psi(\zeta)=\varphi(\exp_E(\zeta))=\varphi(z)$ and
+$F(\zeta)=F(\pi_1^E(z))=U(z)$, so $(F-\psi)(\zeta)=(U-\varphi)(z)$. Next, for $w\in\Om'$ we
+have $\exp_E(w)\in\Om''$ and $\pi_1^E(\exp_E(w))=w$, so
+\[
+ (F-\psi)(w)=F(w)-\varphi(\exp_E(w))=U\big(\exp_E(w)\big)-\varphi\big(\exp_E(w)\big)
+ =(U-\varphi)\big(\exp_E(w)\big)\ \le\ (U-\varphi)(z)=(F-\psi)(\zeta),
+\]
+by maximality of $U-\varphi$ over $\Om''$ at $z$. As $w\in\Om'$ was arbitrary, the claim
+holds.
+
+\emph{(5c) $(E,C)$ is a second-order jet of $\psi$ at $\zeta$.} Symmetry of $C$ was noted in
+Step 4. For the Peano estimate, let $\varepsilon>0$ and let $\delta>0$ be given by
+\noderef{TwiceDiffAt} for $\varphi$, $(D,B)$ and $\varepsilon$, so that
+\[
+ \Big|\varphi(y)-\varphi(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big|\le\varepsilon|y-z|^{2}
+ \qquad(|y-z|<\delta).
+\]
+Let $w\in\mathbb R^{m}$ with $|w-\zeta|<\delta$ and put $y:=\exp_E(w)$. Since $\exp_E$ is
+linear and $\exp_E(\zeta)=z$ we get $y-z=\exp_E(w-\zeta)$, and $|y-z|=|w-\zeta|<\delta$ by
+(2). Therefore
+\[
+ \Big|\psi(w)-\psi(\zeta)-E(w-\zeta)-\tfrac12C(w-\zeta,w-\zeta)\Big|
+ =\Big|\varphi(y)-\varphi(z)-D(y-z)-\tfrac12B(y-z,y-z)\Big|
+ \le\varepsilon|y-z|^{2}=\varepsilon|w-\zeta|^{2},
+\]
+using $\psi(w)=\varphi(y)$, $\psi(\zeta)=\varphi(z)$, $E(w-\zeta)=D(\exp_E(w-\zeta))=D(y-z)$
+and $C(w-\zeta,w-\zeta)=B(y-z,y-z)$. As $\varepsilon>0$ was arbitrary, $(E,C)$ is a
+second-order jet of $\psi$ at $\zeta$.
+
+\emph{(5d) conclusion.} By (4), $\xi(E)=\mathrm{hgrad}\ \sigma_E\ z\ D\ne0$. Hypothesis (1)
+of the statement, applied at $\zeta\in\Om'$ with $\psi$ (which is $C^{2}$ on $\Om'$ by (5a)),
+with the maximality (5b) and the jet (5c), gives
+\[
+ -\Tr\big(A(\xi(E))\,\mathcal C(C)\big)+H(\xi(E))\ \le\ 0 .
+\]
+By \noderef{Lop},
+$\mathrm{Lop}\ \sigma_E\ A\ H\ z\ D\ B
+=-\Tr\big(A(\mathrm{hgrad}\ \sigma_E\ z\ D)\ \mathrm{hhessS}\ \sigma_E\ z\ D\ B\big)
++H(\mathrm{hgrad}\ \sigma_E\ z\ D)$, which by (4) equals
+$-\Tr(A(\xi(E))\mathcal C(C))+H(\xi(E))$. Hence
+$\mathrm{Lop}\ \sigma_E\ A\ H\ z\ D\ B\le0$, which is what \noderef{IsViscSubsol} requires.
+So $U$ is a viscosity sub-solution of $\mathcal L_E\cdot=0$ in $\Om''$, where
+$\mathcal L_E$ is the operator of $\mathbb G_E$ built from $(A,H)$.
+
+\medskip\noindent\textbf{Step 6: $V$ is a viscosity super-solution in $\Om''$.} Lower
+semi-continuity of $V$ on $\Om''$ follows from its continuity on $\overline{\Om''}$. Steps
+(5a), (5c) and Step 4 do not involve $F$ or the direction of the inequality and are verbatim
+with $V$, $Gf$ in place of $U$, $F$. In (5b) the inequality reverses: for $w\in\Om'$,
+minimality of $V-\varphi$ over $\Om''$ at $z$ gives
+$(Gf-\psi)(\zeta)=(V-\varphi)(z)\le(V-\varphi)(\exp_E(w))=(Gf-\psi)(w)$, so
+$\zeta\in\argmin_{\Om'}(Gf-\psi)$. Hypothesis (2) of the statement then gives
+$0\le-\Tr(A(\xi(E))\mathcal C(C))+H(\xi(E))=\mathrm{Lop}\ \sigma_E\ A\ H\ z\ D\ B$, which is
+what \noderef{IsViscSupersol} requires.
+
+\medskip\noindent\textbf{Step 7: the abelian comparison, and descent.} We apply
+\noderef{ComparisonAbelian} with: the setting $\mathbb G_E$; the cited results at
+$\mathbb G_E$, which is the hypothesis of the present statement; its
+commutativity from Step 3; the pair $(A,H)$, which satisfies the structure conditions by
+Step 1; the set $\Om''$, open and bounded with non-empty complement by Step 3; the functions
+$U$ and $V$, continuous on $\overline{\Om''}$ by Step 3; their viscosity properties from
+Steps 5 and 6; $U\le V$ on $\del\Om''$ from Step 3; and $R\ge0$ with $|U|,|V|\le R/2$ on
+$\overline{\Om''}$ from Step 3. Its conclusion is
+\[
+ U(z)\le V(z)\qquad\text{for every } z\in\Om'' .
+\]
+Finally let $\zeta\in\Om'$. Then $\exp_E(\zeta)\in\Om''$, and
+$U(\exp_E(\zeta))=F(\pi_1^E(\exp_E(\zeta)))=F(\zeta)$ and similarly
+$V(\exp_E(\zeta))=Gf(\zeta)$, by $\pi_1^E\circ\exp_E=\mathrm{id}$. Hence
+$F(\zeta)\le Gf(\zeta)$. As $\zeta\in\Om'$ was arbitrary, $F\le Gf$ in $\Om'$.
+\end{proof}

@@ -1,0 +1,196 @@
+\begin{theorem}[Comparison in an abelian setting, under (E) and (S) alone]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, step $r$, frame $\sigma$, $q:=2\,r!$ and
+$d(x,y):=\|y^{-1}*x\|$, and assume the cited results of the literature
+at $\mathbb G$ (\noderef{CitedResults}). Assume $\mathbb G$ is \emph{abelian}: $x*y=y*x$ for all
+$x,y\in\mathbb R^{n}$. Let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$ be continuous on $\mathbb R^{m}\mns\{0\}$, with $A(\xi)$
+symmetric and positive semidefinite for $\xi\ne0$, and satisfy the conditions of strict
+ellipticity in the gradient direction (E) (1.9) and of homogeneity along rays (S) (1.10)
+--- that is, let $(A,H)$ satisfy the structure conditions of
+\noderef{StructureConditionsES}. No normalization of $(A,H)$ is assumed. Let
+$\Om\subset\mathbb R^{n}$ be a bounded open set with $\mathbb R^{n}\mns\Om\ne\emptyset$, let
+$u,v:\mathbb R^{n}\to\mathbb R$ be continuous on $\bar\Om$, and assume
+\begin{enumerate}
+\item $u$ is a viscosity sub-solution (\noderef{IsViscSubsol}) and $v$ a viscosity
+  super-solution (\noderef{IsViscSupersol}) of $\mathcal L\cdot=0$ in $\Om$;
+\item $u\le v$ on $\del\Om$.
+\end{enumerate}
+Let $R\ge0$ satisfy $|u|\le R/2$ and $|v|\le R/2$ on $\bar\Om$. Then $u\le v$ in $\Om$.
+\end{theorem}
+\begin{proof}
+This is the conclusion the paper reaches in the first paragraph of Theorem~1.3(iii): "By the
+proof of Theorem Theorem~1.2, it suffices to show that under the standing assumptions
+(3.10)--(3.11) a semi-convex/semi-concave pair cannot exist." The comparison machinery is
+not re-derived: the regularized pair on the reduced domain is such a pair, and
+\noderef{AbelianNoStandingPair} forbids it.
+
+Two points of the formulation first, as in Theorem~1.2.
+
+\emph{The parameter $R$.} The paper defines $R:=2\max\{\|u\|_{L^\infty},\|v\|_{L^\infty}\}$
+just before (3.15), whereas \noderef{ReducedDomain} carries $R$ as a parameter. We
+therefore quantify over every admissible $R$, i.e. every $R\ge0$ with $|u|,|v|\le R/2$ on
+$\bar\Om$. This contains the paper's statement: the paper's $R$ is admissible, since
+$\|u\|_{L^\infty}\le\max\{\|u\|_{L^\infty},\|v\|_{L^\infty}\}=R/2$ and likewise for $v$, and
+it is the smallest admissible one. It is also not stronger than the paper's statement in any
+way the paper does not justify: $R$ enters only through the definition of $\Om[\eps]$, where
+a larger $R$ makes $\Om[\eps]$ smaller, and the role of $|u|\le R/2$ is exactly the one the
+paper gives it in the attainment step of Lemma~3.8(4), namely to make
+$\|z_x\|^{q}\le4\eps\|u\|_{L^\infty}\le2R\eps<(1+4R)\eps$.
+
+\emph{The hypothesis $\mathbb R^{n}\mns\Om\ne\emptyset$.} This is the paper's own
+convention made explicit: (3.15) takes an infimum over $\mathbb R^{n}\mns\Om$, and the
+paper's $\Om\subset\mathbb R^{n}$ is a proper subset. It is automatic as soon as $n\ge1$,
+since no bounded subset of $\mathbb R^{n}$ is then all of $\mathbb R^{n}$.
+
+\emph{Why the normalization is not in the statement.} The printed theorem is for general
+$A,H$ satisfying (E) and (S); (2.3) is an internal step, carried out once in Step 1
+below. It appears as a hypothesis of \noderef{AbelianNoStandingPair} only because
+\noderef{ComparisonNondegenerateSemiconvex}, which that node uses, is stated for a
+normalized pair; this is the level at which it is discharged.
+
+\medskip
+Suppose the conclusion fails, so $u(x_0)>v(x_0)$ for some $x_0\in\Om$; we derive a
+contradiction.
+
+\medskip\noindent\textbf{Step 0: $M_0>0$.} $\Om$ is bounded, so $\bar\Om$ is compact, and it
+is non-empty ($x_0\in\Om\subseteq\bar\Om$); $u-v$ is continuous on $\bar\Om$, so it attains
+its maximum there at some $x_M\in\bar\Om$ and
+\[
+ M_0:=u(x_M)-v(x_M)\ \ge\ u(x_0)-v(x_0)\ >\ 0 .
+\]
+Put $\tau:=M_0/2>0$.
+
+\medskip\noindent\textbf{Step 1: normalize once.} The only hypothesis of
+\noderef{NormalizationExists} is that $(A,H)$ satisfy the structure conditions, which we
+have. It provides $A_0,H_0$ and $a$ with $a(\xi)>0$, $A(\xi)=a(\xi)A_0(\xi)$ and
+$H(\xi)=a(\xi)H_0(\xi)$ for $\xi\ne0$, with $(A_0,H_0)$ satisfying both the structure
+conditions (\noderef{StructureConditionsES}) and the normalization (2.3)
+(\noderef{NormalizedAH}). Write $\mathcal L_0$ for the operator built from $(A_0,H_0)$.
+
+The hypotheses of \noderef{NormalizedSameViscositySolutions} are exactly those three
+identities, and its open set and function are arbitrary parameters; applying it with $\Om$
+and $u$, and with $\Om$ and $v$, gives that $u$ is a viscosity sub-solution and $v$ a
+viscosity super-solution of $\mathcal L_0\cdot=0$ in $\Om$.
+
+\medskip\noindent\textbf{Step 2: the regularized pair.} All hypotheses of
+\noderef{RegularizedPairStandingAssumptions} hold for
+$(\mathbb G,\text{cited results at }\mathbb G,A_0,H_0,\Om,u,v,R,x_M)$: the structure
+conditions on
+$(A_0,H_0)$ by Step 1; $\Om$ open, bounded, with non-empty complement; $u,v$ continuous on
+$\bar\Om$ and a viscosity sub-/super-solution pair for $\mathcal L_0$ in $\Om$ by Step 1;
+$u\le v$ on $\del\Om$; $R\ge0$ with $|u|,|v|\le R/2$ on $\bar\Om$; $x_M$ a maximum point of
+$u-v$ over $\bar\Om$; and $M_0>0$. Taking $\tau=M_0/2$ and
+$E=\argmax_\Om(u-v)$ and writing
+\[
+ u^{\eps}:=\mathrm{SupConv}\ \mathbb G\ \Om\ u\ \eps\ (\noderef{SupConv}),\qquad
+ \tilde v_{\eps}:=\big(y\mapsto\mathrm{InfConv}\ \mathbb G\ \Om\ v\ \eps\ (y)+\tau\big)
+ \ (\noderef{InfConv}),
+\]
+and $\Om[\eps]$ for the reduced domain (\noderef{ReducedDomain}) with this $R$, it yields an
+$\eps_1>0$ such that for every $\eps\in(0,\eps_1)$:
+\begin{itemize}
+\item[(b)] $u^{\eps}$ and $\tilde v_{\eps}$ are continuous on $\overline{\Om[\eps]}$;
+\item[(c)] $u^{\eps}$ is locally semi-convex and $\tilde v_{\eps}$ locally semi-concave on
+  $\Om[\eps]$, i.e. $-\tilde v_{\eps}$ is locally semi-convex there
+  (\noderef{LocallySemiConvexOn});
+\item[(d)] $u^{\eps}$ is a viscosity sub-solution and $\tilde v_{\eps}$ a viscosity
+  super-solution of $\mathcal L_0\cdot=0$ in $\Om[\eps]$;
+\item[(e)] $u^{\eps}-\tilde v_{\eps}\le-\tau/2$ on $\del\Om[\eps]$;
+\item[(f)] there is $x_e\in\Om[\eps]$ at which $u^{\eps}-\tilde v_{\eps}$ attains its maximum
+  over $\overline{\Om[\eps]}$, with $\tau\le u^{\eps}(x_e)-\tilde v_{\eps}(x_e)$.
+\end{itemize}
+(It also yields items 1, 2(a), 2(g) and 3, which we do not need here.) Fix
+\[
+ \eps:=\frac{\eps_1}2\in(0,\eps_1),
+\]
+and write $\Om':=\Om[\eps]$, $U:=u^{\eps}$, $V:=\tilde v_{\eps}$ and
+$\tau':=\tau/2>0$.
+
+\medskip\noindent\textbf{Step 3: the geometry of $\Om'$.} By items (1), (2) and (4) of
+\noderef{ReducedDomainProperties} --- applicable since $\Om$ is open and bounded with
+non-empty complement and $R\ge0$ --- the set $\Om'$ satisfies $\Om'\subseteq\Om$, is bounded,
+and is open (here $\eps>0$). Hence $\overline{\Om'}$ is compact. Moreover
+$\mathbb R^{n}\mns\Om'\ne\emptyset$: taking $p\notin\Om$ from our hypothesis, $p\notin\Om'$
+because $\Om'\subseteq\Om$.
+
+\medskip\noindent\textbf{Step 4: the (3.11) package, built as a step function.} We must
+supply \noderef{AbelianNoStandingPair} with non-decreasing $d$-moduli $\om_U,\om_V$ for $U$
+and $V$ on $\overline{\Om'}$ and a radius $\rho_0>0$ with
+$\om_U(\rho_0)+\om_V(\rho_0)\le\tau'/4$. The paper asserts at (3.11) that such moduli exist
+"because $\bar\Om$ is compact and $|x-y|\le c\,d(x,y)$" and does not construct them; a
+supremum $\om(s)=\sup\{|w(a)-w(b)|:d(a,b)\le s\}$ would need a separate boundedness argument,
+and none is needed, because a \emph{two-valued step function} already does everything the two
+consumers ask of $\om$: it is non-decreasing, it dominates the oscillation at every scale,
+and it is as small as we like at one prescribed radius. We construct it.
+
+\emph{The construction.} Let $w:\mathbb R^{n}\to\mathbb R$ be continuous on the compact set
+$K:=\overline{\Om'}$, let $M$ be such that $|w|\le M$ on $K$ (such an $M$ exists: $w$ is
+continuous on the compact $K$), and let $\eta>0$. Then there are $\rho>0$ and a
+non-decreasing $\om:\mathbb R\to\mathbb R$ with
+\[
+ |w(a)-w(b)|\le\om\big(d(a,b)\big)\quad(a,b\in K),\qquad \om(\rho)\le\eta . \tag{1}
+\]
+Indeed: $w$ is uniformly continuous on the compact $K$, so there is $\varrho>0$ with
+$|w(a)-w(b)|\le\eta$ whenever $a,b\in K$ and $|a-b|<\varrho$. The set $K$ is bounded, so
+$\nu:=1+\sup\{|a|:a\in K\}$ is a finite real number with $\nu>0$ and $|a|\le\nu$ for every
+$a\in K$ (the supremum of the empty set being $0$, which only makes $\nu$ larger); by the
+Hölder equivalence clause of
+\noderef{CarnotSetting} at this $\nu$ there is $c>0$ with $c^{-1}|a-b|\le d(a,b)$ whenever
+$|a|\le\nu$ and $|b|\le\nu$, i.e.
+\[
+ |a-b|\le c\,d(a,b)\qquad(a,b\in K). \tag{2}
+\]
+Put
+\[
+ \rho:=\frac{\varrho}{2c}>0,\qquad
+ \om(s):=\begin{cases}\eta,& s\le\rho,\\ \eta+2|M|+1,& s>\rho.\end{cases}
+\]
+$\om$ is non-decreasing, because $2|M|+1>0$ and $\om$ takes the smaller value exactly on the
+lower half-line. If $a,b\in K$ with $d(a,b)\le\rho$ then by (2)
+$|a-b|\le c\rho=\varrho/2<\varrho$, so $|w(a)-w(b)|\le\eta=\om(d(a,b))$. If $d(a,b)>\rho$
+then $\om(d(a,b))=\eta+2|M|+1$, while
+$|w(a)-w(b)|\le|w(a)|+|w(b)|\le2M\le2|M|<\eta+2|M|+1$. Finally $\om(\rho)=\eta$. This proves
+(1).
+
+\emph{The instantiation.} Apply the construction twice on $K=\overline{\Om'}$, with
+$\eta:=\tau/16>0$: to $w:=U$ (continuous on $\overline{\Om'}$ by (b)), giving $\rho_U>0$ and
+$\om_U$; and to $w:=V$ (continuous on $\overline{\Om'}$ by (b)), giving $\rho_V>0$ and
+$\om_V$. Put $\rho_0:=\min\{\rho_U,\rho_V\}>0$. Since $\rho_0\le\rho_U$ and $\om_U$ is
+non-decreasing, $\om_U(\rho_0)\le\om_U(\rho_U)\le\tau/16$, and likewise
+$\om_V(\rho_0)\le\tau/16$. Hence
+\[
+ \om_U(\rho_0)+\om_V(\rho_0)\ \le\ \frac\tau8\ =\ \frac{\tau/2}4\ =\ \frac{\tau'}4 ,
+ \tag{3}
+\]
+which is (3.11) for the standing constant $\tau'=\tau/2$.
+
+\medskip\noindent\textbf{Step 5: the standing assumptions for $(U,V)$ on $\Om'$, and the
+contradiction.} We now check every hypothesis of \noderef{AbelianNoStandingPair} for the
+data
+$(\mathbb G,\text{cited results at }\mathbb G,A_0,H_0,\Om',U,V,\om_U,\om_V,\tau',x_e,\rho_0)$.
+\begin{itemize}
+\item The cited results at $\mathbb G$: our hypothesis, and $\mathbb G$ is the setting that
+  node is applied to. Commutativity $x*y=y*x$: our hypothesis.
+\item $(A_0,H_0)$ satisfies the structure conditions and (2.3): Step 1. This is where the
+  normalization is spent.
+\item $\Om'$ is open and bounded with $\mathbb R^{n}\mns\Om'\ne\emptyset$: Step 3.
+\item $U,V$ are continuous on $\overline{\Om'}$: (b).
+\item $U$ is locally semi-convex and $V$ locally semi-concave in $\Om'$: (c).
+\item $U$ is a viscosity sub-solution and $V$ a viscosity super-solution of
+  $\mathcal L_0\cdot=0$ in $\Om'$: (d).
+\item $\om_U,\om_V$ are non-decreasing and are $d$-moduli for $U,V$ on $\overline{\Om'}$:
+  Step 4.
+\item $\tau'>0$ and $U-V\le-\tau'$ on $\del\Om'$: $\tau'=\tau/2>0$, and (e) is exactly
+  $U-V\le-\tau/2=-\tau'$ on $\del\Om'$.
+\item $x_e\in\overline{\Om'}$ is a point at which $U-V$ attains its maximum over
+  $\overline{\Om'}$, and $\tau'\le U(x_e)-V(x_e)$: by (f), $x_e\in\Om'\subseteq\overline{\Om'}$
+  is such a maximum point with $\tau\le U(x_e)-V(x_e)$, and $\tau'=\tau/2\le\tau$ since
+  $\tau>0$.
+\item $\rho_0>0$ and $\om_U(\rho_0)+\om_V(\rho_0)\le\tau'/4$: Step 4, (3).
+\end{itemize}
+\noderef{AbelianNoStandingPair} therefore applies and yields a contradiction. Since the only
+assumption made beyond the hypotheses of the present statement was $u(x_0)>v(x_0)$ for some
+$x_0\in\Om$, that assumption is false: $u(x)\le v(x)$ for every $x\in\Om$, i.e. $u\le v$ in
+$\Om$.
+\end{proof}

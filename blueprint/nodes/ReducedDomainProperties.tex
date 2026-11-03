@@ -1,0 +1,267 @@
+\begin{theorem}[The reduced domains (3.15)]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, put $q:=2\,r!$, let $\Omega\subseteq\mathbb R^{n}$ be open and
+bounded with $\mathbb R^{n}\setminus\Omega\neq\emptyset$, and let $R\ge0$. Write
+$\Omega[\varepsilon]$ for the reduced domain of \noderef{ReducedDomain} and
+$d(x,y):=\|y^{-1}*x\|$ for the left-invariant distance. Then
+\begin{enumerate}
+\item $\Omega[\varepsilon]\subseteq\Omega$ for every $\varepsilon$;
+\item $\Omega[\varepsilon]$ is bounded for every $\varepsilon$;
+\item $\varepsilon'\le\varepsilon$ implies
+  $\Omega[\varepsilon]\subseteq\Omega[\varepsilon']$;
+\item $\Omega[\varepsilon]$ is open for every $\varepsilon>0$;
+\item $\Omega[\varepsilon]\uparrow\Omega$ as $\varepsilon\to0^{+}$, in the sense that for
+  every $x\in\Omega$ there is $\varepsilon_0>0$ with $x\in\Omega[\varepsilon]$ for all
+  $\varepsilon\in(0,\varepsilon_0)$;
+\item $\overline{\Omega[\varepsilon]}\subseteq\Omega$ for every $\varepsilon>0$;
+\item $\sup_{z\in\partial\Omega[\varepsilon]}\mathrm{dist}(z,\partial\Omega)\to0$ as
+  $\varepsilon\to0^{+}$, in the sense that for every $\eta>0$ there is $\varepsilon_0>0$
+  such that for every $\varepsilon\in(0,\varepsilon_0)$ and every
+  $z\in\partial\Omega[\varepsilon]$ there is $w\in\partial\Omega$ with $d(z,w)<\eta$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Throughout write
+\[
+ c:=1+4R,\qquad
+ \kappa(y,x):=\big\|y*x^{-1}\big\|^{q}=\big\|y*(-x)\big\|^{q},\qquad
+ f(x):=\inf_{y\notin\Omega}\kappa(y,x),
+\]
+so that by \noderef{ReducedDomain}
+\[
+ \Omega[\varepsilon]=\{x\in\Omega:\ c\,\varepsilon<f(x)\}. \tag{$\ast$}
+\]
+
+\medskip\noindent\textbf{Step 0: preliminaries.}
+
+\emph{(0a)} $c=1+4R\ge1>0$, since $R\ge0$.
+
+\emph{(0b) $f$ is a genuine infimum.} The index set $\mathbb R^{n}\setminus\Omega$ is
+non-empty by hypothesis, and $\kappa(y,x)=\|y*(-x)\|^{q}\ge0$ for every $y$ because
+$\|\cdot\|\ge0$ (clause (1) of \noderef{CarnotNorm}) and $q$ is a natural number. So the
+family $\{\kappa(y,x):y\notin\Omega\}$ is non-empty and bounded below by $0$, its infimum
+$f(x)$ is a real number with $f(x)\ge0$, and for every $y\notin\Omega$ we have
+$f(x)\le\kappa(y,x)$ while for every $\theta>0$ there is $y\notin\Omega$ with
+$\kappa(y,x)<f(x)+\theta$.
+
+\emph{(0c) $\kappa$ is jointly continuous.} The group law is $C^{\infty}$ (clause (2) of
+\noderef{CarnotGroup}), hence continuous; $x\mapsto-x$ is continuous; $\|\cdot\|$ is
+continuous (clause (1) of \noderef{CarnotNorm}); and $t\mapsto t^{q}$ is continuous. So
+$(x,y)\mapsto\kappa(y,x)$ is continuous on $\mathbb R^{n}\times\mathbb R^{n}$, and in
+particular $\kappa(y,\cdot)$ is continuous for each fixed $y$.
+
+\emph{(0d) $\kappa(x,x)=0$.} $x*(-x)=0$ (clause (1) of \noderef{CarnotGroup}) and
+$\|0\|=0$ (clause (1) of \noderef{CarnotNorm}), so $\kappa(x,x)=0^{q}=0$.
+
+\emph{(0e) $\|\cdot\|$ is bounded on $\Omega$.} $\Omega$ is bounded, so there is
+$\nu_0\ge0$ with $|a|\le\nu_0$ for every $a\in\Omega$. Apply clause (6) of
+\noderef{CarnotNorm} with $\nu:=\nu_0+1$: there is $c_2>0$ with
+$\|(-b)*a\|\le c_2|a-b|^{1/r}$ whenever $|a|\le\nu$ and $|b|\le\nu$. Taking $b:=0$ and
+using $-0=0$ and $0*a=a$ (clause (1) of \noderef{CarnotGroup}) gives
+\[
+ \|a\|\le c_2|a|^{1/r}\le c_2(\nu_0+1)^{1/r}=:T\qquad\text{for every }a\in\Omega, \tag{0e}
+\]
+and $T\ge0$.
+
+\medskip\noindent\textbf{Step 1: proof of (1).} By $(\ast)$, every element of
+$\Omega[\varepsilon]$ lies in $\Omega$.
+
+\medskip\noindent\textbf{Step 2: proof of (2).} By Step 1, $\Omega[\varepsilon]$ is a
+subset of the bounded set $\Omega$, hence bounded.
+
+\medskip\noindent\textbf{Step 3: proof of (3).} Let $\varepsilon'\le\varepsilon$ and
+$x\in\Omega[\varepsilon]$. Then $x\in\Omega$ and $c\varepsilon<f(x)$. Since $c>0$ by (0a),
+$c\varepsilon'\le c\varepsilon<f(x)$, so $x\in\Omega[\varepsilon']$ by $(\ast)$.
+
+\medskip\noindent\textbf{Step 4: $f$ is continuous near every point.} This is the step the
+paper does not supply, and the one on which (4) rests. \emph{Claim:} for every
+$x_0\in\mathbb R^{n}$ there are an open set $U\ni x_0$, a non-empty compact
+$K\subseteq\mathbb R^{n}\setminus\Omega$, and the identity
+\[
+ f(x)=\inf_{y\in K}\kappa(y,x)\qquad\text{for every }x\in U. \tag{4a}
+\]
+
+Fix $x_0$ and put $U:=B_1(x_0)$ (Euclidean), $U':=\overline{B_1(x_0)}$, a compact set. Fix
+$y_0\notin\Omega$, which exists by hypothesis. By (0c) the function $\kappa(y_0,\cdot)$ is
+continuous, hence bounded on the compact $U'$; put
+\[
+ M:=1+\max_{x\in U'}\kappa(y_0,x)\ \ge1 ,
+\]
+so that
+\[
+ \kappa(y_0,x)\le M-1<M\qquad\text{for every }x\in U'. \tag{4b}
+\]
+Put $S:=M^{1/q}$, so that for $t\ge0$ one has $t^{q}\le M$ if and only if $t\le S$; and put
+$T':=\max_{x\in U'}\|x\|$, finite because $\|\cdot\|$ is continuous and $U'$ compact. Apply
+clause (4) of \noderef{CarnotNorm} with $\nu:=S+T'+1$: there is $c_1>0$ with
+\[
+ \|a*b\|\le c_1\big(\|a\|+\|b\|\big)\qquad\text{whenever }\|a\|<\nu\text{ and }\|b\|<\nu. \tag{4c}
+\]
+Set $C_1:=c_1(S+T')$ and
+\[
+ K:=\big(\mathbb R^{n}\setminus\Omega\big)\cap\big\{y:\ \|y\|\le C_1\big\}.
+\]
+
+\emph{(4-i) $K$ is compact.} $\mathbb R^{n}\setminus\Omega$ is closed because $\Omega$ is
+open, and $\{y:\|y\|\le C_1\}$ is closed because $\|\cdot\|$ is continuous; so $K$ is
+closed. By clause (8) of \noderef{CarnotNorm} the sublevel set $\{y:\|y\|\le C_1\}$ is
+bounded, so $K$ is bounded. A closed bounded subset of the finite-dimensional space
+$\mathbb R^{n}$ is compact.
+
+\emph{(4-ii) the key implication.} Let $x\in U'$ and $y\in\mathbb R^{n}$ with
+$\kappa(y,x)\le M$. Put $a:=y*(-x)$. Then $\|a\|^{q}=\kappa(y,x)\le M$, so $\|a\|\le S<\nu$;
+and $\|x\|\le T'<\nu$. Moreover $a*x=\big(y*(-x)\big)*x=y*\big((-x)*x\big)=y*0=y$ by
+associativity and clause (1) of \noderef{CarnotGroup}. Hence by (4c)
+\[
+ \|y\|=\|a*x\|\le c_1\big(\|a\|+\|x\|\big)\le c_1(S+T')=C_1 . \tag{4d}
+\]
+So: for $x\in U'$, every $y$ with $\kappa(y,x)\le M$ satisfies $\|y\|\le C_1$.
+
+\emph{(4-iii) $y_0\in K$, so $K\ne\emptyset$.} $y_0\notin\Omega$, and by (4b)
+$\kappa(y_0,x_0)\le M$ with $x_0\in U'$, so (4d) gives $\|y_0\|\le C_1$.
+
+\emph{(4-iv) proof of (4a).} Let $x\in U'$ and put $\alpha:=\inf_{y\in K}\kappa(y,x)$, a
+real number since $K$ is non-empty and $\kappa\ge0$. As $K\subseteq\mathbb R^{n}\setminus\Omega$,
+every value $\kappa(y,x)$ with $y\in K$ occurs in the family defining $f(x)$, so
+$f(x)\le\kappa(y,x)$ for all $y\in K$ and therefore $f(x)\le\alpha$. Conversely, $\alpha$ is
+a lower bound for the whole family: let $y\notin\Omega$. If $y\in K$ then
+$\kappa(y,x)\ge\alpha$ by definition of $\alpha$. If $y\notin K$ then, $y$ being outside
+$\Omega$, the failure must be $\|y\|>C_1$, so by the contrapositive of (4-ii)
+$\kappa(y,x)>M$; and $\alpha\le\kappa(y_0,x)\le M-1<M$ by (4-iii) and (4b), so again
+$\kappa(y,x)>\alpha$. Hence $\alpha\le f(x)$, and (4a) holds on $U'\supseteq U$.
+
+\emph{(4-v) continuity.} By (0c) the map $(x,y)\mapsto\kappa(y,x)$ is jointly continuous and
+$K$ is compact, so
+\[
+ F(x):=\inf_{y\in K}\kappa(y,x)
+\]
+is a continuous function of $x$ on all of $\mathbb R^{n}$: this is the standard fact that
+the infimum of a jointly continuous function over a compact parameter set depends
+continuously on the remaining variable. By (4a), $f=F$ on $U$, and $U$ is an open
+neighbourhood of $x_0$. The claim is proved.
+
+\medskip\noindent\textbf{Step 5: proof of (4).} Let $\varepsilon>0$ and let
+$x_0\in\Omega[\varepsilon]$; we exhibit a neighbourhood of $x_0$ inside
+$\Omega[\varepsilon]$. Take $U$, $K$, $F$ as in Step 4 at $x_0$. By $(\ast)$,
+$x_0\in\Omega$ and $c\varepsilon<f(x_0)=F(x_0)$. The set
+\[
+ V:=\Omega\cap U\cap\{x:\ c\varepsilon<F(x)\}
+\]
+is open ($\Omega$ and $U$ are open and $F$ is continuous by Step 4), and $x_0\in V$. For
+$x\in V$ we have $x\in\Omega$ and, since $x\in U$, $f(x)=F(x)>c\varepsilon$; so
+$x\in\Omega[\varepsilon]$ by $(\ast)$. Hence $V\subseteq\Omega[\varepsilon]$ and $x_0$ is an
+interior point. As $x_0$ was arbitrary, $\Omega[\varepsilon]$ is open.
+
+\medskip\noindent\textbf{Step 6: proof of (5).} Let $x\in\Omega$. Take $K$ as in Step 4 at
+$x$; it is non-empty and compact and satisfies $f(x)=\inf_{y\in K}\kappa(y,x)$ by (4a). The
+function $\kappa(\cdot,x)$ is continuous by (0c), so on the non-empty compact $K$ it attains
+its infimum: there is $y_\ast\in K$ with $f(x)=\kappa(y_\ast,x)$. Now $y_\ast\notin\Omega$
+while $x\in\Omega$, so $y_\ast\ne x$; and $y_\ast*(-x)\ne0$, since
+$y_\ast*(-x)=0$ would give $y_\ast=\big(y_\ast*(-x)\big)*x=0*x=x$ by the computation in
+(4-ii) and clause (1) of \noderef{CarnotGroup}. Hence $\|y_\ast*(-x)\|\ne0$ by clause (1)
+of \noderef{CarnotNorm}, so $\|y_\ast*(-x)\|>0$ and
+\[
+ f(x)=\|y_\ast*(-x)\|^{q}>0 .
+\]
+Put $\varepsilon_0:=f(x)/c>0$ (using $c>0$). For $0<\varepsilon<\varepsilon_0$ we get
+$c\varepsilon<c\varepsilon_0=f(x)$, so $x\in\Omega[\varepsilon]$ by $(\ast)$.
+
+\medskip\noindent\textbf{Step 7: proof of (6).} Let $\varepsilon>0$ and set
+\[
+ S_\ast:=\bigcap_{y\notin\Omega}\{x:\ c\varepsilon\le\kappa(y,x)\}.
+\]
+Each set in the intersection is closed by (0c), so $S_\ast$ is closed. If
+$x\in\Omega[\varepsilon]$ then for every $y\notin\Omega$ we have
+$c\varepsilon<f(x)\le\kappa(y,x)$ by (0b), so $x\in S_\ast$; thus
+$\Omega[\varepsilon]\subseteq S_\ast$ and therefore
+$\overline{\Omega[\varepsilon]}\subseteq S_\ast$. Now suppose
+$x\in\overline{\Omega[\varepsilon]}$ but $x\notin\Omega$. Then $y:=x$ is an admissible index,
+so membership of $x$ in $S_\ast$ gives $c\varepsilon\le\kappa(x,x)=0$ by (0d), contradicting
+$c\varepsilon>0$ (by (0a) and $\varepsilon>0$). Hence
+$\overline{\Omega[\varepsilon]}\subseteq\Omega$.
+
+\medskip\noindent\textbf{Step 8: proof of (7).} We first record two consequences of the
+group axioms of \noderef{CarnotGroup}, both standard in any group: the inverse of a product
+is $-(a*b)=(-b)*(-a)$, and consequently $d$ is symmetric, since
+$(-a)*b=-\big((-b)*a\big)$ and $\|-g\|=\|g\|$ by clause (1) of \noderef{CarnotNorm}, so
+\[
+ d(a,b)=\|(-b)*a\|=\|(-a)*b\|=d(b,a). \tag{8a}
+\]
+
+Let $\eta>0$. Let $T\ge0$ be as in (0e) and apply clause (5) of \noderef{CarnotNorm} with
+$\nu:=T+2$: there is $c_3>0$ with
+\[
+ \big\|(-a)*b*a\big\|\le c_3\,\|b\|^{1/r}\qquad\text{whenever }\|a\|<\nu\text{ and }\|b\|<\nu. \tag{8b}
+\]
+Since $(2c\varepsilon)^{1/q}\to0$ and $c_3(2c\varepsilon)^{1/(qr)}\to0$ as
+$\varepsilon\to0^{+}$, we may pick $\varepsilon_0>0$ so small that
+\[
+ (2c\varepsilon)^{1/q}<1
+ \qquad\text{and}\qquad
+ c_3\,(2c\varepsilon)^{1/(qr)}<\eta
+ \qquad\text{for every }\varepsilon\in(0,\varepsilon_0). \tag{8c}
+\]
+
+Now fix $\varepsilon\in(0,\varepsilon_0)$ and $z\in\partial\Omega[\varepsilon]$.
+
+\emph{(8-i) $z\in\Omega$ and $f(z)\le c\varepsilon$.} By Step 5 the set
+$\Omega[\varepsilon]$ is open, so
+$\partial\Omega[\varepsilon]=\overline{\Omega[\varepsilon]}\setminus\Omega[\varepsilon]$;
+thus $z\in\overline{\Omega[\varepsilon]}$ and $z\notin\Omega[\varepsilon]$. Step 7 gives
+$z\in\Omega$. Since $z\in\Omega$ and $z\notin\Omega[\varepsilon]$, $(\ast)$ forces
+$f(z)\le c\varepsilon$. By (0e), $\|z\|\le T<\nu$.
+
+\emph{(8-ii) a point outside $\Omega$ close to $z$ for $d$.} Apply (0b) with
+$\theta:=c\varepsilon>0$: there is $y\notin\Omega$ with
+$\kappa(y,z)<f(z)+c\varepsilon\le2c\varepsilon$. Put $g:=y*(-z)$ and $s:=\|g\|$, so
+$s^{q}=\kappa(y,z)<2c\varepsilon$ and hence, $s$ being non-negative,
+$s<(2c\varepsilon)^{1/q}<1<\nu$ by (8c). Also $g*z=y$, by the computation in (4-ii).
+Therefore, using $-y=-(g*z)=(-z)*(-g)$,
+\[
+ d(z,y)=\big\|(-y)*z\big\|=\big\|\big((-z)*(-g)\big)*z\big\|
+ \ \le\ c_3\,\|-g\|^{1/r}=c_3\,s^{1/r},
+\]
+where (8b) was applied with $a:=z$ and $b:=-g$, legitimately because $\|z\|<\nu$ and
+$\|-g\|=s<\nu$. Combining with $s<(2c\varepsilon)^{1/q}$ and (8c),
+\[
+ d(z,y)\ \le\ c_3\,s^{1/r}\ <\ c_3\,(2c\varepsilon)^{1/(qr)}\ <\ \eta . \tag{8d}
+\]
+
+\emph{(8-iii) the connected ball meets $\partial\Omega$.} Let
+\[
+ B:=\big\{w:\ \|(-z)*w\|<\eta\big\}=\{w:\ d(w,z)<\eta\}.
+\]
+By clause (7) of \noderef{CarnotNorm}, $B$ is non-empty and connected. It contains $z$,
+because $(-z)*z=0$ and $\|0\|=0<\eta$; and it contains $y$, because
+$d(y,z)=d(z,y)<\eta$ by (8a) and (8d). So $B$ meets $\Omega$ (at $z$, by (8-i)) and meets
+the complement of $\Omega$ (at $y$).
+
+Suppose $B\cap\partial\Omega=\emptyset$. Since $\Omega$ is open,
+$\partial\Omega=\overline\Omega\setminus\Omega$, so for $w\in B$ either $w\in\Omega$ or
+$w\notin\overline\Omega$ --- for if $w\notin\Omega$ and $w\in\overline\Omega$ then
+$w\in B\cap\partial\Omega$, excluded. Hence
+$B\subseteq\Omega\cup\big(\mathbb R^{n}\setminus\overline\Omega\big)$, a union of two
+disjoint open sets. The first meets $B$ at $z$ and the second meets $B$ at $y$ (indeed
+$y\in B$ and $y\notin\Omega$, so by the dichotomy $y\notin\overline\Omega$). This
+contradicts the connectedness of $B$. Therefore there is $w\in\partial\Omega$ with
+$\|(-z)*w\|<\eta$, i.e. $d(w,z)<\eta$, and by (8a) $d(z,w)=\|(-w)*z\|<\eta$, which is the
+required conclusion.
+
+\medskip\noindent\emph{Remark.} The hypothesis
+$\mathbb R^{n}\setminus\Omega\neq\emptyset$ is what makes the infimum of (3.15) an
+infimum over a non-empty index set, as (0b) records; it is automatic from boundedness of
+$\Omega$ whenever $n\ge1$, which is the only case the paper considers, and without it the
+reduced domain would be governed by the empty-infimum convention rather than by (3.15).
+Clause (4) is the assertion the paper makes without proof at the line introducing (3.15).
+It cannot be obtained from upper semicontinuity of $f$: $f$ is an infimum of continuous
+functions, hence upper semicontinuous, and $\Omega[\varepsilon]$ is a \emph{super}level set
+of $f$, which an upper semicontinuous function does not make open. Nor does the
+quasi-triangle inequality (4) of \noderef{CarnotNorm} suffice, since from
+$y*x^{-1}=(y*x'^{-1})*(x'*x^{-1})$ it yields only
+$f(x)\le c^{q}\big(f(x')^{1/q}+\|x'*x^{-1}\|\big)^{q}$ and hence
+$\liminf_{x'\to x}f(x')\ge f(x)/c^{q}$, which is weaker than lower semicontinuity whenever
+$c>1$. Step 4 instead proves that $f$ is genuinely continuous, by showing that locally in
+$x$ the infimum over the closed unbounded set $\mathbb R^{n}\setminus\Omega$ coincides with
+the infimum over a fixed compact subset of it; properness of the homogeneous norm, clause (8)
+of \noderef{CarnotNorm}, is exactly what makes that subset bounded.
+\end{proof}

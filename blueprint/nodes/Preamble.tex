@@ -1,0 +1,25 @@
+\begin{definition}[Ambient spaces, jets and matrices]
+For $N\in\mathbb N$ we write $\mathbb R^N$ for the $N$-dimensional real inner product
+space $\texttt{EuclideanSpace}\ \mathbb R\ (\texttt{Fin}\ N)$, with the Euclidean scalar
+product $\langle\cdot,\cdot\rangle$ and the Euclidean norm $|x|=\langle x,x\rangle^{1/2}$,
+and $e_1,\ldots,e_N$ for its standard basis. A \emph{$1$-jet} on $\mathbb R^N$ is a
+continuous linear functional $D:\mathbb R^N\to\mathbb R$, and a \emph{$2$-jet} is a
+continuous bilinear form $B:\mathbb R^N\times\mathbb R^N\to\mathbb R$; both are taken in
+the Mathlib sense of continuous (multi)linear maps. $\mathbb R^{k\times k}$ denotes the
+$k\times k$ real matrices, with $\mathrm{Tr}$ the trace and $A^T$ the transpose. For a map
+$F$ differentiable at $x$, $DF(x)$ is its Fr\'echet derivative (Jacobian) at $x$, and
+$\nabla u(x)$ is the differential of a scalar function $u$ regarded as a $1$-jet.
+Balls $B_\rho(x)$ and the measure $|E|$ are Euclidean and Lebesgue unless a homogeneous
+norm is named explicitly.
+\end{definition}
+
+\begin{definition}[Lie bracket of vector fields]
+A \emph{vector field} on $\mathbb R^n$ is a map $V:\mathbb R^n\to\mathbb R^n$. For two
+vector fields $V,W$ the \emph{Lie bracket} is the vector field
+\[
+ [V,W](x)\ =\ DW(x)\,V(x)\ -\ DV(x)\,W(x),
+\]
+where $DV(x),DW(x)$ are Fr\'echet derivatives (and are read as $0$ at points of
+non-differentiability, as in Mathlib's $\texttt{fderiv}$). Identifying $V$ with the
+first-order operator $V\cdot\nabla$, this is the commutator of the two operators.
+\end{definition}

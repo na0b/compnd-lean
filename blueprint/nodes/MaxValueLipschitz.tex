@@ -1,0 +1,99 @@
+\begin{lemma}[Lemma~3.5, (3.12)]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$ and $d(x,y):=\|y^{-1}*x\|$, let
+$\Om\subseteq\mathbb R^{n}$, let $\delta>0$ and $\rho_1,\rho_2\in\mathbb R$, and let
+$u,v:\mathbb R^{n}\to\mathbb R$. Write $\Om_\delta$ for the inner domain
+(\noderef{TranslatedDomain}), $K_\rho$ for the compact core (\noderef{BoundaryCore}),
+$M_\delta(g)$ for the translated maximum value (\noderef{MaxTranslate}) and
+$u_g:=u(\cdot*g)$. Assume
+\begin{enumerate}
+\item there is $L_u\ge0$ with $|u(a)-u(b)|\le L_u\,d(a,b)$ for all $a,b\in K_{\rho_2}$;
+\item for every $g$ with $\|g\|<\delta$ there is $x\in\Om_\delta$ such that $u_g-v$ is
+  maximal over $\Om_\delta$ at $x$ and $M_\delta(g)=u(x*g)-v(x)$;
+\item for every $g$ with $\|g\|<\delta$, every $x\in\Om_\delta$ at which $u_g-v$ is maximal
+  over $\Om_\delta$ lies in $K_{\rho_1}$;
+\item $x*g\in K_{\rho_2}$ whenever $x\in K_{\rho_1}$ and $\|g\|<\delta$.
+\end{enumerate}
+Then
+\[
+ \big|M_\delta(h)-M_\delta(h')\big|\ \le\ L_u\,d(h,h')
+ \qquad\text{for all }h,h'\text{ with }\|h\|<\delta,\ \|h'\|<\delta .
+\]
+\end{lemma}
+\begin{proof}
+This is Lemma~3.5. Hypotheses (2), (3), (4) are the conclusions of Lemma~3.4(c) and (a$'$),
+restated here as conditions on the data; hypothesis (1) is the paper's "$L_u$ is the
+Lipschitz constant of $u$ on $K_{\rho_0/4}$ with respect to $d$". The proof is the paper's,
+with the one exact identity $d(x*h,x*h')=d(h,h')$ written out.
+
+\medskip\noindent\textbf{Step 0: the group inverse reverses products, and $d$ is
+symmetric.} By \noderef{CarnotSetting}, if $a*b=0$ then
+$b=0*b=((-a)*a)*b=(-a)*(a*b)=(-a)*0=-a$. Since
+\[
+ (p*q)*\big((-q)*(-p)\big)=p*\Big(q*\big((-q)*(-p)\big)\Big)=p*\Big(\big(q*(-q)\big)*(-p)\Big)
+ =p*\big(0*(-p)\big)=p*(-p)=0 ,
+\]
+it follows that
+\[
+ -(p*q)=(-q)*(-p)\qquad\text{for all }p,q . \tag{1}
+\]
+Applying (1) with $p:=-y$, $q:=x$ and using $\|-z\|=\|z\|$ gives
+$(-x)*y=-\big((-y)*x\big)$ and hence
+\[
+ d(x,y)=d(y,x)\qquad\text{for all }x,y . \tag{2}
+\]
+These are the two facts pm-0015 records as pre-solved and pm-0012 keeps inline.
+
+\medskip\noindent\textbf{Step 1: the exact translation identity.} Let $x,h,h'$ be arbitrary.
+By (1), $-(x*h')=(-h')*(-x)$, so by associativity and $(-x)*(x*h)=\big((-x)*x\big)*h=0*h=h$,
+\[
+ d(x*h,\,x*h')=\big\|-(x*h')*(x*h)\big\|
+ =\Big\|\big((-h')*(-x)\big)*(x*h)\Big\|
+ =\Big\|(-h')*\big((-x)*(x*h)\big)\Big\|
+ =\big\|(-h')*h\big\|=d(h,h') . \tag{3}
+\]
+This is exact: no quasi-triangle constant enters, exactly as the paper's
+$d(x*h,x*h')=\|h'^{-1}*h\|=d(h,h')$ asserts. (It is the second of the two inline
+derivations of pm-0012.)
+
+\medskip\noindent\textbf{Step 2: the one-sided estimate.} Fix $h,h'$ with $\|h\|<\delta$ and
+$\|h'\|<\delta$. By hypothesis (2) there are $x\in\Om_\delta$ and $x'\in\Om_\delta$ with
+\[
+ u_h-v\ \text{maximal over}\ \Om_\delta\ \text{at}\ x,\qquad M_\delta(h)=u(x*h)-v(x), \tag{4}
+\]
+\[
+ u_{h'}-v\ \text{maximal over}\ \Om_\delta\ \text{at}\ x',\qquad M_\delta(h')=u(x'*h')-v(x').
+ \tag{5}
+\]
+Since $x\in\Om_\delta$, maximality of $u_{h'}-v$ over $\Om_\delta$ at $x'$, applied at the
+point $x$, gives
+\[
+ u(x*h')-v(x)\ \le\ u(x'*h')-v(x')\ =\ M_\delta(h') . \tag{6}
+\]
+Therefore, by (4) and (6),
+\[
+ M_\delta(h)-M_\delta(h')\ \le\ \big(u(x*h)-v(x)\big)-\big(u(x*h')-v(x)\big)=u(x*h)-u(x*h').
+ \tag{7}
+\]
+By (4) and hypothesis (3), $x\in K_{\rho_1}$; by hypothesis (4) applied with $g:=h$ and with
+$g:=h'$ (both admissible, $\|h\|<\delta$ and $\|h'\|<\delta$),
+\[
+ x*h\in K_{\rho_2}\qquad\text{and}\qquad x*h'\in K_{\rho_2}. \tag{8}
+\]
+Hence hypothesis (1) applies to the pair $(x*h,x*h')$ and, with (3),
+\[
+ u(x*h)-u(x*h')\ \le\ \big|u(x*h)-u(x*h')\big|\ \le\ L_u\,d(x*h,x*h')\ =\ L_u\,d(h,h') .
+\]
+Combining with (7),
+\[
+ M_\delta(h)-M_\delta(h')\ \le\ L_u\,d(h,h') . \tag{9}
+\]
+
+\medskip\noindent\textbf{Step 3: conclusion.} Inequality (9) holds for every admissible
+ordered pair, so exchanging the roles of $h$ and $h'$ gives
+$M_\delta(h')-M_\delta(h)\le L_u\,d(h',h)=L_u\,d(h,h')$ by (2). Together with (9),
+\[
+ \big|M_\delta(h)-M_\delta(h')\big|\ \le\ L_u\,d(h,h') ,
+\]
+which is (3.12).
+\end{proof}

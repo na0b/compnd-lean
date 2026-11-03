@@ -1,0 +1,127 @@
+\begin{theorem}[Theorem~1.3(ii)]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with frame $\sigma$, and
+assume the cited results of the literature at $\mathbb G$ (\noderef{CitedResults}). Let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$ satisfy the
+structure conditions (\noderef{StructureConditionsES}). Let $\Om\subset\mathbb R^{n}$ be a
+bounded open set with $\mathbb R^{n}\mns\Om\ne\emptyset$, and let
+$u,v:\mathbb R^{n}\to\mathbb R$ be continuous on $\bar\Om$ with $u$ a viscosity sub-solution
+(\noderef{IsViscSubsol}) and $v$ a viscosity super-solution (\noderef{IsViscSupersol}) of
+$\mathcal L\cdot=0$ in $\Om$, and $u\le v$ on $\del\Om$. Then
+\begin{enumerate}
+\item if $v$ is constant on $\bar\Om$, then $u\le v$ in $\Om$;
+\item if $u$ is constant on $\bar\Om$, then $u\le v$ in $\Om$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+This is Theorem~1.3(ii), both orientations as the paper states them ("The case $u$ constant
+uses the strong minimum principle for $v$"). Throughout, $\bar\Om$ is compact because $\Om$
+is bounded, $u-v$ is continuous on $\bar\Om$, and $\del\Om=\bar\Om\mns\Om$ because $\Om$ is
+open.
+
+\medskip\noindent\textbf{Step 0: the topological core.} We first prove the following, which
+is the paper's last clause and is common to both cases. \emph{Let $y\in\Om$, let
+$C:=$ the connected component of $\Om$ containing $y$, and let $M>0$ be such that
+$u-v\equiv M$ on $C$. Then a contradiction follows.}
+
+Since $\mathbb R^{n}$ is locally connected and $\Om$ is open, $C$ is open; $C\subseteq\Om$,
+and $y\in C$.
+
+\emph{$\del C\ne\emptyset$.} If $\del C=\emptyset$ then $C$ is both closed and open in
+$\mathbb R^{n}$; $\mathbb R^{n}$ is connected and $C\ne\emptyset$ (it contains $y$), so
+$C=\mathbb R^{n}$, whence $\Om\supseteq C=\mathbb R^{n}$. That contradicts
+$\mathbb R^{n}\mns\Om\ne\emptyset$. (This is the only use of that hypothesis; it makes
+explicit the paper's convention $\Om\subset\mathbb R^{n}$, and it is automatic for a bounded
+$\Om$ once $n\ge1$.)
+
+Fix $z\in\del C$. Since $C$ is open, $\del C=\bar C\mns C$, so $z\in\bar C$ and $z\notin C$.
+
+\emph{$\del C\subseteq\del\Om$.} Suppose $z\in\Om$, and let $C'$ be the connected component
+of $\Om$ containing $z$. Then $C'$ is open and $z\in C'$, so, $z$ being in $\bar C$, the open
+set $C'$ meets $C$: there is $w\in C'\cap C$. Two components of $\Om$ containing a common
+point coincide, so $C'=C$ (both equal the component of $\Om$ containing $w$), and therefore
+$z\in C$, contradicting $z\notin C$. Hence $z\notin\Om$; and $z\in\bar C\subseteq\bar\Om$, so
+$z\in\bar\Om\mns\Om=\del\Om$.
+
+\emph{The contradiction.} Since $z\in\bar C$, there is a sequence $(z_k)$ in $C$ with
+$z_k\to z$. For every $k$, $(u-v)(z_k)=M$ by hypothesis. All $z_k$ lie in
+$C\subseteq\Om\subseteq\bar\Om$ and $z\in\del\Om\subseteq\bar\Om$, and $u-v$ is continuous on
+$\bar\Om$, so $(u-v)(z_k)\to(u-v)(z)$; the left-hand side is the constant sequence $M$, so
+$(u-v)(z)=M>0$. But $z\in\del\Om$, where $u\le v$, i.e. $(u-v)(z)\le0$. This is the required
+contradiction.
+
+\medskip\noindent\textbf{Step 1: part (1), $v$ constant.} Let $v\equiv c_v$ on $\bar\Om$ and
+suppose the conclusion fails: $u(x_0)>v(x_0)$ for some $x_0\in\Om$.
+
+Since $\bar\Om$ is compact and non-empty ($x_0\in\Om\subseteq\bar\Om$) and $u-v$ is
+continuous on it, $u-v$ attains its maximum over $\bar\Om$ at some $x_M\in\bar\Om$, and
+\[
+ M_0:=u(x_M)-v(x_M)\ \ge\ u(x_0)-v(x_0)\ >\ 0 .
+\]
+If $x_M\notin\Om$ then $x_M\in\bar\Om\mns\Om=\del\Om$ and $M_0=(u-v)(x_M)\le0$, a
+contradiction; so $x_M\in\Om$.
+
+\emph{$u$ attains its maximum over $\bar\Om$ at $x_M$.} For $z\in\bar\Om$ we have
+$(u-v)(z)\le(u-v)(x_M)$, and $v(z)=c_v=v(x_M)$, so $u(z)\le u(x_M)$. This is the paper's
+"$\argmax_\Om(u-v)=\argmax_\Om u$ \dots\ $u$ attains an interior maximum".
+
+Let $C$ be the connected component of $\Om$ containing $x_M$; it is open (local
+connectedness of $\mathbb R^{n}$, $\Om$ open), connected, contains $x_M$ and is contained in
+$\Om$.
+
+\emph{The shifted sub-solution.} Put $\tilde u:=u-u(x_M)$, which is the paper's "adding a
+constant we may take it non-negative". By \noderef{AddConstPreservesSubsol}, applied with the
+constant $-u(x_M)$, $\tilde u$ is a viscosity sub-solution of $\mathcal L\cdot=0$ in $\Om$.
+Moreover $\tilde u\le0$ on $\Om$ by the previous paragraph, so $\tilde u$ is bounded above on
+$\Om$ (by $0$). Part (1b) of \noderef{ViscTestLocalization} --- whose hypotheses are exactly
+that $\tilde u$ be bounded above on $\Om$ and a viscosity sub-solution there --- gives that
+$\tilde u$ is a viscosity sub-solution in every open subset of $\Om$, in particular in $C$.
+This step is not free: pm-0009 records that our rendering of Definition~2.1 has the test condition
+$x\in\argmax_\Om(w-\varphi)$ global over the domain, so restriction to a smaller open set
+needs \noderef{ViscTestLocalization}.
+
+\emph{The strong maximum principle.} For $z\in C\subseteq\Om\subseteq\bar\Om$ we have
+$u(z)\le u(x_M)$, i.e. $\tilde u(z)\le0=\tilde u(x_M)$; so $\tilde u$ attains its maximum
+over $C$ at $x_M\in C$, and that maximum value is $\tilde u(x_M)=0\ge0$. The clause
+$\mathtt{strongMax}$ of \noderef{CitedResults} --- the Bardi--Goffi strong maximum principle
+in the form Corollary~2.4 --- applied with the structure conditions on $(A,H)$, the open connected
+set $C$, the sub-solution $\tilde u$ and the point $x_M$, gives
+$\tilde u(z)=\tilde u(x_M)=0$ for every $z\in C$, i.e.
+\[
+ u(z)=u(x_M)\qquad(z\in C).
+\]
+
+\emph{Conclusion.} For $z\in C$ we therefore have, using $v(z)=c_v=v(x_M)$,
+\[
+ u(z)-v(z)=u(x_M)-v(x_M)=M_0>0 ,
+\]
+so $u-v\equiv M_0$ on $C$ with $M_0>0$. Step 0, applied with $y:=x_M$ and $M:=M_0$, gives a
+contradiction. Hence $u\le v$ in $\Om$, which is (1).
+
+\medskip\noindent\textbf{Step 2: part (2), $u$ constant.} Let $u\equiv c_u$ on $\bar\Om$ and
+suppose $u(x_0)>v(x_0)$ for some $x_0\in\Om$. Exactly as in Step 1, $u-v$ attains its maximum
+over the compact non-empty $\bar\Om$ at some $x_M$, $M_0:=(u-v)(x_M)>0$, and $x_M\in\Om$
+because $u-v\le0$ on $\del\Om$.
+
+\emph{$v$ attains its minimum over $\bar\Om$ at $x_M$.} For $z\in\bar\Om$,
+$(u-v)(z)\le(u-v)(x_M)$ and $u(z)=c_u=u(x_M)$, so $v(x_M)\le v(z)$.
+
+Let $C$ be the connected component of $\Om$ containing $x_M$, open and connected as before.
+Put $\tilde v:=v-v(x_M)$. By \noderef{AddConstPreservesSubsol} (super-solution half, with the
+constant $-v(x_M)$), $\tilde v$ is a viscosity super-solution in $\Om$; and $\tilde v\ge0$ on
+$\Om$ by the previous paragraph, so it is bounded below on $\Om$ (by $0$). Part (2b) of
+\noderef{ViscTestLocalization} then gives that $\tilde v$ is a viscosity super-solution in
+every open subset of $\Om$, in particular in $C$.
+
+For $z\in C$ we have $\tilde v(x_M)=0\le\tilde v(z)$, so $\tilde v$ attains its minimum over
+$C$ at $x_M\in C$, with value $\tilde v(x_M)=0\le0$. The clause $\mathtt{strongMin}$ of
+\noderef{CitedResults} --- the super-solution side of Corollary~2.4 --- applied with the structure
+conditions, the open connected $C$, the super-solution $\tilde v$ and the point $x_M$, gives
+$\tilde v(z)=\tilde v(x_M)=0$ for every $z\in C$, i.e. $v(z)=v(x_M)$ on $C$.
+
+Hence for $z\in C$, using $u(z)=c_u=u(x_M)$,
+\[
+ u(z)-v(z)=u(x_M)-v(x_M)=M_0>0 ,
+\]
+and Step 0 with $y:=x_M$, $M:=M_0$ gives a contradiction. Hence $u\le v$ in $\Om$, which is
+(2).
+\end{proof}

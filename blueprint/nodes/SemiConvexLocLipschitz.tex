@@ -1,0 +1,173 @@
+\begin{theorem}[Section~2.3(3): the local Lipschitz bound]
+Let $N\in\mathbb N$, let $\Omega\subseteq\mathbb R^{N}$ and let
+$w:\mathbb R^{N}\to\mathbb R$ be locally semi-convex on $\Omega$
+(\noderef{LocallySemiConvexOn}). Then
+\begin{enumerate}
+\item $w$ is continuous on $\Omega$;
+\item $w$ is locally Lipschitz on $\Omega$: for every $x\in\Omega$ there are $r>0$ and
+  $C\ge0$ such that $B_r(x)\subseteq\Omega$ and
+  \[
+   |w(y)-w(z)|\le C\,|y-z|\qquad\text{for all }y,z\in B_r(x);
+  \]
+\item $w$ is Lipschitz on every compact subset of $\Omega$: for every compact
+  $K\subseteq\Omega$ there is $C\ge0$ with $|w(y)-w(z)|\le C\,|y-z|$ for all $y,z\in K$;
+\item the derivative of $w$ is bounded on compact subsets of $\Omega$ wherever it exists:
+  for every compact $K\subseteq\Omega$ there is $C\ge0$ such that $\|D\|\le C$ whenever
+  $x\in K$ and $D$ is the Fr\'echet derivative of $w$ at $x$.
+\end{enumerate}
+Here $B_r(x)$ is the Euclidean open ball and $|\cdot|$ the Euclidean norm.
+\end{theorem}
+\begin{proof}
+Throughout we use one standard fact of convex analysis, which is not a tablet node: a convex
+function that is finite on an open convex subset of a finite-dimensional normed space is
+continuous there. We prove (2) first, then deduce (1), (3) and (4) from it.
+
+\medskip\noindent\textbf{Step 0: $\Omega$ is open.} By \noderef{LocallySemiConvexOn}, every
+$x\in\Omega$ admits $\rho>0$ with $B_\rho(x)\subseteq\Omega$. Hence $\Omega$ is open. (This
+is used only to know that the balls produced below are neighbourhoods inside $\Omega$.)
+
+\medskip\noindent\textbf{Step 1: proof of (2).} Fix $x\in\Omega$. By
+\noderef{LocallySemiConvexOn} there are $\rho>0$ and $\Lambda\ge0$ with
+$B_\rho(x)\subseteq\Omega$ such that
+\[
+ g(y):=w(y)+\frac{\Lambda}{2}|y|^{2}
+\]
+is convex on $B_\rho(x)$. Put $s:=\rho/2$, so that the closed ball
+$\overline B_s(x)$ satisfies $\overline B_s(x)\subseteq B_\rho(x)$ (if $|y-x|\le s=\rho/2$
+then $|y-x|<\rho$).
+
+\emph{(1a) $g$ is bounded on $\overline B_s(x)$.} $B_\rho(x)$ is open and convex and $g$ is
+convex and real-valued on it, so by the standard fact quoted above $g$ is continuous on
+$B_\rho(x)$. The set $\overline B_s(x)$ is closed and bounded in the finite-dimensional space
+$\mathbb R^{N}$, hence compact, and it is contained in $B_\rho(x)$. A continuous real
+function on a non-empty compact set is bounded, so
+\[
+ M:=\sup_{y\in\overline B_s(x)}|g(y)|<\infty ,
+\]
+and $M\ge0$ since $\overline B_s(x)\ni x$ is non-empty.
+
+\emph{(1b) $g$ is Lipschitz with constant $4M/s$ on $B_{s/2}(x)$.} Let
+$y,z\in B_{s/2}(x)$. If $y=z$ the inequality
+$|g(y)-g(z)|\le (4M/s)|y-z|$ is trivial, so assume $y\ne z$ and set
+\[
+ \sigma:=|y-z|>0,\qquad e:=\frac{y-z}{\sigma},\qquad q:=y+\frac{s}{2}\,e .
+\]
+Then $|e|=1$ and
+\[
+ |q-x|\le|y-x|+\frac{s}{2}<\frac{s}{2}+\frac{s}{2}=s ,
+\]
+so $q\in\overline B_s(x)\subseteq B_\rho(x)$; also $y,z\in B_{s/2}(x)\subseteq B_\rho(x)$.
+Put
+\[
+ t:=\frac{\sigma}{\sigma+s/2}\in(0,1).
+\]
+Then $y=(1-t)z+t\,q$: indeed $(1-t)z+tq=z+t(q-z)$ and
+$q-z=(y-z)+\tfrac{s}{2}e=\sigma e+\tfrac{s}{2}e=(\sigma+\tfrac{s}{2})e$, so
+$t(q-z)=\tfrac{\sigma}{\sigma+s/2}(\sigma+\tfrac{s}{2})e=\sigma e=y-z$. Since $B_\rho(x)$ is
+convex and $g$ is convex on it,
+\[
+ g(y)\le(1-t)g(z)+t\,g(q),
+ \qquad\text{i.e.}\qquad
+ g(y)-g(z)\le t\big(g(q)-g(z)\big)\le t\cdot 2M,
+\]
+using $|g(q)|\le M$ and $|g(z)|\le M$ (both $q$ and $z$ lie in $\overline B_s(x)$, as
+$|z-x|<s/2\le s$). Now
+\[
+ t\cdot 2M=\frac{2M\sigma}{\sigma+s/2}\le\frac{2M\sigma}{s/2}=\frac{4M}{s}\,\sigma ,
+\]
+because $\sigma+s/2\ge s/2>0$ and $2M\sigma\ge0$. Hence
+$g(y)-g(z)\le(4M/s)|y-z|$. Exchanging the roles of $y$ and $z$ (which exchanges $e$ for $-e$
+and leaves $\sigma$ unchanged) gives $g(z)-g(y)\le(4M/s)|y-z|$, so
+\[
+ |g(y)-g(z)|\le\frac{4M}{s}\,|y-z|\qquad\text{for all }y,z\in B_{s/2}(x). \tag{1}
+\]
+
+\emph{(1c) subtracting the quadratic term.} For $y,z\in B_{s/2}(x)$ we have
+$|y|\le|x|+s/2$ and $|z|\le|x|+s/2$, so
+\[
+ \frac{\Lambda}{2}\big|\,|y|^{2}-|z|^{2}\big|
+  =\frac{\Lambda}{2}\big|\,|y|-|z|\,\big|\cdot\big(|y|+|z|\big)
+  \le\frac{\Lambda}{2}\,|y-z|\cdot 2\Big(|x|+\frac{s}{2}\Big)
+  =\Lambda\Big(|x|+\frac{s}{2}\Big)|y-z| ,
+\]
+where $\big|\,|y|-|z|\,\big|\le|y-z|$ is the triangle inequality. Since
+$w=g-\tfrac{\Lambda}{2}|\cdot|^{2}$, combining with (1),
+\[
+ |w(y)-w(z)|\le|g(y)-g(z)|+\frac{\Lambda}{2}\big|\,|y|^{2}-|z|^{2}\big|
+  \le\Big[\frac{4M}{s}+\Lambda\Big(|x|+\frac{s}{2}\Big)\Big]\,|y-z| .
+\]
+So (2) holds with
+\[
+ r:=\frac{s}{2}=\frac{\rho}{4}>0,\qquad
+ C:=\frac{4M}{s}+\Lambda\Big(|x|+\frac{s}{2}\Big)\ \ge\ 0 ,
+\]
+and $B_r(x)\subseteq B_\rho(x)\subseteq\Omega$.
+
+\medskip\noindent\textbf{Step 2: proof of (1).} Let $x\in\Omega$ and take $r,C$ from Step 1.
+Then $|w(y)-w(x)|\le C|y-x|$ for $y\in B_r(x)$, so $w(y)\to w(x)$ as $y\to x$; thus $w$ is
+continuous at $x$ (as a function on $\mathbb R^{N}$, hence a fortiori its restriction to
+$\Omega$ is continuous at $x$ within $\Omega$). As $x\in\Omega$ was arbitrary, $w$ is
+continuous on $\Omega$.
+
+\medskip\noindent\textbf{Step 3: proof of (3).} Let $K\subseteq\Omega$ be compact. If
+$K=\emptyset$ take $C:=0$; the assertion is vacuous. So assume $K\ne\emptyset$.
+
+By Step 1, for each $x\in K\subseteq\Omega$ choose $r_x>0$ and $C_x\ge0$ with
+$B_{r_x}(x)\subseteq\Omega$ and $w$ $C_x$-Lipschitz on $B_{r_x}(x)$. The balls
+$\{B_{r_x/3}(x)\}_{x\in K}$ form an open cover of $K$, so by compactness there are finitely
+many points $x_1,\ldots,x_n\in K$ (with $n\ge1$, since $K\ne\emptyset$) such that
+$K\subseteq\bigcup_{i=1}^{n}B_{r_i/3}(x_i)$, where $r_i:=r_{x_i}$ and $C_i:=C_{x_i}$. Put
+\[
+ r:=\min_{1\le i\le n}\frac{r_i}{3}>0,\qquad C_0:=\max_{1\le i\le n}C_i\ \ge0 .
+\]
+
+\emph{(3a) the short-range estimate.} Let $y,z\in K$ with $|y-z|<r$. Choose $i$ with
+$y\in B_{r_i/3}(x_i)$. Then
+\[
+ |z-x_i|\le|z-y|+|y-x_i|<r+\frac{r_i}{3}\le\frac{r_i}{3}+\frac{r_i}{3}<r_i ,
+\]
+so both $y$ and $z$ lie in $B_{r_i}(x_i)$, on which $w$ is $C_i$-Lipschitz. Hence
+$|w(y)-w(z)|\le C_i|y-z|\le C_0|y-z|$.
+
+\emph{(3b) the long-range estimate.} By Step 2, $w$ is continuous on $\Omega$, hence its
+restriction to the non-empty compact set $K$ is continuous and bounded: put
+$M_K:=\sup_{K}|w|<\infty$, $M_K\ge0$. If $y,z\in K$ with $|y-z|\ge r$, then
+\[
+ |w(y)-w(z)|\le|w(y)|+|w(z)|\le 2M_K=\frac{2M_K}{r}\cdot r\le\frac{2M_K}{r}\,|y-z| .
+\]
+
+Taking $C:=\max\{C_0,\,2M_K/r\}\ge0$, both cases give $|w(y)-w(z)|\le C|y-z|$ for all
+$y,z\in K$, which is (3).
+
+\medskip\noindent\textbf{Step 4: proof of (4).} Let $K\subseteq\Omega$ be compact. If
+$K=\emptyset$ take $C:=0$. Otherwise, with $x_1,\ldots,x_n$, $r_i$, $C_i$ and
+$C_0=\max_i C_i$ exactly as in Step 3, put $C:=C_0$.
+
+Let $x\in K$ and let $D$ be the Fr\'echet derivative of $w$ at $x$. Choose $i$ with
+$x\in B_{r_i/3}(x_i)$, and let $\eta:=r_i/3-|x-x_i|>0$, so that
+$B_\eta(x)\subseteq B_{r_i}(x_i)$: indeed if $|y-x|<\eta$ then
+$|y-x_i|\le|y-x|+|x-x_i|<r_i/3\le r_i$. Since $w$ is $C_i$-Lipschitz on $B_{r_i}(x_i)$, it is
+$C_i$-Lipschitz on $B_\eta(x)$.
+
+Fix a unit vector $e\in\mathbb R^{N}$ and let $0<\tau<\eta$. Then $x+\tau e\in B_\eta(x)$ and
+\[
+ \big|w(x+\tau e)-w(x)\big|\le C_i\,|\tau e|=C_i\,\tau .
+\]
+By differentiability, $w(x+\tau e)-w(x)=\tau\,D(e)+o(\tau)$ as $\tau\to0^{+}$; dividing the
+displayed inequality by $\tau>0$ gives
+\[
+ \Big|D(e)+\frac{o(\tau)}{\tau}\Big|\le C_i ,
+\]
+and letting $\tau\to0^{+}$ yields $|D(e)|\le C_i$. As $e$ ranges over the unit sphere, this
+gives $\|D\|=\sup_{|e|=1}|D(e)|\le C_i\le C_0=C$, which is (4).
+
+\medskip\noindent\emph{Remark on strength.} The paper states (3) with the explicit constant
+$c(N)\big(\operatorname{osc}_\Omega w+\Lambda\sup_\Omega|x|\operatorname{diam}\Omega\big)
+\operatorname{dist}(K,\partial\Omega)^{-1}$. Only the finiteness of a Lipschitz constant on
+compacts, and the resulting bound on $\nabla w$, are ever used downstream, so the statement
+above asserts existence of a finite constant rather than that particular formula; Step 1
+nevertheless exhibits a concrete admissible constant on each ball. The hypothesis is the
+local notion of semi-convexity, as fixed for this formalization, which is also why the
+conclusion of (2) is stated on a ball contained in $\Omega$ rather than with one constant
+for all of $\Omega$.
+\end{proof}

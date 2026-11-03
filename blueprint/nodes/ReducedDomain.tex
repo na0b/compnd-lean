@@ -1,0 +1,30 @@
+\begin{definition}[The reduced domains (3.15)]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, put $q:=2\,r!$, let $\Omega\subset\mathbb R^n$ and let
+$R,\varepsilon\in\mathbb R$. The \emph{reduced domain} is
+\[
+ \Omega[\varepsilon]\ :=\ \Big\{\,x\in\Omega\ :\
+   \inf_{y\in\mathbb R^n\setminus\Omega}\|y*x^{-1}\|^{q}\ >\ (1+4R)\,\varepsilon\,\Big\},
+\]
+where $x^{-1}=-x$, so that $y*x^{-1}=y*(-x)$.
+
+This is (3.15). In the paper the parameter is fixed to
+$R=2\max\{\|u\|_{L^\infty},\|v\|_{L^\infty}\}$ for the two functions $u,v$ under
+consideration; here it is carried as a parameter, so that the nodes which use
+$\Omega[\varepsilon]$ state their own bound on $R$ and the definition does not have to
+mention $u$ and $v$. The quantity being compared with $(1+4R)\varepsilon$ is the
+$q$-th power of the right-invariant distance from $x$ to the complement of $\Omega$, and
+the condition says that $x$ is deep inside $\Omega$ in that sense; the point of the
+threshold $(1+4R)\varepsilon$ is that the displacement $z_x$ realizing the sup- or
+inf-convolution at a point of $\Omega[\varepsilon]$ satisfies
+$\|z_x\|^{q}\le4\varepsilon\|u\|_{L^\infty}\le2R\varepsilon<(1+4R)\varepsilon$, so that
+$z_x*x'$ still lies in $\Omega$ for the relevant $x'$.
+
+The infimum is over $\{y:y\notin\Omega\}$, which is non-empty whenever $\Omega$ is bounded
+--- as it is wherever the reduced domains are used --- and the family is bounded below by
+$0$, so the infimum is the infimum in the ordinary sense. (In the formal statement the
+infimum of an empty family returns $0$ by convention, in which case the defining condition
+would be $(1+4R)\varepsilon<0$.) For $\varepsilon>0$ and $R\ge0$ the sets increase as
+$\varepsilon$ decreases, and $\Omega[\varepsilon]\uparrow\Omega$ as
+$\varepsilon\to0^{+}$.
+\end{definition}

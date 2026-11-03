@@ -1,0 +1,31 @@
+\begin{definition}[Pointwise second-order (Peano) jet]
+Let $N\in\mathbb N$, let $w:\mathbb R^N\to\mathbb R$, let $x\in\mathbb R^N$, let
+$D:\mathbb R^N\to\mathbb R$ be a $1$-jet and let $B:\mathbb R^N\times\mathbb R^N\to\mathbb R$
+be a $2$-jet. We say that $(D,B)$ is a \emph{second-order jet of $w$ at $x$}, written
+$\mathrm{TwiceDiffAt}\ w\ x\ D\ B$, if
+\begin{enumerate}
+\item $B$ is symmetric, $B(u,v)=B(v,u)$ for all $u,v\in\mathbb R^N$; and
+\item for every $\varepsilon>0$ there is $\delta>0$ such that
+\[
+ \Big|\,w(y)-w(x)-D(y-x)-\tfrac12\,B(y-x,\,y-x)\,\Big|\ \le\ \varepsilon\,|y-x|^2
+ \qquad\text{whenever}\quad |y-x|<\delta .
+\]
+\end{enumerate}
+Thus $(D,B)$ is a second-order jet of $w$ at $x$ exactly when
+$w(y)=w(x)+D(y-x)+\tfrac12 B(y-x,y-x)+o(|y-x|^2)$ as $y\to x$, with $B$ symmetric.
+
+The existence of such a pair is the statement that $w$ is \emph{twice differentiable at
+$x$} in the pointwise sense used throughout the paper: it is the conclusion of
+Aleksandrov's theorem (Theorem Theorem~2.6), the property selected at the points
+produced by Jensen's lemma (Lemma Lemma~2.7), and the hypothesis under which a viscosity
+sub- or super-solution satisfies the equation classically (Remark Remark~2.2). When it
+exists the pair is unique, $D$ being the Fr\'echet differential $\nabla w(x)$ and $B$ the
+Hessian $D^2w(x)$: if $(D,B)$ and $(D',B')$ both qualify then $C:=B-B'$ is a symmetric
+bilinear form with $|C(h,h)|\le4\varepsilon|h|^2$ for every $\varepsilon>0$, so taking
+$h=tv$ and dividing by $t^2$ gives $C(v,v)=0$ for every $v$, hence $C=0$ by polarization,
+and then $D=D'$ by the first-order part. It is for this uniqueness that $B$ is required to
+be bilinear rather than merely a function of two arguments: the quadratic part of the
+expansion controls $B(h,h)$ only as $h\to0$, whereas the symmetrized horizontal second
+derivative built from a $2$-jet evaluates $B$ at the fixed vectors $\sigma^i(x)$, which
+are not small.
+\end{definition}

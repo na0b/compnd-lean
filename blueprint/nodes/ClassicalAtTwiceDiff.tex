@@ -1,0 +1,150 @@
+\begin{theorem}[Remark~2.2]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with frame
+$\sigma=[\sigma^1,\ldots,\sigma^m]$, let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$, let
+$\Om\subset\mathbb R^{n}$ be a bounded open set, and let $u:\mathbb R^{n}\to\mathbb R$ be
+continuous on $\bar\Om$. Let $x\in\Om$ and let $(D,B)$ be a second-order jet of $u$ at $x$
+(\noderef{TwiceDiffAt}) with $\mathrm{hgrad}\ \sigma\ x\ D\ne0$ (\noderef{hgrad}). Then
+\begin{enumerate}
+\item if $u$ is a viscosity sub-solution of $\mathcal L u=0$ in $\Om$
+  (\noderef{IsViscSubsol}), then $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le0$
+  (\noderef{Lop});
+\item if $u$ is a viscosity super-solution of $\mathcal L u=0$ in $\Om$
+  (\noderef{IsViscSupersol}), then $0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+This is Remark~2.2. We prove (1); (2) is the same argument with the three inequalities
+reversed, and is recorded separately because \noderef{IsViscSupersol} is a separate
+predicate (the proof of Proposition~3.3, Step 3, uses (1) for $u$ and (2) for $v$).
+
+\medskip\noindent\textbf{Step 0: $u$ is bounded on $\Om$.} Since $\Om$ is bounded,
+$\bar\Om$ is closed and bounded in $\mathbb R^{n}$, hence compact; $u$ is continuous on
+$\bar\Om$, so $|u|\le C_u$ on $\bar\Om$ for some $C_u$, and in particular
+$-C_u\le u\le C_u$ on $\Om\subset\bar\Om$. This is exactly the hypothesis that
+\noderef{ViscTestLocalization} requires, and it is the reason this node carries $\Om$
+bounded and $u\in C(\bar\Om)$: without a bound on $u$ the modification of the test
+function away from $x$ cannot be built, and the remark is then not available as stated.
+
+\medskip\noindent\textbf{Step 1: the test functions.} Let $\langle\cdot,\cdot\rangle$ be
+the Euclidean scalar product of $\mathbb R^{n}$, viewed as a continuous symmetric bilinear
+form $J$, so that $J(h,h)=|h|^{2}$. For $c\in\mathbb R$ put
+\[
+ B_c:=B+cJ,\qquad
+ \varphi_c(y):=u(x)+D(y-x)+\tfrac12B_c(y-x,y-x)
+ =u(x)+D(y-x)+\tfrac12B(y-x,y-x)+\tfrac c2|y-x|^{2}. \tag{1}
+\]
+Thus $\varphi_c$ is the second-order Taylor polynomial of $u$ at $x$ --- which is
+meaningful precisely because $(D,B)$ is a second-order jet of $u$ at $x$ --- plus
+$\frac c2|y-x|^{2}$; the paper's test function is $\varphi_{2\eta}$ for the sub-solution
+case and $\varphi_{-2\eta}$ for the super-solution case, with $\eta>0$. Three facts about
+$\varphi_c$:
+\begin{enumerate}
+\item[(a)] $\varphi_c\in C^{\infty}(\mathbb R^{n})$, being a polynomial of degree $2$: it
+  is the sum of a constant, a continuous linear functional applied to $y-x$, and a
+  continuous bilinear form applied to $(y-x,y-x)$.
+\item[(b)] $\varphi_c(x)=u(x)$, since $D(0)=0$ and $B_c(0,0)=0$.
+\item[(c)] $(D,B_c)$ is a second-order jet of $\varphi_c$ at $x$, with no error term at
+  all: by (1) and (b), $\varphi_c(y)-\varphi_c(x)-D(y-x)-\frac12B_c(y-x,y-x)=0$ for every
+  $y$, so the Peano estimate of \noderef{TwiceDiffAt} holds with any $\delta$ for any
+  $\varepsilon>0$. The required symmetry of $B_c$ follows from that of $B$ (part of the
+  hypothesis) and the symmetry of the scalar product.
+\end{enumerate}
+
+\medskip\noindent\textbf{Step 2: $\mathcal L$ is affine in the second-order jet, at fixed
+first jet.} Set $\xi_0:=\mathrm{hgrad}\ \sigma\ x\ D$ and let
+\[
+ \mathcal G\in\mathbb R^{m\times m},\qquad
+ \mathcal G_{i,j}:=\big\langle\sigma^{i}(x),\sigma^{j}(x)\big\rangle,
+ \qquad T:=\Tr\big(A(\xi_0)\,\mathcal G\big). \tag{2}
+\]
+The point of the perturbation is that it does not touch the first jet: $\varphi_c$ and $u$
+have the \emph{same} $1$-jet $D$ at $x$, so by \noderef{hgrad} their horizontal gradients
+at $x$ are the same vector $\xi_0$, and the numbers $A(\xi_0)$ and $H(\xi_0)$ occurring in
+$\mathcal L$ are literally unchanged. By \noderef{hhessS} and $B_c=B+cJ$,
+\[
+ \mathrm{hhessS}\ \sigma\ x\ D\ B_c
+ =\Big(B_c\big(\sigma^{i}(x),\sigma^{j}(x)\big)\Big)_{i,j}+\mathcal M(x,D)
+ =\mathrm{hhessS}\ \sigma\ x\ D\ B+c\,\mathcal G ,
+\]
+the correction matrix $\mathcal M(x,D)$ of \noderef{Mfield} being unchanged because it
+depends only on the $1$-jet $D$. Hence, by \noderef{Lop} and the linearity of
+$X\mapsto\Tr(A(\xi_0)X)$,
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B_c
+ =\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B-c\,T\qquad\text{for every }c\in\mathbb R. \tag{3}
+\]
+This identity is our form of the paper's ``$\mathcal L$ is continuous in
+$(\mathcal X\varphi,\mathcal X\mathcal X^{s}\varphi)$ at points with
+$\mathcal X\varphi\ne0$''. In the jet encoding the statement is stronger and elementary:
+because the perturbation leaves the horizontal gradient alone, no continuity of $A$ or $H$
+is needed --- the dependence on the second-order jet is affine, with the single constant
+$T$ of (2). That is why this node does not carry the structure conditions
+of Section~1.2; $A$ and $H$ are arbitrary here. The non-vanishing
+$\xi_0\ne0$ is still essential, but as the admissibility condition on the test function,
+not as a continuity point.
+
+\medskip\noindent\textbf{Step 3: the perturbed test function touches $u$ locally.} Let
+$\eta>0$. Since $\Om$ is open there is $r_0>0$ with $B(x,r_0)\subset\Om$. Apply
+\noderef{TwiceDiffAt} to $u$, $(D,B)$ with accuracy $\varepsilon:=\eta$: there is
+$\delta>0$ such that
+\[
+ \Big|u(y)-u(x)-D(y-x)-\tfrac12B(y-x,y-x)\Big|\ \le\ \eta\,|y-x|^{2}
+ \qquad\text{for }|y-x|<\delta. \tag{4}
+\]
+Put $r:=\min\{r_0,\delta\}>0$, so $B(x,r)\subset\Om$. For $y\in B(x,r)$, by (1), (b) and
+(4),
+\[
+ u(y)-\varphi_{2\eta}(y)
+ =\Big(u(y)-u(x)-D(y-x)-\tfrac12B(y-x,y-x)\Big)-\eta|y-x|^{2}
+ \ \le\ \eta|y-x|^{2}-\eta|y-x|^{2}=0
+ =u(x)-\varphi_{2\eta}(x).
+\]
+So $u-\varphi_{2\eta}\le(u-\varphi_{2\eta})(x)$ on $B(x,r)$: the touching is local, which
+is all the paper claims, and the accuracy $\varepsilon=\eta$ of the Peano expansion is
+exactly matched to the size of the added quadratic. This is the ``$\eta>0$'' and the
+``$\delta$ from the Peano expansion'' of Remark~2.2.
+
+\medskip\noindent\textbf{Step 4: the localization step.} We now have, for the function
+$\varphi_{2\eta}$: $\varphi_{2\eta}\in C^{2}(B(x,r))$ by (a), $B(x,r)\subset\Om$,
+$u-\varphi_{2\eta}\le(u-\varphi_{2\eta})(x)$ on $B(x,r)$ by Step 3, $(D,B_{2\eta})$ a
+second-order jet of $\varphi_{2\eta}$ at $x$ by (c), and
+$\mathrm{hgrad}\ \sigma\ x\ D=\xi_0\ne0$ by hypothesis. Together with the bound on $u$ of
+Step 0 and the sub-solution property, part (1a) of \noderef{ViscTestLocalization} applies
+and gives
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B_{2\eta}\ \le\ 0 .
+\]
+This is the paper's clause ``belongs to $\mathcal A^{+}_x(u,\Om)$ after a modification away
+from $x$'': the modification is carried out inside \noderef{ViscTestLocalization}, and
+invoking that node is precisely what writing the clause out amounts to. By (3) with
+$c=2\eta$,
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\ \le\ 2\eta\,T\qquad\text{for every }\eta>0. \tag{5}
+\]
+
+\medskip\noindent\textbf{Step 5: $\eta\to0^{+}$.} Let $\varepsilon>0$ and take
+$\eta:=\varepsilon/\big(2(|T|+1)\big)>0$. Then
+\[
+ 2\eta\,T\ \le\ 2\eta\,|T|\ =\ \frac{\varepsilon\,|T|}{|T|+1}\ \le\ \varepsilon ,
+\]
+so (5) gives $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le\varepsilon$. As $\varepsilon>0$ was
+arbitrary, $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le0$, which is (1). Note that the constant
+$T$ of (2) is fixed once and for all by $x$, $\sigma$, $A$ and $D$; it does not depend on
+$\eta$, which is what makes the limit trivial.
+
+\medskip\noindent\textbf{Step 6: the super-solution half.} For (2), run Steps 3--5 with
+$\varphi_{-2\eta}$, i.e. the second-order Taylor polynomial \emph{minus} $\eta|y-x|^{2}$,
+as Remark~2.2 prescribes. The left inequality of (4) gives, for $y\in B(x,r)$,
+\[
+ u(y)-\varphi_{-2\eta}(y)
+ =\Big(u(y)-u(x)-D(y-x)-\tfrac12B(y-x,y-x)\Big)+\eta|y-x|^{2}
+ \ \ge\ -\eta|y-x|^{2}+\eta|y-x|^{2}=0=u(x)-\varphi_{-2\eta}(x),
+\]
+so $(u-\varphi_{-2\eta})(x)\le u-\varphi_{-2\eta}$ on $B(x,r)$; with the lower bound
+$-C_u\le u$ of Step 0, part (2a) of \noderef{ViscTestLocalization} gives
+$0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B_{-2\eta}$, and (3) with $c=-2\eta$ turns this into
+$-2\eta T\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$ for every $\eta>0$. The same choice of
+$\eta$ as in Step 5 gives $-\varepsilon\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$ for every
+$\varepsilon>0$, i.e. $0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$.
+\end{proof}

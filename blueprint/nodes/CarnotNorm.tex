@@ -1,0 +1,71 @@
+\begin{definition}[Carnot group with its homogeneous norm]
+A \emph{Carnot norm datum} is a Carnot group datum (\noderef{CarnotGroup}) together with a
+map $\|\cdot\|:\mathbb R^n\to\mathbb R$, the homogeneous norm, subject to the conditions
+below. Throughout, $q:=2\,r!$, the associated left-invariant distance is
+\[
+ d(x,y):=\|y^{-1}*x\|=\|(-y)*x\|,
+\]
+and $B_\rho(x):=\{y\in\mathbb R^n: d(y,x)<\rho\}$.
+\begin{enumerate}
+\item $\|x\|\ge0$ for all $x$; $\|x\|=0$ if and only if $x=0$; $\|-x\|=\|x\|$; and
+  $\|\cdot\|$ is continuous on $\mathbb R^n$.
+\item $\|\exp_{\mathrm h}(\zeta)\|=|\zeta|$ for every $\zeta\in\mathbb R^m$.
+\item $x\mapsto\|x\|^{q}$ is $C^\infty$ on $\mathbb R^n$.
+\item (First inequality of (2.17).) For every $\nu>0$ there is $c>0$ such that
+  $\|x*y\|\le c\,(\|x\|+\|y\|)$ whenever $\|x\|<\nu$ and $\|y\|<\nu$.
+\item (Second inequality of (2.17).) For every $\nu>0$ there is $c>0$ such that
+  $\|x^{-1}*y*x\|\le c\,\|y\|^{1/r}$ whenever $\|x\|<\nu$ and $\|y\|<\nu$.
+\item (H\"older equivalence on bounded sets.) For every $\nu>0$ there is $c>0$ such that
+  \[
+   c^{-1}\,|x-y|\ \le\ d(x,y)\ \le\ c\,|x-y|^{1/r}
+   \qquad\text{whenever}\quad |x|\le\nu\ \text{and}\ |y|\le\nu .
+  \]
+\item For every $x\in\mathbb R^n$ and every $\rho>0$ the ball $B_\rho(x)$ is non-empty and
+  connected.
+\item $\|\cdot\|$ is proper: for every $C\in\mathbb R$ the sublevel set
+  $\{x\in\mathbb R^n:\|x\|\le C\}$ is bounded.
+\end{enumerate}
+
+These are the properties of the homogeneous norm (2.15) recorded in Section
+Section~2.4. Item (1) is continuity, evenness and non-degeneracy of
+$\|x\|=\big(\sum_{j}(\sum_i|x_{i,j}|^2)^{r!/j}\big)^{1/2r!}$. Item (3) is the observation
+that $\|x\|^{q}=\|x\|^{2r!}$ is a polynomial, which is what makes the kernel
+$\|y*x^{-1}\|^{q}$ of the sup- and inf-convolutions (3.13) smooth; item (2) says
+that the horizontal exponential is an isometry from $(\mathbb R^m,|\cdot|)$ onto the
+first-layer directions, which is immediate from (2.15) since
+$\exp_{\mathrm h}(\zeta)$ has first-layer coordinates $\zeta$ and vanishing higher
+coordinates. Items (4) and (5) are the two inequalities (2.17), the second being the
+estimate $\|c_x(y)\|\le c_{\mathbb G}\|y\|^{1/r}$ for the inner automorphism
+$c_x(y)=x^{-1}*y*x$, whose exponent $1/r$ is sharp. Item (6) is the H\"older equivalence of
+$d$ with the Euclidean distance on bounded sets, which also says the two topologies agree.
+Item (7) is the statement that the balls $B_\rho(0)$ are connected, being star-shaped with
+respect to the dilations, and hence so are all balls by left invariance of $d$; it is
+non-empty because $d(x,x)=\|0\|=0<\rho$.
+
+Left invariance $d(z*x,z*y)=d(x,y)$ and the right-translation identity (2.16)
+$d(x*h,x)=\|h\|$ are not listed: both follow from the group axioms of
+\noderef{CarnotGroup} alone, since $d(z*x,z*y)=\|(z*y)^{-1}*(z*x)\|=\|y^{-1}*x\|$ and
+$d(x*h,x)=\|x^{-1}*x*h\|=\|h\|$. The dilations themselves are not carried, because nothing
+below uses them other than through items (3), (5) and (7).
+
+Item (8) is the properness of (2.15), and it too is immediate from that formula: if
+$\|x\|\le C$ then $\big(\sum_i|x_{i,j}|^2\big)^{r!/j}\le C^{2r!}$ for every layer $j$,
+hence $\sum_i|x_{i,j}|^2\le C^{2j}$, so all coordinates of $x$ are bounded in terms of $C$
+alone. It is listed as a separate condition because it does not follow from the others: the
+quasi-triangle inequality (4) bounds $\|y\|$ in terms of $\|y*x^{-1}\|$ and $\|x\|$, which
+says nothing about the Euclidean size of $y$, and the lower H\"older bound of (6) is
+available only once both of its arguments are already known to be Euclidean-bounded, so
+neither of them yields boundedness of a sublevel set of $\|\cdot\|$. Properness is what makes
+a sublevel set of the kernel $y\mapsto\|y*x^{-1}\|^{q}$ of (3.15) relatively compact, hence
+the infimum in (3.15) locally an infimum over a compact set of $y$ and therefore a
+continuous function of $x$; and that continuity is what makes the reduced domain
+$\Omega[\varepsilon]$ open, as the paper asserts without proof.
+
+As with \noderef{CarnotGroup}, every Carnot group in the coordinates of Section
+Section~2.4 satisfies all eight conditions, so the proviso of item 3 of the
+formalization note holds. For the Euclidean additive group on $\mathbb R^m$ ($n=m$, $r=1$,
+$x*y=x+y$, $\|x\|=|x|$) one has $q=2$, $d(x,y)=|x-y|$, and each condition reduces to a
+standard fact with $c=1$: (4) is the triangle inequality, (5) is $\|y\|\le\|y\|$ since
+$x^{-1}*y*x=y$, (6) is an equality, (7) holds because Euclidean balls are convex, and (8) holds because a
+Euclidean ball is bounded.
+\end{definition}

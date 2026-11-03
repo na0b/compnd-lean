@@ -1,0 +1,242 @@
+\begin{theorem}[Theorem~1.3(iii), the abelian case: no standing pair]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, frame $\sigma$ and $d(x,y):=\|y^{-1}*x\|$, and assume the
+cited results of the literature at $\mathbb G$ (\noderef{CitedResults}). Assume
+$\mathbb G$ is
+\emph{abelian}: $x*y=y*x$ for all $x,y\in\mathbb R^{n}$. Let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$ satisfy the
+structure conditions (\noderef{StructureConditionsES}) and the normalization (2.3)
+(\noderef{NormalizedAH}). Let $\Om\subset\mathbb R^{n}$ be a bounded open set with
+$\mathbb R^{n}\mns\Om\ne\emptyset$ and let $u,v:\mathbb R^{n}\to\mathbb R$ be continuous on
+$\bar\Om$, with $u$ locally semi-convex and $v$ locally semi-concave in $\Om$
+(\noderef{LocallySemiConvexOn}), $u$ a viscosity sub-solution (\noderef{IsViscSubsol}) and
+$v$ a viscosity super-solution (\noderef{IsViscSupersol}) of $\mathcal L\cdot=0$ in $\Om$.
+Let $\om_u,\om_v:\mathbb R\to\mathbb R$ be non-decreasing with
+\[
+ |u(a)-u(b)|\le\om_u\big(d(a,b)\big),\qquad |v(a)-v(b)|\le\om_v\big(d(a,b)\big)
+ \qquad(a,b\in\bar\Om),
+\]
+let $\tau>0$ satisfy $u-v\le-\tau$ on $\del\Om$, let $x_M\in\bar\Om$ be a point at which
+$u-v$ attains its maximum over $\bar\Om$ with $\tau\le M_0:=u(x_M)-v(x_M)$, and let
+$\rho_0>0$ satisfy $\om_u(\rho_0)+\om_v(\rho_0)\le\tau/4$. Then a contradiction follows: no
+such configuration exists.
+\end{theorem}
+\begin{proof}
+This is the first paragraph of the proof of Theorem~1.3(iii), the case $r=1$: "By the proof of
+Theorem Theorem~1.2, it suffices to show that under the standing assumptions
+(3.10)--(3.11) a semi-convex/semi-concave pair cannot exist. Given such a pair, apply
+Lemma Lemma~3.7 with $\eta=\delta\le\delta_1$: there is $h\in B_\delta(0)$ with
+$\mathcal Xu(\cdot+h)\ne0$ on $\A_\delta(h)=\argmax_{\Om_\delta}(u_h-v)$. Since $u_h=u^{h}$
+is a sub-solution in $\Om_\delta$ by Lemma Lemma~2.9, $u_h-v\le-\tau/2$ on
+$\del\Om_\delta$ by Lemma Lemma~3.4(b) and continuity, and $M_\delta(h)>0$ is attained in
+$\Om_\delta$, Proposition Proposition~3.3 applied to $(u_h,v)$ on $\Om_\delta$ gives $u_h\le v$ on
+$\Om_\delta$, a contradiction."
+
+Write $u_h:=u(\cdot*h)$, $\Om_\delta$ for the inner domain
+(\noderef{TranslatedDomain}), $K_\rho$ for the compact core (\noderef{BoundaryCore}) and
+$M_\delta(h)$ for the translated maximum value (\noderef{MaxTranslate}). The hypothesis
+$x*y=y*x$ is used exactly twice, in Steps 3 and 6, and each use is identified there.
+
+\medskip\noindent\textbf{Step 1: the two thresholds and the scale $\delta$.} All hypotheses
+of \noderef{BoundaryLocalization} are in force for
+$(\mathbb G,\Om,u,v,\om_u,\om_v,\tau,x_M,\rho_0)$, so it provides $c'\ge1$ such that, with
+\[
+ \rho_1:=\frac{\rho_0}{2c'},\qquad \rho_2:=\frac{\rho_0}{4c'^{2}},\qquad
+ \delta_1:=\frac{\rho_0}{4c'^{2}} ,
+\]
+its clauses (a), (a$'$), (b), (c) hold for every $\delta\in(0,\delta_1]$ and every $h$ with
+$\|h\|<\delta$. Note $\delta_1>0$, $\rho_1>0$ and
+\[
+ \rho_1=\frac{\rho_0}{2c'}=2c'\cdot\frac{\rho_0}{4c'^{2}}=2c'\,\delta_1\ \ge\ 2\delta_1 ,
+ \tag{1}
+\]
+using $c'\ge1$.
+
+All hypotheses of \noderef{NondegeneracyAtEveryScale} are also in force for the same data
+together with the cited results at $\mathbb G$ --- that node is stated for the same
+$\mathbb G$, so our hypothesis is literally the one it asks for --- the structure conditions,
+$\mathbb R^{n}\mns\Om\ne\emptyset$,
+the local semi-convexity of $u$ and the two viscosity properties, so it provides
+$\delta_1'>0$ with its conclusion for every $\delta\in(0,\delta_1']$ and every
+$\eta\in(0,\delta]$. Put
+\[
+ \delta:=\min\{\delta_1,\delta_1'\}>0 ,
+\]
+so $0<\delta\le\delta_1$ and $0<\delta\le\delta_1'$. (We do not attempt to make the two nodes
+share a threshold; each states its conclusion for all smaller $\delta$, so the minimum serves
+both.) By (1) and $\delta\le\delta_1$,
+\[
+ \delta<2\delta\le2\delta_1\le\rho_1 . \tag{2}
+\]
+
+\medskip\noindent\textbf{Step 2: the translation $h$.} Apply
+\noderef{NondegeneracyAtEveryScale} with this $\delta$ and $\eta:=\delta$ (admissible:
+$0<\eta\le\delta$). It gives $h$ with $\|h\|<\delta$ such that
+\[
+ \text{for every } x\in\Om_\delta \text{ at which } u_h-v \text{ is maximal over }\Om_\delta
+ \text{, and every derivative } D \text{ of } u \text{ at } x*h:\quad
+ \mathrm{hgrad}\ \sigma\ (x*h)\ D\ne0 . \tag{3}
+\]
+This is the paper's "there is $h\in B_\delta(0)$ with $\mathcal Xu(\cdot*h)\ne0$ on
+$\A_\delta(h)$".
+
+Since $\|h\|<\delta$ and $\delta>0$, \noderef{TranslatedPairDifferentiable} applies to
+$(\mathbb G,\Om,u,v,\delta,h)$; we use its four clauses below. Its clause 1 gives
+\[
+ x*h\in\Om\qquad\text{for every } x\in\Om_\delta . \tag{4}
+\]
+
+\medskip\noindent\textbf{Step 3: $u_h$ is a viscosity sub-solution in $\Om_\delta$.} This is
+the first use of commutativity. By $x*y=y*x$,
+\[
+ u_h=\big(y\mapsto u(y*h)\big)=\big(y\mapsto u(h*y)\big)=u\circ L_h , \tag{5}
+\]
+the two functions being equal at every point. By \noderef{LeftTranslateSubsol}, applied to
+$u$, $h$ and the sub-solution hypothesis, $u\circ L_h$ is a viscosity sub-solution of
+$\mathcal L\cdot=0$ in $L_h^{-1}(\Om)=\{y:\ h*y\in\Om\}$.
+
+Next, $\Om_\delta\subseteq L_h^{-1}(\Om)$: for $x\in\Om_\delta$ we have $x*h\in\Om$ by (4),
+and $h*x=x*h$ by commutativity, so $h*x\in\Om$.
+
+Finally $u\circ L_h$ is bounded above on $L_h^{-1}(\Om)$: if $h*y\in\Om\subseteq\bar\Om$ then
+$u(h*y)\le C_u$, where $C_u$ is a bound for the continuous $u$ on the compact set $\bar\Om$
+($\Om$ is bounded). Part (1b) of \noderef{ViscTestLocalization} --- whose hypotheses are
+exactly that the function be bounded above on the domain and a viscosity sub-solution there
+--- therefore gives that $u\circ L_h$ is a viscosity sub-solution in every open subset of
+$L_h^{-1}(\Om)$. The set $\Om_\delta$ is open by item (3) of \noderef{InnerDomainProperties}
+and is such a subset, so $u\circ L_h$, i.e. $u_h$ by (5), is a viscosity sub-solution of
+$\mathcal L\cdot=0$ in $\Om_\delta$. (This restriction is not free: pm-0009 records that our
+rendering of Definition~2.1 has the test condition global over the domain.)
+
+\medskip\noindent\textbf{Step 4: $v$ is a viscosity super-solution in $\Om_\delta$.} By item
+(1) of \noderef{InnerDomainProperties}, $\Om_\delta\subseteq\Om$, and $\Om_\delta$ is open by
+item (3). The function $v$ is bounded below on $\Om$, by $-C_v$ with $C_v$ a bound for the
+continuous $v$ on the compact $\bar\Om$. Part (2b) of \noderef{ViscTestLocalization}, applied
+to $v$ on $\Om$, therefore gives that $v$ is a viscosity super-solution in $\Om_\delta$.
+
+\medskip\noindent\textbf{Step 5: semi-convexity on $\Om_\delta$.} Clauses 2 and 3 of
+\noderef{TranslatedPairDifferentiable} give that $u_h$ is locally semi-convex on $\Om_\delta$
+and that $-v$ is locally semi-convex on $\Om_\delta$, i.e. $v$ is locally semi-concave there.
+
+\medskip\noindent\textbf{Step 6: the non-degeneracy hypothesis on $\Om_\delta$.} This is the
+second and essential use of commutativity. We claim
+\[
+ \text{for every } x\in\Om_\delta \text{ at which } u_h-v \text{ is maximal over }\Om_\delta,
+ \text{ and every derivative } D' \text{ of } u_h \text{ at } x:\quad
+ \mathrm{hgrad}\ \sigma\ x\ D'\ne0 . \tag{6}
+\]
+Let $x$ and $D'$ be as stated. Clause 4 of \noderef{TranslatedPairDifferentiable}, applied at
+this $x$, supplies both ends of what follows in one step: a derivative of $u_h$ at $x$ which
+is also a derivative of $v$ at $x$, and --- the part we use --- a continuous linear
+functional $D$ which is a derivative of $u$ at $x*h$.
+
+Now the two facts we hold are stated on opposite sides: $D'$ is a derivative of the
+\emph{right} translate $y\mapsto u(y*h)$ at $x$, while \noderef{LeftTranslateHgrad} consumes
+a derivative of the \emph{left} translate $y\mapsto u(h*y)$ at $x$ together with a derivative
+of $u$ at $h*x$. Commutativity bridges this. By (5) the two translates are the same function,
+so $D'$ is a derivative of $y\mapsto u(h*y)$ at $x$; and $h*x=x*h$, so $D$ is a derivative of
+$u$ at $h*x$. Therefore \noderef{LeftTranslateHgrad}, applied with the function $u$, the group
+element $g:=h$ and the point $x$, gives
+\[
+ \mathrm{hgrad}\ \sigma\ x\ D'=\mathrm{hgrad}\ \sigma\ (h*x)\ D
+ =\mathrm{hgrad}\ \sigma\ (x*h)\ D ,
+\]
+the last equality again by $h*x=x*h$. By (3), applied at this $x$ and this $D$, the
+right-hand side is non-zero. This proves (6), which is precisely the non-degeneracy
+hypothesis of \noderef{ComparisonNondegenerateSemiconvex} for the pair $(u_h,v)$ on
+$\Om_\delta$.
+
+(This is also where the abelian hypothesis is indispensable: without it the right translate
+$u_h$ is neither a sub-solution nor expressible as a left translate, and
+$\mathtt{leftJet}$ of \noderef{CarnotSetting} cannot be used instead of
+\noderef{LeftTranslateHgrad} because it requires a second-order jet at $x*h$, whereas $u$ is
+only semi-convex and so only once differentiable there.)
+
+\medskip\noindent\textbf{Step 7: $\overline{\Om_\delta}*h\subseteq\bar\Om$, and continuity of
+$u_h$ up to the boundary of $\Om_\delta$.} Let $z\in\overline{\Om_\delta}$. Pick
+$z_k\in\Om_\delta$ with $z_k\to z$. By (4), $z_k*h\in\Om\subseteq\bar\Om$; the map
+$y\mapsto y*h$ is continuous (the group law is $C^{\infty}$ by \noderef{CarnotSetting}), so
+$z_k*h\to z*h$, and $\bar\Om$ is closed, whence
+\[
+ z*h\in\bar\Om\qquad\text{for every } z\in\overline{\Om_\delta}. \tag{7}
+\]
+Consequently $u_h=u\circ(\cdot*h)$ is continuous on $\overline{\Om_\delta}$: the map
+$y\mapsto y*h$ is continuous and sends $\overline{\Om_\delta}$ into $\bar\Om$ by (7), and $u$
+is continuous on $\bar\Om$. Also $\overline{\Om_\delta}\subseteq\bar\Om$ because
+$\Om_\delta\subseteq\Om$, so $v$ is continuous on $\overline{\Om_\delta}$ as well.
+
+\medskip\noindent\textbf{Step 8: the boundary inequality $u_h\le v$ on $\del\Om_\delta$.}
+This is the step the paper compresses into "by Lemma Lemma~3.4(b) and continuity"; clause (b)
+of \noderef{BoundaryLocalization} is an inequality on $\Om_\delta\mns K_{\rho_1}$, whereas we
+need one on $\del\Om_\delta$, and the two sets are disjoint.
+
+Let $z\in\del\Om_\delta$. Since $\Om_\delta$ is open (item (3) of
+\noderef{InnerDomainProperties}), $\del\Om_\delta=\overline{\Om_\delta}\mns\Om_\delta$, so
+$z\in\overline{\Om_\delta}$ and $z\notin\Om_\delta$.
+
+\emph{(8a) $z\in\Om$ and $z\notin K_{\rho_1}$.} Fix $y\in\del\Om$. The function
+$w\mapsto d(w,y)=\|(-y)*w\|$ is continuous (\noderef{CarnotSetting}: $*$ is $C^{\infty}$ and
+$\|\cdot\|$ is continuous), and $\delta<d(w,y)$ for every $w\in\Om_\delta$ by
+\noderef{TranslatedDomain}; passing to the limit along $z_k\to z$ with $z_k\in\Om_\delta$
+gives $\delta\le d(z,y)$. As $y\in\del\Om$ was arbitrary,
+\[
+ \delta\le d(z,y)\qquad\text{for every } y\in\del\Om . \tag{8}
+\]
+Also $z\in\overline{\Om_\delta}\subseteq\bar\Om$. If $z\notin\Om$ then
+$z\in\bar\Om\mns\Om=\del\Om$ ($\Om$ is open), and (8) at $y:=z$ would give
+$\delta\le d(z,z)=\|(-z)*z\|=\|0\|=0$, contradicting $\delta>0$. Hence $z\in\Om$.
+
+Now $z\notin\Om_\delta$ and $z\in\Om$, so by \noderef{TranslatedDomain} it is \emph{not} the
+case that $\delta<d(z,y)$ for every $y\in\del\Om$: there is $y_0\in\del\Om$ with
+$d(z,y_0)\le\delta$. By (2), $\delta<\rho_1$, so $d(z,y_0)<\rho_1$, and therefore
+$z\notin K_{\rho_1}$ by \noderef{BoundaryCore}.
+
+\emph{(8b) a whole neighbourhood of $z$ misses $K_{\rho_1}$.} By item (4) of
+\noderef{InnerDomainProperties} the set $K_{\rho_1}$ is compact (here $\rho_1>0$), hence
+closed, so its complement is open and contains $z$ by (8a). Since $z\in\overline{\Om_\delta}$,
+there are $z_k\in\Om_\delta$ with $z_k\to z$, and for all large $k$ we have
+$z_k\notin K_{\rho_1}$. Discard the finitely many smaller indices, so that
+\[
+ z_k\in\Om_\delta\mns K_{\rho_1}\qquad\text{for every } k . \tag{9}
+\]
+
+\emph{(8c) passing to the limit.} By clause (b) of \noderef{BoundaryLocalization}, applied at
+this $\delta$ and $h$ (admissible: $0<\delta\le\delta_1$ and $\|h\|<\delta$), (9) gives
+\[
+ u(z_k*h)-v(z_k)\le-\frac\tau2\qquad\text{for every } k .
+\]
+By Step 7, $u_h$ and $v$ are continuous on $\overline{\Om_\delta}$, and
+$z_k,z\in\overline{\Om_\delta}$ with $z_k\to z$, so
+$u(z_k*h)-v(z_k)=(u_h-v)(z_k)\to(u_h-v)(z)$. Passing to the limit,
+\[
+ u_h(z)-v(z)\le-\frac\tau2<0 ,
+\]
+so $u_h(z)\le v(z)$. As $z\in\del\Om_\delta$ was arbitrary, $u_h\le v$ on $\del\Om_\delta$.
+
+\medskip\noindent\textbf{Step 9: Proposition~3.3 on $\Om_\delta$.} We now apply
+\noderef{ComparisonNondegenerateSemiconvex} with the following data. The cited results at
+$\mathbb G$ --- that node is applied to the same $\mathbb G$, so our hypothesis is the one it
+asks for --- and the structure conditions are hypotheses of the present statement, and so is the
+normalization (2.3) --- which is why this node carries \noderef{NormalizedAH}, even
+though the comparison theorem one level up does not. The domain is $\Om_\delta$: it is open
+by item (3) of \noderef{InnerDomainProperties} and bounded, being a subset of the bounded
+$\Om$ by item (1); Proposition~3.3 does not assume it connected, which matters because
+$\Om_\delta$ need not be. The functions are $u_h$ and $v$: continuous on
+$\overline{\Om_\delta}$ by Step 7; $u_h$ locally semi-convex and $v$ locally semi-concave on
+$\Om_\delta$ by Step 5; $u_h\le v$ on $\del\Om_\delta$ by Step 8; a viscosity sub-solution
+and super-solution in $\Om_\delta$ by Steps 3 and 4; and the non-degeneracy (6) by Step 6.
+The conclusion is
+\[
+ u_h(x)\le v(x)\qquad\text{for every } x\in\Om_\delta . \tag{10}
+\]
+
+\medskip\noindent\textbf{Step 10: the contradiction.} By clause (c) of
+\noderef{BoundaryLocalization} at this $\delta$ and $h$ there is $x_\star\in\Om_\delta$ at
+which $u_h-v$ is maximal over $\Om_\delta$ with $M_\delta(h)=u(x_\star*h)-v(x_\star)$, and
+moreover $M_\delta(h)\ge M_0-\tau/4$. Since $M_0\ge\tau$,
+\[
+ u(x_\star*h)-v(x_\star)=M_\delta(h)\ \ge\ \tau-\frac\tau4=\frac{3\tau}4\ >\ 0 .
+\]
+But (10) at $x:=x_\star\in\Om_\delta$ gives $u_h(x_\star)=u(x_\star*h)\le v(x_\star)$, i.e.
+$u(x_\star*h)-v(x_\star)\le0$. This contradiction completes the proof.
+\end{proof}

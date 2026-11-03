@@ -1,0 +1,305 @@
+\begin{lemma}[Lemma~3.4, with the quasi-triangle constant carried]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$ and $d(x,y):=\|y^{-1}*x\|$, and let
+$\Om\subset\mathbb R^{n}$ be a bounded open set. Let $u,v:\mathbb R^{n}\to\mathbb R$ be
+continuous on $\bar\Om$, let $\om_u,\om_v:\mathbb R\to\mathbb R$ be non-decreasing with
+\[
+ |u(a)-u(b)|\le\om_u\big(d(a,b)\big),\qquad |v(a)-v(b)|\le\om_v\big(d(a,b)\big)
+ \qquad(a,b\in\bar\Om),
+\]
+let $\tau>0$, assume $u-v\le-\tau$ on $\del\Om$, let $x_M\in\bar\Om$ be a point at which
+$u-v$ attains its maximum over $\bar\Om$ and assume $\tau\le M_0:=u(x_M)-v(x_M)$. Let
+$\rho_0>0$ satisfy $\om_u(\rho_0)+\om_v(\rho_0)\le\tau/4$. Write $\Om_\delta$ for the inner
+domain (\noderef{TranslatedDomain}), $K_\rho$ for the compact core
+(\noderef{BoundaryCore}), $M_\delta(h)$ for the translated maximum value
+(\noderef{MaxTranslate}),
+\[
+ E:=\big\{y\in\Om:\ u-v\ \text{attains its maximum over}\ \bar\Om\ \text{at}\ y\big\}
+ \ \ \big(=\argmax_\Om(u-v)\big),
+\]
+and $u_h:=u(\cdot*h)$. Then there is $c'\ge1$ such that, setting
+\[
+ \rho_1:=\frac{\rho_0}{2c'},\qquad \rho_2:=\frac{\rho_0}{4c'^{2}},\qquad
+ \delta_1:=\frac{\rho_0}{4c'^{2}},
+\]
+the following hold.
+\begin{enumerate}
+\item[(a)] $E\subseteq K_{\rho_0}$; and for every $\delta$ with $0<\delta\le\delta_1$,
+  $M_\delta(0)=M_0$ and
+  $\{x\in\Om_\delta:\ u_0-v\ \text{is maximal over}\ \Om_\delta\ \text{at}\ x\}=E$.
+\item[(a$'$)] For every $\delta$ with $0<\delta\le\delta_1$, every $x\in K_{\rho_1}$ and
+  every $g$ with $\|g\|<\delta$, one has $x*g\in K_{\rho_2}$.
+\item[(b)] For every $\delta$ with $0<\delta\le\delta_1$ and every $h$ with $\|h\|<\delta$,
+  $u_h-v\le-\tau/2$ on $\Om_\delta\mns K_{\rho_1}$.
+\item[(c)] For every $\delta$ with $0<\delta\le\delta_1$ and every $h$ with $\|h\|<\delta$:
+  $M_\delta(h)\ge M_0-\tau/4$; the supremum defining $M_\delta(h)$ is attained, i.e. there is
+  $x\in\Om_\delta$ at which $u_h-v$ is maximal over $\Om_\delta$ and
+  $M_\delta(h)=u(x*h)-v(x)$; and every such $x$ satisfies $x\in K_{\rho_1}$ and
+  $x*h\in K_{\rho_2}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+This is Lemma~3.4 together with the sentence of (3.11) that fixes $\delta_1$.
+
+\medskip\noindent\textbf{Why the constants are explicit, and why that is not a deviation.}
+The paper sets $\delta_1:=\rho_0/4$ in (3.11) and then argues in (b) "$\dist(x,\del\Om)<\rho_0/2$,
+so $\dist(x*h,\del\Om)<\rho_0/2+\delta<\rho_0$" and in (c) "$\dist(y*h^{-1},\del\Om)\ge\rho_0-\delta>\delta$".
+Both are steps with triangle constant $1$. But the homogeneous norm (2.15) is a
+\emph{quasi}-norm: (2.17) itself is stated as $\|x*y\|\le c_{\mathbb G}(\|x\|+\|y\|)$
+with $c_{\mathbb G}=c(\mathbb G,\nu)$ for $\|x\|,\|y\|<\nu$, and that is exactly what
+\noderef{CarnotSetting} provides (pm-0013 is the governing constraint). So the radii have to
+carry $c_{\mathbb G}$. We therefore produce $c'\ge1$ dominating $c_{\mathbb G}$ on a scale
+large enough for every application below, and replace the paper's $\rho_0/2$, $\rho_0/4$ by
+$\rho_1=\rho_0/(2c')$ and $\rho_2=\delta_1=\rho_0/(4c'^{2})$. Nothing in any \emph{statement}
+changes: $\rho_0$ still satisfies (3.11) verbatim, and (a), (b), (c) are the paper's
+assertions with the paper's $\rho_0/2$, $\rho_0/4$ replaced by the two constants it would
+have produced had (2.17) been applied with its own constant. This is the one place in
+the formalization where the paper's constants are made explicit; the paper is read
+precisely, not corrected. Part (a) uses no triangle inequality at all, and we keep it that
+way so that the reader can see where the constants enter and where they do not.
+
+\medskip\noindent\textbf{Step 0: preliminaries.} Since $x_M\in\bar\Om$, $\bar\Om\ne\emptyset$.
+Taking $a=b=x_M$ in the modulus hypothesis for $u$ and using
+$d(x_M,x_M)=\|(-x_M)*x_M\|=\|0\|=0$ (\noderef{CarnotSetting}) gives $0\le\om_u(0)$, hence
+$\om_u(s)\ge0$ for every $s\ge0$ by monotonicity, and likewise for $\om_v$. Combined with
+$\om_u(\rho_0)+\om_v(\rho_0)\le\tau/4$ this gives
+\[
+ 0\le\om_u(\rho_0)\le\tau/4,\qquad 0\le\om_v(\rho_0)\le\tau/4. \tag{1}
+\]
+Also $M_0\ge\tau>0$, and $u-v\le M_0$ on $\bar\Om$ by the maximality at $x_M$. Since $\Om$
+is open, $\del\Om=\bar\Om\mns\Om$.
+
+\emph{$E\ne\emptyset$, indeed $x_M\in E$.} If $x_M\in\del\Om$ then $M_0=u(x_M)-v(x_M)\le-\tau<0$,
+contradicting $M_0\ge\tau>0$. So $x_M\in\bar\Om\mns\del\Om=\Om$, and $u-v$ is maximal over
+$\bar\Om$ at $x_M$ by hypothesis; thus $x_M\in E$. Note also
+\[
+ E=\{y\in\Om:\ u(y)-v(y)=M_0\}, \tag{2}
+\]
+because $u-v\le M_0$ on $\bar\Om$, so "maximal over $\bar\Om$ at $y$" is the same as
+"$(u-v)(y)=M_0$" for $y\in\Om\subseteq\bar\Om$.
+
+\medskip\noindent\textbf{Step 1: the scale $\nu$ and the constant $c'$.} The group law $*$ is $C^{\infty}$ and
+the homogeneous norm $\|\cdot\|$ is continuous (\noderef{CarnotSetting}), and
+$x\mapsto-x$ is continuous, so $(z,w)\mapsto d(z,w)=\|(-w)*z\|$ is a composition of
+continuous maps and is continuous on $\mathbb R^{n}\times\mathbb R^{n}$. The set $\bar\Om$ is compact ($\Om$ is bounded) and
+non-empty, so $\bar\Om\times\bar\Om$ is compact and non-empty and
+\[
+ \Delta:=\max\{d(z,w):\ z,w\in\bar\Om\}
+\]
+is a finite real number, with $\Delta\ge0$. Put $\nu:=\Delta+\rho_0+1>0$. By the
+quasi-triangle inequality (2.17) of \noderef{CarnotSetting}, applied at this $\nu$,
+there is $c_{\mathbb G}>0$ with
+\[
+ \|a*b\|\le c_{\mathbb G}\big(\|a\|+\|b\|\big)\qquad\text{whenever }\|a\|<\nu,\ \|b\|<\nu .
+\]
+Set $c':=\max\{c_{\mathbb G},1\}$, so $c'\ge1$, $c'\ge c_{\mathbb G}$ and, since
+$\|a\|+\|b\|\ge0$,
+\[
+ \|a*b\|\le c'\big(\|a\|+\|b\|\big)\qquad\text{whenever }\|a\|<\nu,\ \|b\|<\nu . \tag{3}
+\]
+With this $c'$ define $\rho_1,\rho_2,\delta_1$ as in the statement. Then
+\[
+ 0<\delta_1=\rho_2=\frac{\rho_0}{4c'^{2}}\le\frac{\rho_0}{4},\qquad
+ \rho_1=\frac{\rho_0}{2c'}\le\frac{\rho_0}{2},\qquad
+ \delta_1=\frac{\rho_1}{2c'}\le\frac{\rho_1}{2}<\rho_1<\rho_0 . \tag{4}
+\]
+In particular $\delta\le\delta_1<\rho_1<\rho_0<\nu$ for every admissible $\delta$, and
+$\|h\|<\delta<\nu$ for every admissible $h$.
+
+We also record once and for all the following, used repeatedly below. \emph{For every
+$\delta>0$, every $x\in\Om_\delta$ and every $g$ with $\|g\|<\delta$ one has
+$x*g\in\Om\subseteq\bar\Om$.} Indeed, by associativity and $0*g=g$
+(\noderef{CarnotSetting}),
+$d(x*g,x)=\|(-x)*(x*g)\|=\|((-x)*x)*g\|=\|0*g\|=\|g\|<\delta$ --- this is the exact
+identity (2.16), kept inline by pm-0012 --- so $x*g$ lies in the $d$-ball of radius
+$\delta$ about $x$, which is contained in $\Om$ by item (6) of
+\noderef{InnerDomainProperties}. \hfill(4$'$)
+
+\medskip\noindent\textbf{Step 2: the boundary estimate.} \emph{If $z\in\bar\Om$ and
+$y\in\del\Om$ satisfy $d(z,y)\le\rho_0$, then $(u-v)(z)\le-3\tau/4$.} Indeed $y\in\del\Om\subseteq\bar\Om$,
+so the moduli apply to the pair $(z,y)$, and using $u-v\le-\tau$ at $y$, monotonicity of
+$\om_u,\om_v$ and (1),
+\[
+ (u-v)(z)=(u-v)(y)+\big(u(z)-u(y)\big)-\big(v(z)-v(y)\big)
+ \le-\tau+\om_u\big(d(z,y)\big)+\om_v\big(d(z,y)\big)\le-\tau+\frac\tau4=-\frac{3\tau}4 .
+ \tag{5}
+\]
+
+\medskip\noindent\textbf{Step 3: part (a).} \emph{$E\subseteq K_{\rho_0}$.} Let $y\in E$ and
+$y'\in\del\Om$. We must show $\rho_0\le d(y,y')$ (membership $y\in\Om$ is part of the
+definition of $E$). Suppose $d(y,y')<\rho_0$. Then $y\in\Om\subseteq\bar\Om$ and
+$d(y,y')\le\rho_0$, so (5) gives $(u-v)(y)\le-3\tau/4<0<\tau\le M_0$, contradicting
+$(u-v)(y)=M_0$ from (2). Hence $\rho_0\le d(y,y')$, and $y\in K_{\rho_0}$ by
+\noderef{BoundaryCore}. No triangle inequality was used.
+
+\emph{$M_\delta(0)=M_0$ and $A_\delta(0)=E$, for $0<\delta\le\delta_1$.} Since
+$\delta\le\delta_1<\rho_0$ by (4), item (5) of \noderef{InnerDomainProperties} gives
+$K_{\rho_0}\subseteq\Om_\delta$, so by the previous paragraph
+\[
+ E\subseteq K_{\rho_0}\subseteq\Om_\delta\subseteq\Om\subseteq\bar\Om , \tag{6}
+\]
+the third inclusion being item (1) of \noderef{InnerDomainProperties}. Now $u_0=u$, because
+$x*0=x$ (\noderef{CarnotSetting}). For $x\in\Om_\delta$ we have $x\in\bar\Om$ by (6), hence
+$u_0(x)-v(x)=(u-v)(x)\le M_0$; and $x_M\in E\subseteq\Om_\delta$ with
+$u_0(x_M)-v(x_M)=M_0$. So $u_0-v$ is bounded above on the non-empty set $\Om_\delta$ by
+$M_0$ and attains the value $M_0$ there; therefore its supremum over $\Om_\delta$, which is
+$M_\delta(0)$ by \noderef{MaxTranslate}, equals $M_0$, and the points of $\Om_\delta$ at
+which $u_0-v$ is maximal over $\Om_\delta$ are exactly the points $x\in\Om_\delta$ with
+$(u-v)(x)=M_0$. By (2) and (6) that set is $E$: if $x\in\Om_\delta$ and $(u-v)(x)=M_0$ then
+$x\in\Om$ by (6), so $x\in E$ by (2); conversely every $y\in E$ lies in $\Om_\delta$ by (6)
+and has $(u-v)(y)=M_0$. This is part (a).
+
+\medskip\noindent\textbf{Step 4: part (b).} Let $0<\delta\le\delta_1$, $\|h\|<\delta$, and
+let $x\in\Om_\delta\mns K_{\rho_1}$. By \noderef{BoundaryCore} and $x\in\Om$, failing
+$x\in K_{\rho_1}$ means there is $y\in\del\Om$ with
+\[
+ d(x,y)<\rho_1 . \tag{7}
+\]
+By (4$'$),
+\[
+ x*h\in\Om\subseteq\bar\Om . \tag{8}
+\]
+Now estimate $d(x*h,y)$. Using associativity,
+$(-y)*(x*h)=\big((-y)*x\big)*h$, and $\|(-y)*x\|=d(x,y)<\rho_1<\nu$ by (7) and (4), while
+$\|h\|<\delta<\nu$; so (3) applies and, with (7), (4) and $c'\ge1$,
+\[
+ d(x*h,y)=\big\|\big((-y)*x\big)*h\big\|\le c'\big(d(x,y)+\|h\|\big)
+ <c'\Big(\frac{\rho_0}{2c'}+\frac{\rho_0}{4c'^{2}}\Big)
+ =\frac{\rho_0}2+\frac{\rho_0}{4c'}\le\frac{\rho_0}2+\frac{\rho_0}4=\frac{3\rho_0}4<\rho_0 .
+ \tag{9}
+\]
+This is the step where the paper writes $\dist(x*h,\del\Om)<\rho_0/2+\delta<\rho_0$; the
+constants $\rho_1$ and $\delta_1$ are chosen precisely so that the conclusion
+$d(x*h,y)<\rho_0$ survives the factor $c'$.
+
+By (8), (9) and Step 2 applied to $z:=x*h$,
+\[
+ (u-v)(x*h)\le-\frac{3\tau}4 . \tag{10}
+\]
+Finally, $x\in\bar\Om$ and $x*h\in\bar\Om$ by (6) and (8), so the modulus of $v$ applies to
+the pair $(x*h,x)$ and, with $d(x*h,x)=\|h\|<\delta\le\delta_1\le\rho_0$, monotonicity and
+(1),
+\[
+ \big|v(x*h)-v(x)\big|\le\om_v\big(\|h\|\big)\le\om_v(\rho_0)\le\frac\tau4 . \tag{11}
+\]
+Therefore, by (10) and (11),
+\[
+ (u_h-v)(x)=u(x*h)-v(x)=\big(u(x*h)-v(x*h)\big)+\big(v(x*h)-v(x)\big)
+ \le-\frac{3\tau}4+\frac\tau4=-\frac\tau2 ,
+\]
+which is part (b).
+
+\medskip\noindent\textbf{Step 5: part (c), the lower bound for $M_\delta(h)$.} Let
+$0<\delta\le\delta_1$ and $\|h\|<\delta$, and fix $y\in E$ (possible, $x_M\in E$ by Step 0).
+We claim $y*(-h)\in\Om_\delta$.
+
+First, $y\in K_{\rho_0}$ by Step 3, so by item (7) of \noderef{InnerDomainProperties} the
+$d$-ball of radius $\rho_0$ about $y$ lies in $\Om$; and
+$d\big(y*(-h),y\big)=\|(-y)*\big(y*(-h)\big)\|=\|\big((-y)*y\big)*(-h)\|=\|-h\|=\|h\|<\delta<\rho_0$,
+using associativity, $0*z=z$ and $\|-z\|=\|z\|$. Hence
+\[
+ y*(-h)\in\Om\subseteq\bar\Om . \tag{12}
+\]
+Second, let $y'\in\del\Om$. Since $h*(-h)=0$ and $z*0=z$ we have
+$\big(y*(-h)\big)*h=y*\big((-h)*h\big)=y*0=y$, so by associativity
+\[
+ (-y')*y=(-y')*\Big(\big(y*(-h)\big)*h\Big)=\Big((-y')*\big(y*(-h)\big)\Big)*h .
+\]
+Here $\|(-y')*\big(y*(-h)\big)\|=d\big(y*(-h),y'\big)\le\Delta<\nu$ because
+$y*(-h)\in\bar\Om$ by (12) and $y'\in\del\Om\subseteq\bar\Om$, and $\|h\|<\delta<\nu$; so
+(3) applies, and with $\rho_0\le d(y,y')$ from Step 3,
+\[
+ \rho_0\le d(y,y')\le c'\Big(d\big(y*(-h),y'\big)+\|h\|\Big),
+\]
+whence, using $\|h\|<\delta\le\delta_1=\rho_0/(4c'^{2})$ and $c'\ge1$,
+\[
+ d\big(y*(-h),y'\big)\ \ge\ \frac{\rho_0}{c'}-\|h\|\ >\ \frac{\rho_0}{c'}-\frac{\rho_0}{4c'^{2}}
+ \ \ge\ \frac{\rho_0}{c'}-\frac{\rho_0}{4c'}\ =\ \frac{3\rho_0}{4c'}\ \ge\ \frac{3\rho_0}{4c'^{2}}
+ \ >\ \frac{\rho_0}{4c'^{2}}=\delta_1\ \ge\ \delta .
+\]
+So $\delta<d\big(y*(-h),y'\big)$ for every $y'\in\del\Om$, and with (12) this gives
+$y*(-h)\in\Om_\delta$ by \noderef{TranslatedDomain}. This is the paper's
+"$\dist(y*h^{-1},\del\Om)\ge\rho_0-\delta>\delta$, so $y*h^{-1}\in\Om_\delta$", with the
+constant carried.
+
+Next, $\big(y*(-h)\big)*h=y$ as computed above, so
+\[
+ (u_h-v)\big(y*(-h)\big)=u(y)-v\big(y*(-h)\big).
+\]
+By (12), $y\in\bar\Om$ and $y*(-h)\in\bar\Om$, and
+$d\big(y*(-h),y\big)=\|h\|\le\rho_0$, so the modulus of $v$ and (1) give
+$v\big(y*(-h)\big)\le v(y)+\om_v(\|h\|)\le v(y)+\tau/4$. Hence
+\[
+ (u_h-v)\big(y*(-h)\big)\ \ge\ u(y)-v(y)-\frac\tau4\ =\ M_0-\frac\tau4\ \ge\ \tau-\frac\tau4
+ \ =\ \frac{3\tau}4\ >\ 0 , \tag{13}
+\]
+using (2) and $M_0\ge\tau$.
+
+\medskip\noindent\textbf{Step 6: part (c), attainment.} Keep $\delta$ and $h$ as in Step 5.
+By (4), $\delta\le\delta_1<\rho_1$, so item (5) of \noderef{InnerDomainProperties} gives
+\[
+ K_{\rho_1}\subseteq\Om_\delta , \tag{14}
+\]
+and item (4) of \noderef{InnerDomainProperties} gives that $K_{\rho_1}$ is compact (note
+$\rho_1>0$ by (4)).
+
+\emph{$u_h-v$ is continuous on $K_{\rho_1}$.} The map $z\mapsto z*h$ is continuous
+(\noderef{CarnotSetting}) and, by (14) and (8), sends $K_{\rho_1}$ into $\Om\subseteq\bar\Om$;
+$u$ is continuous on $\bar\Om$; so $u_h=u(\cdot*h)$ is continuous on $K_{\rho_1}$. Also
+$K_{\rho_1}\subseteq\Om\subseteq\bar\Om$ by item (2) of \noderef{InnerDomainProperties}, so
+$v$ is continuous on $K_{\rho_1}$. Hence so is $u_h-v$.
+
+\emph{$K_{\rho_1}\ne\emptyset$.} The point $y*(-h)$ of Step 5 lies in $\Om_\delta$ and, by
+(13), $(u_h-v)\big(y*(-h)\big)\ge3\tau/4>-\tau/2$; so by part (b) it cannot lie in
+$\Om_\delta\mns K_{\rho_1}$, i.e. $y*(-h)\in K_{\rho_1}$.
+
+Therefore $u_h-v$ attains its maximum over the non-empty compact set $K_{\rho_1}$, say at
+$x_0\in K_{\rho_1}\subseteq\Om_\delta$. We claim $u_h-v$ is maximal over all of $\Om_\delta$
+at $x_0$. Let $x\in\Om_\delta$. If $x\in K_{\rho_1}$ then $(u_h-v)(x)\le(u_h-v)(x_0)$ by the
+choice of $x_0$. If $x\notin K_{\rho_1}$ then part (b) gives $(u_h-v)(x)\le-\tau/2$, while
+$(u_h-v)(x_0)\ge(u_h-v)\big(y*(-h)\big)\ge3\tau/4>-\tau/2$ by the choice of $x_0$,
+$y*(-h)\in K_{\rho_1}$ and (13); so again $(u_h-v)(x)\le(u_h-v)(x_0)$.
+
+Consequently $u_h-v$ is bounded above on the non-empty set $\Om_\delta$ by
+$(u_h-v)(x_0)$, and attains that value there, so by \noderef{MaxTranslate}
+\[
+ M_\delta(h)=u(x_0*h)-v(x_0) , \tag{15}
+\]
+which is the asserted attainment, and by (13) and the maximality of $x_0$,
+\[
+ M_\delta(h)=(u_h-v)(x_0)\ \ge\ (u_h-v)\big(y*(-h)\big)\ \ge\ M_0-\frac\tau4 ,
+\]
+which is the asserted lower bound.
+
+\medskip\noindent\textbf{Step 7: part (a$'$).} Let $0<\delta\le\delta_1$, let
+$x\in K_{\rho_1}$ and let $\|g\|<\delta$; write $h:=g$ for uniformity with the computation
+below. By (14), $x\in K_{\rho_1}\subseteq\Om_\delta$, so $x*h\in\Om$ by (8).
+
+Let $y'\in\del\Om$. Since $h*(-h)=0$ and
+$z*0=z$, $(x*h)*(-h)=x$, so by associativity
+\[
+ (-y')*x=(-y')*\big((x*h)*(-h)\big)=\Big((-y')*(x*h)\Big)*(-h).
+\]
+Here $\|(-y')*(x*h)\|=d(x*h,y')\le\Delta<\nu$ because $x*h\in\bar\Om$ by (8) and
+$y'\in\bar\Om$, and $\|-h\|=\|h\|<\delta<\nu$; so (3) applies, and with
+$\rho_1\le d(x,y')$ (from $x\in K_{\rho_1}$, \noderef{BoundaryCore}),
+\[
+ \rho_1\le d(x,y')\le c'\Big(d(x*h,y')+\|h\|\Big),
+\]
+whence, using $\|h\|<\delta\le\delta_1=\rho_0/(4c'^{2})$ and $\rho_1=\rho_0/(2c')$,
+\[
+ d(x*h,y')\ \ge\ \frac{\rho_1}{c'}-\|h\|\ >\ \frac{\rho_0}{2c'^{2}}-\frac{\rho_0}{4c'^{2}}
+ \ =\ \frac{\rho_0}{4c'^{2}}\ =\ \rho_2 .
+\]
+In particular $\rho_2\le d(x*h,y')$ for every $y'\in\del\Om$, so $x*h\in K_{\rho_2}$ by
+\noderef{BoundaryCore}. This is part (a$'$); note that it used only $x\in K_{\rho_1}$ and
+$\|h\|<\delta$, not any maximality of $x$, which is why it is stated separately. It is the
+paper's "$\A_\delta(h)*h\subseteq K_{\rho_0/4}$", with the constant carried.
+
+\medskip\noindent\textbf{Step 8: part (c), $A_\delta(h)\subseteq K_{\rho_1}$ and
+$A_\delta(h)*h\subseteq K_{\rho_2}$.} Let $0<\delta\le\delta_1$, $\|h\|<\delta$, and let
+$x\in\Om_\delta$ be any point at which $u_h-v$ is maximal over $\Om_\delta$. Then
+$(u_h-v)(x)=M_\delta(h)\ge M_0-\tau/4\ge3\tau/4>-\tau/2$ by Step 6 and (13); so by part
+(b), $x\in K_{\rho_1}$. Part (a$'$) applied with $g:=h$ then gives $x*h\in K_{\rho_2}$,
+which completes part (c).
+\end{proof}

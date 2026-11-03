@@ -1,0 +1,255 @@
+\begin{theorem}[Theorem~1.2]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, step $r$, frame $\sigma=[\sigma^1,\ldots,\sigma^m]$ and
+$q:=2\,r!$, and assume the cited results of the literature at $\mathbb G$
+(\noderef{CitedResults}). Let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$ be continuous on
+$\mathbb R^{m}\mns\{0\}$, with $A(\xi)$ symmetric and positive semidefinite for
+$\xi\ne0$, and satisfy the conditions of strict ellipticity in the gradient direction (E)
+(1.9) and of homogeneity along rays (S) (1.10) --- that is, let $(A,H)$ satisfy the
+structure conditions of \noderef{StructureConditionsES}. No normalization of $(A,H)$ is
+assumed. Let
+$\Om\subset\mathbb R^{n}$ be a bounded open set with $\mathbb R^{n}\mns\Om\ne\emptyset$, let
+$u,v:\mathbb R^{n}\to\mathbb R$ be continuous on $\bar\Om$, and assume
+\begin{enumerate}
+\item $u$ is a viscosity sub-solution (\noderef{IsViscSubsol}) and $v$ a viscosity
+  super-solution (\noderef{IsViscSupersol}) of $\mathcal L\cdot=0$ in $\Om$;
+\item $u\le v$ on $\del\Om$.
+\end{enumerate}
+Let $R\ge0$ satisfy $|u|\le R/2$ and $|v|\le R/2$ on $\bar\Om$, and with this $R$ write
+$\Om[\eps]$ for the reduced domain (3.15) (\noderef{ReducedDomain}),
+\[
+ u^{\eps}:=\mathrm{SupConv}\ \mathbb G\ \Om\ u\ \eps\quad(\noderef{SupConv}),\qquad
+ v_{\eps}:=\mathrm{InfConv}\ \mathbb G\ \Om\ v\ \eps\quad(\noderef{InfConv}),
+\]
+and, as in (1.15),
+\[
+ E_\eps:=\Big\{x\in\Om[\eps]:\ (u^{\eps}-v_{\eps})(y)\le(u^{\eps}-v_{\eps})(x)
+ \ \text{for every}\ y\in\overline{\Om[\eps]}\Big\}
+ =\Big\{x\in\Om[\eps]:\ (u^{\eps}-v_{\eps})(x)=\max_{\overline{\Om[\eps]}}(u^{\eps}-v_{\eps})\Big\} .
+\]
+Assume finally that there is a sequence $(\eps_k)_{k\in\mathbb N}$ of positive reals with
+$\eps_k\to0$ such that
+\begin{enumerate}
+\item[(3)] for every $k$, every $x\in E_{\eps_k}$ and every continuous linear functional $D$
+  that is the derivative of $u^{\eps_k}$ at $x$,
+  \[
+   \mathcal Xu^{\eps_k}(x)=\mathrm{hgrad}\ \sigma\ x\ D\ \ne\ 0
+   \qquad(\noderef{hgrad}).
+  \]
+\end{enumerate}
+Then $u\le v$ in $\Om$.
+\end{theorem}
+\begin{proof}
+This is Theorem~1.2. Two points of the formulation deserve a word before the argument, because
+each is a place where a reader could suspect a departure from the paper and there is none.
+
+\emph{The parameter $R$.} The paper \emph{defines} $R:=2\max\{\|u\|_{L^\infty},\|v\|_{L^\infty}\}$
+just before (3.15), whereas \noderef{ReducedDomain} carries $R$ as a parameter. We
+therefore quantify over every admissible $R$, i.e. every $R\ge0$ with $|u|,|v|\le R/2$ on
+$\bar\Om$, and assume (3) for that $R$'s family $E_\eps$. This contains the paper's
+statement: the paper's $R$ is admissible, since
+$\|u\|_{L^\infty}\le\max\{\|u\|_{L^\infty},\|v\|_{L^\infty}\}=R/2$ and likewise for $v$, and
+it is the smallest admissible one. It is also not stronger than the paper's statement in any
+way the paper does not justify: $R$ enters the argument only through the definition of
+$\Om[\eps]$, where a larger $R$ makes $\Om[\eps]$ smaller, and the role of the bound
+$|u|\le R/2$ is exactly the one the paper gives it in the attainment step of Lemma~3.8(4),
+namely to make $\|z_x\|^{q}\le4\eps\|u\|_{L^\infty}\le2R\eps<(1+4R)\eps$. Every step below
+uses $R$ only through that bound and through the properties of $\Om[\eps]$, and all of them
+are available for an arbitrary admissible $R$.
+
+\emph{The hypothesis $\mathbb R^{n}\mns\Om\ne\emptyset$.} This is the paper's own
+convention, made explicit: (3.15) reads
+$\Om[\eps]=\{x\in\Om:\ \inf_{y\in\mathbb R^{n}\mns\Om}\|y*x^{-1}\|^{q}>(1+4R)\eps\}$, an
+infimum over $\mathbb R^{n}\mns\Om$, and the paper's $\Om\subset\mathbb R^{n}$ is a proper
+subset. The assumption is automatic as soon as $n\ge1$, since no bounded subset of
+$\mathbb R^{n}$ is then all of $\mathbb R^{n}$; it excludes only the degenerate setting
+$n=0$, in which $\del\Om=\emptyset$ and the hypothesis $u\le v$ on $\del\Om$ carries no
+information at all.
+
+\medskip
+Suppose the conclusion fails, so that $u(x^{*})>v(x^{*})$ for some $x^{*}\in\Om$. We derive
+a contradiction.
+
+\medskip\noindent\textbf{Step 0: $M_0>0$ and a maximum point.} $\Om$ is bounded, so
+$\bar\Om$ is a closed bounded subset of $\mathbb R^{n}$, hence compact; $u-v$ is continuous
+on $\bar\Om$, so it attains its maximum there, say at $x_M\in\bar\Om$. Since
+$x^{*}\in\Om\subset\bar\Om$,
+\[
+ M_0:=\max_{\bar\Om}(u-v)=u(x_M)-v(x_M)\ \ge\ u(x^{*})-v(x^{*})\ >\ 0 .
+\]
+Put $\tau:=M_0/2>0$, as in the paper's proof.
+
+\medskip\noindent\textbf{Step 1: normalize once.} The only hypothesis of
+\noderef{NormalizationExists} is that $(A,H)$ satisfy the structure conditions
+(\noderef{StructureConditionsES}), which we have. It therefore provides
+$A_0:\mathbb R^{m}\to\mathbb R^{m\times m}$, $H_0:\mathbb R^{m}\to\mathbb R$ and
+$a:\mathbb R^{m}\to\mathbb R$ with
+\[
+ \text{(i) } a(\xi)>0 \ (\xi\ne0),\qquad
+ \text{(ii) } A(\xi)=a(\xi)\,A_0(\xi)\ (\xi\ne0),\qquad
+ \text{(iii) } H(\xi)=a(\xi)\,H_0(\xi)\ (\xi\ne0),
+\]
+and with (iv) $(A_0,H_0)$ satisfying the structure conditions
+(\noderef{StructureConditionsES}) and (v) $(A_0,H_0)$ satisfying the normalization (2.3)
+(\noderef{NormalizedAH}). (It also gives continuity of $a$ away from the origin, which we do
+not use.) Write $\mathcal L_0$ for the operator built from $(A_0,H_0)$.
+
+The hypotheses of \noderef{NormalizedSameViscositySolutions} are exactly (i), (ii), (iii),
+and its open set and function are arbitrary parameters. Applying it with $\Om$ and $u$, and
+then with $\Om$ and $v$, gives
+\[
+ \mathcal Lu\le0\ \text{in}\ \Om\ \Longleftrightarrow\ \mathcal L_0u\le0\ \text{in}\ \Om,
+ \qquad
+ \mathcal Lv\ge0\ \text{in}\ \Om\ \Longleftrightarrow\ \mathcal L_0v\ge0\ \text{in}\ \Om,
+\]
+both in the viscosity sense. By hypothesis (1), $u$ is therefore a viscosity sub-solution and
+$v$ a viscosity super-solution of $\mathcal L_0\cdot=0$ in $\Om$. This is the standing
+normalization of Section~3 ("with $A$ and $H$ as in (1.9)--(1.10), normalized as in
+(2.3)"), carried out once and for all.
+
+The pivot costs nothing in hypothesis (3), and it is worth saying why explicitly. By
+\noderef{SupConv} and \noderef{InfConv}, $u^{\eps}$ and $v_{\eps}$ are determined by
+$\mathbb G$, $\Om$, the function and $\eps$ alone; by \noderef{ReducedDomain}, $\Om[\eps]$ is
+determined by $\mathbb G$, $\Om$, $R$ and $\eps$ alone. Neither $A$ nor $H$ occurs in any of
+them. Hence $E_\eps$ is literally the same set for $(A,H)$ and for $(A_0,H_0)$, and (3) is
+the same statement in both cases: there is nothing to transport.
+
+\medskip\noindent\textbf{Step 2: the standing assumptions for the regularized pair.} Apply
+\noderef{RegularizedPairStandingAssumptions} with: $\mathbb G$; the cited results at
+$\mathbb G$, which that node asks for at the same setting; the pair
+$(A_0,H_0)$, whose structure conditions are Step 1(iv); the set $\Om$, which is open,
+bounded and satisfies $\mathbb R^{n}\mns\Om\ne\emptyset$; the functions $u$ and $v$,
+continuous on $\bar\Om$, with $u$ a viscosity sub-solution and $v$ a viscosity
+super-solution of $\mathcal L_0\cdot=0$ in $\Om$ by Step 1 and $u\le v$ on $\del\Om$ by
+hypothesis (2); the constant $R\ge0$ with $|u|,|v|\le R/2$ on $\bar\Om$; and the point
+$x_M\in\bar\Om$ of Step 0, at which $u-v$ attains its maximum over $\bar\Om$ and where
+$u(x_M)-v(x_M)=M_0>0$. Taking $\tau=M_0/2$ (as Step 0) and
+$E=\{y\in\Om:\ u-v\ \text{is maximal over}\ \bar\Om\ \text{at}\ y\}$, and writing
+\[
+ \tilde v_{\eps}:=\big(y\mapsto v_{\eps}(y)+\tau\big),
+\]
+it yields an $\eps_1>0$ such that for every $\eps$ with $0<\eps<\eps_1$:
+\begin{enumerate}
+\item[(a)] $E\subseteq\Om[\eps]$;
+\item[(b)] $u^{\eps}$ and $\tilde v_{\eps}$ are continuous on $\overline{\Om[\eps]}$;
+\item[(c)] $u^{\eps}$ is locally semi-convex and $\tilde v_{\eps}$ is locally semi-concave on
+  $\Om[\eps]$, i.e. $-\tilde v_{\eps}$ is locally semi-convex there
+  (\noderef{LocallySemiConvexOn});
+\item[(d)] $u^{\eps}$ is a viscosity sub-solution and $\tilde v_{\eps}$ a viscosity
+  super-solution of $\mathcal L_0\cdot=0$ in $\Om[\eps]$;
+\item[(e)] $u^{\eps}-\tilde v_{\eps}\le-\tau/2$ on $\del\Om[\eps]$;
+\item[(f)] there is $x_e\in\Om[\eps]$ at which $u^{\eps}-\tilde v_{\eps}$ attains its maximum
+  over $\overline{\Om[\eps]}$, with $\tau\le u^{\eps}(x_e)-\tilde v_{\eps}(x_e)$;
+\item[(g)] every point of $\overline{\Om[\eps]}$ at which $u^{\eps}-\tilde v_{\eps}$ attains
+  its maximum over $\overline{\Om[\eps]}$ lies in $\Om[\eps]$.
+\end{enumerate}
+(The node also asserts that $E$ is non-empty and compact and that
+$\sup_{E_\eps}\dist(\cdot,E)\to0$; we need neither here. Clause (g) is likewise not needed
+below, but it is what makes $E_\eps$ an interior set, as (1.15) requires.)
+
+We record the observation the paper makes at the start of its proof. Since
+$\tilde v_{\eps}=v_{\eps}+\tau$ with $\tau$ a constant, for every set
+$S\subseteq\mathbb R^{n}$ and every $x$,
+\[
+ \big[(u^{\eps}-\tilde v_{\eps})(y)\le(u^{\eps}-\tilde v_{\eps})(x)\ \forall y\in S\big]
+ \iff
+ \big[(u^{\eps}-v_{\eps})(y)\le(u^{\eps}-v_{\eps})(x)\ \forall y\in S\big], \tag{1}
+\]
+because $(u^{\eps}-\tilde v_{\eps})(y)\le(u^{\eps}-\tilde v_{\eps})(x)$ reads
+$(u^{\eps}-v_{\eps})(y)-\tau\le(u^{\eps}-v_{\eps})(x)-\tau$, and subtracting the same
+constant from both sides of an inequality between reals changes nothing. In particular,
+$E_\eps$ is also the set of points of $\Om[\eps]$ at which $u^{\eps}-\tilde v_{\eps}$
+attains its maximum over $\overline{\Om[\eps]}$.
+
+\medskip\noindent\textbf{Step 3: choose $\eps$ from the sequence, and the geometry of
+$\Om[\eps]$.} Since $\eps_k\to0$ and $\eps_1>0$, we have $\eps_k<\eps_1$ for all large
+$k$; in particular there is an index $k$ with $\eps_k<\eps_1$, and $\eps_k>0$ by
+hypothesis, so $0<\eps_k<\eps_1$. Fix such a $k$ and put
+$\eps:=\eps_k$ and $\Om':=\Om[\eps]$, so that (a)--(g) of Step 2 hold for this $\eps$. (The
+sequence enters only here: it is used solely to produce one sufficiently small $\eps$, and
+the hypothesis (3) is used only at this single index, exactly as in the paper's proof.)
+
+By \noderef{ReducedDomainProperties}, applied with $\mathbb G$, the open bounded set $\Om$
+with $\mathbb R^{n}\mns\Om\ne\emptyset$, and $R\ge0$: its second clause gives that
+$\Om'=\Om[\eps]$ is bounded, and its fourth clause, with $\eps>0$, gives that $\Om'$ is
+open.
+
+\medskip\noindent\textbf{Step 4: the non-degeneracy hypothesis transfers to $\Om'$.} We
+claim
+\[
+ \text{for every }x\in\Om'\text{ at which }u^{\eps}-\tilde v_{\eps}\text{ is maximal over }
+ \Om',\ \text{and every derivative }D\text{ of }u^{\eps}\text{ at }x:\quad
+ \mathrm{hgrad}\ \sigma\ x\ D\ne0. \tag{2}
+\]
+So let $x\in\Om'$ satisfy $(u^{\eps}-\tilde v_{\eps})(y)\le(u^{\eps}-\tilde v_{\eps})(x)$ for
+every $y\in\Om'$, and let $D$ be a derivative of $u^{\eps}$ at $x$.
+
+First we upgrade maximality from $\Om'$ to $\overline{\Om'}$. Let $z\in\overline{\Om'}$.
+Because $\overline{\Om'}$ is the closure of $\Om'$ in the metric space $\mathbb R^{n}$, there
+is a sequence $(z_j)_{j\in\mathbb N}$ in $\Om'$ with $z_j\to z$. For every $j$ we have
+$z_j\in\Om'$, hence
+\[
+ (u^{\eps}-\tilde v_{\eps})(z_j)\ \le\ (u^{\eps}-\tilde v_{\eps})(x).
+\]
+By (b), $u^{\eps}$ and $\tilde v_{\eps}$ are continuous on $\overline{\Om'}$, hence so is
+their difference; since $z_j\in\Om'\subseteq\overline{\Om'}$ for every $j$,
+$z\in\overline{\Om'}$ and $z_j\to z$, continuity on $\overline{\Om'}$ gives
+$(u^{\eps}-\tilde v_{\eps})(z_j)\to(u^{\eps}-\tilde v_{\eps})(z)$. Passing to the limit in
+the displayed inequality,
+\[
+ (u^{\eps}-\tilde v_{\eps})(z)\ \le\ (u^{\eps}-\tilde v_{\eps})(x).
+\]
+As $z\in\overline{\Om'}$ was arbitrary, $u^{\eps}-\tilde v_{\eps}$ attains its maximum over
+$\overline{\Om'}=\overline{\Om[\eps]}$ at $x$.
+
+By (1) with $S=\overline{\Om[\eps]}$, the same holds for $u^{\eps}-v_{\eps}$:
+$(u^{\eps}-v_{\eps})(y)\le(u^{\eps}-v_{\eps})(x)$ for every $y\in\overline{\Om[\eps]}$.
+Together with $x\in\Om[\eps]$ this is precisely the statement $x\in E_{\eps}=E_{\eps_k}$ in
+the sense of (1.15). Hypothesis (3) at the index $k$ therefore applies to $x$ and to the
+derivative $D$ of $u^{\eps_k}=u^{\eps}$ at $x$, and gives
+$\mathrm{hgrad}\ \sigma\ x\ D\ne0$. This proves (2).
+
+\medskip\noindent\textbf{Step 5: Proposition~3.3 on $\Om'$.} We now apply
+\noderef{ComparisonNondegenerateSemiconvex} with the following data, checking its hypotheses
+one by one.
+\begin{itemize}
+\item The cited results at $\mathbb G$: our hypothesis (\noderef{CitedResults}).
+\item The sub-elliptic setting $\mathbb G$.
+\item The pair $(A_0,H_0)$: it satisfies the structure conditions by Step 1(iv) and the
+  normalization (2.3) by Step 1(v). This is where the normalization of Step 1 is spent;
+  Proposition~3.3 is stated for a normalized pair, and the printed Theorem~1.2 is not.
+\item The domain $\Om'$: bounded and open by Step 3. It is not assumed connected, and
+  Proposition~3.3 does not assume it --- which is why the reduced domains may be used here.
+\item The functions $u^{\eps}$ and $\tilde v_{\eps}$: continuous on $\overline{\Om'}$ by (b).
+\item $u^{\eps}$ locally semi-convex on $\Om'$ and $-\tilde v_{\eps}$ locally semi-convex on
+  $\Om'$: clause (c).
+\item $u^{\eps}\le\tilde v_{\eps}$ on $\del\Om'$: let $z\in\del\Om'$. By (e),
+  $u^{\eps}(z)-\tilde v_{\eps}(z)\le-\tau/2$, and $\tau>0$, so
+  $u^{\eps}(z)-\tilde v_{\eps}(z)\le-\tau/2<0$, whence $u^{\eps}(z)\le\tilde v_{\eps}(z)$.
+\item The viscosity inequalities $\mathcal L_0u^{\eps}\le0\le\mathcal L_0\tilde v_{\eps}$ in
+  $\Om'$: clause (d).
+\item The non-degeneracy on $\argmax_{\Om'}(u^{\eps}-\tilde v_{\eps})$: this is exactly (2)
+  of Step 4.
+\end{itemize}
+Its conclusion is
+\[
+ u^{\eps}(x)\ \le\ \tilde v_{\eps}(x)\qquad\text{for every }x\in\Om' . \tag{3}
+\]
+
+\medskip\noindent\textbf{Step 6: the contradiction.} By (f) there is $x_e\in\Om'$ with
+$\tau\le u^{\eps}(x_e)-\tilde v_{\eps}(x_e)$. By (3) applied at $x=x_e\in\Om'$,
+$u^{\eps}(x_e)-\tilde v_{\eps}(x_e)\le0$. Hence $\tau\le0$, contradicting $\tau=M_0/2>0$
+from Step 0.
+
+This contradiction refutes the assumption that $u(x^{*})>v(x^{*})$ for some $x^{*}\in\Om$.
+Therefore $u(x)\le v(x)$ for every $x\in\Om$, i.e. $u\le v$ in $\Om$.
+
+\medskip\noindent\emph{Remark on the role of the sequence.} The paper's hypothesis is the
+existence of a sequence $\eps_k\to0$ along which the non-degeneracy holds, and the proof uses
+it, as above, only to select one index $k$ with $\eps_k<\eps_1$. The sequence is the natural
+form of the hypothesis because $\eps_1$ is produced by the proof and not known in advance: a
+hypothesis "for some $\eps$ small enough" would not be checkable, whereas "along some
+sequence tending to $0$" is, and the two are equivalent once $\eps_1$ is in hand. We have
+kept the printed form.
+\end{proof}

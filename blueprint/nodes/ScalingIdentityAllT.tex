@@ -1,0 +1,122 @@
+\begin{theorem}[Remark~1.1(a): the scaling identity for every $t>0$]
+Let $m\in\mathbb N$ and let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$ satisfy the structure conditions (E) and (S)
+(\noderef{StructureConditionsES}). Write $\mathcal E_A$ for the ellipticity function of $A$
+(\noderef{Ellip}). Then for every $t>0$ and every $\xi\in\mathbb R^{m}\setminus\{0\}$,
+\[
+ A(t\xi)=\frac{\mathcal E_A(t\xi)}{t^{2}\,\mathcal E_A(\xi)}\;A(\xi)
+ \qquad\text{and}\qquad
+ H(t\xi)=t\,\frac{\mathcal E_A(t\xi)}{t^{2}\,\mathcal E_A(\xi)}\;H(\xi).
+\]
+\end{theorem}
+\begin{proof}
+Let $\kappa:[1,\infty)\times(\mathbb R^{m}\setminus\{0\})\to(0,\infty)$ be a function for
+which clause (6) of \noderef{StructureConditionsES} --- condition (S), (1.10) --- holds,
+i.e.
+\[
+ A(t\xi)=\kappa(t,\xi)\,A(\xi)\quad\text{and}\quad H(t\xi)=t\,\kappa(t,\xi)\,H(\xi)
+ \qquad\text{for all }t\ge1,\ \xi\ne0. \tag{S}
+\]
+
+\medskip\noindent\textbf{Step 0: two preliminary remarks.}
+
+\emph{(0a) All denominators below are non-zero.} If $t>0$ and $\xi\ne0$ then $t\xi\ne0$,
+because $t\xi=0$ with $t\ne0$ forces $\xi=0$. Hence condition (E) of
+\noderef{StructureConditionsES}, which asserts $\mathcal E_A(\eta)>0$ for every $\eta\ne0$,
+applies both at $\xi$ and at $t\xi$:
+\[
+ \mathcal E_A(\xi)>0,\qquad \mathcal E_A(t\xi)>0 . \tag{0a}
+\]
+In particular $t^{2}\mathcal E_A(\xi)>0$, so the quotient in the statement is a well-defined
+positive real number.
+
+\emph{(0b) The quadratic form is $2$-homogeneous in its vector slot.} Let
+$M\in\mathbb R^{m\times m}$, $\eta\in\mathbb R^{m}$ and $s\in\mathbb R$. Since
+$(s\eta)_k=s\,\eta_k$ for every $k$,
+\[
+ \sum_{i}\sum_{j}M_{i,j}\,(s\eta)_j\,(s\eta)_i
+  =\sum_{i}\sum_{j}M_{i,j}\,s\,\eta_j\,s\,\eta_i
+  =s^{2}\sum_{i}\sum_{j}M_{i,j}\,\eta_j\,\eta_i . \tag{0b}
+\]
+Applying this with $M=A(t\xi)$, $\eta=\xi$ and $s=t$, and recalling that
+$\mathcal E_A(t\xi)$ is by \noderef{Ellip} the quadratic form of the matrix $A(t\xi)$
+evaluated at the vector $t\xi$,
+\[
+ \mathcal E_A(t\xi)=\sum_{i}\sum_{j}A_{i,j}(t\xi)\,(t\xi)_j\,(t\xi)_i
+  =t^{2}\sum_{i}\sum_{j}A_{i,j}(t\xi)\,\xi_j\,\xi_i . \tag{0b$'$}
+\]
+
+\medskip\noindent\textbf{Step 1: the case $t\ge1$, and the formula for $\kappa$.} Fix
+$t\ge1$ and $\xi\ne0$. Substituting $A(t\xi)=\kappa(t,\xi)A(\xi)$ from (S) into
+(0b$'$) and using that each entry satisfies
+$A_{i,j}(t\xi)=\kappa(t,\xi)A_{i,j}(\xi)$,
+\[
+ \mathcal E_A(t\xi)=t^{2}\sum_{i}\sum_{j}\kappa(t,\xi)\,A_{i,j}(\xi)\,\xi_j\,\xi_i
+  =t^{2}\,\kappa(t,\xi)\sum_{i}\sum_{j}A_{i,j}(\xi)\,\xi_j\,\xi_i
+  =t^{2}\,\kappa(t,\xi)\,\mathcal E_A(\xi).
+\]
+By (0a) we may divide by $t^{2}\mathcal E_A(\xi)>0$:
+\[
+ \kappa(t,\xi)=\frac{\mathcal E_A(t\xi)}{t^{2}\,\mathcal E_A(\xi)} . \tag{1}
+\]
+Substituting (1) back into the two identities (S) gives, for every $t\ge1$ and $\xi\ne0$,
+\[
+ A(t\xi)=\frac{\mathcal E_A(t\xi)}{t^{2}\mathcal E_A(\xi)}A(\xi),
+ \qquad
+ H(t\xi)=t\,\frac{\mathcal E_A(t\xi)}{t^{2}\mathcal E_A(\xi)}H(\xi), \tag{2}
+\]
+which is the assertion of the theorem for $t\ge1$. (For $t=1$ formula (1) reads
+$\kappa(1,\xi)=\mathcal E_A(\xi)/\mathcal E_A(\xi)=1$, so (2) is the trivial identity, as it
+must be.)
+
+\medskip\noindent\textbf{Step 2: the case $0<t<1$.} Fix $0<t<1$ and $\xi\ne0$, and set
+\[
+ \eta:=t\xi,\qquad t':=\frac1t .
+\]
+By Step 0(0a) applied to the pair $(t,\xi)$ we have $\eta\ne0$, and $t'>1$ because
+$0<t<1$. So Step 1 is available for the pair $(t',\eta)$. Note first that
+\[
+ t'\eta=\frac1t\,(t\xi)=\xi,\qquad (t')^{2}=\frac1{t^{2}},\qquad
+ \mathcal E_A(t'\eta)=\mathcal E_A(\xi),\qquad \mathcal E_A(\eta)=\mathcal E_A(t\xi),
+\]
+so that the scalar occurring in (2) for the pair $(t',\eta)$ is
+\[
+ \frac{\mathcal E_A(t'\eta)}{(t')^{2}\,\mathcal E_A(\eta)}
+  =\frac{\mathcal E_A(\xi)}{t^{-2}\,\mathcal E_A(t\xi)}
+  =\frac{t^{2}\,\mathcal E_A(\xi)}{\mathcal E_A(t\xi)} . \tag{3}
+\]
+By (0a) both $\mathcal E_A(\xi)>0$ and $\mathcal E_A(t\xi)>0$, so the scalar (3) is a
+positive real number; call it $\lambda$. Then:
+
+\emph{The identity for $A$.} The first identity of (2), applied to the pair
+$(t',\eta)$ and read through $t'\eta=\xi$ and (3), says
+\[
+ A(\xi)=A(t'\eta)=\lambda\,A(\eta)=\lambda\,A(t\xi).
+\]
+Multiplying both sides by $\lambda^{-1}=\mathcal E_A(t\xi)/\big(t^{2}\mathcal E_A(\xi)\big)$,
+which is legitimate because $\lambda>0$, gives
+\[
+ A(t\xi)=\lambda^{-1}A(\xi)=\frac{\mathcal E_A(t\xi)}{t^{2}\,\mathcal E_A(\xi)}\,A(\xi),
+\]
+as required.
+
+\emph{The identity for $H$.} The second identity of (2), applied to the pair
+$(t',\eta)$ and read through $t'\eta=\xi$, $t'=1/t$ and (3), says
+\[
+ H(\xi)=H(t'\eta)=t'\,\lambda\,H(\eta)
+  =\frac1t\cdot\frac{t^{2}\mathcal E_A(\xi)}{\mathcal E_A(t\xi)}\cdot H(t\xi)
+  =\frac{t\,\mathcal E_A(\xi)}{\mathcal E_A(t\xi)}\,H(t\xi).
+\]
+The scalar $t\,\mathcal E_A(\xi)/\mathcal E_A(t\xi)$ is positive by (0a) and $t>0$;
+multiplying both sides by its reciprocal gives
+\[
+ H(t\xi)=\frac{\mathcal E_A(t\xi)}{t\,\mathcal E_A(\xi)}\,H(\xi)
+  =t\cdot\frac{\mathcal E_A(t\xi)}{t^{2}\,\mathcal E_A(\xi)}\cdot H(\xi),
+\]
+as required.
+
+\medskip\noindent\textbf{Step 3: conclusion.} Every $t>0$ satisfies either $t\ge1$, in
+which case Step 1 gives both identities, or $0<t<1$, in which case Step 2 does. Since
+$\xi\ne0$ was arbitrary, the two identities hold for all $t>0$ and all
+$\xi\in\mathbb R^{m}\setminus\{0\}$.
+\end{proof}

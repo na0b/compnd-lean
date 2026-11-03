@@ -1,0 +1,85 @@
+\begin{theorem}[(2.4): the ellipticity lower bound]
+Let $m\in\mathbb N$ and let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$ satisfy the structure conditions (E) and (S)
+(\noderef{StructureConditionsES}) and be normalized in the sense of (2.3)
+(\noderef{NormalizedAH}). Write $\mathcal E_A$ for the ellipticity function of $A$
+(\noderef{Ellip}). Then there is a constant $e_0>0$ such that
+\[
+ e_0\,|\xi|^{2}\ \le\ \mathcal E_A(\xi)\qquad\text{for every }\xi\in\mathbb R^{m}.
+\]
+\end{theorem}
+\begin{proof}
+\noindent\textbf{Step 1: $\mathcal E_A$ is $2$-homogeneous.} Let $t>0$ and $\eta\ne0$. \noderef{NormalizedAH}
+gives $A(t\eta)=A(\eta)$, that being the first of its two identities, valid for every
+$t>0$ and every $\eta\in\mathbb R^{m}\setminus\{0\}$. Hence, using
+$(t\eta)_k=t\,\eta_k$ for every $k$, which contributes one factor $t$ in each of the two
+vector slots of the quadratic form of \noderef{Ellip},
+\[
+ \mathcal E_A(t\eta)=\sum_{i}\sum_{j}A_{i,j}(t\eta)\,(t\eta)_j\,(t\eta)_i
+  =t^{2}\sum_{i}\sum_{j}A_{i,j}(\eta)\,\eta_j\,\eta_i
+  =t^{2}\,\mathcal E_A(\eta). \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 2: $\mathcal E_A(0)=0$.} By \noderef{Ellip},
+$\mathcal E_A(0)=\sum_i\sum_j A_{i,j}(0)\cdot0\cdot0=0$.
+
+\medskip\noindent\textbf{Step 3: the degenerate case $m=0$.} If $m=0$ then
+$\mathbb R^{0}=\{0\}$, so the only $\xi$ to consider is $\xi=0$. Take $e_0:=1>0$. By Step 2
+and $|0|=0$ the required inequality reads $1\cdot0\le0$, which holds. For the rest of the
+proof assume $m\ge1$.
+
+\medskip\noindent\textbf{Step 4: the minimum of $\mathcal E_A$ over the unit sphere.} Let
+\[
+ S:=\{\omega\in\mathbb R^{m}:\ |\omega|=1\}.
+\]
+$S$ is bounded, and it is closed as the preimage of the closed set $\{1\}$ under the
+continuous map $\eta\mapsto|\eta|$; being a closed bounded subset of the
+finite-dimensional space $\mathbb R^{m}$, it is compact. It is non-empty: since $m\ge1$ the
+first standard basis vector $e_1$ exists and $|e_1|=1$, so $e_1\in S$. Finally
+$S\subseteq\mathbb R^{m}\setminus\{0\}$, because $|\omega|=1\ne0$ forces $\omega\ne0$.
+
+By clause (3) of \noderef{StructureConditionsES}, $A$ is continuous on
+$\mathbb R^{m}\setminus\{0\}$, hence so is each entry $\eta\mapsto A_{i,j}(\eta)$, and
+therefore so is
+\[
+ \eta\ \longmapsto\ \mathcal E_A(\eta)=\sum_{i}\sum_{j}A_{i,j}(\eta)\,\eta_j\,\eta_i ,
+\]
+being a finite sum of products of functions continuous on $\mathbb R^{m}\setminus\{0\}$
+(\noderef{Ellip}). In particular $\mathcal E_A$ is continuous on $S$. A real-valued
+continuous function on a non-empty compact set attains its infimum, so there is
+$\omega_0\in S$ with
+\[
+ \mathcal E_A(\omega_0)\ \le\ \mathcal E_A(\omega)\qquad\text{for every }\omega\in S. \tag{2}
+\]
+Set $e_0:=\mathcal E_A(\omega_0)$. Since $\omega_0\in S$ we have $\omega_0\ne0$, so
+clause (5) of \noderef{StructureConditionsES} --- condition (E), (1.9) --- applies at
+$\omega_0$ and gives
+\[
+ e_0=\mathcal E_A(\omega_0)>0. \tag{3}
+\]
+
+\medskip\noindent\textbf{Step 5: the bound, for $\xi=0$.} By Step 2 and $|0|=0$, both sides
+of the asserted inequality vanish: $e_0\,|0|^{2}=0=\mathcal E_A(0)$. So the inequality holds
+at $\xi=0$, with equality.
+
+\medskip\noindent\textbf{Step 6: the bound, for $\xi\ne0$.} Put
+\[
+ t:=|\xi|>0,\qquad \omega:=t^{-1}\xi .
+\]
+Then $|\omega|=|\xi|^{-1}|\xi|=1$, so $\omega\in S$ and in particular $\omega\ne0$; and
+$\xi=t\omega$. Step 1 applied to the pair $(t,\omega)$ — legitimate because $t>0$ and
+$\omega\ne0$ — gives
+\[
+ \mathcal E_A(\xi)=\mathcal E_A(t\omega)=t^{2}\,\mathcal E_A(\omega)=|\xi|^{2}\,\mathcal E_A(\omega).
+\]
+By (2), $\mathcal E_A(\omega)\ge e_0$, and $|\xi|^{2}>0$, so multiplying that inequality by
+the non-negative number $|\xi|^{2}$ preserves it:
+\[
+ \mathcal E_A(\xi)=|\xi|^{2}\,\mathcal E_A(\omega)\ \ge\ |\xi|^{2}\,e_0=e_0\,|\xi|^{2}.
+\]
+
+\medskip\noindent\textbf{Step 7: conclusion.} With $e_0$ as in Step 4 we have $e_0>0$ by
+(3), and the inequality $e_0|\xi|^{2}\le\mathcal E_A(\xi)$ holds for $\xi=0$ by Step 5 and
+for $\xi\ne0$ by Step 6, hence for every $\xi\in\mathbb R^{m}$. This is (2.4), with
+$e_0=\min_{|\omega|=1}\mathcal E_A(\omega)$ as in the paper.
+\end{proof}

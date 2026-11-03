@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this formalization, please cite the paper and this repository."
+title: "Lean 4 formalization of: Comparison principles for degenerate sub-elliptic equations in non-divergence form"
+type: software
+license: Apache-2.0
+authors:
+  - family-names: Manfredi
+    given-names: Juan J.
+    affiliation: University of Pittsburgh
+  - family-names: Mukherjee
+    given-names: Shirsho
+    affiliation: University of Essex
+preferred-citation:
+  type: article
+  title: "Comparison principles for degenerate sub-elliptic equations in non-divergence form"
+  authors:
+    - family-names: Manfredi
+      given-names: Juan J.
+    - family-names: Mukherjee
+      given-names: Shirsho
+  year: 2026

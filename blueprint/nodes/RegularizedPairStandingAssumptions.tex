@@ -1,0 +1,318 @@
+\begin{theorem}[The standing assumptions for the regularized pair]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, write $d(x,y):=\|y^{-1}*x\|$, and let the cited results at $\mathbb G$ hold
+(\noderef{CitedResults}). Let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$ satisfy the structure conditions
+(\noderef{StructureConditionsES}). Let $\Omega\subseteq\mathbb R^{n}$ be open and bounded
+with $\mathbb R^{n}\setminus\Omega\neq\emptyset$; let $u,v:\mathbb R^{n}\to\mathbb R$ be
+continuous on $\overline\Omega$ with $u$ a viscosity sub-solution (\noderef{IsViscSubsol})
+and $v$ a viscosity super-solution (\noderef{IsViscSupersol}) of $\mathcal L\cdot=0$ in
+$\Omega$, and $u\le v$ on $\partial\Omega$; let $R\ge0$ satisfy $|u|\le R/2$ and
+$|v|\le R/2$ on $\overline\Omega$; and let $x_M\in\overline\Omega$ be a point at which
+$u-v$ attains its maximum over $\overline\Omega$, with
+\[
+ M_0:=u(x_M)-v(x_M)>0 .
+\]
+Put $\tau:=M_0/2$ and
+\[
+ E:=\big\{y\in\Omega:\ u-v\ \text{attains its maximum over }\overline\Omega\text{ at }y\big\}
+ \ \ \big(=\mathrm{argmax}_\Omega(u-v)\big).
+\]
+Write $\Omega[\varepsilon]$ for the reduced domain (\noderef{ReducedDomain}),
+$u^{\varepsilon}:=\mathrm{SupConv}\ \mathbb G\ \Omega\ u\ \varepsilon$ (\noderef{SupConv})
+and $\tilde v_{\varepsilon}:=\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon+\tau$
+(\noderef{InfConv}). Then:
+\begin{enumerate}
+\item $E$ is non-empty and compact;
+\item there is $\varepsilon_1>0$ such that for every $\varepsilon\in(0,\varepsilon_1)$:
+  \begin{enumerate}
+  \item $E\subseteq\Omega[\varepsilon]$;
+  \item $u^{\varepsilon}$ and $\tilde v_{\varepsilon}$ are continuous on
+    $\overline{\Omega[\varepsilon]}$;
+  \item $u^{\varepsilon}$ is locally semi-convex and $\tilde v_{\varepsilon}$ is locally
+    semi-concave on $\Omega[\varepsilon]$, i.e. $-\tilde v_{\varepsilon}$ is locally
+    semi-convex there (\noderef{LocallySemiConvexOn});
+  \item $u^{\varepsilon}$ is a viscosity sub-solution and $\tilde v_{\varepsilon}$ a
+    viscosity super-solution of $\mathcal L\cdot=0$ in $\Omega[\varepsilon]$;
+  \item $u^{\varepsilon}-\tilde v_{\varepsilon}\le-\tau/2$ on $\partial\Omega[\varepsilon]$;
+  \item $u^{\varepsilon}-\tilde v_{\varepsilon}$ attains its maximum over
+    $\overline{\Omega[\varepsilon]}$ at some point of $\Omega[\varepsilon]$, and the maximum
+    value is $\ge\tau$;
+  \item every point of $\overline{\Omega[\varepsilon]}$ at which
+    $u^{\varepsilon}-\tilde v_{\varepsilon}$ attains its maximum over
+    $\overline{\Omega[\varepsilon]}$ lies in $\Omega[\varepsilon]$;
+  \end{enumerate}
+\item $\sup_{z\in E_\varepsilon}\mathrm{dist}(z,E)\to0$ as $\varepsilon\to0^{+}$: for every
+  $\eta>0$ there is $\varepsilon_2>0$ such that for every $\varepsilon\in(0,\varepsilon_2)$
+  and every $z\in\Omega[\varepsilon]$ at which $u^{\varepsilon}-\tilde v_{\varepsilon}$
+  attains its maximum over $\overline{\Omega[\varepsilon]}$ there is $p\in E$ with
+  $d(z,p)<\eta$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+Note first that $\tau=M_0/2>0$ and $M_0=2\tau$. Since $\Omega$ is open,
+$\partial\Omega=\overline\Omega\setminus\Omega$ and hence
+$\overline\Omega=\Omega\cup\partial\Omega$; likewise
+$\overline{\Omega[\varepsilon]}=\Omega[\varepsilon]\cup\partial\Omega[\varepsilon]$ for every
+$\varepsilon>0$, because $\Omega[\varepsilon]$ is open by clause (4) of
+\noderef{ReducedDomainProperties}. Also $\overline\Omega$ is compact: it is closed, and it is
+bounded because $\Omega$ is. Throughout, "$\mathcal L w\le0$ in $V$" means that $w$ is a
+viscosity sub-solution in $V$ in the sense of \noderef{IsViscSubsol}, and dually.
+
+\medskip\noindent\textbf{Step 1: $x_M\in\Omega$, and $E$ is non-empty.} If
+$x_M\in\partial\Omega$ then $u(x_M)\le v(x_M)$ by hypothesis, i.e. $M_0\le0$, contradicting
+$M_0>0$. Since $x_M\in\overline\Omega=\Omega\cup\partial\Omega$, we get $x_M\in\Omega$. As
+$u-v$ attains its maximum over $\overline\Omega$ at $x_M$ by hypothesis, $x_M\in E$.
+
+\medskip\noindent\textbf{Step 2: $E$ is compact.} We claim
+\[
+ E=\big\{y\in\overline\Omega:\ M_0\le u(y)-v(y)\big\}. \tag{2a}
+\]
+If $y\in E$ then $y\in\Omega\subseteq\overline\Omega$ and, $u-v$ attaining its maximum over
+$\overline\Omega$ at $y$ and $x_M$ lying in $\overline\Omega$, we get
+$M_0=u(x_M)-v(x_M)\le u(y)-v(y)$. Conversely let $y\in\overline\Omega$ with
+$M_0\le u(y)-v(y)$. Since $u-v$ attains its maximum over $\overline\Omega$ at $x_M$ and
+$y\in\overline\Omega$, also $u(y)-v(y)\le M_0$; hence $u(y)-v(y)=M_0$, and therefore
+$u(w)-v(w)\le M_0=u(y)-v(y)$ for every $w\in\overline\Omega$, i.e. $u-v$ attains its maximum
+over $\overline\Omega$ at $y$. Finally $y\notin\partial\Omega$: otherwise
+$u(y)-v(y)\le0<M_0$. So $y\in\Omega$ and $y\in E$. This proves (2a).
+
+In particular $u-v=M_0$ on $E$: for $y\in E$ the inclusion just proved gives
+$M_0\le u(y)-v(y)$, while maximality at $x_M$ gives $u(y)-v(y)\le M_0$.
+
+By (2a), $E$ is the intersection of $\overline\Omega$ with the preimage of the closed set
+$[M_0,\infty)$ under $u-v$, which is continuous on $\overline\Omega$; so $E$ is closed in
+the subspace $\overline\Omega$. A closed subset of the compact set $\overline\Omega$ is
+compact, so $E$ is compact.
+
+\medskip\noindent\textbf{Step 3: uniform continuity of $u$ and $v$ on $\overline\Omega$
+with respect to $d$.} We claim: for every $\theta>0$ there is $\rho>0$ such that
+\[
+ a,b\in\overline\Omega,\ d(a,b)<\rho\ \Longrightarrow\ |u(a)-u(b)|+|v(a)-v(b)|<\theta. \tag{3a}
+\]
+Indeed, $u$ and $v$ are continuous on the compact set $\overline\Omega$, hence uniformly
+continuous there for the Euclidean metric: there is $\sigma>0$ with
+$|u(a)-u(b)|+|v(a)-v(b)|<\theta$ whenever $a,b\in\overline\Omega$ and $|a-b|<\sigma$. Since
+$\Omega$ is bounded, choose $\nu>0$ with $|a|\le\nu$ for all $a\in\overline\Omega$, and let
+$c_2>0$ be the constant of clause (6) of \noderef{CarnotNorm} for this $\nu$, so that
+$c_2^{-1}|a-b|\le\|(-b)*a\|=d(a,b)$ for $a,b\in\overline\Omega$. Then
+$|a-b|\le c_2\,d(a,b)$, and $\rho:=\sigma/c_2>0$ does the job.
+
+\medskip\noindent\textbf{Step 4: the quantitative boundary gap for $u-\tilde v$.} Apply
+Step 3 with $\theta:=\tau/8>0$ to get $\rho_0>0$ such that
+\[
+ a,b\in\overline\Omega,\ d(a,b)<\rho_0\ \Longrightarrow\ |u(a)-u(b)|+|v(a)-v(b)|<\tau/8. \tag{4a}
+\]
+This is the paper's choice of $\rho_0$ with $\omega_u(\rho_0)+\omega_v(\rho_0)\le\tau/8$.
+
+\medskip\noindent\textbf{Step 5: three smallness requirements on $\varepsilon$.} We now fix
+$\varepsilon_1>0$ so that each of (5a), (5b), (5c) below holds for
+$0<\varepsilon<\varepsilon_1$.
+
+\emph{(5a) $E\subseteq\Omega[\varepsilon]$.} For $k\in\mathbb N$, $k\ge1$, the set
+$\Omega[1/k]$ is open by clause (4) of \noderef{ReducedDomainProperties}, and
+$\Omega[1/k]\subseteq\Omega[1/(k+1)]$ by clause (3) of the same node, since
+$1/(k+1)\le1/k$. Moreover $\bigcup_{k\ge1}\Omega[1/k]\supseteq E$: for $x\in E\subseteq\Omega$
+clause (5) of \noderef{ReducedDomainProperties} gives $\varepsilon_0>0$ with
+$x\in\Omega[\varepsilon]$ for all $\varepsilon\in(0,\varepsilon_0)$, and any $k$ with
+$1/k<\varepsilon_0$ then has $x\in\Omega[1/k]$. So $\{\Omega[1/k]\}_{k\ge1}$ is an open cover
+of the compact set $E$ (Step 2); a finite subcover exists, and since the family is increasing
+in $k$ a single member contains $E$: there is $k_0\ge1$ with $E\subseteq\Omega[1/k_0]$. For
+$0<\varepsilon<1/k_0$, clause (3) gives $\Omega[1/k_0]\subseteq\Omega[\varepsilon]$ and hence
+$E\subseteq\Omega[\varepsilon]$.
+
+\emph{(5b) the regularizations are $\tau/8$-close to $u$ and $v$.} By the third clause of
+\textsc{wang2} in \noderef{CitedResults}, applied to $u$ and to $v$ on the bounded open
+$\Omega$ (both are continuous on $\overline\Omega$), with $\eta:=\tau/8$, there is
+$\varepsilon'>0$ such that for $0<\varepsilon<\varepsilon'$ and every $x\in\overline\Omega$
+\[
+ \big|u^{\varepsilon}(x)-u(x)\big|\le\tau/8
+ \qquad\text{and}\qquad
+ \big|\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon\ (x)-v(x)\big|\le\tau/8. \tag{5b}
+\]
+
+\emph{(5c) the boundary of $\Omega[\varepsilon]$ is $\rho_0$-close to $\partial\Omega$.} By
+clause (7) of \noderef{ReducedDomainProperties} with $\eta:=\rho_0$ there is
+$\varepsilon''>0$ such that for $0<\varepsilon<\varepsilon''$ and every
+$z\in\partial\Omega[\varepsilon]$ there is $w\in\partial\Omega$ with $d(z,w)<\rho_0$.
+
+Put $\varepsilon_1:=\min\{1/k_0,\varepsilon',\varepsilon''\}>0$ and fix
+$\varepsilon\in(0,\varepsilon_1)$ for the rest of Steps 6--10. Write
+$\Omega_\varepsilon:=\Omega[\varepsilon]$, which is open, bounded, contained in $\Omega$,
+with $\overline{\Omega_\varepsilon}\subseteq\Omega$ (clauses (1)--(4) and (6) of
+\noderef{ReducedDomainProperties}); and $\Omega_\varepsilon\neq\emptyset$ because
+$E\subseteq\Omega_\varepsilon$ and $E\neq\emptyset$. Hence
+$\overline{\Omega_\varepsilon}$ is a non-empty compact subset of $\Omega$.
+
+\medskip\noindent\textbf{Step 6: 2(a), 2(c) and 2(d).} Clause 2(a) is (5a).
+
+By the first clause of \textsc{wang1} in \noderef{CitedResults},
+$u^{\varepsilon}$ is locally semi-convex on $\Omega$ and
+$-\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon$ is locally semi-convex on $\Omega$.
+Two elementary remarks turn this into 2(c).
+
+\emph{(6a) local semi-convexity restricts to open subsets.} If $f$ is locally semi-convex on
+$\Omega$ and $V\subseteq\Omega$ is open, then $f$ is locally semi-convex on $V$: given
+$x\in V$, \noderef{LocallySemiConvexOn} supplies $\rho>0$, $\Lambda\ge0$ with
+$B_\rho(x)\subseteq\Omega$ and $f+\tfrac\Lambda2|\cdot|^{2}$ convex on $B_\rho(x)$; choosing
+$\sigma>0$ with $B_\sigma(x)\subseteq V$ and replacing $\rho$ by $\min\{\rho,\sigma\}$ gives
+the requirement at $x$ for $V$, since a convex function on $B_\rho(x)$ is convex on the
+convex subset $B_{\min\{\rho,\sigma\}}(x)$.
+
+\emph{(6b) local semi-convexity is invariant under adding a constant.} If
+$f+\tfrac\Lambda2|\cdot|^{2}$ is convex on a set, so is
+$(f+c)+\tfrac\Lambda2|\cdot|^{2}$ for any constant $c$, since adding a constant to a convex
+function preserves convexity. Hence $-\tilde v_{\varepsilon}
+=-\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon-\tau$ is locally semi-convex wherever
+$-\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon$ is.
+
+Applying (6a) with $V:=\Omega_\varepsilon$ (open, contained in $\Omega$) to $u^{\varepsilon}$
+and, after (6b), to $-\tilde v_{\varepsilon}$, gives 2(c).
+
+For 2(d): by \textsc{wang3} in \noderef{CitedResults}, applied with the given $A,H$ and
+structure conditions, with $\Omega$ bounded open, $u,v$ continuous on $\overline\Omega$, the
+bound $|u|,|v|\le R/2$ on $\overline\Omega$, and the viscosity hypotheses on $u$ and $v$,
+we get that $u^{\varepsilon}$ is a viscosity sub-solution and
+$\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon$ a viscosity super-solution of
+$\mathcal L\cdot=0$ in $\Omega[\varepsilon]=\Omega_\varepsilon$. The super-solution property
+transfers to $\tilde v_{\varepsilon}=\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon+\tau$
+by \noderef{AddConstPreservesSubsol}, whose super-solution half says exactly that adding a
+constant to a viscosity super-solution of $\mathcal L\cdot=0$ in a set again gives one. This
+is 2(d).
+
+\medskip\noindent\textbf{Step 7: 2(b).} By 2(c) and part (1) of
+\noderef{SemiConvexLocLipschitz}, a locally semi-convex function on a set is continuous on
+it; applied on $\Omega$ (where \textsc{wang1} gives the semi-convexity) this makes
+$u^{\varepsilon}$ and $-\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon$, hence also
+$\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon$ and
+$\tilde v_{\varepsilon}$, continuous on $\Omega$. Since
+$\overline{\Omega_\varepsilon}\subseteq\Omega$ by clause (6) of
+\noderef{ReducedDomainProperties}, both are continuous on
+$\overline{\Omega_\varepsilon}$. This is 2(b); in particular
+$u^{\varepsilon}-\tilde v_{\varepsilon}$ is continuous on the non-empty compact set
+$\overline{\Omega_\varepsilon}$.
+
+\medskip\noindent\textbf{Step 8: 2(e).} Let $z\in\partial\Omega_\varepsilon$. By clause (6)
+of \noderef{ReducedDomainProperties},
+$z\in\overline{\Omega_\varepsilon}\subseteq\Omega\subseteq\overline\Omega$. By (5c) there is
+$w\in\partial\Omega\subseteq\overline\Omega$ with $d(z,w)<\rho_0$, so by (4a)
+\[
+ |u(z)-u(w)|+|v(z)-v(w)|<\tau/8 .
+\]
+Since $w\in\partial\Omega$, the boundary hypothesis gives $u(w)-v(w)\le0$. Hence
+\[
+ u(z)-v(z)=\big(u(w)-v(w)\big)+\big(u(z)-u(w)\big)-\big(v(z)-v(w)\big)
+ \ \le\ 0+\tau/8=\tau/8,
+\]
+so, as $\tilde v=v+\tau$ and $M_0=2\tau$,
+\[
+ u(z)-\big(v(z)+\tau\big)\ \le\ \tau/8-\tau=-\tfrac78\tau . \tag{8a}
+\]
+Now by (5b), $u^{\varepsilon}(z)\le u(z)+\tau/8$ and
+$\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon(z)\ge v(z)-\tau/8$, so
+$\tilde v_{\varepsilon}(z)\ge v(z)+\tau-\tau/8$. Subtracting and using (8a),
+\[
+ u^{\varepsilon}(z)-\tilde v_{\varepsilon}(z)
+ \ \le\ \Big(u(z)+\frac\tau8\Big)-\Big(v(z)+\tau-\frac\tau8\Big)
+ \ =\ \big(u(z)-v(z)-\tau\big)+\frac\tau4
+ \ \le\ -\frac78\tau+\frac\tau4=-\frac58\tau\ \le\ -\frac\tau2 ,
+\]
+the last inequality because $\tau>0$. This is 2(e).
+
+\medskip\noindent\textbf{Step 9: 2(f) and 2(g).} By the first clause of \textsc{wang2} in
+\noderef{CitedResults}, $u\le u^{\varepsilon}$ and
+$\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon\le v$ on $\overline\Omega$; hence
+$\tilde v_{\varepsilon}\le v+\tau=\tilde v$ on $\overline\Omega$ and so
+\[
+ u^{\varepsilon}-\tilde v_{\varepsilon}\ \ge\ u-\tilde v\qquad\text{on }\overline\Omega. \tag{9a}
+\]
+Pick $x\in E$, which is non-empty by Step 1 and contained in $\Omega_\varepsilon$ by (5a);
+then $x\in\overline\Omega$ and $u(x)-v(x)=M_0=2\tau$ by the last remark of Step 2, so
+by (9a)
+\[
+ u^{\varepsilon}(x)-\tilde v_{\varepsilon}(x)\ \ge\ u(x)-v(x)-\tau=2\tau-\tau=\tau. \tag{9b}
+\]
+By Step 7 the function $u^{\varepsilon}-\tilde v_{\varepsilon}$ is continuous on the
+non-empty compact set $\overline{\Omega_\varepsilon}$, so it attains its maximum there at
+some $x_e\in\overline{\Omega_\varepsilon}$, and by (9b) and $x\in\Omega_\varepsilon$ the
+maximum value satisfies
+\[
+ u^{\varepsilon}(x_e)-\tilde v_{\varepsilon}(x_e)\ \ge\ u^{\varepsilon}(x)-\tilde v_{\varepsilon}(x)\ \ge\ \tau. \tag{9c}
+\]
+Now let $z\in\overline{\Omega_\varepsilon}$ be \emph{any} maximum point of
+$u^{\varepsilon}-\tilde v_{\varepsilon}$ over $\overline{\Omega_\varepsilon}$. Then
+$u^{\varepsilon}(z)-\tilde v_{\varepsilon}(z)\ge\tau>0$ by the same comparison as in (9c).
+If $z\in\partial\Omega_\varepsilon$ then 2(e) gives
+$u^{\varepsilon}(z)-\tilde v_{\varepsilon}(z)\le-\tau/2<0$, a contradiction. Since
+$\overline{\Omega_\varepsilon}=\Omega_\varepsilon\cup\partial\Omega_\varepsilon$, we conclude
+$z\in\Omega_\varepsilon$. This is 2(g), and applying it to $x_e$ gives
+$x_e\in\Omega_\varepsilon$, which together with (9c) is 2(f).
+
+\medskip\noindent\textbf{Step 10: proof of 3.} Let $\eta>0$. Put
+\[
+ K_\eta:=\big\{y\in\overline\Omega:\ d(y,p)\ge\eta\ \text{for every }p\in E\big\}.
+\]
+If $K_\eta=\emptyset$ then every $y\in\overline\Omega$ admits $p\in E$ with $d(y,p)<\eta$, so
+$\varepsilon_2:=\varepsilon_1$ works and there is nothing more to prove (every
+$z\in\Omega_\varepsilon\subseteq\overline\Omega$ has such a $p$). So assume
+$K_\eta\neq\emptyset$.
+
+\emph{(10a) $K_\eta$ is compact and disjoint from $E$.} For each fixed $p$, the map
+$y\mapsto d(y,p)=\|(-p)*y\|$ is continuous, since the group law is continuous (clause (2) of
+\noderef{CarnotGroup}) and $\|\cdot\|$ is continuous (clause (1) of \noderef{CarnotNorm});
+so $\{y:d(y,p)\ge\eta\}$ is closed, and $K_\eta$ is the intersection of $\overline\Omega$
+with an intersection of closed sets, hence closed, hence compact as a closed subset of the
+compact $\overline\Omega$. It is disjoint from $E$: for $p\in E$ we have
+$d(p,p)=\|(-p)*p\|=\|0\|=0<\eta$, so $p\notin K_\eta$.
+
+\emph{(10b) $u-\tilde v<\tau$ on $K_\eta$, with a gap.} Let $y\in K_\eta$. Then
+$y\in\overline\Omega$ and $y\notin E$, so by (2a) $u(y)-v(y)<M_0=2\tau$, whence
+$u(y)-\tilde v(y)=u(y)-v(y)-\tau<\tau$. The function $u-\tilde v=u-v-\tau$ is continuous on
+$\overline\Omega$, hence on the non-empty compact $K_\eta$, so it attains its maximum there:
+\[
+ \beta:=\max_{K_\eta}\big(u-\tilde v\big)<\tau .
+\]
+Put $\theta:=(\tau-\beta)/3>0$.
+
+\emph{(10c) conclusion.} By the third clause of \textsc{wang2} in \noderef{CitedResults},
+applied with $\eta:=\theta$, there is $\varepsilon'''>0$ such that for
+$0<\varepsilon<\varepsilon'''$ and every $x\in\overline\Omega$ both
+$|u^{\varepsilon}(x)-u(x)|\le\theta$ and
+$|\mathrm{InfConv}\ \mathbb G\ \Omega\ v\ \varepsilon(x)-v(x)|\le\theta$. Put
+$\varepsilon_2:=\min\{\varepsilon_1,\varepsilon'''\}>0$ and let
+$\varepsilon\in(0,\varepsilon_2)$. For $y\in K_\eta$,
+\[
+ u^{\varepsilon}(y)-\tilde v_{\varepsilon}(y)
+  \ \le\ \big(u(y)+\theta\big)-\big(v(y)-\theta+\tau\big)
+  \ =\ \big(u(y)-\tilde v(y)\big)+2\theta
+  \ \le\ \beta+2\theta=\frac{\beta+2\tau}{3}\ <\ \tau , \tag{10d}
+\]
+the final strict inequality because $\beta<\tau$.
+
+Now let $z\in\Omega_\varepsilon$ be a maximum point of
+$u^{\varepsilon}-\tilde v_{\varepsilon}$ over $\overline{\Omega_\varepsilon}$. Since
+$\varepsilon<\varepsilon_1$, Step 9 applies and gives
+$u^{\varepsilon}(z)-\tilde v_{\varepsilon}(z)\ge\tau$. By (10d) this forces
+$z\notin K_\eta$. But $z\in\Omega_\varepsilon\subseteq\Omega\subseteq\overline\Omega$, so the
+failure of membership in $K_\eta$ must be the second condition: there is $p\in E$ with
+$d(z,p)<\eta$. This is 3.
+
+\medskip\noindent\emph{Remark.} This node is the common first page of three proofs in the
+paper --- of Theorem~1.2, of Theorem~1.3(i) and of Theorem~1.3(iii) --- all of which begin by
+assuming $M_0>0$, setting $\tau:=M_0/2$ and $\tilde v:=v+\tau$, fixing $\rho_0$ with
+$\omega_u(\rho_0)+\omega_v(\rho_0)\le\tau/8$, producing $\varepsilon_1$, and checking that
+the pair $(u^{\varepsilon},\tilde v_{\varepsilon})$ satisfies on $\Omega[\varepsilon]$ the
+standing assumptions (3.10) with $\tau/2$ in place of $\tau$. Proving it once is the
+content of the node; no other single node states it, and each of the three proofs consumes
+all of clauses 1--3. Since $\tilde v_{\varepsilon}=v_{\varepsilon}+\tau$ and
+$\mathrm{argmax}$ is unchanged by adding a constant to the subtrahend's companion, the set
+of maximum points of $u^{\varepsilon}-\tilde v_{\varepsilon}$ over
+$\overline{\Omega[\varepsilon]}$ appearing in clauses 2(f), 2(g) and 3 is literally the set
+$E_\varepsilon$ of (1.15), namely the set of points of $\Omega[\varepsilon]$ at which
+$u^{\varepsilon}-v_{\varepsilon}$ attains its maximum over
+$\overline{\Omega[\varepsilon]}$; clauses 2(f) and 2(g) say that it is a non-empty subset of
+$\Omega[\varepsilon]$, and it is compact, being closed in the compact
+$\overline{\Omega[\varepsilon]}$ by continuity (Step 7). Clause 3 is the convergence
+$\sup_{E_\varepsilon}\mathrm{dist}(\cdot,E)\to0$ that Theorem~1.3(i) uses to place the
+displaced points $z_x*x$ inside the neighbourhood on which $v$ is $C^1$.
+\end{proof}

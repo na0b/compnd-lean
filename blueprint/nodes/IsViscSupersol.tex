@@ -1,0 +1,33 @@
+\begin{definition}[Viscosity super-solution, Definition~2.1]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with horizontal frame
+$\sigma$, let $A:\mathbb R^m\to\mathbb R^{m\times m}$ and $H:\mathbb R^m\to\mathbb R$, let
+$\Omega\subset\mathbb R^n$ and let $v:\mathbb R^n\to\mathbb R$. We say that $v$ is a
+\emph{viscosity super-solution of $\mathcal Lv=0$ in $\Omega$}, written
+$\mathrm{IsViscSupersol}\ \mathbb G\ A\ H\ \Omega\ v$, if
+\begin{enumerate}
+\item $v$ is lower semi-continuous on $\Omega$; and
+\item for every $x\in\Omega$ and every $\varphi\in C^{2}(\Omega)$ with
+  $x\in\mathrm{argmin}_\Omega(v-\varphi)$, every second-order jet $(D,B)$ of $\varphi$ at
+  $x$ (\noderef{TwiceDiffAt}) with $\mathrm{hgrad}\ \sigma\ x\ D\neq0$ satisfies
+  \[
+   \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\ \ge\ 0 ,
+  \]
+  with $\mathrm{hgrad}$ as in \noderef{hgrad} and $\mathrm{Lop}$ as in \noderef{Lop}.
+\end{enumerate}
+Here $x\in\mathrm{argmin}_\Omega(v-\varphi)$ means, as in (2.8), that $x\in\Omega$
+and $(v-\varphi)(x)\le(v-\varphi)(y)$ for every $y\in\Omega$.
+
+This is the super-solution half of Definition Definition~2.1 for the operator (1.8): the
+admissible test functions are those of the class $\mathcal A^{-}_x(v,\Omega)$, defined as
+in (2.11) with $\mathrm{argmin}$ in place of $\mathrm{argmax}$, and the required
+inequality is $\mathcal L\varphi(x)\ge0$. As for sub-solutions, $\mathcal L\varphi(x)$ is
+written through the second-order jet of $\varphi$ at $x$, which for $\Omega$ open,
+$\varphi\in C^{2}(\Omega)$ and $x\in\Omega$ exists, is unique, and equals
+$(\nabla\varphi(x),D^2\varphi(x))$;
+the condition $\mathcal X\varphi(x)\neq0$ keeps $A$ and $H$ away from the origin; and the
+operator carries no zeroth-order term. Writing $\mathcal Lv\ge0$ in $\Omega$ in the
+viscosity sense means that $v$ is a viscosity super-solution in this sense. The notion is only ever used with $\Omega$ an open set, as in
+Definition Definition~2.1, which is what makes the quantification over second-order jets of
+$\varphi$ at $x$ non-vacuous. A viscosity solution is a function that is both a
+sub-solution and a super-solution.
+\end{definition}

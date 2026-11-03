@@ -1,0 +1,30 @@
+\begin{definition}[Sup-convolution, (3.13) and (3.14)]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, put $q:=2\,r!$, let $\Omega\subset\mathbb R^n$, let
+$w:\mathbb R^n\to\mathbb R$, let $\varepsilon>0$ and let $x\in\mathbb R^n$. The
+\emph{sup-convolution} of $w$ is
+\[
+ w^{\varepsilon}(x)\ :=\ \sup\Big\{\,w(z*x)-\frac{\|z\|^{q}}{2\varepsilon}\ :\
+   z\in\mathbb R^n,\ z*x\in\overline\Omega\,\Big\} .
+\]
+
+This is (3.14), which is (3.13),
+$w^{\varepsilon}(x)=\sup_{y\in\overline\Omega}\{w(y)-\|y*x^{-1}\|^{q}/2\varepsilon\}$,
+after the substitution $y=z*x$: the sup-convolution is a supremum of \emph{left}
+translates of $w$, which is what makes the kernel compatible with the equation, since the
+horizontal vector fields are left-invariant. The exponent $q=2\,r!$ is chosen so that
+$\|\cdot\|^{q}$ is a polynomial, hence smooth; this is the kernel used by Wang for Carnot
+groups.
+
+The supremum is taken over the set of admissible $z$, which is non-empty exactly when
+$x\in\overline\Omega$, since $z=0$ gives $0*x=x$ and $\|0\|=0$ --- in which case
+$w^{\varepsilon}(x)\ge w(x)$. It is finite whenever $\Omega$ is bounded and $w$ is
+continuous on $\overline\Omega$, because then $w$ is bounded on the compact set
+$\overline\Omega$ and the penalty $-\|z\|^{q}/2\varepsilon$ is non-positive, so the family
+is bounded above by $\sup_{\overline\Omega}w$. In the formal statement the supremum is the
+supremum of the indexed family of real numbers, which by convention returns $0$ when the
+family is empty or unbounded above; the nodes that use $w^{\varepsilon}$ therefore carry
+the hypotheses $\Omega$ bounded, $w\in C(\overline\Omega)$ and $x\in\overline\Omega$ under
+which neither degenerate case occurs, and under which the above is the supremum in the
+ordinary sense.
+\end{definition}

@@ -1,0 +1,128 @@
+\begin{theorem}[Section~2.3(1): differentiability at maximal points]
+Let $N\in\mathbb N$, let $\Omega\subseteq\mathbb R^{N}$ and let
+$u,v:\mathbb R^{N}\to\mathbb R$ be such that $u$ is locally semi-convex on $\Omega$ and $v$
+is locally semi-concave on $\Omega$, i.e. $-v$ is locally semi-convex on $\Omega$
+(\noderef{LocallySemiConvexOn}). Then:
+\begin{enumerate}
+\item for every $x_0\in\Omega$ at which $u-v$ has a local maximum there is a continuous
+  linear functional $D$ on $\mathbb R^{N}$ which is the Fr\'echet derivative of $u$ at $x_0$
+  and also the Fr\'echet derivative of $v$ at $x_0$ --- so $u$ and $v$ are both
+  differentiable at $x_0$ and $\nabla u(x_0)=\nabla v(x_0)$;
+\item the same conclusion holds for every $x_0\in\mathrm{argmax}_\Omega(u-v)$, i.e. for every
+  $x_0\in\Omega$ with $(u-v)(y)\le(u-v)(x_0)$ for all $y\in\Omega$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+We use one standard fact of convex analysis, which is not a tablet node: \emph{if $g$ is
+convex and real-valued on an open convex set $U\subseteq\mathbb R^{N}$ and $p_0\in U$, then
+$\partial g(p_0)\ne\emptyset$}, i.e. there is $q\in\mathbb R^{N}$ with
+$g(y)\ge g(p_0)+\langle q,y-p_0\rangle$ for all $y\in U$. (A convex function finite on an open
+convex subset of a finite-dimensional space is continuous there, so its epigraph has
+non-empty interior and a supporting hyperplane at the boundary point $(p_0,g(p_0))$ is
+non-vertical; its slope is such a $q$.)
+
+\medskip\noindent\textbf{Step 1: a one-sided quadratic minorant for $u$ at $x_0$.} Let
+$x_0\in\Omega$. By \noderef{LocallySemiConvexOn} applied to $u$ there are $\rho_1>0$ and
+$\Lambda_1\ge0$ with $B_{\rho_1}(x_0)\subseteq\Omega$ such that
+$g_1(y):=u(y)+\tfrac{\Lambda_1}{2}|y|^{2}$ is convex on $B_{\rho_1}(x_0)$. By the standard
+fact there is $q_1$ with
+\[
+ g_1(y)\ \ge\ g_1(x_0)+\langle q_1,\,y-x_0\rangle\qquad\text{for all }y\in B_{\rho_1}(x_0).
+\]
+Rewriting with $u=g_1-\tfrac{\Lambda_1}{2}|\cdot|^{2}$ and using the identity
+\[
+ \frac{\Lambda_1}{2}\big(|x_0|^{2}-|y|^{2}\big)
+  =-\frac{\Lambda_1}{2}\langle y-x_0,\,y+x_0\rangle
+  =-\Lambda_1\langle x_0,\,y-x_0\rangle-\frac{\Lambda_1}{2}|y-x_0|^{2}
+\]
+(which is $|y|^{2}-|x_0|^{2}=\langle y-x_0,y+x_0\rangle$ and $y+x_0=(y-x_0)+2x_0$), we obtain,
+with $p:=q_1-\Lambda_1x_0$,
+\[
+ u(y)\ \ge\ u(x_0)+\langle p,\,y-x_0\rangle-\frac{\Lambda_1}{2}|y-x_0|^{2}
+ \qquad\text{for all }y\in B_{\rho_1}(x_0). \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 2: a one-sided quadratic majorant for $v$ at $x_0$.} Applying
+Step 1 verbatim to the locally semi-convex function $-v$ gives $\rho_2>0$, $\Lambda_2\ge0$
+with $B_{\rho_2}(x_0)\subseteq\Omega$ and a vector $\tilde p$ with
+\[
+ -v(y)\ \ge\ -v(x_0)+\langle\tilde p,\,y-x_0\rangle-\frac{\Lambda_2}{2}|y-x_0|^{2}
+ \qquad\text{on }B_{\rho_2}(x_0),
+\]
+that is, with $p':=-\tilde p$,
+\[
+ v(y)\ \le\ v(x_0)+\langle p',\,y-x_0\rangle+\frac{\Lambda_2}{2}|y-x_0|^{2}
+ \qquad\text{for all }y\in B_{\rho_2}(x_0). \tag{2}
+\]
+
+\medskip\noindent\textbf{Step 3: proof of (1), the local-maximum case.} Assume now that
+$u-v$ has a local maximum at $x_0$: there is $\rho_3>0$ with
+\[
+ u(y)-v(y)\ \le\ u(x_0)-v(x_0)\qquad\text{for all }y\in B_{\rho_3}(x_0). \tag{3}
+\]
+Put $\rho:=\min\{\rho_1,\rho_2,\rho_3\}>0$ and $\Lambda:=\Lambda_1+\Lambda_2\ge0$. For
+$y\in B_\rho(x_0)$, chaining (1), (3) and (2),
+\[
+ u(x_0)+\langle p,y-x_0\rangle-\frac{\Lambda_1}{2}|y-x_0|^{2}
+ \ \overset{(1)}{\le}\ u(y)
+ \ \overset{(3)}{\le}\ v(y)+u(x_0)-v(x_0)
+ \ \overset{(2)}{\le}\ u(x_0)+\langle p',y-x_0\rangle+\frac{\Lambda_2}{2}|y-x_0|^{2},
+\]
+whence, cancelling $u(x_0)$,
+\[
+ \langle p-p',\,y-x_0\rangle\ \le\ \frac{\Lambda}{2}\,|y-x_0|^{2}
+ \qquad\text{for all }y\in B_\rho(x_0). \tag{4}
+\]
+
+\emph{(3a) $p=p'$.} Let $e\in\mathbb R^{N}$ with $|e|=1$ and let $0<\tau<\rho$. Taking
+$y:=x_0+\tau e$ in (4), which is legitimate since $|y-x_0|=\tau<\rho$, gives
+$\tau\langle p-p',e\rangle\le\tfrac{\Lambda}{2}\tau^{2}$; dividing by $\tau>0$,
+\[
+ \langle p-p',\,e\rangle\ \le\ \frac{\Lambda}{2}\,\tau\qquad\text{for every }\tau\in(0,\rho).
+\]
+Letting $\tau\to0^{+}$ gives $\langle p-p',e\rangle\le0$. Applying this with $-e$ in place of
+$e$ gives $\langle p-p',e\rangle\ge0$, so $\langle p-p',e\rangle=0$ for every unit vector
+$e$, hence $p-p'=0$, i.e. $p=p'$.
+
+\emph{(3b) $u$ is differentiable at $x_0$ with derivative $\langle p,\cdot\rangle$.} For
+$y\in B_\rho(x_0)$, (1) gives the lower bound and the chain (3), (2) together with $p=p'$
+gives the upper bound:
+\[
+ u(x_0)+\langle p,y-x_0\rangle-\frac{\Lambda_1}{2}|y-x_0|^{2}
+ \ \le\ u(y)\ \le\ u(x_0)+\langle p,y-x_0\rangle+\frac{\Lambda_2}{2}|y-x_0|^{2},
+\]
+that is,
+\[
+ \big|\,u(y)-u(x_0)-\langle p,y-x_0\rangle\,\big|\ \le\ \frac{\Lambda}{2}\,|y-x_0|^{2}
+ \qquad\text{for all }y\in B_\rho(x_0).
+\]
+Since $\tfrac{\Lambda}{2}|y-x_0|^{2}=o(|y-x_0|)$ as $y\to x_0$, the continuous linear
+functional $D:=\langle p,\cdot\rangle$ is the Fr\'echet derivative of $u$ at $x_0$.
+
+\emph{(3c) $v$ is differentiable at $x_0$ with the same derivative.} For $y\in B_\rho(x_0)$,
+(2) with $p'=p$ gives the upper bound, and (3) together with (1) gives the lower bound:
+\[
+ v(y)\ \ge\ u(y)-\big(u(x_0)-v(x_0)\big)
+   \ \ge\ v(x_0)+\langle p,y-x_0\rangle-\frac{\Lambda_1}{2}|y-x_0|^{2},
+\]
+\[
+ v(y)\ \le\ v(x_0)+\langle p,y-x_0\rangle+\frac{\Lambda_2}{2}|y-x_0|^{2} ,
+\]
+so $\big|v(y)-v(x_0)-\langle p,y-x_0\rangle\big|\le\tfrac{\Lambda}{2}|y-x_0|^{2}$ on
+$B_\rho(x_0)$, and $D=\langle p,\cdot\rangle$ is also the Fr\'echet derivative of $v$ at
+$x_0$. This proves (1) with this $D$.
+
+\medskip\noindent\textbf{Step 4: proof of (2), the $\mathrm{argmax}$ case.} Let
+$x_0\in\Omega$ with $(u-v)(y)\le(u-v)(x_0)$ for every $y\in\Omega$. By
+\noderef{LocallySemiConvexOn} applied to $u$ at $x_0$ there is $\rho_0>0$ with
+$B_{\rho_0}(x_0)\subseteq\Omega$. Hence $(u-v)(y)\le(u-v)(x_0)$ for all
+$y\in B_{\rho_0}(x_0)$, i.e. $u-v$ has a local maximum at $x_0$. Part (1), already proved,
+gives the conclusion.
+
+\medskip\noindent\emph{Remark.} Both forms are stated because both are used: the paper's
+line stating this property lists the points of $\mathrm{argmax}_\Omega(u-v)$ and "every local
+maximum point of $u-v$", and the local form is the one Proposition Proposition~3.3 applies, after
+the maximum has been localized by a penalization. The hypotheses are the local notion of
+semi-convexity, so the constants $\Lambda_1,\Lambda_2$ depend on $x_0$; the proof uses them
+only on the single ball $B_\rho(x_0)$, which is why the local notion suffices.
+\end{proof}

@@ -1,0 +1,257 @@
+\begin{lemma}[Lemma~3.7, non-degeneracy at every scale]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, frame $\sigma$ and $d(x,y):=\|y^{-1}*x\|$, and assume the
+cited results of the literature at $\mathbb G$ (\noderef{CitedResults}). Let
+$A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and $H:\mathbb R^{m}\to\mathbb R$ satisfy the
+structure conditions (\noderef{StructureConditionsES}). Let $\Om\subset\mathbb R^{n}$ be a
+bounded open set with $\mathbb R^{n}\mns\Om\ne\emptyset$, and let
+$u,v:\mathbb R^{n}\to\mathbb R$ be continuous on $\bar\Om$ with $u$ locally semi-convex in
+$\Om$ (\noderef{LocallySemiConvexOn}), $u$ a viscosity sub-solution
+(\noderef{IsViscSubsol}) and $v$ a viscosity super-solution (\noderef{IsViscSupersol}) of
+$\mathcal L\cdot=0$ in $\Om$. Let $\om_u,\om_v:\mathbb R\to\mathbb R$ be non-decreasing with
+\[
+ |u(a)-u(b)|\le\om_u\big(d(a,b)\big),\qquad |v(a)-v(b)|\le\om_v\big(d(a,b)\big)
+ \qquad(a,b\in\bar\Om),
+\]
+let $\tau>0$ with $u-v\le-\tau$ on $\del\Om$, let $x_M\in\bar\Om$ be a point at which $u-v$
+attains its maximum over $\bar\Om$ with $\tau\le M_0:=u(x_M)-v(x_M)$, and let $\rho_0>0$
+satisfy $\om_u(\rho_0)+\om_v(\rho_0)\le\tau/4$. Write $\Om_\delta$ for the inner domain
+(\noderef{TranslatedDomain}) and $u_h:=u(\cdot*h)$. Then there is $\delta_1>0$ such that for
+every $\delta\in(0,\delta_1]$ and every $\eta\in(0,\delta]$ there exists $h$ with
+$\|h\|<\eta$ such that
+\[
+ \mathrm{hgrad}\ \sigma\ (x*h)\ D\ \ne\ 0\qquad(\noderef{hgrad})
+\]
+for every $x\in\Om_\delta$ at which $u_h-v$ is maximal over $\Om_\delta$ and every
+derivative $D$ of $u$ at $x*h$.
+\end{lemma}
+\begin{proof}
+This is Lemma~3.7. The hypotheses are the standing assumptions (3.10)--(3.11) of
+Section~3.1, except that semi-concavity of $v$ is not assumed: it is not used anywhere
+below, so the lemma is stated without it. The hypothesis $\mathbb R^{n}\mns\Om\ne\emptyset$
+makes explicit the paper's convention $\Om\subset\mathbb R^{n}$; it is used only in Step 9,
+to know that a bounded non-empty open subset of $\mathbb R^{n}$ is not all of
+$\mathbb R^{n}$ and therefore has non-empty boundary. Write
+\[
+ E:=\{y\in\Om:\ u-v\ \text{attains its maximum over}\ \bar\Om\ \text{at}\ y\}
+ =\{y\in\Om:\ (u-v)(y)=M_0\},
+\]
+the second description because $u-v\le M_0$ on $\bar\Om$, and
+$B_\rho(p):=\{z:\ d(z,p)<\rho\}$.
+
+\medskip\noindent\textbf{Step 0: the constants, and the facts of Lemma~3.4.} All hypotheses
+of \noderef{BoundaryLocalization} are in force, so it provides $c'\ge1$ such that, with
+\[
+ \rho_1:=\frac{\rho_0}{2c'},\qquad \rho_2:=\frac{\rho_0}{4c'^{2}},\qquad
+ \delta_1:=\frac{\rho_0}{4c'^{2}}\ (>0),
+\]
+the following hold: (a) $E\subseteq K_{\rho_0}$, and for $0<\delta\le\delta_1$,
+$M_\delta(0)=M_0$ and $A_\delta(0)=E$, where $K_\rho$ is the compact core
+(\noderef{BoundaryCore}), $M_\delta$ is the translated maximum value
+(\noderef{MaxTranslate}) and $A_\delta(g)$ denotes the set of points of $\Om_\delta$ at
+which $u_g-v$ is maximal over $\Om_\delta$; (a$'$) $x*g\in K_{\rho_2}$ whenever
+$x\in K_{\rho_1}$, $0<\delta\le\delta_1$ and $\|g\|<\delta$; (b) $u_g-v\le-\tau/2$ on
+$\Om_\delta\mns K_{\rho_1}$; and (c) for $0<\delta\le\delta_1$ and $\|g\|<\delta$:
+$M_\delta(g)\ge M_0-\tau/4$, there is $x\in\Om_\delta$ with $u_g-v$ maximal over $\Om_\delta$
+at $x$ and $M_\delta(g)=u(x*g)-v(x)$, and every such $x$ lies in $K_{\rho_1}$ with
+$x*g\in K_{\rho_2}$. We take this $\delta_1$ as the $\delta_1$ of the statement. Note
+$\delta_1\le\rho_0/4<\rho_0$ and $\rho_2=\delta_1>0$, both because $c'\ge1$.
+
+Fix $\delta$ with $0<\delta\le\delta_1$ and $\eta$ with $0<\eta\le\delta$.
+
+\medskip\noindent\textbf{Step 1: $u$ is $d$-Lipschitz on $K_{\rho_2}$.} By items (4) and (2)
+of \noderef{InnerDomainProperties}, $K_{\rho_2}$ is a compact subset of $\Om$ (here
+$\rho_2>0$). By the third clause of \noderef{SemiConvexLocLipschitz}, applied to the locally
+semi-convex $u$ on $\Om$ and the compact $K_{\rho_2}\subseteq\Om$, there is $C\ge0$ with
+\[
+ |u(a)-u(b)|\le C\,|a-b|\qquad(a,b\in K_{\rho_2}). \tag{1}
+\]
+The set $\bar\Om$ is compact and non-empty (it contains $x_M$), so
+$\nu':=1+\sup\{|z|:\ z\in\bar\Om\}$ is a finite real number with $\nu'>0$ and $|z|\le\nu'$
+for every $z\in\bar\Om$; by the
+Hölder equivalence of \noderef{CarnotSetting}, applied at this $\nu'$, there is $c_0>0$ with
+$c_0^{-1}|a-b|\le d(a,b)$ whenever $|a|\le\nu'$ and $|b|\le\nu'$, i.e.
+\[
+ |a-b|\le c_0\,d(a,b)\qquad(a,b\in\bar\Om). \tag{2}
+\]
+Since $K_{\rho_2}\subseteq\Om\subseteq\bar\Om$, (1) and (2) give, with $L_u:=C\,c_0\ge0$,
+\[
+ |u(a)-u(b)|\le L_u\,d(a,b)\qquad(a,b\in K_{\rho_2}). \tag{3}
+\]
+This is the paper's $L_u$, "the Lipschitz constant of $u$ on $K_{\rho_0/4}$ with respect to
+$d$", finite by Section~2.3(3).
+
+\medskip\noindent\textbf{Step 2: $M_\delta$ is $d$-Lipschitz on $B_\delta(0)$.} We check the
+four hypotheses of \noderef{MaxValueLipschitz} for the data $(\mathbb G,\Om,\delta,\rho_1,\rho_2,u,v,L_u)$:
+(1) is (3); (2) and (3) are the attainment and the inclusion $A_\delta(g)\subseteq K_{\rho_1}$
+of Step 0(c); (4) is Step 0(a$'$). Hence
+\[
+ \big|M_\delta(g)-M_\delta(g')\big|\le L_u\,d(g,g')\qquad\text{whenever }\|g\|<\delta,\ \|g'\|<\delta .
+ \tag{4}
+\]
+
+\medskip\noindent\textbf{Step 3: the ball $B_\eta(0)$.} First, $-0=0$ and $0*z=z$
+(\noderef{CarnotSetting}), so
+\[
+ B_\eta(0)=\{z:\ \|(-0)*z\|<\eta\}=\{z:\ \|z\|<\eta\} .
+\]
+It is open, because $\|\cdot\|$ is continuous (\noderef{CarnotSetting}), and it is connected
+by the ball-connectedness clause of \noderef{CarnotSetting} (with $\eta>0$). It contains
+$0$, since $\|0\|=0<\eta$. Finally $B_\eta(0)\subseteq B_\delta(0)$ because $\eta\le\delta$,
+so (4) gives in particular
+\[
+ \big|M_\delta(g)-M_\delta(g')\big|\le L_u\,d(g,g')\qquad(g,g'\in B_\eta(0)). \tag{5}
+\]
+
+\medskip\noindent\textbf{Step 4: the contradiction hypothesis.} Suppose the conclusion fails
+for this $\delta$ and $\eta$. Then
+\[
+ \text{for every }h\in B_\eta(0)\ \text{there are } x_h\in A_\delta(h)\ \text{and a
+ derivative } D_h \text{ of } u \text{ at } x_h*h \text{ with }
+ \mathrm{hgrad}\ \sigma\ (x_h*h)\ D_h=0 . \tag{6}
+\]
+
+\medskip\noindent\textbf{Step 5: the horizontal differential of $M_\delta$ vanishes almost
+everywhere on $B_\eta(0)$.} By Pansu's theorem, i.e. the clause $\mathtt{pansuDiff}$ of
+\noderef{CitedResults}, applied with the open set $B_\eta(0)$ (Step 3), the function
+$M_\delta$ and the constant $L_u$ (whose hypothesis is (5)): for almost every
+$h\in B_\eta(0)$ there is $\xi_h\in\mathbb R^{m}$ such that $M_\delta$ is Pansu
+differentiable at $h$ with horizontal differential $\xi_h$ (\noderef{HasPansuGradAt}).
+
+Let $h$ be any such point of $B_\eta(0)$. Then $\|h\|<\eta\le\delta$, and by Step 0(c) the
+attainment hypothesis of \noderef{EnvelopeIdentity} holds for the data
+$(\mathbb G,\Om,\delta,u,v)$. By (6) there are $x_h\in A_\delta(h)$ and a derivative $D_h$ of
+$u$ at $x_h*h$ with $\mathrm{hgrad}\ \sigma\ (x_h*h)\ D_h=0$. Applying
+\noderef{EnvelopeIdentity} with this $h$, $\xi:=\xi_h$, $x:=x_h$ and $D:=D_h$ gives
+$\mathrm{hgrad}\ \sigma\ (x_h*h)\ D_h=\xi_h$, whence $\xi_h=0$. Therefore
+\[
+ \text{for almost every } h\in B_\eta(0),\ M_\delta\ \text{is Pansu differentiable at }h
+ \text{ with horizontal differential } 0 . \tag{7}
+\]
+
+\medskip\noindent\textbf{Step 6: $M_\delta\equiv M_0$ on $B_\eta(0)$.} By the clause
+$\mathtt{pansuConst}$ of \noderef{CitedResults} --- which is [DMV13, Prop. 4.8]: a
+$d$-Lipschitz function on a connected open set whose horizontal differential vanishes almost
+everywhere is constant --- applied with the open connected set $B_\eta(0)$ (Step 3), the
+function $M_\delta$, the constant $L_u$ with (5), and (7), the function $M_\delta$ is
+constant on $B_\eta(0)$. Since $0\in B_\eta(0)$ and $M_\delta(0)=M_0$ by Step 0(a),
+\[
+ M_\delta(g)=M_0\qquad\text{for every } g\in B_\eta(0). \tag{8}
+\]
+
+\medskip\noindent\textbf{Step 7: $u\le u(y)$ on $B_\eta(y)$ for $y\in E$, and
+$B_\eta(y)\subseteq\Om$.} Fix $y\in E$; such a $y$ exists, since $x_M\in E$ (if
+$x_M\in\del\Om$ then $M_0\le-\tau<0$, contradicting $M_0\ge\tau>0$, so
+$x_M\in\bar\Om\mns\del\Om=\Om$, and $(u-v)(x_M)=M_0$).
+
+By Step 0(a), $y\in K_{\rho_0}$; since $\delta<\rho_0$, item (5) of
+\noderef{InnerDomainProperties} gives $K_{\rho_0}\subseteq\Om_\delta$, so $y\in\Om_\delta$.
+Also, by item (7) of \noderef{InnerDomainProperties} applied at $y\in K_{\rho_0}$ (with
+$\rho_0>0$), $B_{\rho_0}(y)\subseteq\Om$; and $\eta\le\delta<\rho_0$, so
+\[
+ B_\eta(y)\subseteq B_{\rho_0}(y)\subseteq\Om . \tag{9}
+\]
+
+Next, the set identity $B_\eta(y)=y*B_\eta(0)$. If $\|g\|<\eta$ then, by associativity and
+$0*g=g$, $d(y*g,y)=\|(-y)*(y*g)\|=\|((-y)*y)*g\|=\|0*g\|=\|g\|<\eta$ (this is
+(2.16), exact, kept inline by pm-0012), so $y*g\in B_\eta(y)$. Conversely if
+$z\in B_\eta(y)$, put $g:=(-y)*z$; then $\|g\|=d(z,y)<\eta$ and
+$y*g=y*\big((-y)*z\big)=\big(y*(-y)\big)*z=0*z=z$. Hence
+\[
+ B_\eta(y)=\{y*g:\ g\in B_\eta(0)\} . \tag{10}
+\]
+
+Now let $g\in B_\eta(0)$, so $\|g\|<\eta\le\delta$. By Step 0(c) there is $z_g\in\Om_\delta$
+with $u_g-v$ maximal over $\Om_\delta$ at $z_g$ and $M_\delta(g)=u(z_g*g)-v(z_g)$; applying
+that maximality at the point $y\in\Om_\delta$ and then (8),
+\[
+ u(y*g)-v(y)=(u_g-v)(y)\ \le\ M_\delta(g)=M_0=u(y)-v(y),
+\]
+the last equality because $y\in E$. Hence $u(y*g)\le u(y)$, and by (10)
+\[
+ u(z)\le u(y)\qquad\text{for every } z\in B_\eta(y). \tag{11}
+\]
+This is the paper's "$u\le u(y)$ on $B_\eta(y)=y*B_\eta(0)$, a ball contained in $\Om$".
+
+\medskip\noindent\textbf{Step 8: the strong maximum and minimum principles give
+$B_\eta(y)\subseteq E$.} The set $B_\eta(y)=\{z:\ \|(-y)*z\|<\eta\}$ is open (continuity of
+$*$ and $\|\cdot\|$, \noderef{CarnotSetting}) and connected (ball-connectedness clause of
+\noderef{CarnotSetting}, $\eta>0$), and $y\in B_\eta(y)$ because $d(y,y)=\|0\|=0<\eta$.
+
+\emph{$u\equiv u(y)$ on $B_\eta(y)$.} Since $\bar\Om$ is compact and $u$ is continuous on it,
+$u$ is bounded on $\bar\Om$, hence bounded above on $\Om$; the same is then true of
+$\tilde u:=u-u(y)$. By \noderef{AddConstPreservesSubsol} (with the constant $-u(y)$),
+$\tilde u$ is a viscosity sub-solution of $\mathcal L\cdot=0$ in $\Om$. By part (1b) of
+\noderef{ViscTestLocalization} --- whose hypotheses are that $\tilde u$ be bounded above on
+$\Om$ and a viscosity sub-solution there --- $\tilde u$ is a viscosity sub-solution in every
+open subset of $\Om$, in particular in $V:=B_\eta(y)$, which is open and contained in $\Om$
+by (9). By (11), $\tilde u\le0=\tilde u(y)$ on $V$, so $\tilde u$ attains its maximum over
+$V$ at $y\in V$, and that maximum value is $\tilde u(y)=0\ge0$. The clause
+$\mathtt{strongMax}$ of \noderef{CitedResults} --- the Bardi--Goffi strong maximum principle
+in the form Corollary~2.4 --- applied with the open connected set $V$, the sub-solution
+$\tilde u$, the point $y$ and the structure conditions on $(A,H)$, yields
+$\tilde u(z)=\tilde u(y)=0$ for every $z\in V$, i.e.
+\[
+ u(z)=u(y)\qquad\text{for every } z\in B_\eta(y). \tag{12}
+\]
+
+\emph{$v\equiv v(y)$ on $B_\eta(y)$.} Let $z\in B_\eta(y)$. Then $z\in\Om\subseteq\bar\Om$ by
+(9), so $(u-v)(z)\le M_0=(u-v)(y)$; combined with $u(z)=u(y)$ from (12) this gives
+$v(z)\ge v(y)$. Put $\tilde v:=v-v(y)$; then $\tilde v\ge0=\tilde v(y)$ on $B_\eta(y)$, so
+$\tilde v$ attains its minimum over $B_\eta(y)$ at $y$, with value $\tilde v(y)=0\le0$.
+As before, $v$ is bounded below on $\Om$ because $\bar\Om$ is compact and $v$ continuous on
+it, hence so is $\tilde v$; by \noderef{AddConstPreservesSubsol} $\tilde v$ is a viscosity
+super-solution in $\Om$, and by part (2b) of \noderef{ViscTestLocalization} it is one in the
+open subset $B_\eta(y)\subseteq\Om$. The clause $\mathtt{strongMin}$ of
+\noderef{CitedResults}, applied with the open connected set $B_\eta(y)$, the super-solution
+$\tilde v$ and the point $y$, yields $\tilde v(z)=\tilde v(y)=0$, i.e.
+\[
+ v(z)=v(y)\qquad\text{for every } z\in B_\eta(y). \tag{13}
+\]
+
+\emph{Conclusion of Step 8.} For $z\in B_\eta(y)$ we have $z\in\Om$ by (9) and
+$(u-v)(z)=u(y)-v(y)=M_0$ by (12) and (13), so $z\in E$. Hence
+\[
+ B_\eta(y)\subseteq E\qquad\text{for every } y\in E, \tag{14}
+\]
+and since $B_\eta(y)$ is open and contains $y$, the set $E$ is open.
+
+\medskip\noindent\textbf{Step 9: $E$ contains a connected component of $\Om$, and the final
+contradiction.} $E$ is non-empty ($x_M\in E$, Step 7) and open (Step 8). It is also
+relatively closed in $\Om$: $u-v$ is continuous on $\bar\Om\supseteq\Om$ and
+$E=\Om\cap(u-v)^{-1}(\{M_0\})$, the preimage of a closed set under a function continuous on
+$\Om$.
+
+Fix $y_0\in E$ and let $C$ be the connected component of $\Om$ containing $y_0$. Since
+$\mathbb R^{n}$ is locally connected and $\Om$ is open, $C$ is open; it is connected and
+non-empty. Now $C\cap E$ is non-empty ($y_0$), open in $C$ (as $E$ is open), and closed in
+$C$ (as $E$ is relatively closed in $\Om$ and $C\subseteq\Om$). By connectedness of $C$,
+$C\cap E=C$, i.e.
+\[
+ C\subseteq E,\qquad\text{so}\qquad u-v\equiv M_0>0\ \text{on } C. \tag{15}
+\]
+(We do not assume $\Om$ connected; the paper is explicit that reduced domains, which need
+not be connected, will be used later.)
+
+\emph{$\del C\ne\emptyset$.} Otherwise $C$ would be both open and closed in
+$\mathbb R^{n}$; being non-empty and $\mathbb R^{n}$ connected, $C=\mathbb R^{n}$, hence
+$\Om\supseteq C=\mathbb R^{n}$, contradicting $\mathbb R^{n}\mns\Om\ne\emptyset$.
+
+\emph{$\del C\subseteq\del\Om$.} Let $z\in\del C$. Since $C$ is open,
+$\del C=\bar C\mns C$, so $z\in\bar C\subseteq\bar\Om$ and $z\notin C$. If $z\in\Om$, let
+$C'$ be the connected component of $\Om$ containing $z$; $C'$ is open, so it is a
+neighbourhood of $z$, and $z\in\bar C$ forces $C'\cap C\ne\emptyset$; two components of
+$\Om$ that meet are equal, so $C'=C$ and $z\in C$, a contradiction. Hence $z\notin\Om$, and
+$z\in\bar\Om\mns\Om=\del\Om$.
+
+Now pick $z\in\del C$. Then $z\in\bar C$, so there are points $z_k\in C$ with $z_k\to z$. By
+(15), $(u-v)(z_k)=M_0$ for every $k$; and $u-v$ is continuous on $\bar\Om$ with
+$z_k\in C\subseteq\Om\subseteq\bar\Om$ and $z\in\bar\Om$, so
+$(u-v)(z)=\lim_k(u-v)(z_k)=M_0>0$. But $z\in\del C\subseteq\del\Om$, where $u-v\le-\tau<0$.
+This contradiction refutes (6).
+
+\medskip\noindent Therefore the conclusion holds for this $\delta$ and $\eta$: there is $h$
+with $\|h\|<\eta$ such that $\mathrm{hgrad}\ \sigma\ (x*h)\ D\ne0$ for every
+$x\in A_\delta(h)$ and every derivative $D$ of $u$ at $x*h$. Since $\delta\in(0,\delta_1]$
+and $\eta\in(0,\delta]$ were arbitrary, the lemma is proved with the $\delta_1$ of Step 0.
+\end{proof}

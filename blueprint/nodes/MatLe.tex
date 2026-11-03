@@ -1,0 +1,17 @@
+\begin{definition}[The order on symmetric matrices, (2.1)]
+Let $m\in\mathbb N$ and $A,B\in\mathbb R^{m\times m}$. We write
+$\mathrm{MatLe}\ A\ B$, read $A\le B$, if
+\[
+ \langle A\xi,\xi\rangle\ \le\ \langle B\xi,\xi\rangle\qquad\text{for all }\xi\in\mathbb R^m,
+ \qquad\text{where}\quad
+ \langle A\xi,\xi\rangle=\sum_{i=1}^m\sum_{j=1}^m A_{i,j}\,\xi_j\,\xi_i .
+\]
+This is the order (2.1) of the paper's notation section. No symmetry is required of
+$A$ or $B$ in the definition; the relation only sees their symmetric parts, and it is
+applied in the paper exclusively to symmetric matrices, where it is the usual partial
+order. Two uses fix the strength needed: the trace monotonicity (2.2)
+($\mathrm{Tr}(AY)\le\mathrm{Tr}(AX)$ whenever $A\ge0$ and $Y\le X$), and the comparison
+$\mathcal X\mathcal X^{s}u(x_0)\le\mathcal X\mathcal X^{s}v(x_0)$ of the symmetrized
+horizontal second derivatives of a semi-convex $u$ and a semi-concave $v$ at a local
+maximum point $x_0$ of $u-v$, which opens the proof of Proposition Proposition~3.3.
+\end{definition}

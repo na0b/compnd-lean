@@ -1,0 +1,136 @@
+\begin{lemma}[Differentiability of $u$ at a maximum point of the relabelled difference]
+Let $N\in\mathbb N$, let $\Omega\subseteq\mathbb R^{N}$, let $\lambda>0$ and let
+$u,v:\mathbb R^{N}\to\mathbb R$. Write $\psi(s):=s+\lambda e^{s}$ and assume
+\begin{enumerate}
+\item $\psi\circ u$, i.e.\ $y\mapsto u(y)+\lambda e^{u(y)}$, is locally semi-convex on
+  $\Omega$ (\noderef{LocallySemiConvexOn});
+\item $-v$ is locally semi-convex on $\Omega$;
+\item $x\in\Omega$ and $x$ maximizes $y\mapsto\big(u(y)+\lambda e^{u(y)}\big)-v(y)$ over
+  $\Omega$.
+\end{enumerate}
+Then there is a continuous linear functional $D$ on $\mathbb R^{N}$ such that $u$ is
+Fr\'echet differentiable at $x$ with derivative $D$.
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Step 1: the relabelling $\psi$.} The function $s\mapsto s$ has derivative
+$1$ everywhere and $s\mapsto\lambda e^{s}$ has derivative $\lambda e^{s}$ (the derivative of
+the real exponential is itself, multiplied by the constant $\lambda$), so $\psi$ is
+differentiable on $\mathbb R$ with
+\[
+ \psi'(s)=1+\lambda e^{s}\qquad(s\in\mathbb R). \tag{1}
+\]
+This is an elementary computation for an explicit function; no separate node is needed.
+Since $\lambda>0$ and $e^{s}>0$ we have $\psi'(s)\ge1$ for every $s$. Put
+\[
+ t:=1+\lambda e^{u(x)} ,
+\]
+so that $t\ge1$, hence $t>0$, $t\ne0$ and $t^{-1}>0$.
+
+\medskip\noindent\textbf{Step 2: $\psi$ is expanding.} For all $s,s'\in\mathbb R$,
+\[
+ |s-s'|\ \le\ |\psi(s)-\psi(s')| . \tag{2}
+\]
+Indeed $\psi(s)-\psi(s')=(s-s')+\lambda\big(e^{s}-e^{s'}\big)$. If $s'\le s$ then
+$s-s'\ge0$, and $e^{s'}\le e^{s}$ with $\lambda>0$ gives
+$\lambda(e^{s}-e^{s'})\ge0$; so $\psi(s)-\psi(s')\ge0$ and
+$|\psi(s)-\psi(s')|=(s-s')+\lambda(e^{s}-e^{s'})\ge s-s'=|s-s'|$. If $s\le s'$ both
+summands are $\le0$ and the same computation with reversed signs gives
+$|\psi(s)-\psi(s')|=-(s-s')-\lambda(e^{s}-e^{s'})\ge-(s-s')=|s-s'|$.
+
+\medskip\noindent\textbf{Step 3: differentiability of $\psi\circ u$ at $x$.} The first two
+hypotheses of the lemma say that $\psi\circ u$ and $-v$ are locally semi-convex on $\Omega$,
+and the third says that $x\in\Omega$ lies in
+$\mathrm{argmax}_\Omega\big(\psi\circ u-v\big)$. These are
+exactly the hypotheses of part (2) of \noderef{SemiConvexDiffAtMax} for the pair
+$(\psi\circ u,\,v)$ on $\Omega$, so that node supplies a continuous linear functional
+$D_\ell$ with
+\[
+ \psi\circ u\ \text{Fr\'echet differentiable at }x\ \text{with derivative }D_\ell
+ \tag{3}
+\]
+(the node also gives that $v$ has the same derivative at $x$, which we do not use). Put
+$L:=\|D_\ell\|+1$, so $L\ge1>0$.
+
+\medskip\noindent\textbf{Step 4: $t^{-1}D_\ell$ is the derivative of $u$ at $x$.} We verify
+the Fr\'echet condition in its $o(\|y-x\|)$ form: for every $c>0$ there is $\delta>0$ with
+\[
+ \Big|u(y)-u(x)-\big(t^{-1}D_\ell\big)(y-x)\Big|\ \le\ c\|y-x\|
+ \qquad\text{whenever }\|y-x\|<\delta. \tag{4}
+\]
+Fix $c>0$. From (3), written in the same $o$-form, choose
+\begin{align}
+ \delta_1>0\ \text{with}\quad
+ \big|\psi(u(y))-\psi(u(x))-D_\ell(y-x)\big|&\le1\cdot\|y-x\|
+ &&\text{for }\|y-x\|<\delta_1, \tag{5a}\\
+ \delta_2>0\ \text{with}\quad
+ \big|\psi(u(y))-\psi(u(x))-D_\ell(y-x)\big|&\le\tfrac{c\,t}2\|y-x\|
+ &&\text{for }\|y-x\|<\delta_2, \tag{5b}
+\end{align}
+the accuracies $1$ and $\frac{c\,t}2$ being positive. From Step 1, $\psi$ has derivative $t$
+at the point $u(x)$ by (1); writing that one-dimensional statement in $o$-form with the
+positive accuracy $\frac{c\,t}{2L}$, choose $\eta>0$ with
+\[
+ \Big|\psi(s)-\psi(u(x))-\big(s-u(x)\big)t\Big|\le\frac{c\,t}{2L}\,\big|s-u(x)\big|
+ \qquad\text{for }|s-u(x)|<\eta. \tag{6}
+\]
+Put
+\[
+ \delta:=\min\Big\{\delta_1,\ \delta_2,\ \frac{\eta}{L+1}\Big\}>0
+\]
+and let $y$ satisfy $\|y-x\|<\delta$; then (5a), (5b) apply and $\|y-x\|<\eta/(L+1)$.
+
+\emph{(4a) The crude Lipschitz bound.} By (2) applied to $u(y)$ and $u(x)$, then the
+triangle inequality and (5a) together with $|D_\ell(y-x)|\le\|D_\ell\|\,\|y-x\|$,
+\[
+ |u(y)-u(x)|\le\big|\psi(u(y))-\psi(u(x))\big|
+  \le\big|\psi(u(y))-\psi(u(x))-D_\ell(y-x)\big|+\big|D_\ell(y-x)\big|
+\]
+\[
+  \le\|y-x\|+\|D_\ell\|\,\|y-x\|=L\|y-x\| . \tag{7}
+\]
+
+\emph{(4b) $u(y)$ lies in the $\eta$-ball about $u(x)$.} Multiplying
+$\|y-x\|<\eta/(L+1)$ by $L>0$ and using (7),
+\[
+ |u(y)-u(x)|\le L\|y-x\|\le L\cdot\frac{\eta}{L+1}<\eta ,
+\]
+the last inequality because $L\eta<(L+1)\eta$ (as $\eta>0$) and $L+1>0$.
+
+\emph{(4c) The relabelling estimate at $s:=u(y)$.} By (4b) we may use (6) at $s=u(y)$, and
+then bound $|u(y)-u(x)|$ by (7), the factor $\frac{c\,t}{2L}$ being non-negative:
+\[
+ \Big|\psi(u(y))-\psi(u(x))-\big(u(y)-u(x)\big)t\Big|
+  \le\frac{c\,t}{2L}\big|u(y)-u(x)\big|
+  \le\frac{c\,t}{2L}\cdot L\|y-x\|=\frac{c\,t}2\|y-x\| . \tag{8}
+\]
+
+\emph{(4d) Combination.} The algebraic identity
+\[
+ \big(u(y)-u(x)\big)t-D_\ell(y-x)
+  =-\Big(\psi(u(y))-\psi(u(x))-\big(u(y)-u(x)\big)t\Big)
+   +\Big(\psi(u(y))-\psi(u(x))-D_\ell(y-x)\Big)
+\]
+holds because the two copies of $\psi(u(y))-\psi(u(x))$ cancel. By the triangle inequality,
+$|-w|=|w|$, and then (8) and (5b),
+\[
+ \Big|\big(u(y)-u(x)\big)t-D_\ell(y-x)\Big|
+  \le\frac{c\,t}2\|y-x\|+\frac{c\,t}2\|y-x\|=c\,t\,\|y-x\| . \tag{9}
+\]
+
+\emph{(4e) Division by $t$.} Since $t\ne0$, and
+$\big(t^{-1}D_\ell\big)(y-x)=t^{-1}D_\ell(y-x)$ by homogeneity of $D_\ell$,
+\[
+ u(y)-u(x)-\big(t^{-1}D_\ell\big)(y-x)
+  =t^{-1}\Big(\big(u(y)-u(x)\big)t-D_\ell(y-x)\Big).
+\]
+Taking absolute values, using $t^{-1}>0$ and then (9),
+\[
+ \Big|u(y)-u(x)-\big(t^{-1}D_\ell\big)(y-x)\Big|
+  =t^{-1}\Big|\big(u(y)-u(x)\big)t-D_\ell(y-x)\Big|
+  \le t^{-1}\cdot c\,t\,\|y-x\|=c\|y-x\| ,
+\]
+which is (4) with this $\delta$.
+
+Since $c>0$ was arbitrary, $u$ is Fr\'echet differentiable at $x$ with derivative
+$D:=t^{-1}D_\ell$, which is the assertion.
+\end{proof}

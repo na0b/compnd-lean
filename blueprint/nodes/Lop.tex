@@ -1,0 +1,28 @@
+\begin{definition}[The operator $\mathcal L$ on $2$-jets, (1.8) through (2.10)]
+Let $n,m\in\mathbb N$, let
+$\sigma:\mathbb R^n\to\mathbb R^{n\times m}$, $\sigma(x)=[\sigma^1(x),\ldots,\sigma^m(x)]$,
+be a frame of $m$ vector fields on $\mathbb R^n$, and let
+$A:\mathbb R^m\to\mathbb R^{m\times m}$ and $H:\mathbb R^m\to\mathbb R$. For
+$x\in\mathbb R^n$, a $1$-jet $D$ and a $2$-jet $B$ on $\mathbb R^n$ we set
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B
+ \ :=\ -\,\mathrm{Tr}\Big(A\big(\mathrm{hgrad}\ \sigma\ x\ D\big)\cdot
+       \big(\mathrm{hhessS}\ \sigma\ x\ D\ B\big)\Big)
+   \ +\ H\big(\mathrm{hgrad}\ \sigma\ x\ D\big),
+\]
+with $\mathrm{hgrad}$ as in \noderef{hgrad} and $\mathrm{hhessS}$ as in \noderef{hhessS}.
+
+If $u$ is twice differentiable at $x$ with second-order jet
+$(D,B)=(\nabla u(x),D^2u(x))$ then $\mathrm{hgrad}\ \sigma\ x\ D=\mathcal Xu(x)$ and
+$\mathrm{hhessS}\ \sigma\ x\ D\ B=\mathcal X\mathcal X^{s}u(x)$, so this is
+\[
+ \mathcal Lu(x)=-\mathrm{Tr}\big(A(\mathcal Xu(x))\,\mathcal X\mathcal X^{s}u(x)\big)
+   +H(\mathcal Xu(x)),
+\]
+the operator (1.8). Putting it on jets is the paper's own reduction (2.10) of
+$G(x,u,\mathcal Xu,\mathcal X\mathcal X^{s}u)=0$ to $F(x,u,\nabla u,D^2u)=0$ via
+$F(x,r,\zeta,X)=G(x,r,\sigma(x)^T\zeta,\sigma(x)^TX\sigma(x)+\mathcal M(x,\zeta))$. The
+operator has no zeroth-order term, so the value $u(x)$ does not appear; and $A$ and $H$
+are only ever evaluated at $\mathrm{hgrad}\ \sigma\ x\ D$, so only their values away from
+the origin matter at the jets admitted by Definition Definition~2.1.
+\end{definition}

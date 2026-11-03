@@ -1,0 +1,17 @@
+\begin{definition}
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, and write $d(x,y):=\|y^{-1}*x\|$ for the left-invariant
+distance of Section~2.4. For $\Om\subseteq\mathbb R^{n}$ and $\delta\in\mathbb R$ the
+\emph{inner domain} $\Om_\delta$ of (3.8) is
+\[
+ \Om_\delta:=\big\{x\in\Om:\ \delta<d(x,y)\ \text{for every}\ y\in\del\Om\big\} .
+\]
+The paper writes this as $\{x\in\Om:\ \dist(x,\del\Om)>\delta\}$ with
+$\dist(x,\del\Om)=\inf\{d(x,y):y\in\del\Om\}$, and the two agree: whenever $\Om$ is
+bounded, $\del\Om$ is compact, so for $\del\Om\ne\emptyset$ the infimum is attained and
+"$\dist(x,\del\Om)>\delta$" is equivalent to "$\delta<d(x,y)$ for every $y\in\del\Om$";
+and for $\del\Om=\emptyset$ the displayed condition is vacuous, giving $\Om_\delta=\Om$,
+which matches the paper's convention $\inf\emptyset=+\infty$. The quantified form is used
+here because it is the form in which the condition is consumed: every use below reads it as
+"every boundary point is $d$-far from $x$".
+\end{definition}

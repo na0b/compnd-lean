@@ -1,0 +1,73 @@
+\begin{lemma}[Continuity of the horizontal gradient along a convergent pair]
+Let $n,m\in\mathbb N$ and let
+$\sigma:\mathbb R^{n}\to(\mathbb R^{n})^{m}$, written $x\mapsto(\sigma^{1}(x),\ldots,
+\sigma^{m}(x))$, be a frame each of whose components $x\mapsto\sigma^{i}(x)$ is continuous.
+Let $x_k\to x_\infty$ in $\mathbb R^{n}$, and let $D_k\to D_\infty$ in the operator norm,
+where each $D_k$ and $D_\infty$ is a continuous linear functional on $\mathbb R^{n}$. Then
+\[
+ \mathrm{hgrad}\ \sigma\ x_k\ D_k\ \longrightarrow\
+ \mathrm{hgrad}\ \sigma\ x_\infty\ D_\infty \qquad\text{in }\mathbb R^{m},
+\]
+with $\mathrm{hgrad}$ as in \noderef{hgrad}.
+\end{lemma}
+\begin{proof}
+(The frame is taken bare here, with continuity of its components as the only hypothesis;
+in the application the $\sigma^{i}$ are the horizontal fields of a Carnot setting and are
+continuous because they are smooth, but no group structure enters this argument.)
+
+\medskip\noindent\textbf{Step 0: the components of $\mathrm{hgrad}$.} By \noderef{hgrad},
+for every $y\in\mathbb R^{n}$ and every continuous linear functional $D$ on $\mathbb R^{n}$,
+the vector $\mathrm{hgrad}\ \sigma\ y\ D\in\mathbb R^{m}$ is the one whose $i$-th component
+is $D(\sigma^{i}(y))$. So the assertion is that, in $\mathbb R^{m}$,
+\[
+ \big(D_k(\sigma^{i}(x_k))\big)_{i}\ \longrightarrow\
+ \big(D_\infty(\sigma^{i}(x_\infty))\big)_{i} . \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 1: the jets converge uniformly.} We have
+\[
+ \|D_k-D_\infty\|\ \longrightarrow\ 0 . \tag{2}
+\]
+Indeed $D_k\to D_\infty$, and the constant sequence $D_\infty$ converges to $D_\infty$, so
+$D_k-D_\infty\to D_\infty-D_\infty=0$; the norm is continuous, so
+$\|D_k-D_\infty\|\to\|0\|=0$.
+
+\medskip\noindent\textbf{Step 2: convergence of each component.} Fix $i$. We claim
+\[
+ D_k(\sigma^{i}(x_k))\ \longrightarrow\ D_\infty(\sigma^{i}(x_\infty)). \tag{3}
+\]
+First, $\sigma^{i}(x_k)\to\sigma^{i}(x_\infty)$: the map $x\mapsto\sigma^{i}(x)$ is
+continuous by hypothesis, hence continuous at $x_\infty$, and $x_k\to x_\infty$, so the
+composition converges. Consequently:
+\begin{itemize}
+\item $D_\infty(\sigma^{i}(x_k))\to D_\infty(\sigma^{i}(x_\infty))$, because $D_\infty$ is
+  a continuous linear functional and is therefore continuous at $\sigma^{i}(x_\infty)$.
+\item $\|D_k-D_\infty\|\,\|\sigma^{i}(x_k)\|\to0$: by $(2)$ the first factor tends to $0$,
+  and the second converges to $\|\sigma^{i}(x_\infty)\|$ by continuity of the norm, so the
+  product tends to $0\cdot\|\sigma^{i}(x_\infty)\|=0$.
+\end{itemize}
+Now compare the two sequences termwise. For each $k$, linearity gives
+$D_\infty(\sigma^{i}(x_k))-D_k(\sigma^{i}(x_k))=(D_\infty-D_k)(\sigma^{i}(x_k))$, so by the
+defining bound of the operator norm and $\|{-w}\|=\|w\|$,
+\[
+ \Big|D_\infty(\sigma^{i}(x_k))-D_k(\sigma^{i}(x_k))\Big|
+  =\Big|(D_\infty-D_k)(\sigma^{i}(x_k))\Big|
+  \le\|D_\infty-D_k\|\,\|\sigma^{i}(x_k)\|
+  =\|D_k-D_\infty\|\,\|\sigma^{i}(x_k)\| .
+\]
+The left-hand side is the distance between the $k$-th terms of the two sequences; it is
+non-negative and, by the second bullet, dominated by a sequence tending to $0$. Squeezing,
+that distance tends to $0$. A sequence at vanishing distance from a convergent sequence has
+the same limit, so from the first bullet we get $(3)$.
+
+\medskip\noindent\textbf{Step 3: from components to $\mathbb R^{m}$.} Convergence in the
+product topology on functions $\{1,\ldots,m\}\to\mathbb R$ is exactly convergence of each
+component, so by $(3)$, applied to every $i$,
+\[
+ \big(i\mapsto D_k(\sigma^{i}(x_k))\big)\ \longrightarrow\
+ \big(i\mapsto D_\infty(\sigma^{i}(x_\infty))\big)
+\]
+in that topology. The identification of such functions with $\mathbb R^{m}$ is a linear
+homeomorphism, hence continuous, and composing a convergent sequence with a continuous map
+preserves the limit. This gives $(1)$, which by Step 0 is the assertion of the lemma.
+\end{proof}

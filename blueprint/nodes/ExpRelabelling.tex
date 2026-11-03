@@ -1,0 +1,62 @@
+\begin{lemma}[The relabelling of Proposition~3.3, Step 1]
+Let $\lambda>0$ and $M\in\mathbb R$, and let
+\[
+ \psi_\lambda(s):=s+\lambda e^{s}\qquad(s\in\mathbb R).
+\]
+Then
+\begin{enumerate}
+\item $\psi_\lambda\in C^{2}(\mathbb R)$;
+\item $\psi_\lambda'(s)=1+\lambda e^{s}$ for every $s$, and $\psi_\lambda'\ge1$ everywhere;
+\item $\psi_\lambda''(s)=\lambda e^{s}$ for every $s$, and $\psi_\lambda''\ge0$ everywhere;
+\item $\lambda e^{-M}>0$, and $\psi_\lambda''(s)\ge\lambda e^{-M}$ whenever $|s|\le M$;
+\item $|\psi_\lambda(s)-s|\le\lambda e^{M}$ whenever $|s|\le M$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+\textbf{Why this $\psi_\lambda$ and not the paper's.} Proposition~3.3, Step 1, uses the
+relabelling $\psi_\lambda(s)=s+\lambda(s-u_0)^{2}$ with $u_0=\inf_\Om u$, and asserts for
+it ``$\psi_\lambda'\ge1$ \emph{on} $[u_0,\infty)$'', $\psi_\lambda''=2\lambda$ and
+$\|u_\lambda-u\|_{L^\infty}\le4\lambda\|u\|_{L^\infty}^{2}$. The paper is right, and the
+bound $\psi_\lambda'\ge1$ it claims is a bound on $[u_0,\infty)$ only --- which is all the
+paper needs, because $\psi_\lambda$ is only ever composed with $u\ge u_0$. Our rendering of the
+composition property Section~2.3(4), however, requires $\psi'\ge1$ and $\psi''\ge0$
+\emph{globally} on $\mathbb R$, and the quadratic $s+\lambda(s-u_0)^{2}$ has
+$\psi_\lambda'(s)=1+2\lambda(s-u_0)<1$ for $s<u_0$. So the paper's $\psi_\lambda$ does not
+instantiate that statement. Rather than weaken it, we choose a relabelling that satisfies
+its hypotheses globally; $\psi_\lambda(s)=s+\lambda e^{s}$ does. The cost is that
+$\psi_\lambda''=\lambda e^{s}$ is no longer the constant $2\lambda$ and has no positive
+global lower bound, which is why items (4) and (5) are stated on the range $|s|\le M$ of a
+bounded $u$: on $\bar\Om$ compact and $u\in C(\bar\Om)$ we have $|u|\le M$ for some $M$, so
+(4) supplies the one uniform constant $\lambda':=\lambda e^{-M}$ that Corollary~3.2 needs at
+every point, and (5) replaces the paper's
+$\|u_\lambda-u\|_{L^\infty}\le4\lambda\|u\|^{2}_{L^\infty}$ by
+$\|\psi_\lambda\circ u-u\|_{L^\infty(\bar\Om)}\le\lambda e^{M}$, which likewise tends to
+$0$ as $\lambda\to0^{+}$. No conclusion of Proposition~3.3 changes; only the explicit constants
+do.
+
+\medskip\noindent\textbf{(1) and (2).} The identity function and $s\mapsto e^{s}$ are
+$C^{\infty}$ on $\mathbb R$, hence so is $\psi_\lambda=\mathrm{id}+\lambda\exp$; in
+particular $\psi_\lambda\in C^{2}$. Differentiating,
+$\psi_\lambda'(s)=1+\lambda e^{s}$, by the sum rule, $\frac{d}{ds}s=1$ and
+$\frac{d}{ds}e^{s}=e^{s}$. Since $\lambda>0$ and $e^{s}>0$ for every $s$, we get
+$\lambda e^{s}>0$ and therefore $\psi_\lambda'(s)=1+\lambda e^{s}\ge1$ for every
+$s\in\mathbb R$.
+
+\medskip\noindent\textbf{(3).} Differentiating $\psi_\lambda'(s)=1+\lambda e^{s}$ once more
+gives $\psi_\lambda''(s)=\lambda e^{s}$, and $\lambda>0$, $e^{s}>0$ give
+$\psi_\lambda''(s)>0\ge0$ for every $s$.
+
+\medskip\noindent\textbf{(4).} $\lambda e^{-M}>0$ because $\lambda>0$ and $e^{-M}>0$. Let
+$|s|\le M$. Then $-M\le s$, and $\exp$ is monotone increasing, so $e^{-M}\le e^{s}$;
+multiplying by $\lambda>0$ and using (3),
+\[
+ \lambda e^{-M}\ \le\ \lambda e^{s}\ =\ \psi_\lambda''(s).
+\]
+
+\medskip\noindent\textbf{(5).} Let $|s|\le M$. Then $s\le M$, so $e^{s}\le e^{M}$ by
+monotonicity of $\exp$. Moreover $\psi_\lambda(s)-s=\lambda e^{s}$, which is $\ge0$ since
+$\lambda>0$, so
+\[
+ \big|\psi_\lambda(s)-s\big|=\lambda e^{s}\ \le\ \lambda e^{M}.
+\]
+\end{proof}

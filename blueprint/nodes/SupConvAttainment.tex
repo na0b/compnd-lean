@@ -1,0 +1,199 @@
+\begin{lemma}[{Part (4) of Lemma~3.8, on $\Omega[\varepsilon]$}]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with group law $*$ and
+homogeneous norm $\|\cdot\|$, put $q:=2\,r!$ and $d(x,y):=\|y^{-1}*x\|$. Let
+$\Omega\subseteq\mathbb R^{n}$ be open and bounded, let $u,v:\mathbb R^{n}\to\mathbb R$ be
+continuous on $\overline\Omega$, let $M_u,M_v,R\in\mathbb R$ satisfy $R\ge0$,
+$2M_u\le R$, $2M_v\le R$, $|u|\le M_u$ and $|v|\le M_v$ on $\overline\Omega$, and let
+$\omega_u,\omega_v:\mathbb R\to\mathbb R$ be moduli of continuity of $u$ and $v$ on
+$\overline\Omega$ with respect to $d$, i.e.
+\[
+ |u(a)-u(b)|\le\omega_u\big(d(a,b)\big),\qquad |v(a)-v(b)|\le\omega_v\big(d(a,b)\big)
+ \qquad\text{for all }a,b\in\overline\Omega .
+\]
+Let $\varepsilon>0$ and write $u^{\varepsilon}:=\mathrm{SupConv}\ \mathbb G\ \Omega\ u\
+\varepsilon$ (\noderef{SupConv}), $v_{\varepsilon}:=\mathrm{InfConv}\ \mathbb G\ \Omega\ v\
+\varepsilon$ (\noderef{InfConv}) and $\Omega[\varepsilon]$ for the reduced domain
+(\noderef{ReducedDomain}). Then
+\begin{enumerate}
+\item $|u^{\varepsilon}(x)-u^{\varepsilon}(x')|\le\omega_u\big(d(x,x')\big)$ for all
+  $x,x'\in\Omega[\varepsilon]$;
+\item for every $x\in\Omega[\varepsilon]$ there is $z$ with $z*x\in\overline\Omega$ such
+  that the supremum defining $u^{\varepsilon}(x)$ is attained at $z$, i.e.
+  $u^{\varepsilon}(x)=u(z*x)-\|z\|^{q}/(2\varepsilon)$, and
+  \[
+   \|z\|^{q}\le4\varepsilon M_u,\qquad\text{and}\qquad z*x'\in\Omega
+   \ \ \text{for every }x'\in\Omega[\varepsilon];
+  \]
+\item $|v_{\varepsilon}(x)-v_{\varepsilon}(x')|\le\omega_v\big(d(x,x')\big)$ for all
+  $x,x'\in\Omega[\varepsilon]$;
+\item for every $x\in\Omega[\varepsilon]$ there is $z$ with $z*x\in\overline\Omega$ such
+  that the infimum defining $v_{\varepsilon}(x)$ is attained at $z$, i.e.
+  $v_{\varepsilon}(x)=v(z*x)+\|z\|^{q}/(2\varepsilon)$, and $\|z\|^{q}\le4\varepsilon M_v$
+  and $z*x'\in\Omega$ for every $x'\in\Omega[\varepsilon]$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Write $c:=1+4R$ and, as in \noderef{ReducedDomain},
+\[
+ \Omega[\varepsilon]=\Big\{x\in\Omega:\ c\varepsilon<\inf_{y\notin\Omega}\|y*(-x)\|^{q}\Big\}. \tag{$\ast$}
+\]
+For $x\in\mathbb R^{n}$ set
+\[
+ Z_x:=\{z\in\mathbb R^{n}:\ z*x\in\overline\Omega\},
+ \qquad
+ \Phi_x(z):=u(z*x)-\frac{\|z\|^{q}}{2\varepsilon},
+ \qquad
+ \Psi_x(z):=v(z*x)+\frac{\|z\|^{q}}{2\varepsilon},
+\]
+so that by \noderef{SupConv} and \noderef{InfConv}
+\[
+ u^{\varepsilon}(x)=\sup_{z\in Z_x}\Phi_x(z),\qquad
+ v_{\varepsilon}(x)=\inf_{z\in Z_x}\Psi_x(z). \tag{$\ast\ast$}
+\]
+
+\medskip\noindent\textbf{Step 0: group identities used repeatedly.} By associativity and
+clause (1) of \noderef{CarnotGroup}, for all $a,x$
+\[
+ \big(a*(-x)\big)*x=a*\big((-x)*x\big)=a*0=a,
+ \qquad
+ \big(a*x\big)*(-x)=a*\big(x*(-x)\big)=a*0=a. \tag{0a}
+\]
+Also $d$ is left-invariant: for all $a,x,x'$,
+\[
+ d(a*x,\,a*x')=\big\|(a*x')^{-1}*(a*x)\big\|
+  =\big\|(-x')*\big((-a)*a\big)*x\big\|=\big\|(-x')*x\big\|=d(x,x'), \tag{0b}
+\]
+using $-(a*x')=(-x')*(-a)$, which is the inverse-of-a-product identity valid in any group.
+
+\medskip\noindent\textbf{Step 1: $Z_x$ is compact, and non-empty for $x\in\Omega$.} The map
+$\Theta:y\mapsto y*(-x)$ is continuous, because the group law is $C^{\infty}$ (clause (2) of
+\noderef{CarnotGroup}) hence continuous. By (0a) the maps $z\mapsto z*x$ and
+$y\mapsto y*(-x)$ are mutually inverse bijections of $\mathbb R^{n}$, so
+\[
+ Z_x=\Theta\big(\overline\Omega\big).
+\]
+Since $\Omega$ is bounded, $\overline\Omega$ is closed and bounded, hence compact; so $Z_x$
+is compact as the image of a compact set under a continuous map. If $x\in\Omega$ then
+$0\in Z_x$, because $0*x=x\in\Omega\subseteq\overline\Omega$; so $Z_x\ne\emptyset$.
+
+\medskip\noindent\textbf{Step 2: the extrema in $(\ast\ast)$ are attained for
+$x\in\Omega$.} Let $x\in\Omega$. On $Z_x$ the map $z\mapsto z*x$ is continuous with values
+in $\overline\Omega$, and $u$ is continuous on $\overline\Omega$, so $z\mapsto u(z*x)$ is
+continuous on $Z_x$; and $z\mapsto\|z\|^{q}/(2\varepsilon)$ is continuous because
+$\|\cdot\|$ is continuous (clause (1) of \noderef{CarnotNorm}) and $\varepsilon\neq0$. Hence
+$\Phi_x$ is continuous on the non-empty compact set $Z_x$ (Step 1) and therefore attains its
+supremum: there is $z\in Z_x$ with
+\[
+ u^{\varepsilon}(x)=\sup_{Z_x}\Phi_x=\Phi_x(z)=u(z*x)-\frac{\|z\|^{q}}{2\varepsilon}, \tag{2a}
+\]
+and in particular $u^{\varepsilon}(x)$ is a real number and
+$u^{\varepsilon}(x)\ge\Phi_x(z')$ for every $z'\in Z_x$. The same argument applied to
+$\Psi_x$ gives $z$ with $v_{\varepsilon}(x)=\Psi_x(z)$, and
+$v_{\varepsilon}(x)\le\Psi_x(z')$ for every $z'\in Z_x$.
+
+\medskip\noindent\textbf{Step 3: proof of (2).} Let $x\in\Omega[\varepsilon]$; by $(\ast)$,
+$x\in\Omega$, so Step 2 gives $z\in Z_x$ with (2a). We verify the two extra properties.
+
+\emph{(3a) the bound $\|z\|^{q}\le4\varepsilon M_u$.} Since $0\in Z_x$ (Step 1) and
+$\|0\|=0$ (clause (1) of \noderef{CarnotNorm}), comparing with $z'=0$ in Step 2 gives
+\[
+ u(z*x)-\frac{\|z\|^{q}}{2\varepsilon}=u^{\varepsilon}(x)\ \ge\ \Phi_x(0)=u(0*x)-0=u(x).
+\]
+Hence $\|z\|^{q}\le2\varepsilon\big(u(z*x)-u(x)\big)$. Both $z*x$ and $x$ lie in
+$\overline\Omega$ (the former because $z\in Z_x$, the latter because $x\in\Omega$), so
+$u(z*x)\le M_u$ and $-u(x)\le M_u$ by the bound $|u|\le M_u$ on $\overline\Omega$.
+Therefore
+\[
+ \|z\|^{q}\ \le\ 2\varepsilon\big(M_u+M_u\big)=4\varepsilon M_u . \tag{3a}
+\]
+
+\emph{(3b) $z*x'\in\Omega$ for every $x'\in\Omega[\varepsilon]$.} First, the chain of the
+paper: by (3a), $2M_u\le R$ and $\varepsilon>0$,
+\[
+ \|z\|^{q}\ \le\ 4\varepsilon M_u=2\varepsilon\,(2M_u)\ \le\ 2\varepsilon R
+ \ <\ (1+4R)\,\varepsilon=c\,\varepsilon, \tag{3b}
+\]
+the last inequality because $2R<1+4R$, i.e. $0<1+2R$, which holds since $R\ge0$.
+
+Now let $x'\in\Omega[\varepsilon]$ and suppose $z*x'\notin\Omega$. Then $y:=z*x'$ is an
+admissible index in the infimum of $(\ast)$ at the point $x'$, so
+\[
+ \inf_{y'\notin\Omega}\big\|y'*(-x')\big\|^{q}\ \le\ \big\|(z*x')*(-x')\big\|^{q}=\|z\|^{q},
+\]
+using (0a) for the last equality. Combining with (3b) this gives
+$\inf_{y'\notin\Omega}\|y'*(-x')\|^{q}<c\varepsilon$, contradicting
+$c\varepsilon<\inf_{y'\notin\Omega}\|y'*(-x')\|^{q}$, which is what
+$x'\in\Omega[\varepsilon]$ asserts by $(\ast)$. Hence $z*x'\in\Omega$.
+
+This proves (2), with $z*x\in\overline\Omega$ holding because $z\in Z_x$.
+
+\medskip\noindent\textbf{Step 4: proof of (1).} Let $x,x'\in\Omega[\varepsilon]$. Let $z$ be
+as in Step 3 for the point $x$, so (2a), (3a) and (3b) hold and, by Step 3(3b) applied with
+the point $x'$,
+\[
+ z*x'\in\Omega\subseteq\overline\Omega,\qquad\text{i.e.}\qquad z\in Z_{x'} .
+\]
+Therefore, by the second assertion of Step 2 at the point $x'$ (legitimate since
+$x'\in\Omega$),
+\[
+ u^{\varepsilon}(x')\ \ge\ \Phi_{x'}(z)=u(z*x')-\frac{\|z\|^{q}}{2\varepsilon}.
+\]
+Subtracting this from (2a), the two penalty terms $\|z\|^{q}/(2\varepsilon)$ cancel:
+\[
+ u^{\varepsilon}(x)-u^{\varepsilon}(x')
+  \ \le\ \Big(u(z*x)-\frac{\|z\|^{q}}{2\varepsilon}\Big)
+         -\Big(u(z*x')-\frac{\|z\|^{q}}{2\varepsilon}\Big)
+  \ =\ u(z*x)-u(z*x').
+\]
+Both $z*x$ and $z*x'$ lie in $\overline\Omega$, so the modulus hypothesis and (0b) give
+\[
+ u(z*x)-u(z*x')\ \le\ \big|u(z*x)-u(z*x')\big|
+  \ \le\ \omega_u\big(d(z*x,z*x')\big)=\omega_u\big(d(x,x')\big),
+\]
+whence $u^{\varepsilon}(x)-u^{\varepsilon}(x')\le\omega_u(d(x,x'))$. Exchanging the roles of
+$x$ and $x'$ gives $u^{\varepsilon}(x')-u^{\varepsilon}(x)\le\omega_u(d(x',x))$, and
+$d(x',x)=d(x,x')$ because $(-x)*x'=-\big((-x')*x\big)$ and $\|-g\|=\|g\|$ by clause (1) of
+\noderef{CarnotNorm}. The two inequalities together give
+$|u^{\varepsilon}(x)-u^{\varepsilon}(x')|\le\omega_u(d(x,x'))$, which is (1).
+
+\medskip\noindent\textbf{Step 5: proof of (4) and (3).} The arguments are those of Steps 3
+and 4 with the inequalities reversed. Let $x\in\Omega[\varepsilon]$ and let $z\in Z_x$ be
+the minimizer of $\Psi_x$ from Step 2, so
+$v_{\varepsilon}(x)=v(z*x)+\|z\|^{q}/(2\varepsilon)$. Comparing with $z'=0$,
+\[
+ v(z*x)+\frac{\|z\|^{q}}{2\varepsilon}=v_{\varepsilon}(x)\ \le\ \Psi_x(0)=v(x),
+\]
+so $\|z\|^{q}\le2\varepsilon\big(v(x)-v(z*x)\big)\le2\varepsilon(M_v+M_v)=4\varepsilon M_v$,
+using $|v|\le M_v$ on $\overline\Omega$ at the two points $x$ and $z*x$ of
+$\overline\Omega$. Then $\|z\|^{q}\le4\varepsilon M_v=2\varepsilon(2M_v)\le2\varepsilon R<c\varepsilon$
+exactly as in (3b), and the same contradiction argument with $y:=z*x'$ gives
+$z*x'\in\Omega$ for every $x'\in\Omega[\varepsilon]$. This is (4).
+
+For (3), let $x,x'\in\Omega[\varepsilon]$ and let $z$ be the minimizer at $x$. By (4),
+$z*x'\in\Omega\subseteq\overline\Omega$, so $z\in Z_{x'}$ and, by the minimality at $x'$,
+\[
+ v_{\varepsilon}(x')\ \le\ \Psi_{x'}(z)=v(z*x')+\frac{\|z\|^{q}}{2\varepsilon}.
+\]
+Subtracting the identity $v_{\varepsilon}(x)=v(z*x)+\|z\|^{q}/(2\varepsilon)$, the penalty
+terms cancel and
+\[
+ v_{\varepsilon}(x')-v_{\varepsilon}(x)\ \le\ v(z*x')-v(z*x)
+  \ \le\ \omega_v\big(d(z*x',z*x)\big)=\omega_v\big(d(x',x)\big)=\omega_v\big(d(x,x')\big),
+\]
+using (0b) and the symmetry of $d$. Exchanging $x$ and $x'$ gives the other inequality, and
+(3) follows.
+
+\medskip\noindent\emph{Remark.} The statement is part (4) of Lemma~3.8 as printed: both
+halves on $\Omega[\varepsilon]$, for both convolutions. The constant $M_u$ plays the role of
+$\|u\|_{L^{\infty}}$, and the sharpest instance is $M_u=\|u\|_{L^{\infty}(\overline\Omega)}$,
+$M_v=\|v\|_{L^{\infty}(\overline\Omega)}$ and $R=2\max\{M_u,M_v\}$, which is the paper's
+choice and satisfies $2M_u\le R$, $2M_v\le R$; the quantified form contains it. The reason
+the printed version suffices --- and no restatement on $\Omega[\varepsilon/2]$ is needed ---
+is that both halves are used only with both points in $\Omega[\varepsilon]$, which is exactly
+what (1)--(4) provide; the continuity of $u^{\varepsilon}$ on $\overline{\Omega[\varepsilon]}$
+that the comparison proofs also need is a separate matter, coming from local semi-convexity
+of $u^{\varepsilon}$ on $\Omega$ together with
+$\overline{\Omega[\varepsilon]}\subseteq\Omega$, and not from the modulus half of this
+lemma. Note finally that no monotonicity or continuity of $\omega_u$ is used: the proof only
+ever evaluates $\omega_u$ at the single value $d(x,x')$.
+\end{proof}

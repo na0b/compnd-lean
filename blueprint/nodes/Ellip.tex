@@ -1,0 +1,27 @@
+\begin{definition}[The ellipticity function $\mathcal E$, (1.9)]
+Let $m\in\mathbb N$ and let $A:\mathbb R^m\to\mathbb R^{m\times m}$ be a matrix-valued
+function. The \emph{ellipticity function of $A$} is
+\[
+ \mathcal E_A(\xi)\ :=\ \langle A(\xi)\,\xi,\ \xi\rangle
+   \ =\ \sum_{i=1}^{m}\sum_{j=1}^{m} A_{i,j}(\xi)\,\xi_j\,\xi_i ,
+ \qquad \xi\in\mathbb R^{m},
+\]
+written $\mathrm{Ellip}\ A\ \xi$ when the argument $A$ needs to be displayed.
+
+This is the quantity named $\mathcal E$ in (1.9). The paper's condition (E) of strict
+ellipticity in the gradient direction is exactly the statement that
+$\mathcal E_A(\xi)>0$ for every $\xi\in\mathbb R^{m}\setminus\{0\}$, which is how it occurs
+among the structure conditions; and $\mathcal E_A$ is the quantity that appears in the lower
+bound (2.4), in the identification $\kappa(t,\xi)=\mathcal E_A(t\xi)/(t^{2}\mathcal E_A(\xi))$
+of the scaling factor in Remark~1.1(a), and in the strict sub-solution estimate of
+Corollary Corollary~3.2, where the ellipticity of $\mathcal L$ in the direction of the
+horizontal gradient is what produces a quantitative gain.
+
+Nothing is assumed about $A$: the definition makes sense for every matrix-valued $A$ and
+every $\xi$, and in particular no symmetry or positivity is built in. Note
+$\mathcal E_A(0)=0$ for every $A$, so the restriction to $\xi\neq0$ in (E) is not a
+convention but a necessity. Only the value $A(\xi)$ of $A$ at the point $\xi$ enters
+$\mathcal E_A(\xi)$, so $\mathcal E_A$ inherits the homogeneity of $A$ along rays: if
+$A(t\xi)=A(\xi)$ for $t>0$ then $\mathcal E_A(t\xi)=t^{2}\mathcal E_A(\xi)$, because
+$(t\xi)_k=t\,\xi_k$ contributes one factor $t$ from each of the two slots.
+\end{definition}

@@ -1,0 +1,39 @@
+\begin{definition}[The structure conditions (E) and (S)]
+Let $m\in\mathbb N$, let $A:\mathbb R^m\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^m\to\mathbb R$. We say that $(A,H)$ \emph{satisfies the structure conditions},
+written $\mathrm{StructureConditionsES}\ m\ A\ H$, if
+\begin{enumerate}
+\item for every $\xi\neq0$ the matrix $A(\xi)$ is symmetric, $A(\xi)^{T}=A(\xi)$;
+\item for every $\xi\neq0$ the matrix $A(\xi)$ is positive semidefinite:
+  $\langle A(\xi)\eta,\eta\rangle=\sum_{i}\sum_{j}A_{i,j}(\xi)\eta_j\eta_i\ge0$ for all
+  $\eta\in\mathbb R^m$;
+\item $A$ is continuous on $\mathbb R^m\setminus\{0\}$;
+\item $H$ is continuous on $\mathbb R^m\setminus\{0\}$;
+\item (E), (1.9): $\mathcal E(\xi):=\langle A(\xi)\xi,\xi\rangle>0$ for every
+  $\xi\in\mathbb R^m\setminus\{0\}$;
+\item (S), (1.10): there is a function
+  $\kappa:[1,\infty)\times(\mathbb R^m\setminus\{0\})\to(0,\infty)$ such that
+  \[
+   A(t\xi)=\kappa(t,\xi)\,A(\xi)\quad\text{and}\quad H(t\xi)=t\,\kappa(t,\xi)\,H(\xi)
+   \qquad\text{for all }t\ge1\text{ and }\xi\in\mathbb R^m\setminus\{0\}.
+  \]
+\end{enumerate}
+
+These are exactly the hypotheses imposed on $A$ and $H$ in Section Section~1.2 for the
+equation (1.8), $\mathcal Lu=-\mathrm{Tr}(A(\mathcal Xu)\mathcal X\mathcal X^{s}u)
++H(\mathcal Xu)=0$: items (1)--(4) are the standing requirements
+$A_{i,j},H\in C(\mathbb R^m\setminus\{0\})$ with $A(\xi)$ symmetric and positive
+semidefinite; (5) is the strict ellipticity in the gradient direction (E); and (6) is the
+homogeneity along rays (S), which is the form taken, for the operators (1.8), by the
+scaling hypothesis of the strong maximum principle of Bardi and Goffi. Nothing is required
+at $\xi=0$, and no local Lipschitz continuity is required: the viscosity sub- and
+super-solutions of (1.8) are defined with test functions whose horizontal gradient does
+not vanish at the point of contact (Definition Definition~2.1), so $A$ and $H$ are never
+evaluated at the origin, and the exactness of the relabelling identity under (S) is what
+replaces the Lipschitz hypothesis (BB1) of Barles--Busca. In (6), $H$ is required to scale
+exactly, with the factor $t\,\kappa(t,\xi)$ and not merely an inequality, because both the
+sub-solution and the super-solution side of the scaling hypothesis are used (Remark
+Remark~1.1(b)). The positivity of $\kappa$ is part of (S); note that (E) determines it,
+$\kappa(t,\xi)=\mathcal E(t\xi)/(t^{2}\mathcal E(\xi))$, so no generality is gained or lost
+by quantifying over $\kappa$ existentially.
+\end{definition}

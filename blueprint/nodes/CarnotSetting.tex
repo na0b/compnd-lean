@@ -1,0 +1,85 @@
+\begin{definition}[The sub-elliptic setting]
+A \emph{Carnot setting} is a Carnot norm datum (\noderef{CarnotNorm}) together with a map
+$\sigma:\mathbb R^n\to\mathbb R^{n\times m}$, $\sigma(x)=[\sigma^1(x),\ldots,\sigma^m(x)]$
+--- the horizontal frame, written $X_i=\sigma^i(x)\cdot\nabla$ --- subject to the following
+conditions. Here $\mathcal Xu(x)=\mathrm{hgrad}\ \sigma\ x\ \nabla u(x)$ is the horizontal
+gradient of \noderef{hgrad}, $\mathcal X\mathcal X^{s}$ is the symmetrized horizontal
+second derivative of \noderef{hhessS}, a \emph{second-order jet} is as in
+\noderef{TwiceDiffAt}, and $L_h(y)=h*y$ denotes left translation.
+\begin{enumerate}
+\item Each $\sigma^i:\mathbb R^n\to\mathbb R^n$ is $C^\infty$.
+\item For every $x\in\mathbb R^n$ the vectors $\sigma^1(x),\ldots,\sigma^m(x)$ are linearly
+  independent.
+\item (H\"ormander's rank condition (1.6).) For every $x\in\mathbb R^n$,
+  \[
+   \mathrm{span}\,\big\{\,V(x)\ :\ V\in\mathrm{LieHull}\ \sigma\,\big\}=\mathbb R^n,
+  \]
+  with $\mathrm{LieHull}\ \sigma$ the Lie hull of the frame (\noderef{LieHull}).
+\item (The Taylor formula (2.18).) If $u:\mathbb R^n\to\mathbb R$ is differentiable at
+  $x$ with differential $D$, then $u$ is Pansu differentiable at $x$
+  (\noderef{HasPansuGradAt}) with horizontal differential
+  $\mathrm{hgrad}\ \sigma\ x\ D$; that is,
+  $u(x*h)=u(x)+\langle\mathcal Xu(x),\pi_1(h)\rangle+o(\|h\|)$ as $h\to0$.
+\item (Left-invariance of the horizontal derivatives.) For all $h,x\in\mathbb R^n$ and
+  every $\varphi:\mathbb R^n\to\mathbb R$ with a second-order jet $(D,B)$ at $h*x$, the
+  function $\varphi\circ L_h$ has a second-order jet $(D',B')$ at $x$ satisfying
+  \[
+   \mathrm{hgrad}\ \sigma\ x\ D'=\mathrm{hgrad}\ \sigma\ (h*x)\ D,
+   \qquad
+   \mathrm{hhessS}\ \sigma\ x\ D'\ B'=\mathrm{hhessS}\ \sigma\ (h*x)\ D\ B .
+  \]
+\item (The form of the $X_i$ on functions of the first layer.) For every
+  $\psi:\mathbb R^m\to\mathbb R$ with a second-order jet $(E,C)$ at $\pi_1(x)$, the
+  function $\psi\circ\pi_1$ has a second-order jet $(D,B)$ at $x$ satisfying
+  \[
+   \mathrm{hgrad}\ \sigma\ x\ D=\big(E(e_i)\big)_{i=1}^{m},
+   \qquad
+   \mathrm{hhessS}\ \sigma\ x\ D\ B=\big(C(e_i,e_j)\big)_{i,j=1}^{m},
+  \]
+  with $e_1,\ldots,e_m$ the standard basis of $\mathbb R^m$.
+\end{enumerate}
+
+Items (1)--(3) are the hypotheses on the vector fields in Section Section~1.2: in
+exponential coordinates $X_i=\partial_{x_{i,1}}+\sum_{j\ge2}\sum_kb^i_{k,j}(x)\partial_{x_{k,j}}$
+with polynomial $b^i_{k,j}$, so the $\sigma^i$ are smooth and, their first-layer components
+forming the identity matrix, pointwise linearly independent --- in particular
+$\sigma(x)\neq0$ --- and $X_1,\ldots,X_m$, being a basis of the first layer of a
+stratification, satisfy (1.6). Item (4) is (2.18), which the paper derives from the
+Euclidean expansion of $u$ at $x$ together with
+$x*h-x=\sum_i\pi_1(h)_iX_i(x)+O(\|h\|^2)$.
+
+Items (5) and (6) are the two structural facts stated at the level of jets, which is where
+the development uses them. Item (5) is left-invariance of the $X_i$: since
+$X_i(\varphi\circ L_h)=(X_i\varphi)\circ L_h$ and
+$X_jX_i(\varphi\circ L_h)=(X_jX_i\varphi)\circ L_h$, and since $L_h$ is a polynomial
+diffeomorphism, a second-order jet $(D,B)$ of $\varphi$ at $h*x$ transports to the jet
+$D'=D\circ DL_h(x)$, $B'(u,v)=B(DL_h(x)u,DL_h(x)v)+D(D^2L_h(x)(u,v))$ of
+$\varphi\circ L_h$ at $x$, whose horizontal gradient and symmetrized horizontal second
+derivative at $x$ are those of $\varphi$ at $h*x$. This is what makes Lemma Lemma~2.9
+--- left translates of sub-solutions are sub-solutions --- a bookkeeping statement. Item (6)
+is the displayed computation in the proof of Theorem Theorem~1.3(iii): because
+$X_i=\partial_{x_{i,1}}+\sum_{j\ge2}\sum_kb^i_{k,j}\partial_{x_{k,j}}$ kills the dependence
+on the higher layers, $X_i(\psi\circ\pi_1)=(\partial_i\psi)\circ\pi_1$, and iterating,
+$X_jX_i(\psi\circ\pi_1)=(\partial_j\partial_i\psi)\circ\pi_1$; hence
+$\mathcal X(\psi\circ\pi_1)=\nabla\psi\circ\pi_1$ and
+$\mathcal X\mathcal X^{s}(\psi\circ\pi_1)=D^2\psi\circ\pi_1$, which is the displayed
+identity $\mathcal L(\psi\circ\pi_1)=(\mathcal L^{\mathrm{eucl}}\psi)\circ\pi_1$ once the
+operator is applied. Both items are stated as the existence of a transported jet with the
+prescribed horizontal data, which is all the proofs use; the transported jet is in fact
+unique, as second-order jets always are.
+
+The formalization note (item 3 of the note after Theorem Theorem~1.3) permits exactly these
+facts of Section Section~2.4 to be built into the definition of the setting, provided
+every Carnot group in those coordinates satisfies the definition, and each condition above
+is one of them. Deliberately absent is any statement about sub- or super-solutions of
+$\mathcal L$: the strong maximum principle, and a fortiori any comparison or strong
+comparison principle, is a cited result carried as a separate hypothesis, not a property of
+the setting. For the Euclidean additive group on $\mathbb R^m$ ($n=m$, $r=1$, $x*y=x+y$,
+$\|x\|=|x|$, $\pi_1=\mathrm{id}$, $\exp_{\mathrm h}=\mathrm{id}$) the frame is the constant
+one $\sigma^i(x)=e_i$: then (1) and (2) are clear, the Lie hull consists of the $e_i$ and
+the zero field so (3) holds because $e_1,\ldots,e_m$ span $\mathbb R^m$,
+$\mathcal M(x,D)=0$ so $\mathcal Xu=\nabla u$ and
+$\mathcal X\mathcal X^{s}u=D^2u$, (4) is the definition of the Fr\'echet derivative,
+and (5), (6) hold with $(D',B')=(D,B)$ and $(D,B)=(E,C)$ since $DL_h=I$, $D^2L_h=0$ and
+$\pi_1=\mathrm{id}$.
+\end{definition}

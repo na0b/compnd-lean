@@ -1,0 +1,44 @@
+\begin{definition}[Viscosity sub-solution, Definition~2.1]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with horizontal frame
+$\sigma$, let $A:\mathbb R^m\to\mathbb R^{m\times m}$ and $H:\mathbb R^m\to\mathbb R$, let
+$\Omega\subset\mathbb R^n$ and let $u:\mathbb R^n\to\mathbb R$. We say that $u$ is a
+\emph{viscosity sub-solution of $\mathcal Lu=0$ in $\Omega$}, written
+$\mathrm{IsViscSubsol}\ \mathbb G\ A\ H\ \Omega\ u$, if
+\begin{enumerate}
+\item $u$ is upper semi-continuous on $\Omega$; and
+\item for every $x\in\Omega$ and every $\varphi\in C^{2}(\Omega)$ with
+  $x\in\mathrm{argmax}_\Omega(u-\varphi)$, every second-order jet $(D,B)$ of $\varphi$ at
+  $x$ (\noderef{TwiceDiffAt}) with $\mathrm{hgrad}\ \sigma\ x\ D\neq0$ satisfies
+  \[
+   \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\ \le\ 0 ,
+  \]
+  with $\mathrm{hgrad}$ as in \noderef{hgrad} and $\mathrm{Lop}$ as in \noderef{Lop}.
+\end{enumerate}
+Here $x\in\mathrm{argmax}_\Omega(u-\varphi)$ means, as in (2.8), that $x\in\Omega$
+and $(u-\varphi)(y)\le(u-\varphi)(x)$ for every $y\in\Omega$.
+
+This is Definition Definition~2.1 for the operator (1.8). The admissible test functions are
+those of the class (2.11), $\mathcal A^{+}_x(u,\Omega)=\{\varphi\in C^2(\Omega):
+x\in\mathrm{argmax}_\Omega(u-\varphi),\ \mathcal X\varphi(x)\neq0\}$, and the required
+inequality is $\mathcal L\varphi(x)\le0$. The restriction
+$\mathcal X\varphi(x)\neq0$ --- not merely $\nabla\varphi(x)\neq0$, which is weaker when
+$m<n$ --- is what allows $A$ and $H$ to be undefined at the origin, and it makes the class
+of sub-solutions larger than the one used by Bardi and Goffi.
+
+Two points of translation. First, $\mathcal L\varphi(x)$ is written through the jet of
+$\varphi$ at $x$: for $\Omega$ open, $\varphi\in C^2(\Omega)$ and $x\in\Omega$ a
+second-order jet of $\varphi$ at $x$ exists and is unique, namely
+$(D,B)=(\nabla\varphi(x),D^2\varphi(x))$, so quantifying over all jets of $\varphi$ at $x$
+names that one pair, and then
+$\mathrm{hgrad}\ \sigma\ x\ D=\mathcal X\varphi(x)$ and
+$\mathrm{hhessS}\ \sigma\ x\ D\ B=\mathcal X\mathcal X^{s}\varphi(x)$, so the displayed
+inequality is $\mathcal L\varphi(x)\le0$. Second, the operator (1.8) has no
+zeroth-order term, so the value $\varphi(x)$ does not enter and no monotonicity in $r$ has
+to be recorded. The paper also notes that, since $\varphi$ may be modified away from $x$,
+requiring $x$ to be a global maximum point of $u-\varphi$ on $\Omega$ is equivalent to
+requiring it to be a local one; the global form is used here, following (2.11). The notion is only ever used with
+$\Omega$ an open set, as in Definition Definition~2.1, which is what makes the quantification
+over second-order jets of $\varphi$ at $x$ non-vacuous. Writing
+$\mathcal Lu\le0$ in $\Omega$ in the viscosity sense means that $u$ is a viscosity
+sub-solution in this sense.
+\end{definition}

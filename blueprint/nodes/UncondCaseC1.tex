@@ -1,0 +1,304 @@
+\begin{theorem}[Theorem~1.3(i)]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, step $r$, frame $\sigma$, $q:=2\,r!$ and
+$d(x,y):=\|y^{-1}*x\|$, and assume the cited results of the literature
+at $\mathbb G$ (\noderef{CitedResults}). Let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$ satisfy the structure conditions
+(\noderef{StructureConditionsES}). Let $\Om\subset\mathbb R^{n}$ be a bounded open set with
+$\mathbb R^{n}\mns\Om\ne\emptyset$, let $u,v:\mathbb R^{n}\to\mathbb R$ be continuous on
+$\bar\Om$ with $u$ a viscosity sub-solution (\noderef{IsViscSubsol}) and $v$ a viscosity
+super-solution (\noderef{IsViscSupersol}) of $\mathcal L\cdot=0$ in $\Om$ and $u\le v$ on
+$\del\Om$, and let $R\ge0$ satisfy $|u|\le R/2$ and $|v|\le R/2$ on $\bar\Om$. Let
+$N\subseteq\mathbb R^{n}$ be open with
+\[
+ E:=\big\{y\in\Om:\ u-v\ \text{attains its maximum over}\ \bar\Om\ \text{at}\ y\big\}
+ \ \subseteq\ N .
+\]
+Then:
+\begin{enumerate}
+\item if $v$ is $C^{1}$ on $N$ and $\mathrm{hgrad}\ \sigma\ z\ D\ne0$ (\noderef{hgrad})
+  whenever $z\in N$ and $D$ is the derivative of $v$ at $z$, then $u\le v$ in $\Om$;
+\item if $u$ is $C^{1}$ on $N$ and $\mathrm{hgrad}\ \sigma\ z\ D\ne0$ whenever $z\in N$ and
+  $D$ is the derivative of $u$ at $z$, then $u\le v$ in $\Om$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+This is Theorem~1.3(i), both orientations ("the case of $u$ is symmetric, with $u^{\eps}$ in
+place of $v_{\eps}$"). The comparison machinery is not re-derived here:
+\noderef{ComparisonUnderNondegeneracy} is Theorem~1.2, and the entire work of this node is to
+verify its non-degeneracy hypothesis for a suitable sequence $\eps_k\to0^{+}$. We prove (1)
+in Steps 0--8 and (2) in Step 9.
+
+\medskip\noindent\textbf{Step 0: reduction to building the non-degeneracy hypothesis.}
+Assume the hypotheses of (1) and suppose the conclusion fails, so $u(x_0)>v(x_0)$ for some
+$x_0\in\Om$. We shall produce $\eps_k>0$ with $\eps_k\to0$ such that the non-degeneracy
+hypothesis of \noderef{ComparisonUnderNondegeneracy} holds for the family $(\eps_k)$; that
+node then gives $u\le v$ in $\Om$, contradicting $u(x_0)>v(x_0)$ and proving (1). This is the
+paper's "Theorem Theorem~1.2 gives $u\le v$, against $M_0>0$".
+
+Since $\Om$ is bounded, $\bar\Om$ is compact, and it is non-empty
+($x_0\in\Om\subseteq\bar\Om$); $u-v$ is continuous on it, so $u-v$ attains its maximum over
+$\bar\Om$ at some $x_M\in\bar\Om$ and
+\[
+ M_0:=u(x_M)-v(x_M)\ \ge\ u(x_0)-v(x_0)\ >\ 0 .
+\]
+Put $\tau:=M_0/2>0$ and write, for $\eps>0$,
+\[
+ u^{\eps}:=\mathrm{SupConv}\ \mathbb G\ \Om\ u\ \eps\ (\noderef{SupConv}),\qquad
+ v_{\eps}:=\mathrm{InfConv}\ \mathbb G\ \Om\ v\ \eps\ (\noderef{InfConv}),\qquad
+ \tilde v_{\eps}:=v_{\eps}+\tau ,
+\]
+and $\Om[\eps]$ for the reduced domain (\noderef{ReducedDomain}) with this $R$.
+
+All the hypotheses of \noderef{RegularizedPairStandingAssumptions} hold for
+$(\mathbb G,\text{cited results at }\mathbb G,A,H,\Om,u,v,R,x_M,\tau,E)$: $\Om$ is open,
+bounded and has
+non-empty complement; $u,v$ are continuous on $\bar\Om$ and are a viscosity
+sub-/super-solution pair in $\Om$; $u\le v$ on $\del\Om$; $R\ge0$ with $|u|,|v|\le R/2$ on
+$\bar\Om$; $x_M\in\bar\Om$ is a maximum point of $u-v$ over $\bar\Om$; $M_0>0$; and
+$\tau=M_0/2$, $E=\argmax_\Om(u-v)$ are as the node prescribes. It therefore yields
+\begin{itemize}
+\item (item 1) $E$ is non-empty and compact;
+\item (item 2) an $\eps_1>0$ such that for every $\eps\in(0,\eps_1)$: (b) $u^{\eps}$ and
+  $\tilde v_{\eps}$ are continuous on $\overline{\Om[\eps]}$; (c) $u^{\eps}$ is locally
+  semi-convex and $\tilde v_{\eps}$ locally semi-concave on $\Om[\eps]$
+  (\noderef{LocallySemiConvexOn}); and the remaining clauses (a), (d)--(g), which we do not
+  need;
+\item (item 3) for every $\eta>0$ an $\eps_2>0$ such that for every $\eps\in(0,\eps_2)$ and
+  every $z\in\Om[\eps]$ at which $u^{\eps}-\tilde v_{\eps}$ attains its maximum over
+  $\overline{\Om[\eps]}$ there is $p\in E$ with $d(z,p)<\eta$.
+\end{itemize}
+Note once and for all that $\tilde v_{\eps}=v_{\eps}+\tau$ differs from $v_{\eps}$ by a
+constant, so for every set $S$ and every $x$,
+\[
+ u^{\eps}-\tilde v_{\eps}\ \text{is maximal over}\ S\ \text{at}\ x
+ \iff u^{\eps}-v_{\eps}\ \text{is maximal over}\ S\ \text{at}\ x, \tag{1}
+\]
+since subtracting $\tau$ from both sides of an inequality between reals changes nothing; and
+a derivative of $\tilde v_\eps$ at a point is the same continuous linear functional as a
+derivative of $v_\eps$ there.
+
+\medskip\noindent\textbf{Step 1: a uniform Euclidean thickness for $N$ around $E$.} $E$ is
+compact by item 1 and $E\subseteq N$ with $N$ open. Hence there is $\rho_N>0$ such that
+\[
+ \text{for every } p\in E \text{ and every } w \text{ with } |w-p|<\rho_N,\quad w\in N .
+ \tag{2}
+\]
+Indeed, for each $p\in E$ pick $r_p>0$ with the Euclidean ball $B(p,2r_p)\subseteq N$; the
+balls $B(p,r_p)$ cover the compact $E$, so finitely many $B(p_1,r_{p_1}),\ldots,B(p_k,r_{p_k})$
+do; put $\rho_N:=\min_j r_{p_j}>0$. If $p\in E$ then $p\in B(p_j,r_{p_j})$ for some $j$, and
+$|w-p|<\rho_N\le r_{p_j}$ gives $|w-p_j|<2r_{p_j}$, so $w\in N$. (The covering is a finite
+non-empty family because $E\ne\emptyset$ by item 1, so the minimum defining $\rho_N$ is taken
+over a non-empty finite set and is positive.)
+
+\medskip\noindent\textbf{Step 2: converting $d$-closeness into Euclidean closeness.} The
+homogeneous norm $\|\cdot\|$ is continuous and $\bar\Om$ is compact, so
+\[
+ \nu_0:=1+\max\{|w|:\ w\in\bar\Om\}\quad\text{and}\quad
+ \mu_0:=1+\max\{\|w\|:\ w\in\bar\Om\}
+\]
+are finite and positive. By the Hölder equivalence clause of \noderef{CarnotSetting}, applied
+at $\nu_0$, there is $c_0>0$ with $c_0^{-1}|a-b|\le d(a,b)$ whenever $|a|\le\nu_0$ and
+$|b|\le\nu_0$; since $|w|\le\nu_0$ for $w\in\bar\Om$, this gives
+\[
+ |a-b|\ \le\ c_0\,d(a,b)\qquad(a,b\in\bar\Om). \tag{3}
+\]
+
+\medskip\noindent\textbf{Step 3: the translation $z_x$ of Lemma~3.8(4).} Fix $\eps>0$. We
+apply \noderef{SupConvAttainment} with $M_u:=R/2$, $M_v:=R/2$ and the \emph{constant} moduli
+\[
+ \om_u:=\big(s\mapsto R\big),\qquad \om_v:=\big(s\mapsto R\big).
+\]
+Its hypotheses hold: $\Om$ is open and bounded; $u,v$ are continuous on $\bar\Om$;
+$R\ge0$, $2M_u=R\le R$ and $2M_v=R\le R$; $|u|\le M_u$ and $|v|\le M_v$ on $\bar\Om$ by
+hypothesis; and the modulus conditions hold because for $a,b\in\bar\Om$
+\[
+ |u(a)-u(b)|\le|u(a)|+|u(b)|\le \tfrac R2+\tfrac R2=R=\om_u\big(d(a,b)\big),
+\]
+and likewise for $v$. (No $d$-modulus of continuity has to be constructed: only the
+attainment clause is used below, and the constant moduli discharge the node's remaining
+hypotheses.) Its fourth clause gives, for every $x\in\Om[\eps]$, a point
+$z_x\in\mathbb R^{n}$ with
+\[
+ z_x*x\in\bar\Om,\qquad
+ v_{\eps}(x)=v(z_x*x)+\frac{\|z_x\|^{q}}{2\eps},\qquad
+ \|z_x\|^{q}\le4\eps\cdot\frac R2=2R\eps,\qquad
+ z_x*x'\in\Om\ \ \forall x'\in\Om[\eps]. \tag{4}
+\]
+
+\medskip\noindent\textbf{Step 4: the paper's display, both halves.} Put
+$K:=\dfrac{\|z_x\|^{q}}{2\eps}$ and
+\[
+ \varphi(x'):=v(z_x*x')+K .
+\]
+The equality $v_\eps(x)=\varphi(x)$ is the second item of (4). For the inequality, let
+$x'\in\Om[\eps]$. By the last item of (4), $z_x*x'\in\Om\subseteq\bar\Om$, so
+$z_x$ belongs to the index set of the infimum defining
+$v_{\eps}(x')=\mathrm{InfConv}\ \mathbb G\ \Om\ v\ \eps\ x'$ (\noderef{InfConv}), namely
+$\{p:\ p*x'\in\bar\Om\}$. That infimum is over a non-empty family bounded below: each member
+is $v(p*x')+\|p\|^{q}/(2\eps)\ge-R/2+0=-R/2$, using $|v|\le R/2$ on $\bar\Om$ and
+$\|p\|\ge0$, $\eps>0$. An infimum over a non-empty family bounded below is $\le$ each
+member, so
+\[
+ v_{\eps}(x')\ \le\ v(z_x*x')+\frac{\|z_x\|^{q}}{2\eps}=\varphi(x')\qquad(x'\in\Om[\eps]),
+ \qquad\text{with equality at } x'=x. \tag{5}
+\]
+This is exactly the paper's display; its inequality half is not a separate lemma but the
+defining property of an infimum, the only side condition being the lower bound just
+established.
+
+\medskip\noindent\textbf{Step 5: $z_x*x$ lies in $N$ for small $\eps$.} First,
+$\|z_x\|\le(2R\eps)^{1/q}$ by (4) and $q\ge2$ (as $q=2\,r!$ and $r\ge1$), and $\|z_x\|\ge0$;
+so for $\eps\le1$ we have $\|z_x\|\le(2R+1)^{1/q}$. Put
+$\mu:=\mu_0+(2R+1)^{1/q}+1>0$. Then, for $\eps\le1$, $x\in\Om[\eps]\subseteq\Om\subseteq\bar\Om$
+gives $\|x\|<\mu$ and also $\|z_x\|<\mu$. By the conjugation clause $\mathtt{hnorm\_conj\_le}$
+of \noderef{CarnotSetting} (the second inequality of (2.17)), applied at this $\mu$,
+there is $c_1>0$ with
+\[
+ \Big\|\big((-a)*b\big)*a\Big\|\le c_1\|b\|^{1/r}\qquad(\|a\|<\mu,\ \|b\|<\mu).
+\]
+Taking $a:=x$, $b:=z_x$ and using associativity of $*$ in the form
+$(-x)*(z_x*x)=\big((-x)*z_x\big)*x$,
+\[
+ d(z_x*x,\ x)=\big\|(-x)*(z_x*x)\big\|\le c_1\|z_x\|^{1/r}\le c_1(2R\eps)^{1/(qr)} . \tag{6}
+\]
+The right-hand side tends to $0$ as $\eps\to0^{+}$ and does not depend on $x$, so there is
+$\eps_3\in(0,1]$ such that
+\[
+ d(z_x*x,\ x)<\frac{\rho_N}{2c_0}\qquad\text{for all }\eps\in(0,\eps_3)\text{ and all }x\in\Om[\eps].
+ \tag{7}
+\]
+Both $z_x*x$ and $x$ lie in $\bar\Om$ (by (4) and $\Om[\eps]\subseteq\Om$), so (3) and (7)
+give
+\[
+ |z_x*x-x|\ \le\ c_0\,d(z_x*x,x)\ <\ \frac{\rho_N}2 . \tag{8}
+\]
+
+Now let $\eps_2>0$ be the radius furnished by item 3 of Step 0 for
+$\eta:=\dfrac{\rho_N}{2c_0}$, and set
+\[
+ \eps^{*}:=\min\{\eps_1,\eps_2,\eps_3\}>0 .
+\]
+Let $\eps\in(0,\eps^{*})$ and let $x\in\Om[\eps]$ be a point at which
+$u^{\eps}-\tilde v_{\eps}$ is maximal over $\overline{\Om[\eps]}$. By item 3 there is $p\in E$
+with $d(x,p)<\rho_N/(2c_0)$, and $x,p\in\bar\Om$, so (3) gives $|x-p|<\rho_N/2$. Combined
+with (8),
+\[
+ |z_x*x-p|\le|z_x*x-x|+|x-p|<\frac{\rho_N}2+\frac{\rho_N}2=\rho_N ,
+\]
+and therefore, by (2),
+\[
+ z_x*x\in N . \tag{9}
+\]
+
+\medskip\noindent\textbf{Step 6: the two derivatives at $x$.} Keep $\eps\in(0,\eps^{*})$ and
+$x$ as at the end of Step 5.
+
+\emph{(6a) $u^{\eps}$ and $v_{\eps}$ are differentiable at $x$, with the same derivative.}
+By item 2(c), $u^{\eps}$ is locally semi-convex and $\tilde v_{\eps}$ locally semi-concave on
+$\Om[\eps]$. Since $x\in\Om[\eps]\subseteq\overline{\Om[\eps]}$ and $u^{\eps}-\tilde v_{\eps}$
+is maximal over $\overline{\Om[\eps]}$ at $x$, it is in particular maximal over the subset
+$\Om[\eps]$ at $x$. The second clause of \noderef{SemiConvexDiffAtMax}, applied with the set
+$\Om[\eps]$, the locally semi-convex $u^{\eps}$ and the locally semi-concave
+$\tilde v_{\eps}$, therefore gives a continuous linear functional $D_0$ which is the
+derivative of $u^{\eps}$ at $x$ \emph{and} the derivative of $\tilde v_{\eps}$ at $x$. As
+$\tilde v_{\eps}=v_{\eps}+\tau$ with $\tau$ constant, $D_0$ is also the derivative of
+$v_{\eps}$ at $x$. This is the paper's "$v_\eps$ is differentiable at $x$ (Section
+Section~2.3(1))" together with "$\mathcal Xu^{\eps}=\mathcal Xv_{\eps}$ on $E_\eps$".
+
+\emph{(6b) $\varphi$ is differentiable at $x$.} By (9), $z_x*x\in N$; $N$ is open and $v$ is
+$C^{1}$ on $N$, so $v$ is differentiable at $z_x*x$; let $D_v$ be its derivative there. The
+map $y\mapsto z_x*y$ is $C^{\infty}$ (a partial application of the $C^{\infty}$ group law,
+\noderef{CarnotSetting}), so by the chain rule $y\mapsto v(z_x*y)$ is differentiable at $x$;
+let $D'$ be its derivative. Adding the constant $K$ does not change the derivative, so $D'$
+is the derivative of $\varphi$ at $x$.
+
+\emph{(6c) the derivatives coincide.} By (5), $v_{\eps}-\varphi\le0$ on $\Om[\eps]$ with
+equality at $x$. The set $\Om[\eps]$ is open (item (4) of \noderef{ReducedDomainProperties},
+using $\eps>0$, $\Om$ open and bounded with non-empty complement, $R\ge0$) and contains $x$,
+so $v_{\eps}-\varphi$ has a local maximum at $x$. Both $v_{\eps}$ and $\varphi$ are
+differentiable at $x$, by (6a) and (6b), so $v_{\eps}-\varphi$ is differentiable at $x$ with
+derivative $D_0-D'$; a differentiable function with a local maximum at an interior point has
+vanishing derivative there, so
+\[
+ D_0=D' . \tag{10}
+\]
+This is the paper's "the right-hand side is then a $C^{1}$ function of $x'$ near $x$ touching
+the differentiable function $v_\eps$ from above at $x$, so their gradients coincide at $x$".
+Only differentiability of $\varphi$ \emph{at} $x$ is used, which is why (6b) needs $v$
+differentiable only at the single point $z_x*x$.
+
+\medskip\noindent\textbf{Step 7: transporting the non-vanishing.} We have: $D_v$ is the
+derivative of $v$ at $z_x*x$, and $D'$ is the derivative of $y\mapsto v(z_x*y)$ at $x$.
+\noderef{LeftTranslateHgrad}, applied with the function $v$, the group element $g:=z_x$ and
+the point $x$, gives
+\[
+ \mathrm{hgrad}\ \sigma\ x\ D'\ =\ \mathrm{hgrad}\ \sigma\ (z_x*x)\ D_v . \tag{11}
+\]
+(This is the paper's "by left invariance
+$\mathcal Xv_\eps(x)=\mathcal X(v\circ L_{z_x})(x)=(\mathcal Xv)(z_x*x)$". The second-order
+left-invariance clause $\mathtt{leftJet}$ of \noderef{CarnotSetting} is unusable here: it
+requires a second-order jet of the function at $z_x*x$, whereas $v$ is assumed only $C^{1}$
+and $v_\eps$ is only once differentiable at $x$. That is precisely what
+\noderef{LeftTranslateHgrad} supplies.)
+
+By (9) and the hypothesis of (1), $\mathrm{hgrad}\ \sigma\ (z_x*x)\ D_v\ne0$; so by (11) and
+(10),
+\[
+ \mathrm{hgrad}\ \sigma\ x\ D_0=\mathrm{hgrad}\ \sigma\ x\ D'\ne0 . \tag{12}
+\]
+
+\medskip\noindent\textbf{Step 8: the sequence, and conclusion of (1).} Define
+\[
+ \eps_k:=\frac{\eps^{*}}{k+2}\qquad(k\in\mathbb N),
+\]
+so $0<\eps_k<\eps^{*}$ for every $k$ and $\eps_k\to0$.
+
+We check the non-degeneracy hypothesis of \noderef{ComparisonUnderNondegeneracy} for this
+family. Let $k\in\mathbb N$, let $x\in\Om[\eps_k]$ be such that $u^{\eps_k}-v_{\eps_k}$ is
+maximal over $\overline{\Om[\eps_k]}$ at $x$, and let $D$ be the derivative of $u^{\eps_k}$
+at $x$. By (1) of Step 0, $u^{\eps_k}-\tilde v_{\eps_k}$ is also maximal over
+$\overline{\Om[\eps_k]}$ at $x$, so Steps 3--7 apply with $\eps:=\eps_k$ and this $x$, giving
+$D_0$ as in (6a) with (12). Since the Fréchet derivative of $u^{\eps_k}$ at $x$ is unique and
+both $D$ and $D_0$ are derivatives of $u^{\eps_k}$ at $x$, we get $D=D_0$ and hence
+$\mathrm{hgrad}\ \sigma\ x\ D\ne0$ by (12). That is the required hypothesis.
+
+All the other hypotheses of \noderef{ComparisonUnderNondegeneracy} are our own: the cited
+results, the structure conditions on $(A,H)$, $\Om$ bounded open with non-empty complement,
+$u,v$ continuous on $\bar\Om$, the viscosity inequalities, $u\le v$ on $\del\Om$, and $R\ge0$
+with $|u|,|v|\le R/2$ on $\bar\Om$. It therefore yields $u\le v$ in $\Om$, contradicting
+$u(x_0)>v(x_0)$. Hence (1) holds.
+
+\medskip\noindent\textbf{Step 9: part (2), the symmetric orientation.} Assume now the
+hypotheses of (2) and suppose again $u(x_0)>v(x_0)$ for some $x_0\in\Om$. Steps 0, 1, 2 and
+the choice of $\eps_1,\eps_2$ are unchanged. In Step 3 we use instead the \emph{second}
+clause of \noderef{SupConvAttainment} (the one for $\mathrm{SupConv}$), with the same
+$M_u=M_v=R/2$ and the same constant moduli: for every $x\in\Om[\eps]$ there is $z_x$ with
+\[
+ z_x*x\in\bar\Om,\quad
+ u^{\eps}(x)=u(z_x*x)-\frac{\|z_x\|^{q}}{2\eps},\quad
+ \|z_x\|^{q}\le2R\eps,\quad z_x*x'\in\Om\ \ \forall x'\in\Om[\eps].
+\]
+In Step 4, put $\psi(x'):=u(z_x*x')-\|z_x\|^{q}/(2\eps)$; for $x'\in\Om[\eps]$ the point
+$z_x$ belongs to the index set of the supremum defining $u^{\eps}(x')$ (\noderef{SupConv}),
+and that supremum is over a non-empty family bounded above (each member is
+$u(p*x')-\|p\|^{q}/(2\eps)\le R/2$, by $|u|\le R/2$ on $\bar\Om$ and $\|p\|\ge0$, $\eps>0$),
+so a supremum is $\ge$ each member:
+\[
+ u^{\eps}(x')\ \ge\ \psi(x')\qquad(x'\in\Om[\eps]),\qquad\text{with equality at }x'=x .
+\]
+Steps 5 and (6a) are verbatim; in (6b), $u$ is $C^{1}$ on $N$ and $z_x*x\in N$, so $u$ is
+differentiable at $z_x*x$ with derivative $D_u$, and $y\mapsto u(z_x*y)$ is differentiable at
+$x$ with some derivative $D'$, which is also the derivative of $\psi$ at $x$. In (6c) the
+roles reverse: $u^{\eps}-\psi\ge0$ on the open $\Om[\eps]$ with equality at $x$, so
+$u^{\eps}-\psi$ has a local \emph{minimum} at $x$; it is differentiable there with derivative
+$D_0-D'$ (with $D_0$ the derivative of $u^{\eps}$ at $x$ from (6a)), and a differentiable
+function with a local minimum at an interior point has vanishing derivative, so again
+$D_0=D'$. Step 7 is \noderef{LeftTranslateHgrad} applied to the function $u$ with $g:=z_x$,
+giving $\mathrm{hgrad}\ \sigma\ x\ D'=\mathrm{hgrad}\ \sigma\ (z_x*x)\ D_u\ne0$ by the
+hypothesis of (2) and (9). Step 8 is unchanged --- indeed slightly shorter, since $D_0$ is
+already a derivative of $u^{\eps}$ at $x$ and uniqueness of the Fréchet derivative gives
+$D=D_0$ directly. So $\mathrm{hgrad}\ \sigma\ x\ D\ne0$, and
+\noderef{ComparisonUnderNondegeneracy} gives $u\le v$ in $\Om$, contradicting
+$u(x_0)>v(x_0)$. Hence (2) holds.
+\end{proof}

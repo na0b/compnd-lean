@@ -1,0 +1,19 @@
+\begin{definition}[Horizontal gradient of a $1$-jet, (2.6)]
+Let $n,m\in\mathbb N$, let
+$\sigma:\mathbb R^n\to\mathbb R^{n\times m}$, $\sigma(x)=[\sigma^1(x),\ldots,\sigma^m(x)]$,
+be a frame of $m$ vector fields on $\mathbb R^n$, so that the associated first-order
+operators are $X_i=\sigma^i(x)\cdot\nabla$. For $x\in\mathbb R^n$ and a $1$-jet
+$D:\mathbb R^n\to\mathbb R$, the \emph{horizontal gradient of $D$ at $x$} is the vector
+$\mathrm{hgrad}\ \sigma\ x\ D\in\mathbb R^m$ with components
+\[
+ \big(\mathrm{hgrad}\ \sigma\ x\ D\big)_i\ =\ D\big(\sigma^i(x)\big),
+ \qquad i=1,\ldots,m .
+\]
+
+If $u$ is differentiable at $x$ and $D=\nabla u(x)$, then
+$D(\sigma^i(x))=\langle\nabla u(x),\sigma^i(x)\rangle=X_iu(x)$, so
+$\mathrm{hgrad}\ \sigma\ x\ \nabla u(x)=\mathcal Xu(x)=\sigma(x)^T\nabla u(x)$ is the
+horizontal gradient $(X_1u(x),\ldots,X_mu(x))$ of (2.6). Stating it on $1$-jets rather
+than on functions is what (2.10) does: it makes the operator a function of a point and a
+jet, so that no notion of horizontal derivative of a non-smooth function is needed.
+\end{definition}

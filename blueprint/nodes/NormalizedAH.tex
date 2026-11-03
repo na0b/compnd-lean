@@ -1,0 +1,26 @@
+\begin{definition}[The normalization (2.3)]
+Let $m\in\mathbb N$, let $A:\mathbb R^m\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^m\to\mathbb R$. We say that $(A,H)$ is \emph{normalized}, written
+$\mathrm{NormalizedAH}\ m\ A\ H$, if
+\[
+ A(t\xi)=A(\xi)\qquad\text{and}\qquad H(t\xi)=t\,H(\xi)
+ \qquad\text{for all }t>0\text{ and all }\xi\in\mathbb R^m\setminus\{0\} ,
+\]
+that is, $A$ is $0$-homogeneous and $H$ is $1$-homogeneous along every ray through the
+origin.
+
+This is (2.3). It is the form to which the pair $(A,H)$ is reduced in Section
+Section~2.1: under (E) and (S) one has $A(\xi)=a(\xi)A_0(\xi/|\xi|)$ and
+$H(\xi)=|\xi|a(\xi)H_0(\xi/|\xi|)$ with $a>0$ continuous, and replacing $(A,H)$ by
+$(A_0(\xi/|\xi|),\,|\xi|H_0(\xi/|\xi|))$ changes neither the viscosity sub-solutions nor
+the viscosity super-solutions of (1.8), while making (S) hold with $\kappa\equiv1$.
+Being normalized is strictly stronger than (S) --- it is (S) for all $t>0$ with
+$\kappa\equiv1$ --- and it is the standing assumption of the paper from Section
+Section~2 on. Two consequences used repeatedly: $\mathcal E(\xi)=\langle
+A(\xi)\xi,\xi\rangle$ is $2$-homogeneous, so under (E) it is bounded below by
+$e_0|\xi|^2$ with $e_0=\min_{|\omega|=1}\mathcal E(\omega)>0$ ((2.4)); and the exact
+relabelling identity (2.5),
+$-t\,\mathrm{Tr}(A(t\xi)X)+H(t\xi)=t\,[-\mathrm{Tr}(A(\xi)X)+H(\xi)]$, holds for every
+$t>0$, every $\xi\neq0$ and every symmetric $X$. Note also that $A$ and $H$ are then
+determined by their values on the unit sphere, hence bounded on bounded sets.
+\end{definition}

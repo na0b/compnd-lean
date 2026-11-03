@@ -1,0 +1,124 @@
+\begin{lemma}[Lemma~3.6]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, first-layer projection $\pi_1$, horizontal exponential
+$\exp_{\mathbb G}$ and frame $\sigma$; let $\Om\subseteq\mathbb R^{n}$, let $\delta>0$ and
+let $u,v:\mathbb R^{n}\to\mathbb R$. Write $\Om_\delta$ for the inner domain
+(\noderef{TranslatedDomain}), $M_\delta(g)$ for the translated maximum value
+(\noderef{MaxTranslate}) and $u_g:=u(\cdot*g)$. Assume
+\begin{enumerate}
+\item for every $g$ with $\|g\|<\delta$ there is $z\in\Om_\delta$ such that $u_g-v$ is
+  maximal over $\Om_\delta$ at $z$ and $M_\delta(g)=u(z*g)-v(z)$.
+\end{enumerate}
+Let $h$ satisfy $\|h\|<\delta$ and let $\xi\in\mathbb R^{m}$ be such that $M_\delta$ is
+Pansu differentiable at $h$ with horizontal differential $\xi$
+(\noderef{HasPansuGradAt}). Let $x\in\Om_\delta$ be a point at which $u_h-v$ is maximal
+over $\Om_\delta$, and let $D$ be the derivative of $u$ at $x*h$. Then
+\[
+ \mathrm{hgrad}\ \sigma\ (x*h)\ D\ =\ \xi \qquad(\noderef{hgrad}).
+\]
+\end{lemma}
+\begin{proof}
+This is Lemma~3.6. Hypothesis (1) is the attainment assertion of Lemma~3.4(c), restated
+here as a condition on the data. Write $\xi_0:=\mathrm{hgrad}\ \sigma\ (x*h)\ D$, which in
+the paper's notation is $\mathcal Xu(x*h)$, and
+$\langle\alpha,\beta\rangle:=\sum_{i=1}^{m}\alpha_i\beta_i$ for $\alpha,\beta\in\mathbb R^{m}$.
+
+\medskip\noindent\textbf{Step 0: $M_\delta(h)=u(x*h)-v(x)$.} By hypothesis (1) at $g:=h$
+there is $z\in\Om_\delta$ with $u_h-v$ maximal over $\Om_\delta$ at $z$ and
+$M_\delta(h)=u(z*h)-v(z)$. Both $x$ and $z$ lie in $\Om_\delta$ and both maximize $u_h-v$
+over $\Om_\delta$, so $u(x*h)-v(x)=u(z*h)-v(z)=M_\delta(h)$.
+
+\medskip\noindent\textbf{Step 1: the curves $g_t$.} Fix $\zeta\in\mathbb R^{m}$ and put
+\[
+ g_t:=\exp_{\mathbb G}(t\zeta)\qquad(t\in\mathbb R),
+\]
+which is the paper's $g_t=\exp\big(t\sum_i\zeta_iX_i\big)$. By \noderef{CarnotSetting},
+\[
+ \pi_1(g_t)=t\zeta,\qquad \|g_t\|=|t|\,|\zeta| , \tag{1}
+\]
+the first because $\pi_1\circ\exp_{\mathbb G}$ is the identity of $\mathbb R^{m}$ and the
+second because $\|\exp_{\mathbb G}(\eta)\|=|\eta|$ for every $\eta\in\mathbb R^{m}$, applied
+with $\eta:=t\zeta$. In particular $g_0=\exp_{\mathbb G}(0)$ has $\|g_0\|=0$, hence
+$g_0=0$ since $\|\cdot\|$ vanishes only at $0$.
+
+\emph{For $|t|$ small, $\|h*g_t\|<\delta$.} The map $t\mapsto\|h*g_t\|$ is continuous:
+$\exp_{\mathbb G}$ is continuous, the group law is $C^{\infty}$ hence continuous, and
+$\|\cdot\|$ is continuous (\noderef{CarnotSetting}). At $t=0$ its value is
+$\|h*g_0\|=\|h*0\|=\|h\|<\delta$. So there is $t_1>0$ with
+\[
+ \|h*g_t\|<\delta\qquad\text{for }|t|<t_1 . \tag{2}
+\]
+Note that no quasi-triangle inequality is used here; only continuity.
+
+If $\zeta=0$ then $\langle\xi-\xi_0,\zeta\rangle=0$ trivially, so we may and do assume
+$\zeta\ne0$, i.e. $|\zeta|>0$.
+
+\medskip\noindent\textbf{Step 2: the lower bound from $u$.} Let $\varepsilon>0$. By
+\noderef{CarnotSetting} (the Taylor formula (2.18)), since $D$ is the derivative of $u$
+at $x*h$, the function $u$ is Pansu differentiable at $x*h$ with horizontal differential
+$\mathrm{hgrad}\ \sigma\ (x*h)\ D=\xi_0$. By \noderef{HasPansuGradAt} there is
+$\delta_u>0$ with
+\[
+ \Big|u\big((x*h)*g\big)-u(x*h)-\langle\xi_0,\pi_1(g)\rangle\Big|\le\varepsilon\|g\|
+ \qquad\text{whenever }\|g\|<\delta_u . \tag{3}
+\]
+Also, $M_\delta$ is Pansu differentiable at $h$ with horizontal differential $\xi$, so by
+\noderef{HasPansuGradAt} there is $\delta_M>0$ with
+\[
+ \Big|M_\delta(h*g)-M_\delta(h)-\langle\xi,\pi_1(g)\rangle\Big|\le\varepsilon\|g\|
+ \qquad\text{whenever }\|g\|<\delta_M . \tag{4}
+\]
+Put
+\[
+ t_2:=\min\Big\{t_1,\ \frac{\delta_u}{2|\zeta|},\ \frac{\delta_M}{2|\zeta|}\Big\}>0 .
+\]
+For $0<|t|<t_2$ we have, by (1), $\|g_t\|=|t||\zeta|<\delta_u$ and $\|g_t\|<\delta_M$, and
+$\|h*g_t\|<\delta$ by (2).
+
+Fix such a $t$. Since $\|h*g_t\|<\delta$, hypothesis (1) applies at $g:=h*g_t$ and gives
+$z_t\in\Om_\delta$ with $u_{h*g_t}-v$ maximal over $\Om_\delta$ at $z_t$ and
+$M_\delta(h*g_t)=u\big(z_t*(h*g_t)\big)-v(z_t)$. Applying that maximality at the point
+$x\in\Om_\delta$,
+\[
+ M_\delta(h*g_t)\ \ge\ u\big(x*(h*g_t)\big)-v(x)=u\big((x*h)*g_t\big)-v(x), \tag{5}
+\]
+the last equality by associativity of $*$. This is the paper's "since $x\in\Om_\delta$,
+$M_\delta(h*g_t)\ge u(x*h*g_t)-v(x)$".
+
+Combining (5), then (3) with $g:=g_t$, then Step 0 and (1),
+\[
+ M_\delta(h*g_t)\ \ge\ u(x*h)+\langle\xi_0,t\zeta\rangle-\varepsilon|t||\zeta|-v(x)
+ \ =\ M_\delta(h)+t\langle\xi_0,\zeta\rangle-\varepsilon|t||\zeta| . \tag{6}
+\]
+
+\medskip\noindent\textbf{Step 3: the upper bound from $M_\delta$.} By (4) with $g:=g_t$ and
+(1),
+\[
+ M_\delta(h*g_t)\ \le\ M_\delta(h)+t\langle\xi,\zeta\rangle+\varepsilon|t||\zeta| . \tag{7}
+\]
+
+\medskip\noindent\textbf{Step 4: comparing $t>0$ and $t<0$.} From (6) and (7), for every
+$t$ with $0<|t|<t_2$,
+\[
+ t\langle\xi_0,\zeta\rangle-\varepsilon|t||\zeta|\ \le\ t\langle\xi,\zeta\rangle+\varepsilon|t||\zeta| ,
+ \qquad\text{i.e.}\qquad
+ t\,\langle\xi_0-\xi,\zeta\rangle\ \le\ 2\varepsilon|t||\zeta| . \tag{8}
+\]
+Taking $t:=t_2/2>0$ in (8) and dividing by $t>0$ gives
+$\langle\xi_0-\xi,\zeta\rangle\le2\varepsilon|\zeta|$. Taking $t:=-t_2/2<0$ in (8) and
+dividing by $t<0$ (which reverses the inequality) gives
+$\langle\xi_0-\xi,\zeta\rangle\ge-2\varepsilon|\zeta|$. Hence
+\[
+ \big|\langle\xi_0-\xi,\zeta\rangle\big|\ \le\ 2\varepsilon|\zeta| .
+\]
+Since $\varepsilon>0$ was arbitrary and $|\zeta|$ does not depend on $\varepsilon$, we
+conclude $\langle\xi_0-\xi,\zeta\rangle=0$. This is the paper's "comparing for $t>0$ and
+$t<0$ yields $\langle\mathcal Xu(x*h)-\mathcal X_hM_\delta(h),\zeta\rangle=0$".
+
+\medskip\noindent\textbf{Step 5: conclusion.} The vector $\zeta\in\mathbb R^{m}$ was
+arbitrary (the case $\zeta=0$ being trivial, as noted in Step 1), so
+$\langle\xi_0-\xi,\zeta\rangle=0$ for every $\zeta\in\mathbb R^{m}$. Taking
+$\zeta:=\xi_0-\xi$ gives $|\xi_0-\xi|^{2}=0$, i.e. $\xi_0=\xi$, which is the assertion
+$\mathrm{hgrad}\ \sigma\ (x*h)\ D=\xi$. Since $x$ was an arbitrary maximal point, all
+maximal points share this horizontal gradient, as the paper remarks.
+\end{proof}

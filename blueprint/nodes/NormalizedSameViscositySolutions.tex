@@ -1,0 +1,104 @@
+\begin{theorem}[Section~2.1: a positive factor does not change the viscosity solutions]
+Let $\mathbb G$ be a Carnot setting (\noderef{CarnotSetting}) with horizontal frame
+$\sigma$, and let
+$A,A_0:\mathbb R^{m}\to\mathbb R^{m\times m}$, $H,H_0:\mathbb R^{m}\to\mathbb R$ and
+$a:\mathbb R^{m}\to\mathbb R$ satisfy, for every $\xi\in\mathbb R^{m}\setminus\{0\}$,
+\[
+ a(\xi)>0,\qquad A(\xi)=a(\xi)\,A_0(\xi),\qquad H(\xi)=a(\xi)\,H_0(\xi).
+\]
+Then for every $\Omega\subseteq\mathbb R^{n}$ and every $u:\mathbb R^{n}\to\mathbb R$,
+\[
+ u \text{ is a viscosity sub-solution of } \mathcal Lu=0 \text{ in }\Omega
+ \iff
+ u \text{ is a viscosity sub-solution of } \mathcal L_0u=0 \text{ in }\Omega,
+\]
+and the same equivalence holds for viscosity super-solutions. Here $\mathcal L$ and
+$\mathcal L_0$ denote the operators determined by $(A,H)$ and by $(A_0,H_0)$ in
+\noderef{IsViscSubsol} and \noderef{IsViscSupersol}.
+\end{theorem}
+\begin{proof}
+\noindent\textbf{Step 1: the pointwise factorization of the operator.} Fix
+$x\in\mathbb R^{n}$, a $1$-jet $D$ and a $2$-jet $B$ on $\mathbb R^{n}$, and abbreviate
+\[
+ \xi:=\mathrm{hgrad}\ \sigma\ x\ D\in\mathbb R^{m}\quad(\noderef{hgrad}),
+ \qquad
+ X:=\mathrm{hhessS}\ \sigma\ x\ D\ B\in\mathbb R^{m\times m}\quad(\noderef{hhessS}).
+\]
+Assume $\xi\ne0$. By \noderef{Lop},
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B=-\mathrm{Tr}\big(A(\xi)\,X\big)+H(\xi),
+ \qquad
+ \mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B=-\mathrm{Tr}\big(A_0(\xi)\,X\big)+H_0(\xi).
+\]
+Since $\xi\ne0$, the hypotheses give $A(\xi)=a(\xi)A_0(\xi)$ and $H(\xi)=a(\xi)H_0(\xi)$.
+Scalar multiplication passes through matrix multiplication,
+$\big(a(\xi)A_0(\xi)\big)X=a(\xi)\big(A_0(\xi)X\big)$, and the trace is homogeneous,
+$\mathrm{Tr}\big(a(\xi)M\big)=a(\xi)\mathrm{Tr}(M)$. Therefore
+\[
+ \mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B
+  =-a(\xi)\,\mathrm{Tr}\big(A_0(\xi)X\big)+a(\xi)\,H_0(\xi)
+  =a(\xi)\Big[-\mathrm{Tr}\big(A_0(\xi)X\big)+H_0(\xi)\Big]
+  =a(\xi)\;\mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B . \tag{1}
+\]
+This is the identity $\mathcal L\varphi(x)=a(\mathcal X\varphi(x))\,\mathcal L_0\varphi(x)$
+of Section Section~2.1. Note where the hypothesis $\xi\ne0$ was used: it is the only point at
+which the factorizations of $A$ and $H$ are available, since they are assumed only away from
+the origin.
+
+\medskip\noindent\textbf{Step 2: sub-solutions, the implication
+$\mathcal L\Rightarrow\mathcal L_0$.} By \noderef{IsViscSubsol}, the statement that $u$ is a
+viscosity sub-solution for $(A,H)$ in $\Omega$ is the conjunction of
+\begin{itemize}
+\item[(a)] $u$ is upper semi-continuous on $\Omega$; and
+\item[(b)] for every $x\in\Omega$, every $\varphi\in C^{2}(\Omega)$ with
+  $x\in\mathrm{argmax}_\Omega(u-\varphi)$ and every second-order jet $(D,B)$ of $\varphi$ at
+  $x$ with $\mathrm{hgrad}\ \sigma\ x\ D\ne0$, one has
+  $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le0$,
+\end{itemize}
+and the corresponding statement for $(A_0,H_0)$ is the conjunction of the same clause (a)
+with the clause (b$_0$) obtained from (b) by replacing $(A,H)$ with $(A_0,H_0)$. Clause (a)
+is literally the same in the two cases, since it does not mention $A$ or $H$. Moreover the
+data over which (b) and (b$_0$) quantify are the same: the conditions
+$\varphi\in C^{2}(\Omega)$, $x\in\mathrm{argmax}_\Omega(u-\varphi)$, "$(D,B)$ is a
+second-order jet of $\varphi$ at $x$" and $\mathrm{hgrad}\ \sigma\ x\ D\ne0$ involve only
+$\sigma$, $\varphi$, $u$ and $\Omega$ — by \noderef{hgrad}, the horizontal gradient of a jet
+depends on the frame and the jet alone, not on $A$ or $H$.
+
+So assume (b) and let $x,\varphi,D,B$ be admissible data, with $\xi:=\mathrm{hgrad}\ \sigma\
+x\ D\ne0$. By (b), $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B\le0$, and by Step 1 this reads
+\[
+ a(\xi)\;\mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B\ \le\ 0=a(\xi)\cdot0 .
+\]
+Since $a(\xi)>0$ by hypothesis, we may cancel the factor $a(\xi)$ from this inequality
+between products with a common positive left factor, obtaining
+$\mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B\le0$. This is (b$_0$).
+
+\medskip\noindent\textbf{Step 3: sub-solutions, the converse implication.} Assume (b$_0$)
+and let $x,\varphi,D,B$ be admissible data with $\xi\ne0$. By (b$_0$),
+$\mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B\le0$. Multiplying this inequality by the
+non-negative number $a(\xi)$ preserves it, so
+$a(\xi)\,\mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B\le a(\xi)\cdot0=0$, and by Step 1 the
+left-hand side is $\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$. This is (b).
+
+Steps 2 and 3 together with the identity of clause (a) give the asserted equivalence for
+sub-solutions.
+
+\medskip\noindent\textbf{Step 4: super-solutions.} The argument is the same with
+\noderef{IsViscSupersol} in place of \noderef{IsViscSubsol}. There clause (a) reads "$u$ is
+lower semi-continuous on $\Omega$", again not mentioning $A$ or $H$; the admissible data are
+those with $x\in\mathrm{argmin}_\Omega(u-\varphi)$ in place of $\mathrm{argmax}$, again not
+mentioning $A$ or $H$; and the required conclusion is
+$0\le\mathrm{Lop}\ \sigma\ A\ H\ x\ D\ B$, respectively
+$0\le\mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B$. Given the first, Step 1 turns it into
+$a(\xi)\cdot0=0\le a(\xi)\,\mathrm{Lop}\ \sigma\ A_0\ H_0\ x\ D\ B$, and cancelling the
+positive factor $a(\xi)$ gives the second; given the second, multiplying by the non-negative
+$a(\xi)$ and applying Step 1 gives the first.
+
+\medskip\noindent\emph{Remark.} The clause that makes the whole equivalence work is the
+restriction, built into \noderef{IsViscSubsol} and \noderef{IsViscSupersol} after
+Definition Definition~2.1, that test functions are only ever evaluated at points where their
+horizontal gradient does not vanish. That is exactly the hypothesis $\xi\ne0$ under which
+Step 1 is available and under which $a(\xi)$ is known to be positive; without it the factor
+$a$ could not be used at all, since nothing is assumed about $A$, $H$, $A_0$, $H_0$ or $a$
+at the origin.
+\end{proof}

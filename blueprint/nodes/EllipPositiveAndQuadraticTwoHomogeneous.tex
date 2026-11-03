@@ -1,0 +1,48 @@
+\begin{lemma}[Positivity of $\mathcal E$ under (E), and $2$-homogeneity of the quadratic form]
+Let $m\in\mathbb N$, let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$, and assume $(A,H)$ satisfies the structure conditions (E) and
+(S) of section Section~1.2 (\noderef{StructureConditionsES}). Then, with $\mathcal E$ the
+ellipticity function (1.9) of \noderef{Ellip}:
+\begin{enumerate}
+\item $\mathcal E_A(\eta)>0$ for every $\eta\in\mathbb R^{m}$ with $\eta\ne0$;
+\item for every matrix $M\in\mathbb R^{m\times m}$, every $s\in\mathbb R$ and every
+  $\eta\in\mathbb R^{m}$,
+  \[
+   \sum_{i}\sum_{j}M_{i,j}(s\eta)_j(s\eta)_i\ =\ s^{2}\sum_{i}\sum_{j}M_{i,j}\eta_j\eta_i .
+  \]
+\end{enumerate}
+(Part (2) uses no hypothesis on $A$, $H$ or $M$: it is the $2$-homogeneity of a quadratic
+form in its vector slot, the matrix being held fixed.)
+\end{lemma}
+\begin{proof}
+\noindent\textbf{Part (1).} By \noderef{Ellip}, the ellipticity function (1.9) is by
+definition the double sum
+\[
+ \mathcal E_A(\eta)=\langle A(\eta)\eta,\eta\rangle=\sum_{i}\sum_{j}A(\eta)_{i,j}\eta_j\eta_i .
+\]
+Condition (E) of \noderef{StructureConditionsES} asserts precisely that
+$\sum_{i}\sum_{j}A(\eta)_{i,j}\eta_j\eta_i>0$ for every $\eta\ne0$. The two expressions are
+the same, so (1) is condition (E) read through the definition of $\mathcal E$.
+
+\medskip\noindent\textbf{Part (2).} Fix $M$, $s$ and $\eta$. Scalar multiplication on
+$\mathbb R^{m}$ is coordinatewise, so $(s\eta)_k=s\,\eta_k$ for every index $k$. Hence, for
+each pair $(i,j)$,
+\[
+ M_{i,j}(s\eta)_j(s\eta)_i=M_{i,j}\,(s\eta_j)(s\eta_i)=s^{2}\,M_{i,j}\eta_j\eta_i ,
+\]
+by commutativity and associativity of multiplication in $\mathbb R$. Both index sets are
+finite, so multiplication by the constant $s^{2}$ distributes over the sums: for each fixed
+$i$,
+\[
+ \sum_{j}M_{i,j}(s\eta)_j(s\eta)_i=\sum_{j}s^{2}M_{i,j}\eta_j\eta_i
+  =s^{2}\sum_{j}M_{i,j}\eta_j\eta_i ,
+\]
+and summing these identities over $i$, again pulling the constant $s^{2}$ out of the finite
+outer sum,
+\[
+ \sum_{i}\sum_{j}M_{i,j}(s\eta)_j(s\eta)_i
+  =\sum_{i}s^{2}\sum_{j}M_{i,j}\eta_j\eta_i
+  =s^{2}\sum_{i}\sum_{j}M_{i,j}\eta_j\eta_i ,
+\]
+which is the asserted identity.
+\end{proof}

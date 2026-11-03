@@ -1,0 +1,42 @@
+\begin{definition}[Carnot group in exponential coordinates: the group data]
+A \emph{Carnot group datum} consists of three integers $n,m,r$ with $r\ge1$ together with
+\begin{itemize}
+\item a map $*:\mathbb R^n\times\mathbb R^n\to\mathbb R^n$ (the group law),
+\item a continuous linear map $\pi_1:\mathbb R^n\to\mathbb R^m$ (the projection onto the
+  first layer),
+\item a map $\exp_{\mathrm h}:\mathbb R^m\to\mathbb R^n$ (the horizontal exponential),
+\end{itemize}
+subject to the following conditions.
+\begin{enumerate}
+\item $(\mathbb R^n,*)$ is a group whose neutral element is the origin and whose inversion
+  is $x\mapsto-x$; explicitly, $(x*y)*z=x*(y*z)$, $x*0=x$, $0*x=x$, $x*(-x)=0$ and
+  $(-x)*x=0$, for all $x,y,z\in\mathbb R^n$.
+\item The group law is $C^\infty$ on $\mathbb R^n\times\mathbb R^n$.
+\item $\pi_1(x*y)=\pi_1(x)+\pi_1(y)$ for all $x,y\in\mathbb R^n$.
+\item $\exp_{\mathrm h}$ is continuous and $\pi_1(\exp_{\mathrm h}(\zeta))=\zeta$ for every
+  $\zeta\in\mathbb R^m$.
+\item If $r=1$ then the group law is commutative: $x*y=y*x$ for all $x,y$.
+\end{enumerate}
+
+These are the facts about a Carnot group $\mathbb G=(\mathbb R^n,*)$ of step $r$ with $m$
+generators, read in the exponential coordinates
+$x=\exp\big(\sum_{j\le r}\sum_{i\le m_j}x_{i,j}X_{i,j}\big)$ of Section Section~2.4,
+that the rest of the development uses at the group level. Item (1) and item (2) are the
+statement recorded there that in these coordinates the group law is polynomial, hence
+smooth, the neutral element is $0$ and $x^{-1}=-x$; writing the inverse as $-x$ rather than
+carrying it as separate data is a choice of coordinates, not an extra hypothesis. Item (3)
+is the identity $\pi_1(x*y)=\pi_1(x)+\pi_1(y)$: $\pi_1$ is a homomorphism onto the
+abelianization $\mathbb G/[\mathbb G,\mathbb G]\cong\mathbb R^m$, and it is linear because
+it is a coordinate projection. In item (4), $\exp_{\mathrm h}(\zeta)=\exp(\sum_i\zeta_iX_i)$
+is the point whose first-layer coordinates are $\zeta$ and whose higher-layer coordinates
+vanish, so $\pi_1\circ\exp_{\mathrm h}=\mathrm{id}$; in particular $\pi_1$ is surjective.
+Item (5) records that a Carnot group of step $1$ has $\mathfrak g=\mathfrak g_1$ with
+$[\mathfrak g_1,\mathfrak g_1]=\{0\}$, so it is the Euclidean additive group.
+
+The formalization note (item 3 of the note after Theorem Theorem~1.3) permits the
+structural facts of Section Section~2.4 to be built into the definition of the setting,
+provided every Carnot group in those coordinates satisfies the definition. Each condition
+above is one of those facts, so the proviso holds; in particular the Euclidean additive
+group on $\mathbb R^m$, with $n=m$, $r=1$, $x*y=x+y$, $\pi_1=\mathrm{id}$ and
+$\exp_{\mathrm h}=\mathrm{id}$, satisfies all five.
+\end{definition}

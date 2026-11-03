@@ -1,0 +1,721 @@
+\begin{theorem}[Proposition~3.3, the non-degenerate case]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with frame
+$\sigma=[\sigma^1,\ldots,\sigma^m]$, let $A:\mathbb R^{m}\to\mathbb R^{m\times m}$ and
+$H:\mathbb R^{m}\to\mathbb R$ satisfy the structure conditions (E) and (S)
+(\noderef{StructureConditionsES}) together with the normalization (2.3)
+(\noderef{NormalizedAH}), and assume the cited results of the literature at $\mathbb G$
+(\noderef{CitedResults}). Let $\Om\subset\mathbb R^{n}$ be a bounded open set, \emph{not
+necessarily connected}. Let $u,v:\mathbb R^{n}\to\mathbb R$ be continuous on $\bar\Om$,
+with $u$ locally semi-convex and $v$ locally semi-concave in $\Om$
+(\noderef{LocallySemiConvexOn}), and assume
+\begin{enumerate}
+\item $u\le v$ on $\del\Om$;
+\item $\mathcal Lu\le0\le\mathcal Lv$ in $\Om$ in the viscosity sense
+  (\noderef{IsViscSubsol}, \noderef{IsViscSupersol});
+\item (non-degeneracy) $\mathrm{hgrad}\ \sigma\ x\ D\ne0$ (\noderef{hgrad}) whenever
+  $x\in\argmax_\Om(u-v)$ and $D$ is a derivative of $u$ at $x$.
+\end{enumerate}
+Then $u\le v$ in $\Om$.
+\end{theorem}
+\begin{proof}
+This is Proposition~3.3. Throughout, balls, distances and $|\cdot|$ are Euclidean, and two
+matrix norms occur, on matrices of two different sizes. For an $m\times m$ horizontal
+matrix --- $A(\xi)$, $\mathcal X\mathcal X^{s}$, $N_k$, $\mathcal M$ --- we write $|X|$ for
+the Frobenius norm $\sqrt{\Tr(X^{T}X)}$, which is the norm the trace estimates of Step 4
+use, through $|\Tr(XY)|\le|X|\,|Y|$. For an $n\times n$ Euclidean Hessian --- $D^{2}P$,
+$D^{2}\tilde u$, $D^{2}v_1$ --- we write $\|X\|_{\rm op}:=\sup_{|h|=1}|Xh|$ for the
+operator norm; that is the convention in which the paper states its bound on $D^{2}P$ at
+(3.5), it is the one for which the constant $12\mu$ below is exact, and it is the one
+the ordering $X\le\|X\|_{\rm op}\I$ of Step 4 needs. The two families live on different
+spaces, so naming each norm where it is used costs nothing and avoids a false constant: in
+the Frobenius norm the bound of (6) would read $4\sqrt{n+8}\,\mu|x-x_1|^{2}$, not
+$12\mu|x-x_1|^{2}$. We use repeatedly that $\bar\Om$ is compact ($\Om$ is
+bounded) and that $\del\Om=\bar\Om\mns\Om$ ($\Om$ is open). Connectedness of $\Om$ is
+nowhere used; this matters because the reduced domains to which the proposition is later
+applied need not be connected.
+
+Suppose, for contradiction, that $u(x^{*})>v(x^{*})$ for some $x^{*}\in\Om$. Then
+\[
+ M_0:=\max_{\bar\Om}(u-v)\ \ge\ u(x^{*})-v(x^{*})\ >\ 0 ,
+\]
+the maximum being attained because $u-v$ is continuous on the compact set $\bar\Om$. Put
+\[
+ E:=\argmax_\Om(u-v)=\{x\in\Om:\ (u-v)(x)=M_0\} .
+\]
+Since $u-v\le0<M_0$ on $\del\Om$ by (1), every maximum point of $u-v$ over $\bar\Om$ lies
+in $\Om$, so $E=\{x\in\bar\Om:(u-v)(x)=M_0\}$ is non-empty; it is a closed subset of the
+compact set $\bar\Om$, hence $E$ is a non-empty compact subset of $\Om$.
+
+Fix $\tau$ with $0<\tau<M_0$ and put
+\[
+ v_1:=v+\tau .
+\]
+Then: $v_1$ is continuous on $\bar\Om$; $-v_1=-v-\tau$ is locally semi-convex in $\Om$
+(adding a constant changes neither $\ConvexOn$ nor the constant $\Lambda$ in
+\noderef{LocallySemiConvexOn}), i.e. $v_1$ is locally semi-concave; $v_1$ is a viscosity
+super-solution in $\Om$ by \noderef{AddConstPreservesSubsol}; $v_1$ has the same
+derivatives as $v$, hence the same horizontal gradients; and
+\[
+ M_1:=\max_{\bar\Om}(u-v_1)=M_0-\tau>0,\qquad \argmax_\Om(u-v_1)=E,\qquad
+ u-v_1\le-\tau\ \text{on}\ \del\Om . \tag{0}
+\]
+This is the paper's ``replacing $v$ by $v+\tau$ \dots; this does not change $E$,
+$\mathcal Xu$, $\mathcal Xv$''. We work with the pair $(u,v_1)$ from now on and derive a
+contradiction; that contradiction refutes $M_0>0$ and so proves $u\le v$ in $\Om$.
+
+\medskip\noindent\textbf{Step 0: two facts used repeatedly.}
+
+\emph{(0a) Second-order jets are unique.} If $(D,B)$ and $(D',B')$ are both second-order
+jets of $w$ at $x$ (\noderef{TwiceDiffAt}) then $D=D'$ and $B=B'$. Indeed, subtracting the
+two Peano estimates, for every $\varepsilon>0$ there is $\delta>0$ with
+\[
+ \Big|(D-D')(h)+\tfrac12(B-B')(h,h)\Big|\le2\varepsilon|h|^{2}\qquad (|h|<\delta).
+\]
+Fix $h\ne0$ and apply this with $h$ replaced by $\gamma h$, $0<\gamma<\delta/|h|$: by
+linearity and bilinearity,
+$\gamma(D-D')(h)+\frac{\gamma^{2}}2(B-B')(h,h)$ has absolute value
+$\le2\varepsilon\gamma^{2}|h|^{2}$. Dividing by $\gamma$ and letting $\gamma\to0^{+}$ gives
+$(D-D')(h)=0$; then dividing the remaining inequality by $\gamma^{2}/2$ gives
+$|(B-B')(h,h)|\le4\varepsilon|h|^{2}$ for every $\varepsilon>0$, i.e. $(B-B')(h,h)=0$ for
+every $h$. Since $B-B'$ is symmetric, polarization
+$2(B-B')(h,k)=(B-B')(h+k,h+k)-(B-B')(h,h)-(B-B')(k,k)$ gives $B=B'$. Consequently
+``$\mathcal Xw(x)$'' and ``$\mathcal X\mathcal X^{s}w(x)$'' are unambiguous at a point of
+twice differentiability, and we use that notation below.
+
+\emph{(0b) Adding a $C^{2}$ function preserves local semi-convexity.} If $w$ is locally
+semi-convex in $\Om$ and $g\in C^{2}(\Om)$, then $w+g$ is locally semi-convex in $\Om$.
+Indeed, given $x\in\Om$ pick $\rho>0$ and $\Lambda_1\ge0$ with $B(x,\rho)\subset\Om$ and
+$w+\frac{\Lambda_1}2|\cdot|^{2}$ convex on $B(x,\rho)$; shrinking $\rho$ we may assume
+$\bar B(x,\rho)\subset\Om$, so $D^{2}g$ is bounded on $B(x,\rho)$, say
+$D^{2}g\ge-\Lambda_2\I$ there with $\Lambda_2\ge0$. Then
+$g+\frac{\Lambda_2}2|\cdot|^{2}$ is a $C^{2}$ function with non-negative Hessian on the
+convex set $B(x,\rho)$, hence convex there, and the sum
+$(w+g)+\frac{\Lambda_1+\Lambda_2}2|\cdot|^{2}$ of two convex functions is convex on
+$B(x,\rho)$.
+
+\medskip\noindent\textbf{Step 1: relabelling.}
+
+\emph{(1a) $\theta:=\min_E|\mathcal Xu|>0$.} By (0), $E=\argmax_\Om(u-v_1)$, so by the
+second clause of \noderef{SemiConvexDiffAtMax} (applied to the locally semi-convex $u$ and
+the locally semi-concave $v_1$) both $u$ and $v_1$ are differentiable at every point of $E$,
+with equal derivatives there. The Fr\'echet derivative of a function at a point is unique,
+by an elementary first-order argument that is \emph{not} (0a): if $D$ and $D'$ both satisfy
+$u(x+h)-u(x)-D(h)=o(|h|)$ and $u(x+h)-u(x)-D'(h)=o(|h|)$, then $(D-D')(h)=o(|h|)$, and
+replacing $h$ by $\gamma h$ and dividing by $\gamma>0$ gives $(D-D')(h)=o(1)$ as
+$\gamma\to0^{+}$ with the left-hand side independent of $\gamma$, so $(D-D')(h)=0$ for
+every $h$. Hence $x\mapsto\mathcal Xu(x)$ is a well-defined map on $E$. It is continuous on $E$: if
+$x_k\to x$ in $E$ then all points lie in $\Om$ and $u$ is differentiable at each, so
+\noderef{SemiConvexGradPartialCont} gives $Du(x_k)\to Du(x)$ in the operator norm, and then
+$\mathcal Xu(x_k)\to\mathcal Xu(x)$ by \noderef{HgradTendstoOfTendsto}, applied with the
+frame $\sigma$ --- whose components are continuous, being smooth by
+\noderef{CarnotSetting} --- the points $x_k\to x$ and the jets $Du(x_k)\to Du(x)$. That node
+is the two-term split of $D_k(\sigma^{i}(x_k))-D_\infty(\sigma^{i}(x))$, in which the jets
+converge uniformly while the frame values stay bounded. Since $E$ is non-empty and
+compact, the continuous function $|\mathcal Xu|$ attains its minimum on $E$ at some
+$\bar x\in E$, and hypothesis (3) at $\bar x\in\argmax_\Om(u-v)=E$ gives
+$\mathcal Xu(\bar x)\ne0$. Hence $\theta:=\min_E|\mathcal Xu|=|\mathcal Xu(\bar x)|>0$.
+
+\emph{(1b) The relabelling and its elementary properties.} Since $u$ is continuous on the
+compact $\bar\Om$ there is $M\ge0$ with $|u|\le M$ on $\bar\Om$. For $\lambda>0$ set
+\[
+ \psi_\lambda(s):=s+\lambda e^{s},\qquad u_\lambda:=\psi_\lambda\circ u .
+\]
+By \noderef{ExpRelabelling}: $\psi_\lambda\in C^{2}(\mathbb R)$,
+$\psi_\lambda'\ge1$ and $\psi_\lambda''\ge0$ globally,
+\[
+ \psi_\lambda''(s)\ \ge\ \lambda':=\lambda e^{-M}>0\quad\text{for }|s|\le M,
+ \qquad\text{and}\qquad
+ \|u_\lambda-u\|_{L^\infty(\bar\Om)}\ \le\ \lambda e^{M} . \tag{1}
+\]
+The first three properties are exactly the hypotheses of the first clause of
+\noderef{SemiConvexCompose}, so $u_\lambda$ is locally semi-convex in $\Om$; and
+$u_\lambda$ is continuous on $\bar\Om$, being a composition of continuous maps. The last
+bound in (1) replaces the paper's
+$\|u_\lambda-u\|_{L^\infty}\le4\lambda\|u\|^{2}_{L^\infty}$; the reason for changing the
+relabelling, and the fact that the paper's own claim is only
+``$\psi'_\lambda\ge1$ on $[u_0,\infty)$'', are discussed in \noderef{ExpRelabelling}.
+Finally, $\psi_\lambda$ is a $C^{2}$ diffeomorphism of $\mathbb R$ \emph{onto all of}
+$\mathbb R$, so that $\psi_\lambda^{-1}\in C^{2}(\mathbb R)$ with
+$(\psi_\lambda^{-1})'>0$. Surjectivity has to be checked rather than assumed, because
+\noderef{PerturbationIdentity} requires its $\psi$ to be of class $C^{2}$ on all of
+$\mathbb R$ and $\psi_\lambda^{-1}$ will be fed to it in Step 3; a diffeomorphism onto the
+image would not suffice. It is short. By \noderef{ExpRelabelling}(2),
+$\psi_\lambda'\ge1>0$ everywhere, so $\psi_\lambda$ is continuous and strictly increasing,
+hence injective. For $s\ge0$ the mean value theorem gives
+$\psi_\lambda(s)-\psi_\lambda(0)=\psi_\lambda'(\varsigma)\,s\ge s$ for some
+$\varsigma\in(0,s)$, so $\psi_\lambda(s)\ge\psi_\lambda(0)+s\to+\infty$ as $s\to+\infty$.
+For $s\le0$ we have $e^{s}\le1$, so
+$\psi_\lambda(s)=s+\lambda e^{s}\le s+\lambda=\psi_\lambda(0)+s\to-\infty$ as
+$s\to-\infty$. A continuous real function that is unbounded above and unbounded below takes
+every real value, by the intermediate value theorem; so $\psi_\lambda$ is a continuous
+strictly increasing bijection of $\mathbb R$ onto $\mathbb R$. Its inverse is therefore
+defined on all of $\mathbb R$, and since $\psi_\lambda$ is $C^{2}$ with
+$\psi_\lambda'\ge1>0$ nowhere vanishing, the inverse function theorem makes
+$\psi_\lambda^{-1}$ of class $C^{2}$ on $\mathbb R$, with
+$(\psi_\lambda^{-1})'(\varsigma)=1/\psi_\lambda'\big(\psi_\lambda^{-1}(\varsigma)\big)\in(0,1]$.
+
+\emph{(1c) $E_\lambda$ is a non-empty compact subset of $\Om$, for $\lambda$ small.}
+Assume
+\[
+ \lambda e^{M}\ \le\ \min\{\tau/2,\ M_1/2\} . \tag{2}
+\]
+On $\del\Om$, by (0) and (1), $u_\lambda-v_1\le(u-v_1)+\lambda e^{M}\le-\tau+\tau/2=-\tau/2$.
+Also, picking any $\bar x_0\in E$, $(u_\lambda-v_1)(\bar x_0)\ge(u-v_1)(\bar x_0)-\lambda e^{M}
+=M_1-\lambda e^{M}\ge M_1/2>0$. Hence
+\[
+ M_\lambda:=\max_{\bar\Om}(u_\lambda-v_1)\ \ge\ M_1/2\ >\ 0\ >\ -\tau/2\ \ge\ \sup_{\del\Om}(u_\lambda-v_1),
+\]
+the maximum again being attained by compactness and continuity. Exactly as for $E$, every
+maximum point lies in $\Om$, so
+\[
+ E_\lambda:=\argmax_\Om(u_\lambda-v_1)=\{x\in\bar\Om:(u_\lambda-v_1)(x)=M_\lambda\}
+\]
+is a non-empty compact subset of $\Om$. Note also, from (1), that
+\[
+ |M_\lambda-M_1|\ \le\ \lambda e^{M} , \tag{3}
+\]
+since $u_\lambda-v_1$ and $u-v_1$ differ by at most $\lambda e^{M}$ on $\bar\Om$.
+
+\emph{(1d) $\sup_{E_\lambda}\dist(\cdot,E)\to0$ as $\lambda\to0^{+}$.} Let $\eta>0$ and
+suppose the assertion fails for this $\eta$. Then there are $\lambda_k\to0^{+}$ satisfying
+(2) and points $x_k\in E_{\lambda_k}$ with $\dist(x_k,E)>\eta$. The $x_k$ lie in the
+bounded set $\Om$, so after passing to a subsequence $x_k\to\hat x\in\bar\Om$. Now
+\[
+ \big|(u-v_1)(x_k)-M_1\big|
+ \le\big|(u-v_1)(x_k)-(u_{\lambda_k}-v_1)(x_k)\big|+\big|M_{\lambda_k}-M_1\big|
+ \le2\lambda_ke^{M}\ \longrightarrow\ 0 ,
+\]
+using (1), $(u_{\lambda_k}-v_1)(x_k)=M_{\lambda_k}$ and (3). Since $u-v_1$ is continuous on
+$\bar\Om$, letting $k\to\infty$ gives $(u-v_1)(\hat x)=M_1>0$. But $u-v_1\le-\tau<0$ on
+$\del\Om$, so $\hat x\notin\del\Om$, i.e. $\hat x\in\Om$ and $\hat x\in\argmax_\Om(u-v_1)=E$.
+Then $\dist(x_k,E)\le|x_k-\hat x|\to0$, contradicting $\dist(x_k,E)>\eta$. (This is the
+paper's ``$E_\lambda\to E$ \dots because $u_\lambda-v\to u-v$ uniformly'', together with
+the remark of (2.8) that uniform limits of maximizers are maximizers.)
+
+\emph{(1e) (3.4).} The hypotheses of \noderef{RelabellingGradientBound} are now
+available: $\sigma^{i}$ continuous; $u$ locally semi-convex in $\Om$; $E\subset\Om$
+compact; $u$ differentiable on $E$ by (1a); $|\mathcal Xu|\ge\theta>0$ on $E$ by (1a);
+$E_\lambda\subset\Om$ by (1c); and (1d). Hence there is $\lambda_0>0$ such that
+\[
+ |\mathcal Xu(x)|\ \ge\ \theta/2\qquad\text{for all }x\in E_\lambda,\ 0<\lambda<\lambda_0,
+ \tag{4}
+\]
+at every differentiability point $x$ of $u$ in $E_\lambda$ --- and every $x\in E_\lambda$
+is one, by \noderef{ExpRelabelledMaxDifferentiability} applied with $N:=n$, the parameter
+$\lambda$, the functions $u$ and $v_1$, and the point $x$. Its hypotheses are exactly what
+is available: membership $x\in E_\lambda$ unfolds to $x\in\Om$ together with
+$x\in\mathrm{argmax}_\Om(u_\lambda-v_1)$, which is the node's $\mathrm{IsMaxOn}$ clause, and
+the two semi-convexity hypotheses are the local semi-convexity of $u_\lambda$ from (1d) and
+the local semi-concavity of $v_1$. That node derives the differentiability of $u$ at $x$
+from that of $u_\lambda$ --- which it obtains from \noderef{SemiConvexDiffAtMax}, second
+clause --- by dividing the derivative by $\psi_\lambda'(u(x))=1+\lambda e^{u(x)}\ge1$,
+using that $\psi_\lambda$ is expanding. In particular it does not invert $\psi_\lambda$:
+neither $\psi_\lambda^{-1}\in C^{2}$ nor a chain rule for the inverse is needed.
+
+\emph{Fix $\lambda$} with $0<\lambda<\lambda_0$ and (2), and write
+\[
+ \tilde u:=u_\lambda,\qquad \tilde M:=M_\lambda=\max_\Om(\tilde u-v_1)>0,\qquad
+ \lambda'=\lambda e^{-M}>0 .
+\]
+Let $e_0>0$ be the ellipticity constant of (2.4), which exists by
+\noderef{EllipticityLowerBound} applied with (E) and (2.3), and set
+\[
+ \gamma:=\lambda'\,e_0\,(\theta/4)^{2}\ >\ 0 . \tag{5}
+\]
+(The paper has $\gamma=2\lambda e_0(\theta/4)^{2}$, with $2\lambda=\psi_\lambda''$ for its
+quadratic relabelling; ours has $\lambda'$ in place of $2\lambda$, by (1). The exponent
+$\theta/4$, not $\theta/2$, is the paper's: (3.4) gives $\theta/2$ on $E_\lambda$,
+and the points at which Corollary~3.2 is actually applied are the Jensen points $z_k$ near a
+point of $E_\lambda$, where partial continuity only gives $\theta/4$; see Step 3.)
+
+\medskip\noindent\textbf{Step 2: penalization.} Fix $x_1\in E_\lambda$ and $\mu>0$, and
+put
+\[
+ P(x):=\mu|x-x_1|^{4},\qquad \tilde v:=v_1+P .
+\]
+$P$ is a polynomial, hence $C^{\infty}$, and \noderef{QuarticPenaltyCalculus} collects
+everything the argument uses about it. Stated there for the explicit differentials
+\[
+ DP(x)=4\mu|x-x_1|^{2}\langle x-x_1,\cdot\rangle,\qquad
+ D^{2}P(x)=4\mu|x-x_1|^{2}\,\I+8\mu\,(x-x_1)\otimes(x-x_1),
+\]
+that node gives: $D^{2}P(x)$ is symmetric; the two operator-norm bounds
+\[
+ \big\|DP(x)\big\|_{\rm op}\le4\mu|x-x_1|^{3},\qquad
+ \big\|D^{2}P(x)\big\|_{\rm op}\le12\mu|x-x_1|^{2} ; \tag{6}
+\]
+the fact that $\big(DP(x),D^{2}P(x)\big)$ is a second-order jet of $P$ at every point ---
+by part (1) of \noderef{SecondOrderJetCalculus}, the second-order remainder of a quartic
+being cubic; the values $P(x_1)=0$ and $P(x)>0$ for $x\ne x_1$; the parallelogram identity
+for $\|t a+(1-t)b\|^{2}$; and the convexity-defect bound
+\[
+ t P(x)+(1-t)P(y)-P\big(t x+(1-t)y\big)\ \le\ 6\mu R^{2}\,t(1-t)|x-y|^{2}
+ \qquad\text{when }|x-x_1|,|y-x_1|\le R ,
+\]
+which is the chord form that local semi-convexity of $-P$ runs on.
+
+Since $|\gr P(x)|=\big\|DP(x)\big\|_{\rm op}$, the first bound of (6) is the paper's
+$|\gr P(x)|=4\mu|x-x_1|^{3}$. The second bound is in fact an equality, and this is where
+the operator norm is the right convention. Writing $h:=x-x_1$, differentiating
+$\gr P(x)=4\mu|h|^{2}h$ gives
+\[
+ D^{2}P(x)=4\mu\big(|h|^{2}\I+2\,h\otimes h\big),
+\]
+a symmetric matrix with eigenvalue $4\mu(|h|^{2}+2|h|^{2})=12\mu|h|^{2}$ on the line
+$\mathbb Rh$ and eigenvalue $4\mu|h|^{2}$ on the orthogonal complement; a symmetric matrix
+has operator norm equal to the largest modulus of its eigenvalues, so
+$\|D^{2}P(x)\|_{\rm op}=12\mu|h|^{2}$ (both sides vanishing when $h=0$). The Frobenius norm
+of the same matrix is $\sqrt{(12\mu|h|^{2})^{2}+(n-1)(4\mu|h|^{2})^{2}}
+=4\mu|h|^{2}\sqrt{n+8}$, which exceeds $12\mu|h|^{2}$ for every $n\ge2$; the paper's
+constant $12\mu$ at (3.5) is therefore the operator-norm one, as declared in the
+preamble.
+By (0b) applied to $-v_1$ and $-P$, $-\tilde v$ is locally semi-convex in $\Om$, i.e.
+$\tilde v$ is locally semi-concave; and $\tilde v$ is continuous on $\bar\Om$. Moreover
+$x_1$ is the \emph{unique} maximum point of $\tilde u-\tilde v$ on $\bar\Om$: for
+$x\in\bar\Om$,
+\[
+ (\tilde u-\tilde v)(x)=(\tilde u-v_1)(x)-\mu|x-x_1|^{4}
+ \ \le\ \tilde M-\mu|x-x_1|^{4}=(\tilde u-\tilde v)(x_1)-\mu|x-x_1|^{4},
+\]
+using $(\tilde u-v_1)(x)\le\tilde M=(\tilde u-v_1)(x_1)$ and $P(x_1)=0$; the inequality is
+strict unless $x=x_1$. In particular, choosing $\nu>0$ with $B(x_1,\nu)\subset\Om$
+(possible since $x_1\in\Om$ open),
+\[
+ (\tilde u-\tilde v)(y)<(\tilde u-\tilde v)(x_1)\qquad\text{for all }y\in B(x_1,\nu),\ y\ne x_1 .
+ \tag{7}
+\]
+
+\medskip\noindent\textbf{Step 3: Jensen's lemma.} By (7), $\tilde u$ locally semi-convex,
+$\tilde v$ locally semi-concave, and $B(x_1,\nu)\subset\Om$, the hypotheses of
+\noderef{JensenTwiceDiffPoint} hold for the pair $(\tilde u,\tilde v)$ at the strict
+maximum $x_1$, apart from its cited-results hypothesis, which is discharged as follows: that
+node asks for a Euclidean cited-results package (\noderef{EuclidCitedResults}), and by the
+definition in \noderef{CitedResults} a cited-results package at $\mathbb G$ --- our
+hypothesis --- \emph{is} such a package together with the seven statements about $\mathbb G$,
+so it supplies one. No setting is involved: Aleksandrov's theorem and Jensen's lemma are
+statements about $\mathbb R^{N}$ alone. That node --- which is Jensen's lemma together with
+Aleksandrov's theorem,
+applied to \emph{both} functions, as the paper's Step 3 requires --- yields sequences
+$p_k\to0$ in $\mathbb R^{n}$ and $z_k\to x_1$ with, for every $k$: $z_k\in\Om$; $z_k$ is a
+local maximum point of $\tilde u-\tilde v+\inp{p_k}{\cdot}$; and both $\tilde u$ and
+$\tilde v$ have second-order jets at $z_k$. Put
+\[
+ \delta_k:=|p_k|+|z_k-x_1|\ \longrightarrow\ 0 ,
+\]
+which plays the role of the paper's $1/k$. Fix $\rho>0$ with $\bar B(x_1,\rho)\subset\Om$
+and discard finitely many $k$ so that $z_k\in B(x_1,\rho)$ for all $k$; put
+$K:=\bar B(x_1,\rho)$, a compact subset of $\Om$ containing all the $z_k$ and $x_1$.
+
+\emph{(3a) Jets at $z_k$, and the first-order facts about $u$.} Write $(D_k,B_k)$ for the
+jet of $\tilde u$ at $z_k$ and $(\tilde D_k,\tilde B_k)$ for that of $\tilde v$; by (0a)
+they are unique.
+
+The facts about second-order jets used here and in Step 4 are collected in
+\noderef{SecondOrderJetCalculus}, stated there for jets at a point of $\mathbb R^{N}$ and
+applied here with $N:=n$: a cubic remainder bound on the unit ball around the base point
+already produces a jet (part (1) there); jets add, negate and subtract, with their data
+adding, negating and subtracting (parts (2)--(4)); and a linear functional
+$y\mapsto\inp{p}{y}$ has at every point the jet $\big(\inp{p}{\cdot},0\big)$, with vanishing
+second-order part (part (5)).
+
+The cubic-bound form of part (1) is the one this proof needs, because every function to
+which it is applied below is a concrete polynomial. For the quartic $P$ the second-order
+Taylor remainder at $z$ is $O(|y-z|^{3})$, since $P$ is a polynomial of degree $4$ whose
+second-order Taylor polynomial at $z$ differs from it by terms of degree $3$ and $4$ in
+$y-z$; for the linear $\inp{p_k}{\cdot}$ the remainder vanishes identically. (It is
+\emph{not} exact for $P$: only the linear term has an exact second-order jet.)
+
+By parts (1), (4) and (5) of \noderef{SecondOrderJetCalculus}, applied to the
+$C^{\infty}$ functions $P$ and $\inp{p_k}{\cdot}$,
+\[
+ \big(D^{v}_k,B^{v}_k\big):=\big(\tilde D_k-DP(z_k),\ \tilde B_k-D^{2}P(z_k)\big)
+\]
+is a second-order jet of $v_1=\tilde v-P$ at $z_k$, and
+$\big(\tilde D_k-p_k,\tilde B_k\big)$ is one of $\tilde v-\inp{p_k}{\cdot}$ at $z_k$.
+
+\emph{The first-order facts about $u$ at $z_k$.} These are established now, \emph{before}
+any appeal to \noderef{PerturbationIdentity}, because that node carries the hypothesis
+$\xi_0\ne0$ and the two instances of it that Step 3 needs will be discharged from these
+facts; taking them first is also the paper's own order --- line 508 obtains
+$|\mathcal X\tilde u(z_k)|=\psi_\lambda'(u(z_k))|\mathcal Xu(z_k)|$ by the plain chain rule
+and invokes Corollary~3.2 only afterwards, and line 489 makes the same inverse-composition move
+("every $x\in E_\lambda$ is a differentiability point of $u_\lambda$, hence of $u$") at
+first order only.
+
+First, $\tilde u$ is Fr\'echet differentiable at $z_k$ with derivative $D_k$. Apply
+\noderef{TwiceDiffAt} to the jet $(D_k,B_k)$ with accuracy $\varepsilon:=1$: there is
+$\delta>0$ with
+$\big|\tilde u(z_k+h)-\tilde u(z_k)-D_k(h)-\frac12B_k(h,h)\big|\le|h|^{2}$ for $|h|<\delta$.
+Since $B_k$ is a continuous bilinear form, $\big|\frac12B_k(h,h)\big|\le\frac12\|B_k\|\,|h|^{2}$,
+so $\tilde u(z_k+h)-\tilde u(z_k)-D_k(h)=O(|h|^{2})=o(|h|)$, which is Fr\'echet
+differentiability at $z_k$ with derivative $D_k$.
+
+Second, $u=\psi_\lambda^{-1}\circ\tilde u$: by (1b) $\psi_\lambda$ is a bijection of
+$\mathbb R$, and $\tilde u=u_\lambda=\psi_\lambda\circ u$ by the definition in (1b), so
+composing with $\psi_\lambda^{-1}$ on the left gives the identity everywhere. By (1b) again
+$\psi_\lambda^{-1}$ is differentiable at the point $\tilde u(z_k)$, with derivative
+$(\psi_\lambda^{-1})'(\tilde u(z_k))=1/\psi_\lambda'(u(z_k))$, using
+$\psi_\lambda^{-1}(\tilde u(z_k))=u(z_k)$. The \emph{first-order} chain rule --- a
+differentiable real function of a Fr\'echet differentiable function --- therefore gives that
+$u$ is Fr\'echet differentiable at $z_k$ with $Du(z_k)=\frac1{t_k}D_k$, i.e.
+\[
+ D_k=t_k\,Du(z_k)\quad\text{and}\quad
+ \mathcal X\tilde u(z_k)=t_k\,\mathcal Xu(z_k),\qquad
+ t_k:=\psi_\lambda'\big(u(z_k)\big)\ \ge\ 1 , \tag{8}
+\]
+where the second identity follows from the first because
+$\mathrm{hgrad}\ \sigma\ z_k\ \cdot$ is linear in the $1$-jet (its $i$-th component is
+$D\mapsto D(\sigma^{i}(z_k))$, \noderef{hgrad}), and $t_k\ge1$ by
+\noderef{ExpRelabelling}(2). Note that no relabelling identity was used: (8) is the plain
+chain rule, and in particular $\mathcal Xu(z_k)$ now denotes
+$\mathrm{hgrad}\ \sigma\ z_k\ Du(z_k)$ for the Fr\'echet derivative just produced.
+
+\emph{(3b) (3.5) and (3.6).} $z_k$ is a local maximum of
+$\tilde u-\big(\tilde v-\inp{p_k}{\cdot}\big)$, and both functions have second-order jets
+at $z_k$. By \noderef{LocalMaxSecondOrder},
+\[
+ D_k=\tilde D_k-p_k,\qquad
+ \mathcal X\tilde u(z_k)=\mathrm{hgrad}\ \sigma\ z_k\ (\tilde D_k-p_k),\qquad
+ \mathrm{hhessS}\ \sigma\ z_k\ D_k\ B_k\ \le\
+ \mathrm{hhessS}\ \sigma\ z_k\ (\tilde D_k-p_k)\ \tilde B_k \tag{9}
+\]
+in the order (2.1) (\noderef{MatLe}). The first identity is the paper's
+$\gr\tilde u(z_k)=\gr v_1(z_k)+\gr P(z_k)-p_k$ of (3.5), since
+$\tilde D_k=D^{v}_k+DP(z_k)$.
+
+Next we convert (9) into the paper's (3.6). By \noderef{hgrad}, $\mathrm{hgrad}$ is
+linear in the $1$-jet, so with
+\[
+ \xi_k:=\mathcal Xv_1(z_k)=\mathrm{hgrad}\ \sigma\ z_k\ D^{v}_k,\qquad
+ \eta_k:=\mathrm{hgrad}\ \sigma\ z_k\ \big(DP(z_k)-p_k\big)
+\]
+we get from $\tilde D_k-p_k=D^{v}_k+\big(DP(z_k)-p_k\big)$ and (9) that
+\[
+ \mathcal X\tilde u(z_k)=\xi_k+\eta_k . \tag{10}
+\]
+By \noderef{hhessS} and \noderef{Mfield},
+$\mathrm{hhessS}\ \sigma\ x\ D\ B=\big(B(\sigma^{i}(x),\sigma^{j}(x))\big)_{i,j}+\mathcal M(x,D)$
+with $\mathcal M(x,\cdot)$ linear in the $1$-jet, so $\mathrm{hhessS}$ is additive in the
+pair $(D,B)$, and (9) becomes
+\[
+ \mathcal X\mathcal X^{s}\tilde u(z_k)\ \le\ \mathcal X\mathcal X^{s}v_1(z_k)+N_k,\qquad
+ N_k:=\Big(D^{2}P(z_k)\big(\sigma^{i}(z_k),\sigma^{j}(z_k)\big)\Big)_{i,j}
+  +\mathcal M\big(z_k,\,DP(z_k)-p_k\big), \tag{11}
+\]
+which is (3.6), with $N_k=\sigma(z_k)^{T}D^{2}P(z_k)\sigma(z_k)+\mathcal M(z_k,\gr P(z_k)-p_k)$.
+Since $\sigma$ and $D\sigma$ are bounded on the compact $K$ --- say by $c_1$ --- (6) gives
+\[
+ |\eta_k|\ \le\ c\,\delta_k,\qquad |N_k|\ \le\ c\,\delta_k \tag{12}
+\]
+for a constant $c=c(\mathbb G,K,\mu)$ independent of $k$. Indeed
+$|DP(z_k)-p_k|\le4\mu|z_k-x_1|^{3}+|p_k|\le(4\mu\rho^{2}+1)\delta_k$ by (6) and
+$|z_k-x_1|\le\min\{\rho,\delta_k\}$, and
+$\|D^{2}P(z_k)\|_{\rm op}=12\mu|z_k-x_1|^{2}\le12\mu\rho\,\delta_k$ by (6) and the same
+two bounds. For $\eta_k$: the $i$-th component of
+$\mathrm{hgrad}\ \sigma\ z_k\ (DP(z_k)-p_k)$ is $(DP(z_k)-p_k)(\sigma^{i}(z_k))$, of modulus
+at most $|DP(z_k)-p_k|\,c_1$, so $|\eta_k|\le\sqrt m\,c_1(4\mu\rho^{2}+1)\delta_k$. For
+$N_k=\big(D^{2}P(z_k)(\sigma^{i}(z_k),\sigma^{j}(z_k))\big)_{i,j}+\mathcal M(z_k,DP(z_k)-p_k)$:
+the $(i,j)$ entry of the first summand has modulus at most
+$\|D^{2}P(z_k)\|_{\rm op}c_1^{2}\le12\mu\rho c_1^{2}\delta_k$, so that summand has
+Frobenius norm at most $12m\mu\rho c_1^{2}\delta_k$ (an $m\times m$ matrix with entries at
+most $a$ in modulus has Frobenius norm at most $ma$); and by \noderef{Mfield} each entry of
+$\mathcal M(z_k,DP(z_k)-p_k)$ has modulus at most $|DP(z_k)-p_k|\,c_1^{2}$, so that summand
+has Frobenius norm at most $m\,c_1^{2}(4\mu\rho^{2}+1)\delta_k$. Taking
+$c:=\sqrt m\,c_1(4\mu\rho^{2}+1)+12m\mu\rho c_1^{2}+m\,c_1^{2}(4\mu\rho^{2}+1)$ gives (12).
+
+\emph{(3c) The horizontal gradients are bounded below.} We have $z_k\to x_1\in E_\lambda$,
+$u$ is differentiable at $x_1$ (by (1e)) and at each $z_k$ (by (3a)), and all these points
+lie in $\Om$; so \noderef{SemiConvexGradPartialCont} gives $Du(z_k)\to Du(x_1)$ and hence
+$\mathcal Xu(z_k)\to\mathcal Xu(x_1)$, by \noderef{HgradTendstoOfTendsto} again --- the
+same node used in (1a), which is why this step is no longer argued twice. By (4),
+$|\mathcal Xu(x_1)|\ge\theta/2$, so for all large $k$
+\[
+ |\mathcal Xu(z_k)|\ \ge\ \theta/4 . \tag{13}
+\]
+Discard finitely many $k$ so that (13) holds for all $k$. By (8) and $t_k\ge1$,
+\[
+ |\mathcal X\tilde u(z_k)|=t_k|\mathcal Xu(z_k)|\ \ge\ \theta/4 , \tag{14}
+\]
+and then, since (10) gives $\xi_k=\mathcal X\tilde u(z_k)-\eta_k$, for $k$ large enough
+that $c\,\delta_k\le\theta/8$ we get from (12) and (14)
+\[
+ |\xi_k|\ \ge\ |\mathcal X\tilde u(z_k)|-|\eta_k|\ \ge\ \theta/4-c\delta_k\ \ge\ \theta/8 .
+ \tag{15}
+\]
+Discard finitely many $k$ again so that (15) holds for all $k$. In particular
+$\mathcal Xu(z_k)\ne0$ by (13) and $\mathcal Xv_1(z_k)=\xi_k\ne0$ by (15), and also
+$\mathcal X\tilde u(z_k)=\xi_k+\eta_k\ne0$ by (14).
+
+\emph{(3c$'$) The second-order jet of $u$ at $z_k$, and the identification of
+$(D_k,B_k)$.} Only now, with $\mathcal X\tilde u(z_k)\ne0$ and $\mathcal Xu(z_k)\ne0$ in
+hand from (3c), do we invoke \noderef{PerturbationIdentity}: that node carries the
+hypothesis $\xi_0=\mathrm{hgrad}\ \sigma\ x_0\ D\ne0$, and the two applications below need
+exactly those two facts to discharge it. Nothing in (3a), (3b) or (3c) used this node, so
+there is no circularity.
+
+\emph{Backward: a second-order jet of $u$.} This step is
+\noderef{ExpRelabellingJetDescent}, applied with $N:=n$, the relabelling parameter
+$\lambda$, the function $u$, the point $z:=z_k$, the constants $t:=t_k$ and $c:=c_k$ of (8),
+the jet $(D_j,B_j):=(D_k,B_k)$ of $\tilde u=\psi_\lambda\circ u$ at $z_k$ from (3a), and the
+pair
+\[
+ \big(D^{u}_k,B^{u}_k\big):=\Big(\tfrac1{t_k}D_k,\
+   \tfrac1{t_k}\big(B_k-c_k\,D^{u}_k\otimes D^{u}_k\big)\Big),
+\]
+which is how $(D^{u}_k,B^{u}_k)$ is defined here. Its hypotheses are exactly
+$t_k=1+\lambda e^{u(z_k)}$ and $c_k=\lambda e^{u(z_k)}$, the two displayed formulas for
+$D^{u}_k$ and $B^{u}_k$, the symmetry of $B^{u}_k$ --- which follows from that of $B_k$,
+since $B^{u}_k$ is built from $B_k$ and the symmetric rank-one form
+$D^{u}_k\otimes D^{u}_k$ --- and the jet property of $(D_k,B_k)$ for
+$y\mapsto u(y)+\lambda e^{u(y)}$, which is $\tilde u=\psi_\lambda\circ u$ with
+$\psi_\lambda$ unfolded. The node's conclusion is that $\big(D^{u}_k,B^{u}_k\big)$ is a
+second-order jet of $u$ at $z_k$.
+
+Note that this route uses neither $\psi_\lambda^{-1}$ nor a separate first-order chain rule:
+the cited node derives the first-order expansion of $u$ from the second-order estimate for
+$\tilde u$ itself, via the exact cubic Taylor remainder of the exponential. In particular it
+does not appeal to \noderef{PerturbationIdentity}, so the non-degeneracy facts of (3c) are
+not needed for the backward direction --- they are needed only for the forward
+identification below. By (8), $D^{u}_k=D_k/t_k=Du(z_k)$, so the $1$-jet of this pair is the
+Fr\'echet derivative of $u$ at $z_k$ and
+$\mathrm{hgrad}\ \sigma\ z_k\ D^{u}_k=\mathcal Xu(z_k)$, consistently with (3a).
+
+\emph{Forward: the identification of $(D_k,B_k)$.} Apply part (1) of the same node again,
+now with $\psi:=\psi_\lambda$ --- in $C^{2}(\mathbb R)$ by \noderef{ExpRelabelling}(1) ---
+$w:=u$, $x_0:=z_k$ and the jet $(D^{u}_k,B^{u}_k)$ just produced. Its hypotheses hold:
+$\xi_0=\mathrm{hgrad}\ \sigma\ z_k\ D^{u}_k=\mathcal Xu(z_k)\ne0$ by (13), and
+$t=\psi_\lambda'(u(z_k))=t_k\ge1>0$. It gives that
+\[
+ \Big(t_kD^{u}_k,\ t_kB^{u}_k+\psi_\lambda''\big(u(z_k)\big)\,D^{u}_k\otimes D^{u}_k\Big)
+\]
+is a second-order jet of $\psi_\lambda\circ u=\tilde u$ at $z_k$; since $(D_k,B_k)$ is also
+one, (0a) gives that the two pairs coincide. This identification is what makes the
+conclusion of \noderef{StrictSubsolutionPerturbation} in (3e) --- which is stated for the
+jet just displayed --- a statement about
+$\mathcal L\tilde u(z_k):=\mathrm{Lop}\ \sigma\ A\ H\ z_k\ D_k\ B_k$, the quantity used in
+Step 4.
+
+\emph{(3d) The viscosity inequalities hold classically at $z_k$.} $\Om$ is bounded and
+open, $u,v_1\in C(\bar\Om)$, $u$ has the second-order jet $(D^{u}_k,B^{u}_k)$ at $z_k\in\Om$
+with $\mathcal Xu(z_k)\ne0$, and $v_1$ has the second-order jet $(D^{v}_k,B^{v}_k)$ at
+$z_k$ with $\mathcal Xv_1(z_k)\ne0$. Since $u$ is a viscosity sub-solution and $v_1$ a
+viscosity super-solution in $\Om$, \noderef{ClassicalAtTwiceDiff} (part (1) for $u$, part
+(2) for $v_1$) gives
+\[
+ \mathcal Lu(z_k)\ \le\ 0\ \le\ \mathcal Lv_1(z_k) , \tag{16}
+\]
+where $\mathcal Lu(z_k):=\mathrm{Lop}\ \sigma\ A\ H\ z_k\ D^{u}_k\ B^{u}_k$ and
+similarly for $v_1$ (\noderef{Lop}).
+
+\emph{(3e) (3.7).} Apply \noderef{StrictSubsolutionPerturbation} with
+$w:=u$, $x_0:=z_k$, jet $(D^{u}_k,B^{u}_k)$, $\psi:=\psi_\lambda$, $e_0$ as in (5),
+$\theta$ replaced by $\theta/4$ and $\lambda$ replaced by $\lambda'$. Its hypotheses hold:
+(2.3) for $(A,H)$; $e_0>0$ with $e_0|\xi|^{2}\le\mathcal E(A,\xi)$; $\psi_\lambda\in C^{2}$;
+$\theta/4>0$ and $\theta/4\le|\mathcal Xu(z_k)|$ by (13); $\lambda'>0$;
+$\psi_\lambda'(u(z_k))=t_k>0$; $\lambda'\le\psi_\lambda''(u(z_k))$ by (1), because
+$|u(z_k)|\le M$; and $\mathcal Lu(z_k)\le0$ by (16). Its conclusion is an inequality for
+$\mathrm{Lop}$ evaluated at the jet
+$\big(t_kD^{u}_k,\ t_kB^{u}_k+\psi_\lambda''(u(z_k))D^{u}_k\otimes D^{u}_k\big)$ of
+$\psi_\lambda\circ u=\tilde u$ at $z_k$, which by (3c$'$) is $(D_k,B_k)$; so the conclusion
+reads
+\[
+ \mathcal L\tilde u(z_k)\ \le\ -\gamma\ <\ 0,\qquad \gamma=\lambda'e_0(\theta/4)^{2},
+ \tag{17}
+\]
+which is (3.7).
+
+\medskip\noindent\textbf{Step 4: conclusion.}
+
+\emph{(4a) $|\mathcal X\mathcal X^{s}\tilde u(z_k)|\le C$ with $C$ independent of $k$.}
+By \noderef{LocallySemiConvexOn} applied at $x_1\in\Om$ to the locally semi-convex
+$\tilde u$ there are $\rho_u>0$ and $\Lambda'\ge0$ with $B(x_1,\rho_u)\subseteq\Om$ and
+$\tilde u+\frac{\Lambda'}2|\cdot|^{2}$ convex on $B(x_1,\rho_u)$, and applied to the locally
+semi-convex $-v_1$ there are $\rho_v>0$ and $\Lambda''\ge0$ with
+$-v_1+\frac{\Lambda''}2|\cdot|^{2}$ convex on $B(x_1,\rho_v)$. Put
+$\rho_1:=\min\{\rho,\rho_u,\rho_v\}>0$; a convex function on a ball is convex on every
+smaller concentric ball, so both functions are convex on $B(x_1,\rho_1)$. Since $z_k\to x_1$,
+discarding finitely many $k$ we may assume $z_k\in B(x_1,\rho_1)$ for every $k$; note that
+$\rho$, $K$ and the constants $c_1$, $c$ of Step 3 are unchanged by this, since
+$\rho_1\le\rho$ and the bounds of (12) hold a fortiori.
+
+\emph{The jet Hessian sign from convexity.} This is
+\noderef{JetHessianLowerBoundOfConvex}, proved there over $\mathbb R^{N}$ and applied here
+with $N:=n$: if $w+\frac\Lambda2|\cdot|^{2}$ is convex on a ball $B(x_c,r)$, if
+$z\in B(x_c,r)$ and if $(D,B)$ is a second-order jet of $w$ at $z$, then
+$B(h,h)\ge-\Lambda|h|^{2}$ for every $h\in\mathbb R^{n}$. Its proof there is the
+midpoint-convexity argument along $z\pm th$ combined with the Peano estimate of
+\noderef{TwiceDiffAt} at an accuracy $\varepsilon>0$ and the limit $\varepsilon\to0^{+}$,
+the jet of $y\mapsto\frac\Lambda2|y|^{2}$ being supplied by parts (1) and (2) of
+\noderef{SecondOrderJetCalculus}.
+
+We use it twice, on the ball $B(x_1,\rho_1)$ of the previous paragraph, in which both
+$\tilde u+\frac{\Lambda'}2|\cdot|^{2}$ and $-v_1+\frac{\Lambda''}2|\cdot|^{2}$ are convex
+and which contains every $z_k$. Applied with $w:=\tilde u$ and $\Lambda:=\Lambda'$, at
+$z:=z_k$ with the jet $(D_k,B_k)$ of (3a), it gives $B_k(h,h)\ge-\Lambda'|h|^{2}$ for every
+$h$, i.e. $D^{2}\tilde u(z_k)\ge-\Lambda'\I$ in the notation $D^{2}\tilde u(z_k):=B_k$.
+Applied with $w:=-v_1$ and $\Lambda:=\Lambda''$ --- where the required jet of $-v_1$ at
+$z_k$ is $\big(-D^{v}_k,-B^{v}_k\big)$, obtained from the jet $\big(D^{v}_k,B^{v}_k\big)$
+of (3a) by part (3) of \noderef{SecondOrderJetCalculus} --- it gives
+$-B^{v}_k(h,h)\ge-\Lambda''|h|^{2}$, i.e. $D^{2}v_1(z_k)\le\Lambda''\I$. Both deductions
+are from a \emph{pointwise jet} and not from
+a classical Hessian, which is the only form available here: pm-0003 makes local
+semi-convexity the notion in use, and \noderef{LocallySemiConvexOn} gives convexity of
+$w+\frac\Lambda2|\cdot|^{2}$ on a ball and nothing more.
+
+\emph{The two-sided bound on $B_k$.} Clause (2) of \noderef{LocalMaxSecondOrder}, in the
+application already made in (3b) --- to the pair $\tilde u$ and
+$\tilde v-\inp{p_k}{\cdot}$, which has a local maximum at $z_k$, with the jets $(D_k,B_k)$
+and $(\tilde D_k-p_k,\tilde B_k)$ --- states
+\[
+ B_k(h,h)\ \le\ \tilde B_k(h,h)\qquad(h\in\mathbb R^{n}),
+\]
+and $\tilde B_k=B^{v}_k+D^{2}P(z_k)$ by the definition of $B^{v}_k$ in (3a). (This, not the
+$\mathrm{hhessS}$ inequality of (9), is the Euclidean-Hessian ordering that is needed here.)
+Hence, for every $h$, using the two signs just proved and
+$\|D^{2}P(z_k)\|_{\rm op}=12\mu|z_k-x_1|^{2}\le12\mu\rho^{2}$ from (6),
+\[
+ -\Lambda'|h|^{2}\ \le\ B_k(h,h)\ \le\ B^{v}_k(h,h)+D^{2}P(z_k)(h,h)
+ \ \le\ \big(\Lambda''+12\mu\rho^{2}\big)|h|^{2} .
+\]
+So $|B_k(h,h)|\le\Lambda^{*}|h|^{2}$ with
+$\Lambda^{*}:=\max\{\Lambda',\Lambda''+12\mu\rho^{2}\}$. A symmetric bilinear form whose
+quadratic form is bounded by $\Lambda^{*}$ in modulus has operator norm at most
+$\Lambda^{*}$ --- for a symmetric matrix the operator norm is the largest modulus of a
+Rayleigh quotient --- so $|B_k(h,h')|\le\Lambda^{*}|h|\,|h'|$ for all $h,h'\in\mathbb R^{n}$
+(the letter $k$ is reserved for the sequence index), and in particular
+\[
+ \big|B_k\big(\sigma^{i}(z_k),\sigma^{j}(z_k)\big)\big|\ \le\ \Lambda^{*}c_1^{2}
+ \qquad\text{for all }i,j . \tag{18b}
+\]
+
+\emph{The bound on the correction matrix.} By the fourth clause of
+\noderef{SemiConvexLocLipschitz}, applied to the locally semi-convex $\tilde u$ on the
+compact $K\subset\Om$, there is $C_K\ge0$ with $\|D_k\|\le C_K$ for every $k$ (the
+hypothesis "$D$ is a derivative of $\tilde u$ at a point of $K$" holds for $D_k$ at $z_k$ by
+(3a)). By \noderef{Mfield}, the $(i,j)$ entry of $\mathcal M(z_k,D_k)$ is
+\[
+ \tfrac12\Big(D_k\big(\mathrm D\sigma^{j}(z_k)\,\sigma^{i}(z_k)\big)
+ +D_k\big(\mathrm D\sigma^{i}(z_k)\,\sigma^{j}(z_k)\big)\Big),
+\]
+whose modulus is at most $\frac12(\|D_k\|c_1\cdot c_1+\|D_k\|c_1\cdot c_1)=\|D_k\|c_1^{2}
+\le C_Kc_1^{2}$, using $|\sigma^{i}|\le c_1$ and $\|\mathrm D\sigma^{i}\|\le c_1$ on $K$.
+An $m\times m$ matrix all of whose entries are at most $a$ in modulus has Frobenius norm at
+most $\sqrt{m^{2}a^{2}}=ma$, so
+\[
+ \big|\mathcal M(z_k,D_k)\big|\ \le\ m\,C_Kc_1^{2} . \tag{18c}
+\]
+
+\emph{Conclusion.} By \noderef{hhessS},
+$\mathcal X\mathcal X^{s}\tilde u(z_k)=\big(B_k(\sigma^{i}(z_k),\sigma^{j}(z_k))\big)_{i,j}
++\mathcal M(z_k,D_k)$. The first matrix has all entries at most $\Lambda^{*}c_1^{2}$ in
+modulus by (18b), hence Frobenius norm at most $m\Lambda^{*}c_1^{2}$; adding (18c) and using
+the triangle inequality for the Frobenius norm,
+\[
+ \big|\mathcal X\mathcal X^{s}\tilde u(z_k)\big|\ \le\
+ m\,c_1^{2}\big(\Lambda^{*}+C_K\big)\ =:\ C \tag{18}
+\]
+with $C$ depending on $\mathbb G$, $K$, $\mu$, $\Lambda'$, $\Lambda''$ and $C_K$, but not
+on $k$. This is the paper's ``$|\mathcal X\mathcal X^{s}\tilde u(z_k)|\le C$ with $C$
+independent of $k$''.
+
+\emph{(4b) The compact set $\mathcal Q$ and the moduli of (3.2).} By the fourth clause
+of \noderef{SemiConvexLocLipschitz}, applied to $\tilde u$ and to $-v_1$ on $K$, the
+derivatives $D_k$ and $D^{v}_k$ have norms bounded by a constant independent of $k$, so by
+\noderef{hgrad} and $|\sigma|\le c_1$ on $K$ there is $C'$ with
+$|\xi_k|\le C'$ and $|\xi_k+\eta_k|\le C'$ for every $k$. For the lower bounds: (15) gives
+$|\xi_k|\ge\theta/8$, and for $\xi_k+\eta_k$ we do \emph{not} subtract $|\eta_k|$ from (15)
+--- that would only give $\theta/4-2c\delta_k$, hence nothing better than $0$ under
+$c\delta_k\le\theta/8$ --- but use (10) and (14) directly:
+$|\xi_k+\eta_k|=|\mathcal X\tilde u(z_k)|\ge\theta/4\ge\theta/8$. This is the paper's own
+direction at line 508, which bounds $|\xi_k|$ \emph{from} $|\mathcal X\tilde u(z_k)|$ and
+not the reverse. Hence all the vectors $\xi_k$ and
+$\xi_k+\eta_k$ lie in
+\[
+ \mathcal Q:=\{\xi\in\mathbb R^{m}:\ \theta/8\le|\xi|\le C'\} ,
+\]
+which is a compact subset of $\mathbb R^{m}\mns\{0\}$. By \noderef{StructureConditionsES},
+$A$ and $H$ are continuous on $\mathbb R^{m}\mns\{0\}$, hence uniformly continuous on
+$\mathcal Q$ and bounded there: there are non-decreasing $\om_A,\om_H:[0,\infty)\to[0,\infty)$
+with $\om_A(0^{+})=\om_H(0^{+})=0$ and
+\[
+ |A(\xi)-A(\xi')|\le\om_A(|\xi-\xi'|),\quad |H(\xi)-H(\xi')|\le\om_H(|\xi-\xi'|)
+ \qquad(\xi,\xi'\in\mathcal Q), \tag{19}
+\]
+and $\|A\|_{L^\infty(\mathcal Q)}:=\max_{\mathcal Q}|A|<\infty$. These are the moduli of
+(3.2); they are obtained here, inline, from uniform continuity on a compact subset of
+$\mathbb R^{m}\mns\{0\}$, and no separate node is needed for them. Note that $\mathcal Q$
+depends only on $\theta$, $C'$, hence not on $k$.
+
+\emph{(4c) The trace estimate.} Fix $k$. By \noderef{StructureConditionsES} and
+$\xi_k\ne0$, the matrix $A(\xi_k)$ is symmetric and non-negative definite; the matrices
+$\mathcal X\mathcal X^{s}\tilde u(z_k)$ and $\mathcal X\mathcal X^{s}v_1(z_k)+N_k$ are
+symmetric (the forms $B_k$, $B^{v}_k$, $D^{2}P(z_k)$ are symmetric and $\mathcal M$ is
+symmetric in $(i,j)$ by \noderef{Mfield}), and they are ordered by (11). Hence
+\noderef{TraceMonotone} applies and gives
+\[
+ 0\ \le\ \Tr\Big(A(\xi_k)\Big(\mathcal X\mathcal X^{s}v_1(z_k)+N_k
+ -\mathcal X\mathcal X^{s}\tilde u(z_k)\Big)\Big). \tag{20}
+\]
+We now expand the right-hand side exactly as the paper does, writing
+$M^{u}:=\mathcal X\mathcal X^{s}\tilde u(z_k)$ and $M^{v}:=\mathcal X\mathcal X^{s}v_1(z_k)$.
+By linearity of the trace,
+\[
+ \Tr\big(A(\xi_k)(M^{v}+N_k-M^{u})\big)
+ =\Tr\big(A(\xi_k)M^{v}\big)+\Tr\big(A(\xi_k)N_k\big)-\Tr\big(A(\xi_k)M^{u}\big). \tag{21}
+\]
+By \noderef{Lop} and $\mathcal Xv_1(z_k)=\xi_k$,
+\[
+ \mathcal Lv_1(z_k)=-\Tr\big(A(\xi_k)M^{v}\big)+H(\xi_k),
+ \qquad\text{i.e.}\qquad
+ \Tr\big(A(\xi_k)M^{v}\big)=-\mathcal Lv_1(z_k)+H(\xi_k). \tag{22}
+\]
+By \noderef{Lop} and $\mathcal X\tilde u(z_k)=\xi_k+\eta_k$ from (10),
+\[
+ \mathcal L\tilde u(z_k)=-\Tr\big(A(\xi_k+\eta_k)M^{u}\big)+H(\xi_k+\eta_k),
+ \qquad\text{i.e.}\qquad
+ -\Tr\big(A(\xi_k+\eta_k)M^{u}\big)=\mathcal L\tilde u(z_k)-H(\xi_k+\eta_k), \tag{23}
+\]
+and therefore, splitting $A(\xi_k)=A(\xi_k+\eta_k)-\big[A(\xi_k+\eta_k)-A(\xi_k)\big]$,
+\[
+ -\Tr\big(A(\xi_k)M^{u}\big)
+ =-\Tr\big(A(\xi_k+\eta_k)M^{u}\big)+\Tr\big(\big[A(\xi_k+\eta_k)-A(\xi_k)\big]M^{u}\big)
+ =\mathcal L\tilde u(z_k)-H(\xi_k+\eta_k)+\Tr\big(\big[A(\xi_k+\eta_k)-A(\xi_k)\big]M^{u}\big).
+ \tag{24}
+\]
+Substituting (22) and (24) into (21) and then into (20),
+\[
+ 0\ \le\ -\mathcal Lv_1(z_k)+\mathcal L\tilde u(z_k)
+ +\big[H(\xi_k)-H(\xi_k+\eta_k)\big]
+ +\Tr\big(\big[A(\xi_k+\eta_k)-A(\xi_k)\big]M^{u}\big)
+ +\Tr\big(A(\xi_k)N_k\big). \tag{25}
+\]
+This is the paper's second and third displayed lines; the term $H(\xi_k)$ of (22) and the
+term $-H(\xi_k+\eta_k)$ of (24) do not cancel, and their difference is exactly the
+$\om_H$ term below --- that is the one place where the perturbation $\eta_k$ of the
+horizontal gradient costs something.
+
+Finally we bound the five terms of (25). First, $-\mathcal Lv_1(z_k)\le0$ by (16). Second,
+$\mathcal L\tilde u(z_k)\le-\gamma$ by (17). Third, $\xi_k,\xi_k+\eta_k\in\mathcal Q$ by
+(4b), so (19) and (12) give
+$|H(\xi_k)-H(\xi_k+\eta_k)|\le\om_H(|\eta_k|)\le\om_H(c\delta_k)$. Fourth, by the
+Cauchy--Schwarz inequality for the Frobenius inner product,
+$|\Tr(XY)|\le|X|\,|Y|$, so by (19) and (18)
+\[
+ \Big|\Tr\big(\big[A(\xi_k+\eta_k)-A(\xi_k)\big]M^{u}\big)\Big|
+ \le\big|A(\xi_k+\eta_k)-A(\xi_k)\big|\,|M^{u}|\ \le\ C\,\om_A(c\delta_k).
+\]
+Fifth, similarly, $|\Tr(A(\xi_k)N_k)|\le|A(\xi_k)|\,|N_k|\le\|A\|_{L^\infty(\mathcal Q)}\,c\,\delta_k$
+by (19)'s boundedness statement and (12). Altogether (25) gives, for every large $k$,
+\[
+ 0\ \le\ -\gamma+\om_H(c\delta_k)+C\,\om_A(c\delta_k)
+ +c\,\|A\|_{L^\infty(\mathcal Q)}\,\delta_k . \tag{26}
+\]
+All of $\gamma$, $c$, $C$, $\om_A$, $\om_H$, $\|A\|_{L^\infty(\mathcal Q)}$ are
+independent of $k$, and $\delta_k\to0$, so the right-hand side of (26) tends to
+$-\gamma<0$ as $k\to\infty$. Choosing $k$ so large that
+$\om_H(c\delta_k)+C\om_A(c\delta_k)+c\|A\|_{L^\infty(\mathcal Q)}\delta_k<\gamma$ makes the
+right-hand side of (26) strictly negative, contradicting (26).
+
+This contradiction refutes the assumption $M_0>0$. Hence $u(x)\le v(x)$ for every
+$x\in\Om$.
+\end{proof}

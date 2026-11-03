@@ -1,0 +1,25 @@
+\begin{definition}[The correction matrix $\mathcal M(x,\zeta)$, (2.7)]
+Let $n,m\in\mathbb N$ and let
+$\sigma:\mathbb R^n\to\mathbb R^{n\times m}$, $\sigma(x)=[\sigma^1(x),\ldots,\sigma^m(x)]$,
+be a frame of $m$ vector fields on $\mathbb R^n$. For $x\in\mathbb R^n$ and a $1$-jet
+$D:\mathbb R^n\to\mathbb R$, playing the role of $\zeta=\nabla u(x)$, the matrix
+$\mathcal M(x,D)=\mathrm{Mfield}\ \sigma\ x\ D\in\mathbb R^{m\times m}$ is defined by
+\[
+ \mathcal M(x,D)_{i,j}\ =\ \tfrac12\Big(
+   D\big(D\sigma^{j}(x)\,\sigma^{i}(x)\big)+D\big(D\sigma^{i}(x)\,\sigma^{j}(x)\big)\Big),
+ \qquad i,j=1,\ldots,m,
+\]
+where $D\sigma^{k}(x)$ is the Fr\'echet derivative (Jacobian) of $\sigma^{k}$ at $x$ and
+$D\sigma^{k}(x)\,\sigma^{i}(x)$ is its value on the vector $\sigma^{i}(x)$.
+
+Writing $\zeta$ for the vector representing $D$, this is
+\[
+ \mathcal M(x,\zeta)_{i,j}=\tfrac12\big(\langle D\sigma^{j}(x)\sigma^{i}(x),\zeta\rangle
+  +\langle D\sigma^{i}(x)\sigma^{j}(x),\zeta\rangle\big),
+\]
+which is exactly (2.7). It is symmetric in $(i,j)$ by construction, linear in $\zeta$
+because $D\mapsto D(v)$ is, and smooth in $x$ when $\sigma$ is smooth. It is the term by
+which the symmetrized horizontal second derivative differs from the conjugated Euclidean
+Hessian in (2.6); it is a first-order term, produced by differentiating the frame, and
+it vanishes identically when the frame is constant.
+\end{definition}

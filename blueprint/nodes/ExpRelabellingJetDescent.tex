@@ -1,0 +1,225 @@
+\begin{lemma}[Descent of a second-order jet through the relabelling $\psi_\lambda$]
+Let $N\in\mathbb N$, let $\lambda>0$, let $u:\mathbb R^{N}\to\mathbb R$, let
+$z\in\mathbb R^{N}$ and let $t,c\in\mathbb R$. Let $D_j,D_u$ be continuous linear
+functionals and $B_j,B_u$ continuous bilinear forms on $\mathbb R^{N}$, and assume
+\begin{enumerate}
+\item $t=1+\lambda e^{u(z)}$ and $c=\lambda e^{u(z)}$;
+\item $D_u h=t^{-1}D_j h$ for every $h\in\mathbb R^{N}$;
+\item $B_u(h,h')=t^{-1}\big(B_j(h,h')-c\,D_u(h)\,D_u(h')\big)$ for all
+  $h,h'\in\mathbb R^{N}$;
+\item $B_u$ is symmetric, $B_u(a,b)=B_u(b,a)$ for all $a,b$;
+\item $(D_j,B_j)$ is a second-order jet of $y\mapsto u(y)+\lambda e^{u(y)}$ at $z$, in the
+  sense of \noderef{TwiceDiffAt}.
+\end{enumerate}
+Then $(D_u,B_u)$ is a second-order jet of $u$ at $z$, again in the sense of
+\noderef{TwiceDiffAt}.
+\end{lemma}
+\begin{proof}
+Write $\psi(s):=s+\lambda e^{s}$, so that hypothesis (5) says that $(D_j,B_j)$ is a
+second-order jet of $\psi\circ u$ at $z$. Since $\psi'(s)=1+\lambda e^{s}$ and
+$\psi''(s)=\lambda e^{s}$, hypothesis (1) reads $t=\psi'(u(z))$ and $c=\psi''(u(z))$. No
+inverse function $\psi^{-1}$ is used anywhere below, and no separate first-order chain rule:
+the first-order expansion of $u$ is produced from the second-order estimate itself in
+Step~9.
+
+\medskip\noindent\textbf{Step 1: the constants $t$ and $c$.} Since $\lambda>0$ and
+$e^{u(z)}>0$ we get $c=\lambda e^{u(z)}>0$, and then $t=1+c\ge1$ by (1). In particular
+$t>0$, so $t\ne0$, $t^{-1}>0$, and multiplying $1\le t$ by $t^{-1}>0$ gives
+$t^{-1}\le t^{-1}t=1$, i.e.
+\[
+ t^{-1}\le1. \tag{1}
+\]
+
+\medskip\noindent\textbf{Step 2: $\psi$ is expanding.} For all $s,s'\in\mathbb R$,
+\[
+ |s-s'|\ \le\ |\psi(s)-\psi(s')| . \tag{2}
+\]
+Indeed $\psi(s)-\psi(s')=(s-s')+\lambda\big(e^{s}-e^{s'}\big)$. If $s'\le s$ then
+$s-s'\ge0$ and, since $t\mapsto e^{t}$ is non-decreasing and $\lambda>0$, also
+$\lambda(e^{s}-e^{s'})\ge0$; hence $\psi(s)-\psi(s')\ge0$ and
+\[
+ |\psi(s)-\psi(s')|=(s-s')+\lambda\big(e^{s}-e^{s'}\big)\ \ge\ s-s'=|s-s'| .
+\]
+If $s\le s'$ the two summands are both $\le0$ and the same computation with signs reversed
+gives $|\psi(s)-\psi(s')|=-(s-s')-\lambda(e^{s}-e^{s'})\ge-(s-s')=|s-s'|$.
+
+\medskip\noindent\textbf{Step 3: a cubic Taylor bound for $\psi$.} For all
+$a,s\in\mathbb R$ with $|s|\le1$,
+\[
+ \Big|\psi(a+s)-\psi(a)-\big(1+\lambda e^{a}\big)s
+   -\tfrac12\big(\lambda e^{a}\big)s^{2}\Big|
+ \ \le\ \lambda e^{a}|s|^{3} . \tag{3}
+\]
+Indeed, $e^{a+s}=e^{a}e^{s}$ gives the exact identity
+\[
+ \psi(a+s)-\psi(a)-\big(1+\lambda e^{a}\big)s-\tfrac12\big(\lambda e^{a}\big)s^{2}
+  =\lambda e^{a}\Big(e^{s}-\big(1+s+\tfrac{s^{2}}2\big)\Big),
+\]
+since the terms $a+s-a-s$ cancel. Now $\big|e^{s}-(1+s+\frac{s^{2}}2)\big|\le|s|^{3}$ for
+$|s|\le1$: this is the standard remainder estimate for the exponential series truncated
+after three terms, which bounds the remainder by
+$|s|^{3}\cdot\frac{n+1}{n!\,n}$ with $n=3$, and $\frac{4}{6\cdot3}=\frac29\le1$. Taking
+absolute values in the identity and using $\lambda e^{a}>0$ gives (3).
+
+\medskip\noindent\textbf{Step 4: reduction, and the choice of $\delta$.} By (4) the form
+$B_u$ is symmetric, which is the first clause of \noderef{TwiceDiffAt} for $(D_u,B_u)$. So
+let $\varepsilon>0$; we must produce $\delta>0$ with
+\[
+ \Big|u(y)-u(z)-D_u(y-z)-\tfrac12B_u(y-z,y-z)\Big|\le\varepsilon|y-z|^{2}
+ \qquad\text{for }|y-z|<\delta. \tag{4}
+\]
+Apply the Peano estimate of \noderef{TwiceDiffAt} for the jet $(D_j,B_j)$ of $\psi\circ u$
+twice, with the accuracies $1>0$ and $\varepsilon/4>0$, obtaining $\delta_1>0$ and
+$\delta_2>0$ such that for $|y-z|<\delta_1$, resp.\ $|y-z|<\delta_2$,
+\[
+ \Big|\psi(u(y))-\psi(u(z))-D_j(y-z)-\tfrac12B_j(y-z,y-z)\Big|\le|y-z|^{2},
+ \tag{5a}
+\]
+\[
+ \Big|\psi(u(y))-\psi(u(z))-D_j(y-z)-\tfrac12B_j(y-z,y-z)\Big|
+  \le\tfrac\varepsilon4|y-z|^{2} .
+ \tag{5b}
+\]
+Set
+\[
+ L:=1+\|D_j\|+\|B_j\|,\qquad
+ Q:=1+cL^{3}+\tfrac{cL^{2}}2+\tfrac{\|B_j\|}2,\qquad
+ S:=cL^{3}+cQL ,
+\]
+so that $L\ge1>0$ (operator norms being non-negative) and $Q\ge0$, $S\ge0$ (as $c>0$ by
+Step 1), and put
+\[
+ \delta:=\min\Big\{1,\ \delta_1,\ \delta_2,\ \tfrac1L,\
+   \tfrac{\varepsilon}{2(S+1)}\Big\}\ >\ 0 ,
+\]
+every entry being positive. Fix $y$ with $|y-z|<\delta$ and abbreviate
+\[
+ h:=y-z,\qquad s:=u(y)-u(z).
+\]
+Then $|h|\le1$, $|h|<\delta_1$, $|h|<\delta_2$, $|h|<1/L$ and
+$|h|<\varepsilon/(2(S+1))$; and from $0\le|h|\le1$ we get
+\[
+ |h|^{3}\le|h|^{2}\le|h| . \tag{6}
+\]
+We shall also use the operator-norm bounds $|D_jh|\le\|D_j\|\,|h|$ and
+$|B_j(h,h)|\le\|B_j\|\,|h|\,|h|$.
+
+\medskip\noindent\textbf{Step 5: the crude bound $|s|\le L|h|$.} By (2) applied to $u(y)$
+and $u(z)$, $|s|\le|\psi(u(y))-\psi(u(z))|$. Writing
+$\psi(u(y))-\psi(u(z))$ as the sum of the remainder in (5a), of $D_jh$ and of
+$\frac12B_j(h,h)$, the triangle inequality and (5a) give
+\[
+ |s|\ \le\ |h|^{2}+|D_jh|+\tfrac12|B_j(h,h)| .
+\]
+Now $|h|^{2}\le|h|$ by (6); $|D_jh|\le\|D_j\|\,|h|$; and
+$\frac12|B_j(h,h)|\le\frac12\|B_j\|\,|h|\,|h|\le\|B_j\|\,|h|$ because $|h|\le1$. Summing and
+using $1+\|D_j\|+\|B_j\|=L$,
+\[
+ |s|\ \le\ \big(1+\|D_j\|+\|B_j\|\big)|h|\ =\ L|h| . \tag{7}
+\]
+Since $|h|<1/L$ and $L>0$, this gives $|s|\le L|h|<L\cdot\frac1L=1$, so in particular
+\[
+ |s|\le1 . \tag{8}
+\]
+
+\medskip\noindent\textbf{Step 6: the Taylor expansion of $\psi$ at $u(z)$.} By (8) we may
+apply (3) with $a:=u(z)$ and this $s$; since $u(z)+s=u(y)$ and, by hypothesis (1),
+$1+\lambda e^{u(z)}=t$ and $\lambda e^{u(z)}=c$, it reads
+\[
+ \Big|\psi(u(y))-\psi(u(z))-t\,s-\tfrac12c\,s^{2}\Big|\ \le\ c\,|s|^{3} .
+\]
+Cubing (7) gives $|s|^{3}\le L^{3}|h|^{3}$, and multiplying by $c>0$,
+\[
+ \Big|\psi(u(y))-\psi(u(z))-t\,s-\tfrac12c\,s^{2}\Big|\ \le\ cL^{3}|h|^{3} . \tag{9}
+\]
+
+\medskip\noindent\textbf{Step 7: the central combination.} The algebraic identity
+\[
+ t\,s+\tfrac12c\,s^{2}-D_jh-\tfrac12B_j(h,h)
+  =-\Big(\psi(u(y))-\psi(u(z))-t\,s-\tfrac12c\,s^{2}\Big)
+   +\Big(\psi(u(y))-\psi(u(z))-D_jh-\tfrac12B_j(h,h)\Big)
+\]
+holds because the two copies of $\psi(u(y))-\psi(u(z))$ cancel. Applying the triangle
+inequality together with (9) and (5a), and using $|h|^{3}\le|h|^{2}$ from (6),
+\[
+ \Big|t\,s+\tfrac12c\,s^{2}-D_jh-\tfrac12B_j(h,h)\Big|
+  \ \le\ cL^{3}|h|^{3}+|h|^{2}\ \le\ \big(1+cL^{3}\big)|h|^{2}; \tag{10a}
+\]
+applying it instead with (9) and (5b),
+\[
+ \Big|t\,s+\tfrac12c\,s^{2}-D_jh-\tfrac12B_j(h,h)\Big|
+  \ \le\ \tfrac\varepsilon4|h|^{2}+cL^{3}|h|^{3} . \tag{10b}
+\]
+
+\medskip\noindent\textbf{Step 8: the bootstrap $|s-t^{-1}D_jh|\le Q|h|^{2}$.} From
+\[
+ t\,s-D_jh=\Big(t\,s+\tfrac12c\,s^{2}-D_jh-\tfrac12B_j(h,h)\Big)
+   +\Big(-\tfrac12c\,s^{2}\Big)+\tfrac12B_j(h,h)
+\]
+and the triangle inequality for three summands we get, using (10a), the bound
+$\big|{-\tfrac12c\,s^{2}}\big|=\tfrac12c\,s^{2}\le\tfrac12cL^{2}|h|^{2}$ (which is (7)
+squared, multiplied by $c/2>0$), and
+$\frac12|B_j(h,h)|\le\frac12\|B_j\|\,|h|^{2}$,
+\[
+ \big|t\,s-D_jh\big|\ \le\
+   \Big(1+cL^{3}+\tfrac{cL^{2}}2+\tfrac{\|B_j\|}2\Big)|h|^{2}\ =\ Q|h|^{2} .
+\]
+Since $t\ne0$ we have $s-t^{-1}D_jh=t^{-1}\big(t\,s-D_jh\big)$, so taking absolute values
+and using $t^{-1}>0$ together with (1),
+\[
+ \big|s-t^{-1}D_jh\big|=t^{-1}\big|t\,s-D_jh\big|\le\big|t\,s-D_jh\big|\le Q|h|^{2} .
+ \tag{11}
+\]
+
+\medskip\noindent\textbf{Step 9: $\big|(t^{-1}D_jh)^{2}-s^{2}\big|\le2QL|h|^{3}$.} Factor
+\[
+ \big(t^{-1}D_jh\big)^{2}-s^{2}
+  =-\Big(\big(s-t^{-1}D_jh\big)\big(s+t^{-1}D_jh\big)\Big).
+\]
+For the second factor, $|t^{-1}D_jh|=t^{-1}|D_jh|\le|D_jh|\le\|D_j\|\,|h|\le L|h|$ by (1)
+and $\|D_j\|\le L$, so with (7) the triangle inequality gives
+$\big|s+t^{-1}D_jh\big|\le|s|+|t^{-1}D_jh|\le2L|h|$. Multiplying this by (11), both bounds
+having non-negative sides,
+\[
+ \big|(t^{-1}D_jh)^{2}-s^{2}\big|
+  \le Q|h|^{2}\cdot2L|h|=2QL|h|^{3} . \tag{12}
+\]
+
+\medskip\noindent\textbf{Step 10: assembly.} Substituting hypotheses (2) and (3) for $D_u$
+and $B_u$ and using $t\ne0$, one has the field identity
+\[
+ u(y)-u(z)-D_uh-\tfrac12B_u(h,h)
+  =s-t^{-1}D_jh-\tfrac12t^{-1}\Big(B_j(h,h)-c\big(t^{-1}D_jh\big)^{2}\Big)
+\]
+\[
+ =t^{-1}\Big[\Big(t\,s+\tfrac12c\,s^{2}-D_jh-\tfrac12B_j(h,h)\Big)
+   +\tfrac12c\Big(\big(t^{-1}D_jh\big)^{2}-s^{2}\Big)\Big].
+\]
+Bound the bracket. By the triangle inequality, (10b), and (12) multiplied by
+$\frac12c>0$,
+\[
+ \Big|\cdots\Big|\ \le\ \tfrac\varepsilon4|h|^{2}+cL^{3}|h|^{3}
+   +\tfrac12c\cdot2QL|h|^{3}
+  \ =\ \tfrac\varepsilon4|h|^{2}+\big(cL^{3}+cQL\big)|h|^{3} .
+\]
+For the cubic term, $cL^{3}+cQL=S$ and, since $|h|<\varepsilon/(2(S+1))$ and $S\ge0$,
+\[
+ S|h|\ \le\ S\cdot\frac{\varepsilon}{2(S+1)}\ \le\ \frac\varepsilon2 ,
+\]
+the second inequality because $S\varepsilon\le(S+1)\varepsilon$ (as $\varepsilon>0$) and
+$2(S+1)>0$. Hence
+\[
+ \big(cL^{3}+cQL\big)|h|^{3}=S|h|^{3}=\big(S|h|\big)|h|^{2}
+  \le\tfrac\varepsilon2|h|^{2},
+\]
+and the bracket is bounded in absolute value by
+$\frac\varepsilon4|h|^{2}+\frac\varepsilon2|h|^{2}\le\varepsilon|h|^{2}$, using
+$\varepsilon|h|^{2}\ge0$. Finally, taking absolute values in the identity and using
+$t^{-1}>0$ with (1),
+\[
+ \Big|u(y)-u(z)-D_uh-\tfrac12B_u(h,h)\Big|
+  =t^{-1}\Big|\cdots\Big|\ \le\ \Big|\cdots\Big|\ \le\ \varepsilon|h|^{2} .
+\]
+This is exactly (4) with the $\delta$ of Step 4, so both clauses of \noderef{TwiceDiffAt}
+hold for $(D_u,B_u)$ and $u$ at $z$.
+\end{proof}

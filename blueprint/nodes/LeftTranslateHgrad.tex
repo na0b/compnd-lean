@@ -1,0 +1,117 @@
+\begin{lemma}[First-order left-invariance of the horizontal gradient]
+Let $\mathbb G$ be a sub-elliptic setting (\noderef{CarnotSetting}) with group law $*$,
+homogeneous norm $\|\cdot\|$, first-layer projection $\pi_1$, horizontal exponential
+$\exp_{\mathbb G}$ and frame $\sigma=[\sigma^1,\ldots,\sigma^m]$. Let
+$u:\mathbb R^{n}\to\mathbb R$, let $g,x\in\mathbb R^{n}$, and let $D,D'$ be continuous
+linear functionals on $\mathbb R^{n}$ such that $D$ is the Fréchet derivative of $u$ at
+$g*x$ and $D'$ is the Fréchet derivative of the left translate $y\mapsto u(g*y)$ at $x$.
+Then
+\[
+ \mathrm{hgrad}\ \sigma\ x\ D'\ =\ \mathrm{hgrad}\ \sigma\ (g*x)\ D
+ \qquad(\noderef{hgrad}),
+\]
+i.e. $\mathcal X(u\circ L_g)(x)=(\mathcal Xu)(g*x)$, where $L_g(y)=g*y$.
+\end{lemma}
+\begin{proof}
+This is the sentence "by left invariance $\mathcal Xv_\eps(x)=\mathcal X(v\circ L_{z_x})(x)=(\mathcal Xv)(z_x*x)$"
+of the proof of Theorem~1.3(i), with the uniqueness step written out. It is \emph{not} an
+instance of the left-invariance clause $\mathtt{leftJet}$ of \noderef{CarnotSetting}: that
+clause opens with the hypothesis that $\varphi$ have a second-order jet at $g*x$, whereas
+here $u$ is assumed only once differentiable there --- which is the only regularity
+available at the use sites (the inf-convolution $v_\eps$ is differentiable at the maximal
+points but not twice, and a semi-convex $u$ need not be $C^{2}$). No commutativity of $*$ is
+used either. Write $\langle\alpha,\beta\rangle:=\sum_{i=1}^{m}\alpha_i\beta_i$ for
+$\alpha,\beta\in\mathbb R^{m}$.
+
+\medskip\noindent\textbf{Step 1: uniqueness of the Pansu horizontal differential.} We first
+prove: \emph{if $f:\mathbb R^{n}\to\mathbb R$, $y\in\mathbb R^{n}$ and
+$a,b\in\mathbb R^{m}$ are such that $f$ is Pansu differentiable at $y$ with horizontal
+differential $a$ and also with horizontal differential $b$ (\noderef{HasPansuGradAt}), then
+$a=b$.}
+
+Suppose $a\ne b$ and put $\zeta:=a-b$, so $\zeta\ne0$ and $\|\zeta\|>0$. Apply
+\noderef{HasPansuGradAt} to each of the two expansions with the accuracy
+$\varepsilon:=\|\zeta\|/4>0$: there are $\delta_1>0$ and $\delta_2>0$ such that
+\[
+ \Big|f(y*p)-f(y)-\langle a,\pi_1(p)\rangle\Big|\le\frac{\|\zeta\|}4\,\|p\|
+ \qquad(\|p\|<\delta_1), \tag{1}
+\]
+\[
+ \Big|f(y*p)-f(y)-\langle b,\pi_1(p)\rangle\Big|\le\frac{\|\zeta\|}4\,\|p\|
+ \qquad(\|p\|<\delta_2). \tag{2}
+\]
+Put $\delta:=\min\{\delta_1,\delta_2\}>0$, $t:=\dfrac{\delta}{2\|\zeta\|}>0$ and
+\[
+ p:=\exp_{\mathbb G}(t\zeta).
+\]
+By \noderef{CarnotSetting}, $\|\exp_{\mathbb G}(\eta)\|=|\eta|$ for every
+$\eta\in\mathbb R^{m}$ and $\pi_1\circ\exp_{\mathbb G}$ is the identity of $\mathbb R^{m}$,
+so
+\[
+ \|p\|=\|t\zeta\|=t\,\|\zeta\|=\frac\delta2<\delta,\qquad \pi_1(p)=t\zeta . \tag{3}
+\]
+These two identities are exact --- this is why the horizontal one-parameter subgroups are the
+right test curves: on them the homogeneous norm and the first-layer projection are computed
+with no error term at all.
+
+Both (1) and (2) therefore apply at this $p$, and subtracting the two expansions,
+\[
+ \big|\langle a,\pi_1(p)\rangle-\langle b,\pi_1(p)\rangle\big|
+ \le\Big|f(y*p)-f(y)-\langle b,\pi_1(p)\rangle\Big|+\Big|f(y*p)-f(y)-\langle a,\pi_1(p)\rangle\Big|
+ \le 2\cdot\frac{\|\zeta\|}4\,\|p\|=\frac{\|\zeta\|}2\cdot t\|\zeta\|,
+\]
+using (3). On the other hand, by (3) and $\zeta=a-b$,
+\[
+ \langle a,\pi_1(p)\rangle-\langle b,\pi_1(p)\rangle=\langle a-b,t\zeta\rangle
+ =t\,\langle\zeta,\zeta\rangle=t\,\|\zeta\|^{2}.
+\]
+Combining, $t\|\zeta\|^{2}\le\frac12 t\|\zeta\|^{2}$, i.e. $\frac12t\|\zeta\|^{2}\le0$,
+contradicting $t>0$ and $\|\zeta\|>0$. Hence $a=b$.
+
+\medskip\noindent\textbf{Step 2: the two Pansu expansions.} By the Taylor formula
+(2.18), i.e. the clause $\mathtt{taylor2}$ of \noderef{CarnotSetting}, a function with a
+Fréchet derivative at a point is Pansu differentiable there, with horizontal differential
+the $\mathrm{hgrad}$ of that derivative. Applying it twice:
+\[
+ \text{(A)}\quad y\mapsto u(g*y)\ \text{is Pansu differentiable at } x
+ \text{ with horizontal differential } \mathrm{hgrad}\ \sigma\ x\ D' ;
+\]
+\[
+ \text{(B)}\quad u\ \text{is Pansu differentiable at } g*x
+ \text{ with horizontal differential } \mathrm{hgrad}\ \sigma\ (g*x)\ D .
+\]
+
+\medskip\noindent\textbf{Step 3: (B) is an expansion of the same function at the same
+point.} We claim that (B) says precisely that $y\mapsto u(g*y)$ is Pansu differentiable at
+$x$ with horizontal differential $\mathrm{hgrad}\ \sigma\ (g*x)\ D$. Let $\varepsilon>0$ and
+let $\delta>0$ be the radius furnished by \noderef{HasPansuGradAt} for (B) and this
+$\varepsilon$, so that
+\[
+ \Big|u\big((g*x)*p\big)-u(g*x)-\big\langle \mathrm{hgrad}\ \sigma\ (g*x)\ D,\ \pi_1(p)\big\rangle\Big|
+ \le\varepsilon\|p\|\qquad(\|p\|<\delta). \tag{4}
+\]
+By associativity of $*$ (\noderef{CarnotSetting}),
+\[
+ (g*x)*p=g*(x*p),
+\]
+so writing $\bar u(y):=u(g*y)$ we have $u\big((g*x)*p\big)=\bar u(x*p)$ and
+$u(g*x)=\bar u(x)$. Substituting these two equalities into (4) turns it into
+\[
+ \Big|\bar u(x*p)-\bar u(x)-\big\langle \mathrm{hgrad}\ \sigma\ (g*x)\ D,\ \pi_1(p)\big\rangle\Big|
+ \le\varepsilon\|p\|\qquad(\|p\|<\delta),
+\]
+which is exactly the defining condition of \noderef{HasPansuGradAt} for $\bar u$ at $x$ with
+horizontal differential $\mathrm{hgrad}\ \sigma\ (g*x)\ D$, for the accuracy $\varepsilon$.
+As $\varepsilon>0$ was arbitrary, the claim holds. (This is the only place the group
+structure enters, and it enters as one application of associativity: the increment $p$ is
+applied on the \emph{right}, which is what makes the left translation $L_g$ transparent to
+the expansion.)
+
+\medskip\noindent\textbf{Step 4: conclusion.} By (A) and Step 3, the single function
+$\bar u=u\circ L_g$ is Pansu differentiable at the single point $x$ with horizontal
+differential $\mathrm{hgrad}\ \sigma\ x\ D'$ and also with horizontal differential
+$\mathrm{hgrad}\ \sigma\ (g*x)\ D$. By Step 1 these two vectors of $\mathbb R^{m}$ coincide:
+\[
+ \mathrm{hgrad}\ \sigma\ x\ D'=\mathrm{hgrad}\ \sigma\ (g*x)\ D .
+\]
+\end{proof}
