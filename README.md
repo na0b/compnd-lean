@@ -3,7 +3,7 @@
 This repository contains a Lean 4 formalization, built on [Mathlib](https://github.com/leanprover-community/mathlib4), of Theorems 1.2 and 1.3 of
 
 > Juan J. Manfredi and Shirsho Mukherjee,
-> *Comparison principles for degenerate sub-elliptic equations in non-divergence form*, manuscript, 2026.
+> *Comparison principles for degenerate sub-elliptic equations in non-divergence form*, http://arxiv.org/abs/2409.15144, revised October 2026. 
 
 These are the comparison principle for viscosity sub- and super-solutions of −Tr(A(𝔛u) 𝔛𝔛*u) + H(𝔛u) = 0 on a Carnot group under the non-degeneracy hypothesis on the regularizations (Theorem 1.2), and the three unconditional cases (Theorem 1.3 (i)–(iii)).
 
